@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin:0;
+}
+
+.menu-bar ul{
+    list-style-type: none;
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fbfbfb;
+}
+
+
+.menu a {
+    font-size: 18px;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+.menu-bar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 60px;
+    
+}
+
+.menu-item {
+    padding: 0 20px;
+    
+    cursor: pointer;
+}
+
+
+.menu-item.active{
+    font-weight: 700;
+    color: #8D2020;
+    border-bottom: 5px solid #8D2020;
+    
+}
+
+

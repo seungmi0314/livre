@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 밑 영역 */
+section {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: cneter;
+    align-items: center;
+    
+    background-image: url(./../assets/landing-girl.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+ 
+}
+
+main {
+    width: 100%;
+}
+
+
+.logo{
+    width: 125px;
+    height: 125px;
+    margin-right: 20px;
+}
+
+.logo-name {
+    font-size: 125px;
+    margin: 0;
+    color: #363333;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ment {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn-start {
+    width: 220px;
+    height: 75px;
+    line-height: 75px;
+    margin-top: 45px;
+    border-radius: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+
+    background-color: #C24B4B;
+    transition: all ease-in-out 0.15s;
+    cursor: pointer;
+}
+
+.btn-start:hover {
+    background-color: #D17D7D;
+}
+
+.btn-start:active {
+    background-color: #E4C8C8;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+

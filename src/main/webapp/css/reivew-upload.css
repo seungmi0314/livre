@@ -1,0 +1,76 @@
+@charset "UTF-8";* {
+    box-sizing: border-box;
+    margin : 0;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    padding:  0 200px ;
+
+   display: flex;
+   justify-content: space-between;
+   
+    background-image: url(./../assets/reading-girl.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 20px right 50px;
+    
+}
+
+.review {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.left {
+    width: 60%;
+    height: 100%;
+    margin-top: 255px;
+    
+}
+
+.review-write{
+    width: 100%;
+    height: 800px;
+    border-radius: 15px;
+    background-color:#fbfbfb ;
+    
+}
+
+.review-info {
+    width: 30%;
+    height: 460px;
+    margin-top: 290px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.button-box {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 10px;
+}
+
+.edit {
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #8D2020;
+    border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* 삭제하기 버튼 */
+.del {
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #8D2020;
+    border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
