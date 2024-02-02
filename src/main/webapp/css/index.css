@@ -10,10 +10,10 @@ section {
     height: 100vh;
 
     display: flex;
-    justify-content: cneter;
+    justify-content: center;
     align-items: center;
     
-    background-image: url(./../assets/landing-girl.svg);
+    background-image: url(./../image/landing-girl.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
  
