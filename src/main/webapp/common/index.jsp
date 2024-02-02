@@ -7,9 +7,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    
+    
     <link rel="stylesheet" href="./../css/index.css" />
     <link rel="stylesheet" href="./../css/header.css" />
     <!-- <link rel="stylesheet" href="./../css/menu.css" /> -->
+    <link rel="icon" href="./../assets/favicon.png">
     <title>랜딩 페이지</title>
   
 </head>
