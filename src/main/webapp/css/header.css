@@ -18,7 +18,7 @@ header {
 
     display: flex;
      justify-content: space-between;
-        align-items: cneter;
+        align-items: center;
 
     position: fixed;
     top: 0;
