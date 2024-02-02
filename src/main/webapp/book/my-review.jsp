@@ -7,9 +7,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="./../css/my-review.css" />
     <link rel="stylesheet" href="./../css/header.css" />
     <link rel="stylesheet" href="./../css/menu.css" />
+    <link rel="icon" href="./../assets/favicon.png">
     
     <title>내 독후감</title>
     <script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
