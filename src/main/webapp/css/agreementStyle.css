@@ -1,0 +1,107 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+#agreeMention {
+	font-size: 16px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+#mainDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	width: 370px;
+	height: 550px;
+	background: #FFF4F4;
+	padding: 30px;
+	border-radius: 20px;
+	font-size: 14px;
+	margin-left: 20px;
+}
+
+#titleDiv {
+	text-align: left;
+	color: #742323;
+	font-weight: 700;
+	margin-top: 30px;
+}
+
+#innerDiv01,
+#innerDiv02,
+#innerDiv03 {
+	width: 310px;
+	height: 90px;
+	background-color: white;
+	border-radius: 20px;
+	border: none;
+	color: #AC9999;
+	font-size: 11px;
+	padding: 20px;
+	text-align: left;
+}
+
+#useAgreeDiv,
+#infoAgreeDiv,
+#marketingAgreeDiv {
+	text-align: left;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 5px;
+}
+
+#buttonDiv {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	margin-top: 20px;
+}
+
+#nextButton {
+	background-color: #C24B4B;
+	transition: all ease-in-out 0.15s;
+	cursor: pointer;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	background: #C24B4B;
+	width: 100px;
+	height: 25px;
+	font-weight: 700;
+	color: white;
+}
+
+#nextButton:hover {
+	background-color: #D17D7D;
+}
+
+#nextButton:active {
+	background-color: #E4C8C8;
+}
+
+#agreeEssential,
+#infoEssential,
+#marketingChoice {
+	color: #C24B4B;
+	font-weight: 700;
+}
