@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+
+}
+section {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	text-align: center;
+}
+
+#submitButton {
+	background-color: #C24B4B;
+	transition: all ease-in-out 0.15s;
+	cursor: pointer;
+	border-radius: 20px;
+	border-collapse: collapse;
+	color: white;
+	font-size: 20px;
+	border: none;
+	padding: 15px;
+}
+
+#submitButton:hover {
+	background-color: #D17D7D;
+}
+
+#submitButton:active {
+	background-color: #E4C8C8;
+}
+
+#banner {
+	font-size: 40px;
+}
+
+#emailbanner, #passwordbanner, #checkAccount, #existingLogin, #validEmail, #validPassword, #validPasswordck {
+	font-size: 14px;
+}
+
+#validEmail, #validPassword, #validPasswordck{
+	font-size: 11px;
+	color: red;
+}
+
+#welcomeTitle {
+	font-size: 16px;
+}
+
+#banner, #welcomeTitle {
+	color: #742323;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+}
+
+#kakaoIcon{
+	border-radius: 200px;
+}
+
+#existingLogin{
+	color: #D17D7D;
+}
+
+#inputEmail, #inputPassword, #inputPasswordck, #validEmail, #validPassword, #validPasswordck{
+	border: none;
+	width: 450px;
+	height: 28px;
+}
+
+
+hr{
+	 border:1.5px solid #9B9393;
+}
+
+#inputEmail, #inputPassword, #inputPasswordck{
+outline: none;
+}
+
+#validEmail{
+margin-left: -55px;
+}
+
+#validPassword{
+margin-left: 36px;
+}
+
+#validPasswordck{
+margin-left: -56px;
+}
