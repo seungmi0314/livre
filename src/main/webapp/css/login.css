@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 밑 영역 */
+section {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+	width: 75vw;
+	height: 100%;
+}
+
+.right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 25vw;
+	height: 100%;
+	background-color: #FFF4F4;
+	justify-content: center;
+}
+
+.login-logo img {
+	width: 70px;
+	height: 70px;
+}
+
+.login-logo {
+	display: flex;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.login-logo p {
+	font-size: 80px;
+	margin: 0;
+	color: #000000;
+}
+
+.login-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	margin-top: 120px;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+input:focus {
+	outline: none;
+}
+
+.form-input {
+	background-color: #FFF4F4;
+	border: none;
+	border-bottom: solid 1px #9B9393;
+	font-size: 15px;
+	width: 70%;
+	height: 44px;
+
+}
+
+
+
+.remember-reset {
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	color: #9B9393;
+	margin-top: 10px;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+input,
+progress {
+	accent-color: #C24B4B;
+}
+
+#remember-check {
+	cursor: pointer;
+}
+
+.remember-reset p {
+	margin: 0;
+
+}
+
+button {
+	width: 60%;
+	height: 40px;
+	border-radius: 10px;
+	background-color: #C24B4B;
+	transition: all ease-in-out 0.15s;
+	cursor: pointer;
+	border: none;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin: 30px
+}
+
+button:hover {
+	background-color: #D17D7D;
+}
+
+button:active {
+	background-color: #E4C8C8;
+}
+
+.sns {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #9B9393;
+	font-size: 13px;
+}
+
+.sns-login {
+	display: flex;
+
+}
+
+.sns img {
+	width: 25px;
+	height: 25px;
+}
+
+.sns-login div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.kakao {
+	width: 40px;
+	height: 40px;
+	background-color: #FEE500;
+	border-radius: 50%;
+	margin: 0 17px;
+}
+
+.naver {
+	width: 40px;
+	height: 40px;
+	background-color: #03C75A;
+	border-radius: 50%;
+	margin: 0 17px;
+}
+
+.naver img {
+	width: 20px;
+	height: 20px;
+}
+
+
+.google {
+	width: 40px;
+	height: 40px;
+	background-color: #FFFFFF;
+	border-radius: 50%;
+
+	margin: 0 17px;
+}
+
+.yet {
+	color: #9B9393;
+	font-size: 12px;
+	margin-top: 250px;
+}
+
+
+.right a {
+	color: #C24B4B;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+

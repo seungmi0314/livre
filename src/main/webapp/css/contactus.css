@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-image: url(./../assets/ContactUs02.svg), url(./../assets/ContactUs01.svg);
+	background-repeat: no-repeat;
+	background-size: 500px;
+	background-position: 10% 18%, 90% 100%;
+}
+
+.contact-us {
+	width: 650px;
+	height: 450px;
+	background-color: #FFF4F4;
+	border-radius: 40px;
+	padding: 35px 50px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.left {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF4F4;
+	border-radius: 50px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.inner-form {
+	color: #D17D7D;
+	font-size: 11px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+}
+
+form {
+	width: 80%;
+}
+
+form p {
+	padding-left: 5px;
+	margin: 5px;
+}
+
+input::placeholder {
+	padding: 5px;
+}
+
+.title {
+	color: #C24B4B;
+	font-size: 45px;
+	text-align: left;
+	font-weight: 500;
+	margin: 0px;
+}
+
+.name input {
+	width: 100%;
+	height: 100%;
+	outline: none;
+	background-color: white;
+	border-radius: 5px;
+	border: none;
+	font-size: 12px;
+	height: 20px;
+}
+
+.email input {
+	width: 100%;
+	height: 100%;
+	outline: none;
+	background-color: white;
+	border: none;
+	font-size: 12px;
+height: 20px;
+}
+
+.left select {
+	/* 왜 width값을 input이랑 똑같이 주는데 차이가 날까? */
+	width: 100%;
+	height: 100%;
+	border-radius: 2px;
+	font-size: 12px;
+	color: gray;
+	cursor: pointer;
+	border: none;
+	height: 20px;
+}
+
+.left select:focus {
+	outline: 0;
+}
+
+select option:hover {
+	background: #C24B4B;
+	color: #ffffff;
+	border: solid 1px #ffffff;
+}
+
+.ask {
+	display: flex;
+	flex-direction: column;
+}
+
+.detail input {
+	width: 100%;
+	height: 100px;
+	outline: none;
+	background-color: white;
+	border-radius: 5px;
+	border: none;
+	font-size: 12px;
+
+}
+
+button {
+	width: 60%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #C24B4B;
+	transition: all ease-in-out 0.15s;
+	cursor: pointer;
+	border: none;
+	font-size: 16px;
+	color: #FFFFFF;
+	margin-top: 30px;
+}
+
+.right {
+	width: 100%;
+	height: 100%;
+	background-color: #D17D7D;
+	color: white;
+	border-radius: 15px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	padding-top: 10%;
+	padding-bottom: 20%;
+}
+
+.info {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+
+	padding: 30px;
+}
+
+.info-title p {
+	font-size: 50px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.info-detail p{
+	font-size: 14px;	
+	margin-top: 10px;
+}
