@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
 /* 페이지 스크롤바 없애기 */
 html, html::-webkit-scrollbar{
@@ -77,15 +83,18 @@ section {
 
 /* 검색 결과 텍스트 */
 .result-text{
-	margin-top: 60px;
-	margin-left: 430px;
-	margin-bottom: 20px;
+	margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.result-text-span{
+	visibility: hidden;
 }
 
 /* 장르 선택 셀렉트 옵션 */
 .select-genre{
-	position: relative;
-	left: 683px;
 	border: none;
 	outline: none;
 }
@@ -95,7 +104,9 @@ section {
 	width: 70%;
 	height: 65%;
 	margin: 0 auto;
-	padding-left: 60px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	overflow: hidden;
     overflow-y: scroll;
     
@@ -124,53 +135,4 @@ section {
 /* 책 제목 */
 .book-title{
 	margin-top: 13px;
-}
-
-/* 1920x1080 해상도에 대한 미디어 쿼리 추가 */
-@media screen and (min-width: 1920px) and (max-height: 1080px) {
-    section {
-        
-    }
-
-    .search-box-p {
-        
-    }
-
-    .search-box {
-        
-    }
-
-}
-
-/* 2560x1080 해상도에 대한 미디어 쿼리 추가 */
-@media screen and (min-width: 2560px) and (max-height: 1080px) {
-    section {
-        
-    }
-
-    .search-box-p {
-        
-    }
-
-    .search-box {
-        
-    }
-    
-	/* 검색 결과 텍스트 */
-	.result-text{
-		margin-left: 740px;
-		
-	}
-	
-	/* 장르 선택 셀렉트 옵션 */
-	.select-genre{
-		left: 690px;
-		
-	}
-	/* 검색 결과 이미지 부모 Div */
-	.result-all{
-		width: 60%;
-	    padding-left: 150px;
-	}
-
 }

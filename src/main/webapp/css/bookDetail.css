@@ -1,0 +1,252 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 돋보기 버튼의 이미지가 헤더와 메뉴를 뚫고 나오지 않게 z-index를 설정 */
+header{
+	z-index: 99999;
+}
+
+.menu-bar{
+	z-index: 99999;
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+	margin-top: 200px;
+	
+}
+
+/* 배경 이미지 */
+.background-img{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+/* 검색창 로고 */
+.h-logo-name {
+    padding-top: 17px;
+}
+
+/* 검색창 */
+.search-box-p {
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	background-color: #F9E8E8;
+	border-radius: 50px;
+	max-width: 700px; /* 반응형을 위해 조정된 최대 너비 */
+	height: 60px;
+}
+
+.search-box {
+	padding: 20px; /* 반응형을 위해 조정된 안쪽 여백 */
+    width: 100%; /* 반응형을 위해 조정된 너비 */
+	height: 50px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 20px;
+	
+}
+
+.search-box:focus {
+    outline: none;
+}
+
+.search-box::placeholder {
+    font-size: 18px;
+    
+}
+
+/* 검색(돋보기) 버튼 */
+.search-btn{
+	margin-right: 31px;
+	background-color: transparent;
+	border: none;
+	
+	/* 호버 시 이미지 겹치기 */
+	position: relative;
+	
+}
+
+.search-btn-red{
+	/* 호버 시 이미지 겹치기 */
+	position: absolute;
+	top: 1px;
+	left: 6px;
+	display: none;
+}
+
+.search-btn:hover .search-btn-red{
+	/* 호버 시 이미지 겹치기 */
+	display: block;
+}
+
+/* 검색창 밑 부모 div */
+.container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 80%;
+}
+
+/* 책 정보 */
+.book-detail{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	flex-grow: 1;
+	margin-top: 7%;
+	width: 100%;
+	height: 33%;
+}
+
+/* 책 이미지 */
+.book-image{
+	width: 20%;	
+}
+
+/* 책 설명 */
+.book-info{
+	padding-left: 2%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* 책 제목 */
+.book-title{
+	font-size: 20px;
+}
+
+/* 책 부제목 */
+.book-subTitle{
+	font-size: 18px;
+}
+
+/* 지은이 출판사 */
+.author-publisher{
+	font-size: 18px;
+}
+
+/* 이 책 사러가기 버튼 */
+.buyBook-btn-div{
+	width: 17%;
+	height: 100px;
+}
+
+.buyBook-btn{
+	background-color: #C24B4B;
+    transition: all ease-in-out 0.15s;
+    
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    font-size: 21px;
+    text-align: center;
+}
+
+.buyBook-btn:hover{
+	background-color: #D17D7D;
+}
+
+.buyBook-btn:active{
+	background-color: #E4C8C8;
+}
+
+/* 버튼 호버 시 애니메이션과 '>>' 기호 추가 */
+.buyBook-btn span {
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.buyBook-btn span:after {
+	/* 유니코드 코드포인트 (>>) */
+	content: '\00bb';
+	/* font-size로 크기를 키우면 텍스트도 같이 늘어난다.
+	transform: scale()을 사용하면 >>의 크기만 늘어난다. */
+	transform: scale(2);
+	position: absolute;
+	opacity: 0;
+	bottom: 10%;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.buyBook-btn:hover span {
+	padding-right: 25px;
+}
+
+.buyBook-btn:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+/* 북마크순 최신순 분류 */
+.sorted-by{
+	width: 100%;
+	margin: 4% 0 1% 0;
+}
+
+.bookmarks{
+	text-decoration: none;
+	color: black;
+}
+
+.latest{
+	text-decoration: none;
+	color: black;
+}
+
+/* 독후감 카드 */
+.reviewCard{
+	margin: 2% 0;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	flex-grow: 1;
+	border-radius: 30px;
+	background-color: #FBFBFB;
+}
+
+/* 유저 프사 */
+.user-image{
+	width: 6%;
+	margin: 0 5%;
+}
+
+/* 요약 독후감 */
+.user-simple-review{
+	width: 60%;
+}
+
+/*유저 닉네임*/
+.user-nickname{
+	padding-top: 1%;
+	font-size: 18px;
+}
+
+/* 독후감 제목 */
+.review-title{
+	font-size: 18px;	
+}
+
+/* 작성일자&조회수 */
+.cd-rh{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin-top: 2%;
+	align-items: center;
+}

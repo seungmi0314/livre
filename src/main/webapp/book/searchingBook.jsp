@@ -18,7 +18,7 @@
 <link rel="icon" href="./../assets/favicon.png">
 <link rel="stylesheet" href="./../css/header.css" />
 <link rel="stylesheet" href="./../css/menu.css" />
-<link rel="stylesheet" href="../css/SearchBookReport.css">
+<link rel="stylesheet" href="../css/searchingBook.css">
 <%-- JQuery section --%>
 <%-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. --%>
 <script
@@ -61,8 +61,8 @@
 
 	<section>
 
-		<!-- 독후감 검색창 -->
-		<form action="https://www.naver.com">
+		<!-- 검색창 -->
+		<form action="../book/searchedBooks.jsp">
 			<div class="d-flex bd-highlight search-box-p">
 				<div class="p-2 flex-fill bd-highlight searchbox-btn">
 					<input class="search-box" type="text" placeholder="검색어를 입력해 주세요.">
@@ -76,23 +76,42 @@
 			</div>
 		</form>
 		
+		
 		<!-- 검색 결과 텍스트 -->
 		<div class="result-text">
-            <span>"xxx"에 대한 n개의 검색 결과</span>
+            <span class="result-text-span">"xxx"에 대한 n개의 검색 결과</span>
             <!-- 장르별 선택 -->
             <select class="select-genre">
-            	<option>장르별 조회하기</option>
-            	<option>aaa</option>
-            	<option>ddddd</option>
-            	<option>eeee</option>
+            	<optgroup label="정렬 방식 선택하기">
+            		<option>최신순</option>
+            	</optgroup>
+            	<optgroup label="장르별로 보기">
+	            	<option>경영/경제</option>
+	            	<option>건강/취미</option>
+	            	<option>어린이</option>
+	            	<option>역사</option>
+	            	<option>여행</option>
+	            	<option>과학</option>
+	            	<option>만화</option>
+	            	<option>사회</option>
+	            	<option>소설/시/희곡</option>
+	            	<option>예술/대중문화</option>
+	            	<option>요리/살림</option>
+	            	<option>인문학</option>
+	            	<option>가정/원예/인테리어</option>
+	            	<option>자기개발</option>
+	            	<option>종교/역학</option>
+	            	<option>청소년</option>
+	            	<option>스포츠</option>
+            	</optgroup>
             </select>
         </div>
 		
-		<!-- 검색 결과 책 -->
+		<!-- 랜덤으로 나와있는 책 (반복문으로) -->
 		<div class="result-all">
 		
 			<div class="result-card">
-				<a href="#">
+				<a href="../book/bookDetail.jsp">
 				<span>
 					<img class="book-img" src="../assets/bookimage.svg">
 				</span>
@@ -172,7 +191,7 @@
 			</div>
 			
 		</div>
-			
+		
 		 
 	</section>
 

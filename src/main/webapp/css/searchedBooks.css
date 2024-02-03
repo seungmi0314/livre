@@ -1,0 +1,134 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 페이지 스크롤바 없애기 */
+html, html::-webkit-scrollbar{
+	overflow: hidden;
+}
+
+section {
+	width: 100vw;
+	height: 100vh;
+	margin-top: 200px;
+	
+	background-image: url(./../assets/reading-side.svg);
+	background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: bottom 200px left 30px;
+    
+}
+/* 검색창 로고 */
+.h-logo-name {
+    padding-top: 17px;
+}
+
+/* 검색창 */
+.search-box-p {
+	display: flex;
+	margin: 0 auto;
+	align-items: center;
+	background-color: #F9E8E8;
+	border-radius: 50px;
+	max-width: 700px; /* 반응형을 위해 조정된 최대 너비 */
+	height: 60px;
+}
+
+.search-box {
+	padding: 20px; /* 반응형을 위해 조정된 안쪽 여백 */
+    width: 100%; /* 반응형을 위해 조정된 너비 */
+	height: 50px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-size: 20px;
+	
+}
+
+.search-box:focus {
+    outline: none;
+}
+
+.search-box::placeholder {
+    font-size: 18px;
+    
+}
+
+/* 검색(돋보기) 버튼 */
+.search-btn{
+	margin-right: 31px;
+	background-color: transparent;
+	border: none;
+	
+	/* 호버 시 이미지 겹치기 */
+	position: relative;
+}
+
+.search-btn-red{
+	/* 호버 시 이미지 겹치기 */
+	position: absolute;
+	top: 1px;
+	left: 6px;
+	display: none;
+}
+
+.search-btn:hover .search-btn-red{
+	/* 호버 시 이미지 겹치기 */
+	display: block;
+}
+
+/* 검색 결과 텍스트 */
+.result-text{
+	margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* 장르 선택 셀렉트 옵션 */
+.select-genre{
+	border: none;
+	outline: none;
+}
+
+/* 검색 결과 이미지 부모 Div */
+.result-all{
+	width: 70%;
+	height: 65%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+/* 스크롤바 없애기 */
+.result-all::-webkit-scrollbar {
+    display: none;
+    
+}
+
+/* 검색 결과 이미지 자식 Div */
+.result-card{
+	display: inline-block;
+	width: 400px;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+/* 책 이미지 */
+.book-img{
+	width: 230px;
+}
+
+/* 책 제목 */
+.book-title{
+	margin-top: 13px;
+}
