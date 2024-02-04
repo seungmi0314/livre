@@ -34,13 +34,13 @@ section {
 	align-items: center;
 	background-color: #F9E8E8;
 	border-radius: 50px;
-	max-width: 700px; /* 반응형을 위해 조정된 최대 너비 */
+	max-width: 700px;
 	height: 60px;
 }
 
 .search-box {
-	padding: 20px; /* 반응형을 위해 조정된 안쪽 여백 */
-    width: 100%; /* 반응형을 위해 조정된 너비 */
+	padding: 20px;
+    width: 100%;
 	height: 50px;
 	background-color: transparent;
 	border: none;
@@ -81,21 +81,15 @@ section {
 	display: block;
 }
 
-/* 검색 결과 텍스트 */
-.result-text{
-	margin-top: 3%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.result-text-span{
-	visibility: hidden;
-}
-
 /* 장르 선택 셀렉트 옵션 */
+.select-genre-div{
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
 .select-genre{
-	border: none;
+	position: fixed;
+    right: 22%;
+    border: none;
 	outline: none;
 }
 
@@ -104,6 +98,7 @@ section {
 	width: 70%;
 	height: 65%;
 	margin: 0 auto;
+	margin-top: 5%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

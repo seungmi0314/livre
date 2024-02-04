@@ -15,9 +15,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Livre</title>
 <!-- 파비콘  -->
-<link rel="icon" href="./../assets/favicon.png">
-<link rel="stylesheet" href="./../css/header.css" />
-<link rel="stylesheet" href="./../css/menu.css" />
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/searchedBooks.css">
 <%-- JQuery section --%>
 <%-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. --%>
@@ -78,14 +78,12 @@
 		
 		
 		<!-- 검색 결과 텍스트 -->
-		<div class="result-text">
-            <span>"xxx"에 대한 n개의 검색 결과</span>
+		<div class="result-text-div">
+            <span class="result-text">"aaaaaaaaaaaaaaaaaaaaaaa"에 대한 n개의 검색 결과</span>
             <!-- 장르별 선택 -->
             <select class="select-genre">
-            	<optgroup label="정렬 방식 선택하기">
-            		<option>최신순</option>
-            	</optgroup>
             	<optgroup label="장르별로 보기">
+            		<option selected disabled>장르를 선택해 주세요.</option>
 	            	<option>경영/경제</option>
 	            	<option>건강/취미</option>
 	            	<option>어린이</option>
@@ -110,85 +108,17 @@
 		<!-- 검색 결과 책 -->
 		<div class="result-all">
 		
-			<div class="result-card">
-				<a href="../book/bookDetail.jsp">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
-			
-			<div class="result-card">
-				<a href="#">
-				<span>
-					<img class="book-img" src="../assets/bookimage.svg">
-				</span>
-				</a>
-				<p class="book-title">책 제목책 제목책 제목</p>
-				<p>작가이름 | 출판사</p>
-			</div>
+			<c:forEach var="aa" begin="1" end="100" step="1">
+				<div class="result-card">
+					<a href="../book/bookDetail.jsp">
+					<span>
+						<img class="book-img" src="../assets/bookimage.svg">
+					</span>
+					</a>
+					<p class="book-title">책 제목책 제목책 제목</p>
+					<p>작가이름 | 출판사</p>
+				</div>
+			</c:forEach>
 			
 		</div>
 			
