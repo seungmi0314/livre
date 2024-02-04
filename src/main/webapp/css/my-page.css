@@ -68,8 +68,9 @@ nav a:nth-child(4)::after {
 }
 
 section {
-    width: 1160px;
-    height: 690px;
+  
+    width: 100vw;
+    height: 100vh; 	
     margin: 200px auto 0;
     border-radius: 38px;
     background: #fbfbfb;
