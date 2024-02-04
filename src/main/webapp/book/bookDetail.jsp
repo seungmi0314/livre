@@ -15,9 +15,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Livre</title>
 <!-- 파비콘  -->
-<link rel="icon" href="./../assets/favicon.png">
-<link rel="stylesheet" href="./../css/header.css" />
-<link rel="stylesheet" href="./../css/menu.css" />
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/bookDetail.css">
 <%-- JQuery section --%>
 <%-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. --%>
