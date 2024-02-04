@@ -1,77 +1,75 @@
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 27px 60px 26px 24px;
+html {
+    overflow: hidden-x;
 }
 
-.logo a:before {
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+nav {
   display: block;
-  content: "";
-  background: url(../image/logo.svg) center/cover no-repeat;
-  width: 86px;
-  height: 27px;
+}
+body {
+  font-family: "Fredoka", sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.box_until {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-}
-
-.box_until .link {
-  font-size: 18px;
-  color: #000000;
-  font-weight: 400;
-}
-
-.nav {
-  height: 90px;
-  background: #fbfbfb;
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 70px;
-  box-sizing: border-box;
-}
-
-.nav .link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font-family: "inter";
-  font-size: 20px;
-  color: #000000;
-}
-
-.nav .link.is_active {
-  font-weight: 700;
-  color: #8d2020;
-}
-
-.nav .link.is_active:after {
-  content: "";
-  display: block;
+.blind {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #8d2020;
-  border-radius: 10px;
-  width: 100px;
-  height: 8px;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
+
+
+
+section {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 70px;
+ }
+
 .container {
   margin-top: 35px;
 }
 
 .container .inner {
   max-width: 1480px;
-  margin: 0 auto;
+  margin: 200px;
 }
 
 .box_slide {
