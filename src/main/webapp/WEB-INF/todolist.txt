@@ -8,9 +8,9 @@
 #meDelete=com.shopping.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
-#boSearching=com.livre.controller.book.bookSearchingController
-#boSearched=com.livre.controller.book.bookSearchedController
-#boDetail=com.livre.controller.book.bookDetailController
+searchingBook=com.livre.controller.book.BookSearchingController
+searchedBooks=com.livre.controller.book.BookSearchedController
+#bookDetail=com.livre.controller.book.BookDetailController
 #boUpdate=com.shopping.controller.board.BoardUpdateController
 #boList=com.shopping.controller.board.BoardListController
 #boDelete=com.shopping.controller.board.BoardDeleteController

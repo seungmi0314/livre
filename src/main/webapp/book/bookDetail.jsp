@@ -1,89 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
-
-<%-- JSTL tag library section --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
-
+<%@ include file="../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Livre</title>
-<!-- 파비콘  -->
-<link rel="icon" href="../assets/favicon.png">
-<link rel="stylesheet" href="../css/header.css">
-<link rel="stylesheet" href="../css/menu.css">
-<link rel="stylesheet" href="../css/bookDetail.css">
-<%-- JQuery section --%>
-<%-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. --%>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-
-<%-- Bootstrap section --%>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Livre</title>
+	<link rel="stylesheet" href="/livre/css/bookDetail.css">
 </head>
 <body>
-	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="./../assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-
-		<div class="menu-bar">
-			<ul class="menu">
-				<li class="menu-item"><a>홈</a></li>
-				<li class="menu-item active"><a>독후감 검색</a></li>
-				<li class="menu-item"><a>내 독후감</a></li>
-				<li class="menu-item"><a>마이 페이지</a></li>
-				<li class="menu-item"><a>이용약관</a></li>
-				<li class="menu-item"><a>contact us</a></li>
-			</ul>
-		</div>
-	</main>
 
 	<section>
 	
-		<!-- 독후감 검색창 -->
-		<form action="https://www.naver.com">
-			<div class="d-flex bd-highlight search-box-p">
-				<div class="p-2 flex-fill bd-highlight searchbox-btn">
-					<input class="search-box" type="text" placeholder="검색어를 입력해 주세요.">
-				</div>
-				<div class="p-2 flex-shrink-1 bd-highlight">
-					<button class="search-btn" type="submit">
-						<img src="../assets/search.svg" class="search-btn-default">
-						<img src="../assets/red-search.svg" class="search-btn-red">
-					</button>
-				</div>
-			</div>
-		</form>
-		
 		<!-- 책 상세보기 -->
 		<div class="container">
 			<!-- 배경 이미지 -->
-			<img class="background-img" src="../assets/thinking-out-loud2.svg">
+			<img class="background-img" src="/livre/assets/thinking-out-loud2.svg">
 			
 			<!-- 책 정보 -->
 			<div class="book-detail">
-				<img class="book-image" src="../assets/bookimage.svg">
+				<img class="book-image" src="/livre/assets/bookimage.svg">
 				<div class="book-info">
 					<p class="book-info-p book-title">책 제목 입니다.</p>
 					<p class="book-info-p book-subTitle">부제목(?) 입니다.부제목(?) 입니다.</p>
@@ -117,7 +55,7 @@
 			
 			<!-- 독후감 카드 -->
 			<div class="reviewCard">
-				<img class="user-image" src="../assets/user-image.svg">
+				<img class="user-image" src="/livre/assets/user-image.svg">
 				<div class="user-simple-review">
 					<p class="user-nickname">닉네임</p>
 					<p class="review-title">독후감 제목</p>
@@ -135,7 +73,7 @@
 			</div>
 			
 			<div class="reviewCard">
-				<img class="user-image" src="../assets/user-image.svg">
+				<img class="user-image" src="/livre/assets/user-image.svg">
 				<div class="user-simple-review">
 					<p class="user-nickname">닉네임</p>
 					<p class="review-title">독후감 제목</p>
@@ -153,7 +91,7 @@
 			</div>
 			
 			<div class="reviewCard">
-				<img class="user-image" src="../assets/user-image.svg">
+				<img class="user-image" src="/livre/assets/user-image.svg">
 				<div class="user-simple-review">
 					<p class="user-nickname">닉네임</p>
 					<p class="review-title">독후감 제목</p>
@@ -171,7 +109,7 @@
 			</div>
 			
 			<div class="reviewCard">
-				<img class="user-image" src="../assets/user-image.svg">
+				<img class="user-image" src="/livre/assets/user-image.svg">
 				<div class="user-simple-review">
 					<p class="user-nickname">닉네임</p>
 					<p class="review-title">독후감 제목</p>
