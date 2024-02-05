@@ -102,3 +102,7 @@ margin-left: 36px;
 #validPasswordck{
 margin-left: -56px;
 }
+
+.hide {
+display: none;
+}

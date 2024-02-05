@@ -6,15 +6,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>회원가입 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="./../js/joinMemberShipScript.js"></script>
 <link rel="stylesheet" href="./../css/joinMemberShipStyle.css">
 <link rel="stylesheet" href="./../css/index.css" />
 <link rel="stylesheet" href="./../css/header.css" />
-<script src="./../js/joinMemberShipScript.js"></script>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
 	<main>
 		<header>
 			<!-- 헤더 입니다 -->
@@ -34,12 +36,12 @@
 		<div class="container mt-3">
 			<span id="banner"><b>회원가입</b></span><br /> <span id="checkAccount">이미
 				계정이 있나요?</span> &nbsp;<a href="" id="existingLogin">로그인</a> <br /> <br />
-			<br />
+			<br/>
 			<form action="/action_page.php" class="was-validated">
 				<!-- 이메일 기입란 -->
 				<div class="mb-3 mt-3">
-					<label for="uname" class="form-label" id="emailbanner"></label> <input
-						id="inputEmail" type="text" class="form-control" id="email"
+					<label for="uname" class="form-label" id="emailbanner"></label>
+					<input id="inputEmail" type="text" class="form-control" name="email"
 						placeholder="이메일 " required>
 					<div class="valid-feedback"></div>
 					<hr width="450px">
@@ -68,7 +70,7 @@
 				</div>
 				</br> </br>
 				<!-- 가입하기 버튼 -->
-				<button id="submitButton" type="submit" class="btn btn-primary">가입하기</button>
+				<button id="submitButton" type="button" class="btn btn-primary" onclick="return checkEmail();">가입하기</button>
 				</br> </br>
 				</form>
 				<!-- SNS로그인 -->
@@ -98,6 +100,5 @@
 			</form>
 		</div>
 	</section>
-
 </body>
 </html>
