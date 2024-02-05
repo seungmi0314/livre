@@ -1,0 +1,16 @@
+# 구현해야 할 목록
+# member section
+#meLogin=com.shopping.controller.member.MemberLoginController
+#meLogout=com.shopping.controller.member.MemberLogoutController
+#meInsert=com.shopping.controller.member.MemberInsertController
+#meUpdate=com.shopping.controller.member.MemberUpdateController
+#meList=com.shopping.controller.member.MemberListController
+#meDelete=com.shopping.controller.member.MemberDeleteController
+#meDetail=com.shopping.controller.member.MemberDetailController
+# book section
+#boSearching=com.livre.controller.book.bookSearchingController
+#boSearched=com.livre.controller.book.bookSearchedController
+#boDetail=com.livre.controller.book.bookDetailController
+#boUpdate=com.shopping.controller.board.BoardUpdateController
+#boList=com.shopping.controller.board.BoardListController
+#boDelete=com.shopping.controller.board.BoardDeleteController
