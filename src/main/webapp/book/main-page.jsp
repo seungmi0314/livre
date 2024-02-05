@@ -11,35 +11,35 @@
 <link rel="stylesheet" href="./../css/header.css" />
 <link rel="stylesheet" href="./../css/menu.css" />
 <link rel="icon" href="./../assets/favicon.png">
+
 <title>메인 페이지</title>
 
 </head>
 
 <body>
 	<main>
-        <header>
-        <div class="header">
-            <img src="./../assets/logo.svg" class="h-logo">
-            <p class="h-logo-name">livre</p>
-        </div>
+	<header>
+		<div class="header">
+			<img src="./../assets/logo.svg" class="h-logo">
+			<p class="h-logo-name">livre</p>
+		</div>
 
-        <div class="header-right">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
-        </div>
-        </header>
-    
-    <div class="menu-bar">
-              <ul class="menu">
-                <li class="menu-item"><a>홈</a></li>
-                <li class="menu-item active"><a>독후감 검색</a></li>
-                <li class="menu-item"><a>내 독후감</a></li>
-                <li class="menu-item"><a>마이 페이지</a></li>
-                <li class="menu-item"><a>이용약관</a></li>
-                <li class="menu-item"><a>contact us</a></li>
-              </ul>
-        </div>    
-    </main>
+		<div class="header-right">
+			<a href="#">로그인</a> <a href="#">회원가입</a>
+		</div>
+	</header>
+
+		<div class="menu-bar">
+			<ul class="menu">
+				<li class="menu-item"><a>홈</a></li>
+				<li class="menu-item active"><a>독후감 검색</a></li>
+				<li class="menu-item"><a>내 독후감</a></li>
+				<li class="menu-item"><a>마이 페이지</a></li>
+				<li class="menu-item"><a>이용약관</a></li>
+				<li class="menu-item"><a>contact us</a></li>
+			</ul>
+		</div>
+	</main>
 
 	<section>
 		<div class="content-wrap">
