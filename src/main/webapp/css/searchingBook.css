@@ -16,7 +16,7 @@ section {
 	height: 100vh;
 	margin-top: 200px;
 	
-	background-image: url(./../assets/reading-side.svg);
+	background-image: url(/livre/assets/reading-side.svg);
 	background-size: 20%;
     background-repeat: no-repeat;
     background-position: bottom 200px left 30px;

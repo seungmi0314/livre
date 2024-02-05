@@ -6,14 +6,14 @@ public class Book {
 	private String Author;	// 작가
 	private String publisher;	// 출판사
 	private String bookImg;	// 책 이미지
-	
+	private String bookContent; // 책 내용
 	private int genreNo;	// 장르 번호
 	
 	// 기본 생성자
 	public Book() {}
 
 	// 매개 변수 생성자
-	public Book(int bookNo, String bookTitle, String author, String publisher, String bookImg, int genreNo) {
+	public Book(int bookNo, String bookTitle, String author, String publisher, String bookImg, int genreNo, String bookContent) {
 		super();
 		this.bookNo = bookNo;
 		this.bookTitle = bookTitle;
@@ -21,6 +21,7 @@ public class Book {
 		this.publisher = publisher;
 		this.bookImg = bookImg;
 		this.genreNo = genreNo;
+		this.bookContent = bookContent;
 	}
 
 	public int getBookNo() {
@@ -71,11 +72,20 @@ public class Book {
 		this.genreNo = genreNo;
 	}
 
+	public String getBookContent() {
+		return bookContent;
+	}
+	
+	public void setBookContent(String bookContent) {
+		this.bookContent = bookContent;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [bookNo=" + bookNo + ", bookTitle=" + bookTitle + ", Author=" + Author + ", publisher=" + publisher
-				+ ", bookImg=" + bookImg + ", genreNo=" + genreNo + "]";
+				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + "]";
 	}
+	
 	
 	
 	
