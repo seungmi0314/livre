@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.livre.model.bean.Book;
-import com.livre.model.bean.Review;
+import com.livre.model.bean.MyReview;
+
 
 
 
@@ -16,19 +17,18 @@ public class MyBookDao extends SuperDao{
 		super();
 	}
 	
-	private Review resultSet2Bean(ResultSet rs) {
+	private MyReview resultSet2Bean(ResultSet rs) {
 		try {
-			Review bean = new Review();
-			Book bean2 = new Book();
+			MyReview bean = new MyReview();
 			
-			//bean.setReviewNo(rs.getInt("reviewNo"));
+			bean.setReviewNo(rs.getInt("reviewNo"));
 			bean.setMemberNo(rs.getInt("memberNo"));
 			//bean.setBookNo(rs.getInt("bookNo"));
 			//bean.setGenreNo(rs.getInt("genreNo"));
 			bean.setReviewTitle(rs.getString("reviewTitle"));
 			bean.setReviewText(rs.getString("reviewText"));
-			bean2.setAuthor(rs.getString("author"));
-			bean2.setPublisher(rs.getString("publisher"));
+			bean.setAuthor(rs.getString("author"));
+			bean.setPublisher(rs.getString("publisher"));
 			//bean.setRaiting(rs.getInt("raiting"));
 			//bean.setCreateDate(String.valueOf(rs.getString("createDate")));	// 날짜
 			//bean.setPhrase(rs.getString("phrase"));
@@ -45,19 +45,20 @@ public class MyBookDao extends SuperDao{
 		}
 	}
 	
-	public List<Review> getDataList(){
+	public List<MyReview> getDataList(){
 		
 		// 나중에 별점도 추가해야 함
-		String sql = "select memberno, reviewtitle, author, publisher, reviewtext";
+		String sql = "select memberno, reviewno, reviewtitle, author, publisher, reviewtext";
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 1";	// 추후 로그인멤버로 변경
+		sql += " where memberno = 1"; // 추후 로그인멤버로 변경
+		sql += " order by reviewno desc";
 		
 		PreparedStatement pstmt = null; // 문장 객체
 		ResultSet rs  = null;
 		
-		List<Review> dataList = new ArrayList<Review>();
+		List<MyReview> dataList = new ArrayList<MyReview>();
 		
 		super.conn = super.getConnection();
 		
@@ -68,7 +69,7 @@ public class MyBookDao extends SuperDao{
 			
 			// 요소를 읽어서 컬렉션에 담기
 			while(rs.next()) {
-				Review bean = this.resultSet2Bean(rs);
+				MyReview bean = this.resultSet2Bean(rs);
 				System.out.println("a");
 				dataList.add(bean);
 			}
