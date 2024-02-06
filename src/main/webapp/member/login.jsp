@@ -49,7 +49,7 @@
 					<ul>
 						<li>
 							<!--이메일 입력--> <span><input class="form-input" type="text"
-								name="user_email" id="user_email" placeholder="이메일 입력"></span>
+								name="user_email" id="user_email" placeholder="이메일 입력" value="meLogin"></span>
 						</li>
 
 						<li class="error email_error">이메일을 입력해주세요</li>
@@ -57,7 +57,7 @@
 						<li>
 							<!--비밀번호 입력--> <span><input class="form-input"
 								type="password" name="user_pw" id="user_pw"
-								placeholder="비밀번호 입력"></span> <sapn class="pw_show_hide"
+								placeholder="비밀번호 입력" value=""></span> <sapn class="pw_show_hide"
 								title="비밀번호 보이기(수정)"></sapn>
 						</li>
 
@@ -76,7 +76,7 @@
 					</div>
 
 					<!--로그인 버튼-->
-					<button type="submit" id="login_btn">로그인</button>
+					<button type="submit" id="login_btn" onclick="return validCheck();">로그인</button>
 
 				</fieldset>
 			</form>
