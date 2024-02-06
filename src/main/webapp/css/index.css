@@ -23,7 +23,7 @@ section {
     justify-content: center;
     align-items: center;
     
-    background-image: url(./../image/landing-girl.svg);
+    background-image: url(/livre/assets/landing-girl.svg);
     background-repeat: no-repeat;
     background-position: bottom right;
  

@@ -104,7 +104,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             <img src="/livre/assets/stroke-star.svg">
                         </div>
                         <div class="author">
-                           ${bean2.author}
+                           ${bean.author}
                         </div>
                     </div>
     
@@ -112,7 +112,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     	${bean.reviewText}
                     </div>
     
-                    <p class="publisher">${bean2.publisher}</p>
+                    <p class="publisher">${bean.publisher}</p>
 				
                 </div>
             </a>

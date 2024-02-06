@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
-import com.livre.model.bean.Review;
+import com.livre.model.bean.MyReview;
 import com.livre.model.dao.MyBookDao;
 
 
@@ -22,7 +22,7 @@ public class MyReviewController extends SuperClass{
 		
 		
 		MyBookDao dao = new MyBookDao();	
-		List<Review> dataList = dao.getDataList();
+		List<MyReview> dataList = dao.getDataList();
 		System.out.println(dataList.size());
 		request.setAttribute("dataList", dataList);
 		
