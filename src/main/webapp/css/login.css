@@ -15,10 +15,10 @@
 section {
     width: 100vw;
     height: 100vh;
-
+    
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+     align-items: center;
 }
 
 .left {
@@ -29,7 +29,8 @@ section {
 .right {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items:  center;
+	
 	width: 25vw;
 	height: 100%;
 	background-color: #FFF4F4;
@@ -66,8 +67,60 @@ form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	
+	padding: 20px;
 }
 
+form fieldset ul .error{
+	color: red;
+	padding: 10px;
+	display: none;
+}
+
+form fieldset ul .email_error{
+	border: 0px;
+}
+
+form fieldset ul .pw_error{
+	border: 0px;
+}
+
+form fieldset ul li{
+	display: flex;
+	flex-flow: row nowrap;
+	margin-bottom: 10px;
+}
+
+form fieldset ul li span{
+	width: 100%;
+}
+
+form fieldset ul li span input{
+	width: 100%;
+	height: 44px;
+	
+	outline: none;
+	background-color: #FFF4F4;
+	border: none;
+	border-bottom: solid 1px #9B9393;
+	font-size: 15px;
+}
+
+form fieldset ul li .pw_show_hide{
+	background-image: url();/*수정*/
+	/*background-position: -105px 0;*/
+	/*width: 20px;
+	height: 20px;*/
+	/*정렬 맞추기*/
+}
+
+
+/*form fieldset ul li span input::placeholder{
+	font-size: ;
+}*/
+
+
+/*
 input:focus {
 	outline: none;
 }
@@ -80,18 +133,29 @@ input:focus {
 	width: 70%;
 	height: 44px;
 
+}*/
+
+.remember-me{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/*padding*/
+	
 }
 
-
-
-.remember-reset {
-	width: 70%;
+.remember-me {
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	color: #9B9393;
 	margin-top: 10px;
 	cursor: pointer;
 	font-size: 13px;
+}
+
+.remember-me p{
+	font-size: 1px;
 }
 
 input,
@@ -109,7 +173,7 @@ progress {
 }
 
 button {
-	width: 60%;
+	width: 80%;
 	height: 40px;
 	border-radius: 10px;
 	background-color: #C24B4B;
@@ -153,6 +217,7 @@ button:active {
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	margin: 20px;
 }
 
 .kakao {
@@ -194,13 +259,12 @@ button:active {
 
 
 .right a {
+	/*display: block;*/
+	padding-left: 10px;
+	font-size: 14px;
 	color: #C24B4B;
 	cursor: pointer;
 }
-
-
-
-
 
 
 
