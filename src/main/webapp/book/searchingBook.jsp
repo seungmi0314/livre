@@ -8,9 +8,36 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>livre</title>
+	<link rel="stylesheet" href="/livre/css/header.css">
+	<link rel="stylesheet" href="/livre/css/menu.css">
 	<link rel="stylesheet" href="/livre/css/searchingBook.css">
 </head>
 <body>
+	<main>
+		<header>
+			<!-- 헤더 입니다 -->
+			<div class="header">
+				<img src="/livre/assets/logo.svg" class="h-logo">
+				<p class="h-logo-name">livre</p>
+			</div>
+
+			<div class="header-right">
+				<a href="#">로그인</a> <a href="#">회원가입</a>
+			</div>
+		</header>
+
+		<div class="menu-bar">
+			<ul class="menu">
+				<li class="menu-item"><a>홈</a></li>
+				<li class="menu-item active"><a>독후감 검색</a></li>
+				<li class="menu-item"><a>내 독후감</a></li>
+				<li class="menu-item"><a>마이 페이지</a></li>
+				<li class="menu-item"><a>이용약관</a></li>
+				<li class="menu-item"><a>contact us</a></li>
+			</ul>
+		</div>
+	</main>
+
 	<section>
 	
 		<!-- 검색창 -->
