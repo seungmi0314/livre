@@ -17,7 +17,9 @@ public class Member {
 	
 	
 	// 기본 생성자
-	public Member() {}
+	public Member() {
+		
+	}
 
 
 	// 매개변수 생성자
