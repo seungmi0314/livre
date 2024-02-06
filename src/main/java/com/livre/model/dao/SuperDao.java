@@ -75,7 +75,7 @@ public class SuperDao {
 
 	public Connection getConnection() {
 		// 접속 객체를 구해줍니다
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.47:1521:xe";
 		String id="livre";
 		String password = "livre";
 		
