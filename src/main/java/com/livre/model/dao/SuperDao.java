@@ -13,7 +13,7 @@ public class SuperDao {
 	
 	// 모든 테이블들이 동일한 방식으로 사용하므로 final 메소드로 작성하였습니다.
 	public final int getTotalRecordCount(String tableName, String mode, String keyword) {
-		System.out.print("검색할 필드 이름 : " + mode);
+		System.out.print("검색할 장르 번호 : " + mode);
 		System.out.println(", 검색할 키워드 : " + keyword);
 		
 		// 제시한 tableName 이라는 테이블의 총 행의 수를 구해줍니다.
@@ -21,7 +21,9 @@ public class SuperDao {
 		if(mode==null || mode.equals("all") || mode.equals("null") || mode.equals("")) {
 			
 		}else { // 전체모드가 아니면 
-			sql += " where " + mode + " like '%" + keyword + "%'";
+			sql += " where genreno" + " = " + mode + " and";
+			sql += " (booktitle like '%" + keyword + "%'";
+			sql += " or author like '%" + keyword + "%')";
 		}
 		
 		System.out.println("sql 구문 :\n" + sql);

@@ -65,16 +65,16 @@ public class BookDao extends SuperDao {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 		
-		return null;
 	}
 
 	public BookDao() {
 		super();
 	}
 	
-public List<Book> getDataList(){
+	public List<Book> getDataList(){
 		
 		String sql = "select * from books";
 		PreparedStatement pstmt = null; // 문장 객체
@@ -127,9 +127,11 @@ public List<Book> getDataList(){
 		if(mode==null || mode.equals("all") || mode.equals("null") || mode.equals("")) {
 			
 		}else { // 전체모드가 아니면 
-			sql += " where " + mode + " like '%" + keyword + "%'";
+			sql += " where genreno" + " = " + mode + " and";
+			sql += " (booktitle like '%" + keyword + "%'";
+			sql += " or author like '%" + keyword + "%')";
+			
 		}
-		
 		sql += " )";
 		sql += " where ranking between ? and ? ";
 		

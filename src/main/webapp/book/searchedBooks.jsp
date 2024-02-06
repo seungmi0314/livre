@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Livre</title>
+	<title>livre</title>
 	<link rel="stylesheet" href="/livre/css/header.css">
 	<link rel="stylesheet" href="/livre/css/menu.css">
 	<link rel="stylesheet" href="/livre/css/searchedBooks.css">
@@ -103,15 +103,15 @@
 		<!-- 검색 결과 책 -->
 		<div class="result-all">
 		
-			<c:forEach var="aa" begin="1" end="100" step="1">
+			<c:forEach var="bean" items="${dataList}">
 				<div class="result-card">
 					<a href="/livre/book/bookDetail.jsp">
 					<span>
 						<img class="book-img" src="/livre/assets/bookimage.svg">
 					</span>
 					</a>
-					<p class="book-title">책 제목책 제목책 제목</p>
-					<p>작가이름 | 출판사</p>
+					<p class="book-title">${bean.bookTitle}</p>
+					<p>${bean.author} | ${bean.publisher}</p>
 				</div>
 			</c:forEach>
 			

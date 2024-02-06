@@ -28,12 +28,12 @@
 
 		<div class="menu-bar">
 			<ul class="menu">
-				<li class="menu-item"><a href="#">홈</a></li>
-				<li class="menu-item active"><a href="#">독후감 검색</a></li>
-				<li class="menu-item"><a href="#">내 독후감</a></li>
-				<li class="menu-item"><a href="#">마이 페이지</a></li>
-				<li class="menu-item"><a href="#">이용약관</a></li>
-				<li class="menu-item"><a href="#">contact us</a></li>
+				<li class="menu-item"><a>홈</a></li>
+				<li class="menu-item active"><a>독후감 검색</a></li>
+				<li class="menu-item"><a>내 독후감</a></li>
+				<li class="menu-item"><a>마이 페이지</a></li>
+				<li class="menu-item"><a>이용약관</a></li>
+				<li class="menu-item"><a>contact us</a></li>
 			</ul>
 		</div>
 	</main>
@@ -86,14 +86,14 @@
 		<!-- 랜덤으로 나와있는 책 (반복문으로) -->
 		<div class="result-all">
 		
-			<c:forEach var="aa" begin="1" end="100" step="1">
+			<c:forEach var="bean" items="${dataList}">
 				<div class="result-card">
 					<a href="/livre/book/bookDetail.jsp">
 					<span>
 						<img class="book-img" src="/livre/assets/bookimage.svg">
 					</span>
 					</a>
-					<p class="book-title">책 제목책 제목책 제목</p>
+					<p class="book-title">${bean.bookTitle}</p>
 					<p>작가이름 | 출판사</p>
 				</div>
 			</c:forEach>
