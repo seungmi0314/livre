@@ -10,10 +10,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
  
     
     
-    <link rel="stylesheet" href="./../css/index.css" />
-    <link rel="stylesheet" href="./../css/header.css" />
+    <link rel="stylesheet" href="/livre/css/index.css" />
+    <link rel="stylesheet" href="/livre/css/header.css" />
     <!-- <link rel="stylesheet" href="./../css/menu.css" /> -->
-    <link rel="icon" href="./../assets/favicon.png">
+    <link rel="icon" href="/livre/assets/favicon.png">
     <title>랜딩 페이지</title>
   
 </head>
@@ -25,7 +25,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <header>
         <!-- 헤더 입니다 -->
         <div class="header">
-            <img src="./../assets/logo.svg" class="h-logo">
+            <img src="/livre/assets/logo.svg" class="h-logo">
             <p class="h-logo-name">livre</p>
         </div>
 
@@ -70,13 +70,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      
        <div class="title-box">
             <div class="title">
-                <img src="./../assets/logo.svg" class="logo">
+                <img src="/livre/assets/logo.svg" class="logo">
                 <p class="logo-name">livre</p>
             </div>
             <p class="ment">함께 읽으면 더 멋진 책이 될지도 몰라요!</p>
 
             <!-- 메인페이지로 이동 -->
-            <a href="#"class="btn-start">
+            <a href="/livre/Livre?command=my-review"class="btn-start">
                 책 펼치기
             </a>
         </div>

@@ -28,12 +28,12 @@
 
 		<div class="menu-bar">
 			<ul class="menu">
-				<li class="menu-item"><a>홈</a></li>
-				<li class="menu-item active"><a>독후감 검색</a></li>
-				<li class="menu-item"><a>내 독후감</a></li>
-				<li class="menu-item"><a>마이 페이지</a></li>
-				<li class="menu-item"><a>이용약관</a></li>
-				<li class="menu-item"><a>contact us</a></li>
+				<li class="menu-item"><a href="#">홈</a></li>
+				<li class="menu-item active"><a href="#">독후감 검색</a></li>
+				<li class="menu-item"><a href="#">내 독후감</a></li>
+				<li class="menu-item"><a href="#">마이 페이지</a></li>
+				<li class="menu-item"><a href="#">이용약관</a></li>
+				<li class="menu-item"><a href="#">contact us</a></li>
 			</ul>
 		</div>
 	</main>
