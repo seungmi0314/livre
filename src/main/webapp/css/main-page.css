@@ -5,10 +5,6 @@
     font-style: normal;
 }
 
-html{
-	overflow: hidden;
-}
-
 .menu-bar{
 	z-index: 9999;
 }
