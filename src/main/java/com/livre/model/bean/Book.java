@@ -3,7 +3,7 @@ package com.livre.model.bean;
 public class Book {
 	private int bookNo;	// 책 번호
 	private String bookTitle;	// 책 제목
-	private String Author;	// 작가
+	private String author;	// 작가
 	private String publisher;	// 출판사
 	private String bookImg;	// 책 이미지
 	private String bookContent; // 책 내용
@@ -17,7 +17,7 @@ public class Book {
 		super();
 		this.bookNo = bookNo;
 		this.bookTitle = bookTitle;
-		Author = author;
+		this.author = author;
 		this.publisher = publisher;
 		this.bookImg = bookImg;
 		this.genreNo = genreNo;
@@ -41,11 +41,11 @@ public class Book {
 	}
 
 	public String getAuthor() {
-		return Author;
+		return author;
 	}
 
 	public void setAuthor(String author) {
-		Author = author;
+		this.author = author;
 	}
 
 	public String getPublisher() {
@@ -82,7 +82,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [bookNo=" + bookNo + ", bookTitle=" + bookTitle + ", Author=" + Author + ", publisher=" + publisher
+		return "Book [bookNo=" + bookNo + ", bookTitle=" + bookTitle + ", author=" + author + ", publisher=" + publisher
 				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + "]";
 	}
 	

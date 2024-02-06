@@ -25,7 +25,7 @@
     height: 70px;
     position: fixed;
     top: 60px;
-    
+    z-index: 100;
 }
 
 .menu-item {

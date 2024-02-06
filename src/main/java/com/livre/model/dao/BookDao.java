@@ -53,7 +53,7 @@ public class BookDao extends SuperDao {
 		try {
 			Book bean = new Book();
 			
-			bean.setAuthor(rs.getString("Author"));
+			bean.setAuthor(rs.getString("author"));
 			bean.setBookImg(rs.getString("bookImg"));
 			bean.setBookNo(rs.getInt("bookNo"));
 			bean.setBookTitle(rs.getString("bookTitle"));

@@ -1,7 +1,13 @@
+<%@page import="com.livre.model.bean.Review"%>
+<%@page import="com.livre.model.dao.MyBookDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../common/common.jsp"%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +21,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     
     <title>내 독후감</title>
     <script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
-  
+  <!-- 	<script src="./../js/myReview.js"></script> -->
 </head>
 
 <body>
@@ -40,8 +46,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     메뉴 바 사용하는 사람들만 주석 풀어서 사용 해 주세요
     사용하지 않는 페이지는 삭제하고 쓰기 (+css)
      --> 
-    
     <div class="menu-bar">
+    
               <ul class="menu">
                 <li class="menu-item"><a>홈</a></li>
                 <li class="menu-item active"><a>독후감 검색</a></li>
@@ -50,7 +56,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <li class="menu-item"><a>이용약관</a></li>
                 <li class="menu-item"><a>contact us</a></li>
               </ul>
-        </div>  
+        </div>
+       
     </main>
 
     <section>
@@ -79,9 +86,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         
         
         <!-- 독후감 하나당 카드 하나 -->
-            <a href="#">
+        
+        <%-- 박스 누르면 상세 페이지로 이동 --%>
+               <c:forEach var="bean" items="${requestScope.dataList}" varStatus="status">
+            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${review.no}">
                 <div class="my-review">
-                    <p class="book-name">데미안</p>
+	      		  
+                    <p class="book-name">${bean.reviewTitle}</p>
                     <div class="star-author">
                     
                     	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
@@ -93,233 +104,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                             <img src="./../assets/stroke-star.svg">
                         </div>
                         <div class="author">
-                           헤르만 헤세 
+                           ${bean2.author}
                         </div>
                     </div>
     
                     <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
+                    	${bean.reviewText}
                     </div>
     
-                    <p class="publisher">한빛 출판사</p>
+                    <p class="publisher">${bean2.publisher}</p>
+				
                 </div>
             </a>
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
- <a href="#">
-                <div class="my-review">
-                    <p class="book-name">데미안</p>
-                    <div class="star-author">
-                    
-                    	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/fill-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                            <img src="./../assets/stroke-star.svg">
-                        </div>
-                        <div class="author">
-                           헤르만 헤세 
-                        </div>
-                    </div>
-    
-                    <div class="content">
-                        분량에 비해 읽기가 쉬운 책입니다. 기술의 확산과 필연성을 역설한 뒤 기술억제의 필요성을 주장하고 그 방안을 제안합니다. 기후변화와 같은 위기를 극복하기 위하여 기술 개발은 반드시 필요하지만 그 기술이 위험을 불러오기에 억제해야하는 궁지에 처하는데, 저자가 주장하듯이 올바른 길을 가기가 매우 어려워보입니다. 그럼에도 저자가 제시한 10개 층위의 기술억제 전략을 살펴보면 어려울지라도 불가능하지 않을 것이
-                    </div>
-    
-                    <p class="publisher">한빛 출판사</p>
-                </div>
-            </a>
-
-         
+                   </c:forEach>
            
         </div>
         
