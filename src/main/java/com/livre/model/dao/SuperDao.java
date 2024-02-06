@@ -18,12 +18,18 @@ public class SuperDao {
 		
 		// 제시한 tableName 이라는 테이블의 총 행의 수를 구해줍니다.
 		String sql = "select count(*) as cnt from " + tableName + " ";
-		if(mode==null || mode.equals("all") || mode.equals("null") || mode.equals("")) {
-			
-		}else { // 전체모드가 아니면 
-			sql += " where genreno" + " = " + mode + " and";
-			sql += " (booktitle like '%" + keyword + "%'";
-			sql += " or author like '%" + keyword + "%')";
+		
+		if (keyword != null && !keyword.equals("null") && !keyword.equals("")) {
+		    sql += "where (booktitle like '%" + keyword + "%' or author like '%" + keyword + "%')";
+		}
+
+		if (!"all".equals(mode)) {
+		    if (sql.contains("where")) {
+		        sql += " and";
+		    } else {
+		        sql += "where";
+		    }
+		    sql += " genreno = " + mode;
 		}
 		
 		System.out.println("sql 구문 :\n" + sql);

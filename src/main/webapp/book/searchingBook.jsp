@@ -22,18 +22,19 @@
 			</div>
 
 			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
+				<a href="<%=notWithFormTag%>login">로그인</a>
+            	<a href="<%=notWithFormTag%>joinMemberShip">회원가입</a>
 			</div>
 		</header>
 
 		<div class="menu-bar">
 			<ul class="menu">
-				<li class="menu-item"><a>홈</a></li>
-				<li class="menu-item active"><a>독후감 검색</a></li>
-				<li class="menu-item"><a>내 독후감</a></li>
-				<li class="menu-item"><a>마이 페이지</a></li>
-				<li class="menu-item"><a>이용약관</a></li>
-				<li class="menu-item"><a>contact us</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>main-page">홈</a></li>
+				<li class="menu-item active"><a href="<%=notWithFormTag%>searchingBook">독후감 검색</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>my-review">내 독후감</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>my-page">마이 페이지</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>">이용약관</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>">contact us</a></li>
 			</ul>
 		</div>
 	</main>
@@ -94,7 +95,7 @@
 					</span>
 					</a>
 					<p class="book-title">${bean.bookTitle}</p>
-					<p>작가이름 | 출판사</p>
+					<p>${bean.author} | ${bean.publisher}</p>
 				</div>
 			</c:forEach>
 			
