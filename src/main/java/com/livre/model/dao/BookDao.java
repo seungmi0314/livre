@@ -123,15 +123,19 @@ public class BookDao extends SuperDao {
 		// 필드 검색을 위해 mode 변수로 분기 처리 하도록 합니다.
 		String mode = paging.getMode();
 		String keyword = paging.getKeyword();
-		
-		if(mode==null || mode.equals("all") || mode.equals("null") || mode.equals("")) {
-			
-		}else { // 전체모드가 아니면 
-			sql += " where genreno" + " = " + mode + " and";
-			sql += " (booktitle like '%" + keyword + "%'";
-			sql += " or author like '%" + keyword + "%')";
-			
+		if (keyword != null && !keyword.equals("null") && !keyword.equals("")) {
+		    sql += " where (booktitle like '%" + keyword + "%' or author like '%" + keyword + "%')";
 		}
+
+		if (!"all".equals(mode)) {
+		    if (sql.contains("where")) {
+		        sql += " and";
+		    } else {
+		        sql += " where";
+		    }
+		    sql += " genreno = " + mode;
+		}
+		
 		sql += " )";
 		sql += " where ranking between ? and ? ";
 		
@@ -148,8 +152,8 @@ public class BookDao extends SuperDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, paging.getBeginRow());
-			pstmt.setInt(2, paging.getEndRow());
+			pstmt.setInt(1, 1);
+			pstmt.setInt(2, 107);
 			
 			rs = pstmt.executeQuery();
 			

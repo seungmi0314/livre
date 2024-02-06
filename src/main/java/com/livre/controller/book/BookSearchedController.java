@@ -17,8 +17,8 @@ public class BookSearchedController extends SuperClass {
 		super.doGet(request, response);
 		
 		//페이징 처리를 위한 파라미터 목록들
-		String pageNumber = request.getParameter("pageNumber");
-		String pageSize = request.getParameter("pageSize");
+		//String pageNumber = request.getParameter("pageNumber");
+		//String pageSize = request.getParameter("pageSize");
 		String mode = request.getParameter("mode");
 		String keyword = request.getParameter("keyword");
 		
@@ -26,12 +26,14 @@ public class BookSearchedController extends SuperClass {
 		
 		int totalCount = dao.getTotalRecordCount("books", mode, keyword);
 		String url = super.getUrlInformation("searchedBooks");
-		boolean isGrid = false;
+		//boolean isGrid = false;
 		
-		Paging paging = new Paging(pageNumber, pageSize, totalCount, url, mode, keyword, isGrid);
+		//Paging paging = new Paging(pageNumber, pageSize, totalCount, url, mode, keyword, isGrid);
+		Paging paging = new Paging(totalCount, url, mode, keyword);
 		
 		
 		List<Book> dataList = dao.getDataList(paging);
+		
 		
 		request.setAttribute("paging", paging); // 페이징 객체도 바인딩
 		request.setAttribute("dataList", dataList);

@@ -22,7 +22,25 @@ public class Paging {
 	private String keyword = ""; // 검색할 단어
 
 	private String flowParameter = ""; // 페이지 이동시 같이 수반되는 파라미터 리스트
+	
+	public Paging(int totalCount, String url, String mode, String keyword) {
+		
+		this.totalCount = totalCount;
+		this.url = url;
 
+		// mode가 'all'이면 전체 검색으로 간주합니다.
+		this.mode = mode == null || mode.equals("null") || mode.equals("") ? "all" : mode;
+
+		this.keyword = keyword == null || keyword.equals("null") || keyword.equals("") ? "" : keyword;
+		
+		/* in searchedBooks.jsp */
+		this.pagingStatus = "총 " + totalCount + "건";
+
+		this.flowParameter = "";
+		this.flowParameter += "&mode=" + mode;
+		this.flowParameter += "&keyword=" + keyword;
+	}
+	
 	public Paging(String _pageNumber, String _pageSize, int totalCount, String url, String mode, String keyword,
 			boolean isGrid) {
 		if (_pageNumber == null || _pageNumber.equals("null") || _pageNumber.equals("")) {
