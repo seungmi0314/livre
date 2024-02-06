@@ -39,8 +39,6 @@
 	<title>Livre</title>
 	<!-- 파비콘  -->
 	<link rel="icon" href="/livre/assets/favicon.png">
-	<link rel="stylesheet" href="/livre/css/header.css">
-	<link rel="stylesheet" href="/livre/css/menu.css">
 	<!-- jQuery section -->
 	<!-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. -->
 	<script
@@ -55,29 +53,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-
-		<div class="menu-bar">
-			<ul class="menu">
-				<li class="menu-item"><a>홈</a></li>
-				<li class="menu-item active"><a>독후감 검색</a></li>
-				<li class="menu-item"><a>내 독후감</a></li>
-				<li class="menu-item"><a>마이 페이지</a></li>
-				<li class="menu-item"><a>이용약관</a></li>
-				<li class="menu-item"><a>contact us</a></li>
-			</ul>
-		</div>
-	</main>
+	
 </body>
 </html>
