@@ -32,7 +32,7 @@ public class SuperClass implements SuperController {
 		// 미로그인 시 적절한 메시지를 보여주고 로그인 페이지로 이동합니다.
 		String message = "로그인이 필요한 서비스입니다.";
 		this.setAlertMessage(message);
-		this.goToPage("member/meLoginForm.jsp");
+		this.goToPage("member/login.jsp");
 	}
 	
 	@Override

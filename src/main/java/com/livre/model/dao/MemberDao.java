@@ -10,7 +10,7 @@ public class MemberDao extends SuperDao{
 
 	public Member getDataByEmailAndPassword(String memberEmail, String memberPw) {
 		// 이메일과 비밀번호를 이용하여 해당 회원이 존재하는지 확인합니다.
-		String sql = "select * from members" ;
+		String sql = "select * from members " ;
 		sql += "where memberEmail = ? and memberPw = ?" ;
 		
 		PreparedStatement pstmt = null ;
@@ -44,7 +44,7 @@ public class MemberDao extends SuperDao{
 		try {
 			Member bean = new Member() ;			
 			bean.setMemberEmail(rs.getString("memberEmail"));
-			bean.setMemberPw(String.valueOf(rs.getDate("memberPw")));
+			bean.setMemberPw(rs.getString("memberPw"));
 			 		
 			return bean ;
 			

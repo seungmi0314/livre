@@ -1,4 +1,4 @@
-<%@page import="com.livre.model.bean.Review"%>
+
 <%@page import="com.livre.model.dao.MyBookDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
