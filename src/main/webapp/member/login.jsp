@@ -19,17 +19,7 @@
 
 <body>
 	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
+		
 	</main>
 
 	<section>
@@ -53,7 +43,7 @@
 					<ul>
 						<li>
 							<!--이메일 입력--> <span><input class="form-input" type="text"
-								name="memberEmail" id="memberEmail" placeholder="이메일 입력" value="meLogin"></span>
+								name="memberEmail" id="memberEmail" placeholder="이메일 입력" value=""></span>
 						</li>
 
 						<li class="error email_error">이메일을 입력해주세요</li>
@@ -69,10 +59,10 @@
 					</ul>
 
 					<div class="remember-me">
-						<!--자동 로그인-->
+						<!--이메일 기억하기-->
 						<p>
 							<label> <input type="checkbox" name="remember-check"
-								id="remember-check"> <span>자동로그인</span>
+								id="remember-check"> <span>이메일 저장</span>
 							</label>
 						</p>
 						<!--비밀번호를 잊으셨나요?-->
@@ -101,7 +91,7 @@
 			</div>
 
 			<p class="yet">
-				아직도 회원이 아니신가요?<a class="join" href="#">회원가입</a>
+				아직도 회원이 아니신가요?<a class="join" href="/livre/member/joinMemberShip.jsp">회원가입</a>
 			</p>
 		</div>
 

@@ -28,19 +28,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     
 
     <main>
-        <header>
-        <!-- 헤더 입니다 -->
-        <div class="header">
-            <img src="/livre/assets/logo.svg" class="h-logo">
-            <p class="h-logo-name">livre</p>
-        </div>
-
-        <div class="header-right">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
-        </div>
-        </header>
-
+      
     <!--  
     
     메뉴 바 사용하는 사람들만 주석 풀어서 사용 해 주세요
