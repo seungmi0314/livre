@@ -7,9 +7,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./../css/contactus.css" />
-<link rel="stylesheet" href="./../css/header.css" />
-<link rel="stylesheet" href="./../css/menu.css" />
+<link rel="stylesheet" href="/livre/css/contactus.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
 
 <title>Contact Us</title>
 
@@ -20,7 +20,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 		<header>
 			<!-- 헤더 입니다 -->
 			<div class="header">
-				<img src="./../assets/logo.svg" class="h-logo">
+				<img src="/livre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
 			</div>
 
@@ -102,25 +102,25 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 					<div class="info-detail">
 						<div class="email">
 							<p>
-								<img src="./../assets/email.svg">&nbsp livre@gmail.com
+								<img src="/livre/assets/email.svg">&nbsp livre@gmail.com
 							</p>
 						</div>
 
 						<div class="phone">
 							<p>
-								<img src="./../assets/phone.svg">&nbsp +82 10 1234 5678
+								<img src="/livre/assets/phone.svg">&nbsp +82 10 1234 5678
 							</p>
 						</div>
 
 						<div class="address">
 							<p>
-								<img src="./../assets/address.svg">&nbsp 서울특별시 마포구 백범로 23
+								<img src="/livre/assets/address.svg">&nbsp 서울특별시 마포구 백범로 23
 							</p>
 						</div>
 
 						<div class="time">
 							<p>
-								<img src="./../assets/time.svg">&nbsp 10:00 ~ 18:00
+								<img src="/livre/assets/time.svg">&nbsp 10:00 ~ 18:00
 							</p>
 						</div>
 					</div>

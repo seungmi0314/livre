@@ -22,8 +22,11 @@ public class MemberLoginController extends SuperClass{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doPost(request, response);
 		
+		String memberNick = request.getParameter("memberNick") ;
+		
 		String memberEmail = request.getParameter("memberEmail") ;
 		String memberPw = request.getParameter("memberPw") ;
+		
 		System.out.println(memberEmail + "/" + memberPw);
 		
 		MemberDao dao = new MemberDao();
@@ -37,12 +40,20 @@ public class MemberLoginController extends SuperClass{
 		}else { // 로그인 성공
 			// session 영역(scope)에 나의 로그인 정보를 저장(바인딩)합니다.
 			// loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. 
-			super.session.setAttribute("loginfo", bean) ;
+			super.session.setAttribute("logInfo", bean) ;
 			
 			// 로그인 성공 이후 홈으로 이동합니다. // 수정
 			// new 수정Controller().doGet(request, response) ;
 			// 로그인 성공 이후 MyReviewController로 리다이렉트합니다.
 		    response.sendRedirect(request.getContextPath() + "/Livre?command=my-review");
+		
+		    // 회원정보 session 세팅
+		 	super.session.setAttribute("logInfo", bean);
+		 			
+		 	// 특정 시간동안 요청이 없으면 세션 만료 (1시간)
+		 	super.session.setMaxInactiveInterval(3600);
+		
 		}
+		
 	}
 }

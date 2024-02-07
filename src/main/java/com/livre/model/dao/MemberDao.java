@@ -45,6 +45,7 @@ public class MemberDao extends SuperDao{
 			Member bean = new Member() ;			
 			bean.setMemberEmail(rs.getString("memberEmail"));
 			bean.setMemberPw(rs.getString("memberPw"));
+			bean.setMemberNick(rs.getString("memberNick"));
 			 		
 			return bean ;
 			
