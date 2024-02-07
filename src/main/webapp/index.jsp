@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
 
         <div class="header-right">
-            <a href="#">로그인</a>
+            <a href="/livre/Livre?command=login">로그인</a>
             <a href="#">회원가입</a>
         </div>
         </header>

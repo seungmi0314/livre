@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
+import com.livre.controller.book.MyReviewController;
 import com.livre.model.bean.Member;
 import com.livre.model.dao.MemberDao;
 
@@ -38,8 +39,10 @@ public class MemberLoginController extends SuperClass{
 			// loginfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. 
 			super.session.setAttribute("loginfo", bean) ;
 			
-			// 로그인 성공 이후 홈으로 이동합니다.
-			//new 어쩌구Controller().doGet(request, response) ;
+			// 로그인 성공 이후 홈으로 이동합니다. // 수정
+			// new 수정Controller().doGet(request, response) ;
+			// 로그인 성공 이후 MyReviewController로 리다이렉트합니다.
+		    response.sendRedirect(request.getContextPath() + "/Livre?command=my-review");
 		}
 	}
 }
