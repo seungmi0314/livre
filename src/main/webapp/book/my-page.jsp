@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="./../common/common-nonbootstrap.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,25 +9,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Noto+Sans+KR:wght@100..900&display=swap"
-		rel="stylesheet">
     <link rel="stylesheet" href="/livre/css/header.css" />
     <link rel="stylesheet" href="/livre/css/menu.css" />
     <link rel="stylesheet" href="/livre/css/my-page.css">
-    
-    <!-- jQuery section -->
-	<!-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	
-	<!-- bootstrap section -->
-	<link
-		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-		rel="stylesheet">
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>마이 페이지</title>
   
 </head>
@@ -171,7 +155,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 								</div>
 							</li>
 							<li>
-								<img src="/livre/assets/bookimage.svg" >
+								<img src="/livre/assets/book_example_mypage.png" >
 								<div class="content-layout2">
 									<div class="content-title">제목 : 3번 보는건 사진을 가져오기 귀찮아서가...<span><img
 												src="/livre/assets/stroke-star.svg" ><img src="/livre/assets/stroke-star.svg"
