@@ -321,7 +321,6 @@ section {
 .mid2-right {
     display: flex;
     flex-direction: column;
-    font-family: 'Fredoka';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
