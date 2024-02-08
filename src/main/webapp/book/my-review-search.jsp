@@ -57,7 +57,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <%-- 박스 누르면 상세 페이지로 이동 --%>
                <c:forEach var="bean" items="${requestScope.dataList}" varStatus="status">
                 
-                <div class="my-review" value="${review.no}">
+                <div class="my-review" value="${bean.reviewNo}">
 	      		  <div id="del" class="del" onclick="return deleteReview('${bean.reviewNo}', '${requestScope.paging.flowParameter}');"><i class="fa-solid fa-x"></i></div>
             <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${review.no}">
                 <!-- X 표시 -->
