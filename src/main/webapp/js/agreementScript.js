@@ -8,7 +8,7 @@
 			return;
 		}
 
-		var nextPageURL = "collectPreferenceFisrst.jsp";
+		var nextPageURL = "/Mylivre/member/collectPreferenceFisrst.jsp";
 		window.location.href = nextPageURL;
 	}
 	

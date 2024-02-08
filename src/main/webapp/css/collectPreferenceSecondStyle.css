@@ -151,3 +151,7 @@ img:hover {
 #chooseThree{
 	font-size: 12px;
 }
+
+.hiddenCheckbox {
+    display: none;
+}
