@@ -22,10 +22,10 @@ public class MemberLoginController extends SuperClass{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doPost(request, response);
 		
-		String memberNick = request.getParameter("memberNick") ;
-		
-		String memberEmail = request.getParameter("memberEmail") ;
-		String memberPw = request.getParameter("memberPw") ;
+		// memberEmail, memberPw, remember-check 정보 받아오기
+		String memberEmail = request.getParameter("memberEmail") ; // email 넘어옴
+		String memberPw = request.getParameter("memberPw") ;       // pw 넘어옴
+		 //remember-check 체크여부 넘어옴
 		
 		System.out.println(memberEmail + "/" + memberPw);
 		
