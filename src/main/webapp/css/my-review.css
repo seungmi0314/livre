@@ -77,10 +77,12 @@ section {
     border: 0;
   background-color: transparent;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* 삭제하기 버튼 */
-.del {
+.trash {
+	
     height: 16px;
     line-height: 16px;
     font-size: 14px;
@@ -88,6 +90,20 @@ section {
     border: 0;
   background-color: transparent;
   cursor: pointer;
+  
+}
+
+.del {
+	position: absolute;
+    height: 16px;
+    line-height: 16px;
+    font-size: 20px;
+    color: #8D2020;
+    border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  right: 40px;
+  visibility: hidden;
 }
 
 /* 검색 결과 모음 */
@@ -116,17 +132,22 @@ section {
 .my-review {
     width: 420px;
     height: 260px;
+    position: relative;
     border-radius: 25px;
     padding: 35px 40px 10px;
     margin: 0 20px 50px;
     background-color: #fbfbfb;
     cursor: pointer;
-}
+ }
 
 .star-author {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.star {
+	color: #7E7979;
 }
 
 .book-name {
