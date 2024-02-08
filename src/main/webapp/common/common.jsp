@@ -52,7 +52,7 @@ String notWithFormTag = withFormTag + "?command=";
 
 <!-- header.css -->
 <link rel="stylesheet" href="/livre/css/header.css" />
-
+<link rel="stylesheet" href="/livre/css/menu.css" />
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -62,7 +62,7 @@ String notWithFormTag = withFormTag + "?command=";
 			<!-- 헤더 입니다 -->
 			<div class="header">
 				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
+				<p class="h-logo-name" style="margin: 0;">livre</p>
 			</div>
 			<div class="header-right">
 
@@ -76,6 +76,20 @@ String notWithFormTag = withFormTag + "?command=";
 				</c:if>
 			</div>
 		</header>
+		
+		<div class="menu-bar">
+    
+             <ul class="menu">
+				<li class="menu-item"><a href="<%=notWithFormTag%>main-page">홈</a></li>
+				<li class="menu-item active"><a href="<%=notWithFormTag%>searchingBook">독후감 검색</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>my-review">내 독후감</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>my-page">마이 페이지</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>">이용약관</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>">contact us</a></li>
+			</ul>
+        </div>
+       
+    </main>
 	</main>
 </body>
 </html>

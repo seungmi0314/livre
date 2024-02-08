@@ -63,6 +63,7 @@ public class SuperDao {
 		return cnt;
 	}
 	
+	
 	protected void closeConnection() {
 		// 작업 종료 후 커넥션 정보를 닫아 줍니다.
 		try {

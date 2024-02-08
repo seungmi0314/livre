@@ -102,32 +102,19 @@ public class MyReviewDao extends SuperDao{
 		// 페이징 처리를 이용하여 데이터 조회
 		
 		// 나중에 별점도 추가해야 함
-		String sql = "select memberno, reviewno, reviewtitle, author, publisher, reviewtext";
+		String sql ="select memberno, reviewno, reviewtitle, author, publisher, reviewtext";
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 1"; // 추후 로그인멤버로 변경
-		sql += " order by reviewno desc";
+		sql += " where memberno = 1";
 		
-		// 필드 검색을 위해 mode 변수로 분기 처리 하도록 합니다.
-		System.out.println("a");
-		String mode = paging.getMode();
+		
 		String keyword = paging.getKeyword();
-		if (keyword != null && !keyword.equals("null") && !keyword.equals("") || mode.equals("")) {
+		if (keyword != null && !keyword.equals("null") && !keyword.equals("")) {
 		    sql += " and (reviewtitle like '%" + keyword + "%')";
 		}		
+	
 		
-		if (!"all".equals(mode)) {
-		    if (sql.contains("where")) {
-		        sql += " and";
-		    } else {
-		        sql += " where";
-		    }
-		    sql += " genreno = " + mode;
-		}
-		
-		sql += " )";
-		sql += " where ranking between ? and ? ";
 		
 		System.out.println("sql 구문 :\n" + sql);
 		
@@ -140,9 +127,7 @@ public class MyReviewDao extends SuperDao{
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
-			pstmt.setInt(2, 107);
-			
+		
 			rs = pstmt.executeQuery();
 			
 			// 요소들을 읽어서 컬렉션에 담습니다.
@@ -165,7 +150,7 @@ public class MyReviewDao extends SuperDao{
 				e2.printStackTrace();
 			}
 		}
-				
+		
 		return dataList;
 	}
 	

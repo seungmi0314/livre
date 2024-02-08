@@ -26,14 +26,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
     
 
-   
-    <!--  
-    
-    메뉴 바 사용하는 사람들만 주석 풀어서 사용 해 주세요
-    사용하지 않는 페이지는 삭제하고 쓰기 (+css)
-     --> 
-    
-
     <section>
      
      <!-- index.jsp를 복사 후 section 내부를 삭제하고 코드를 작성 해 주세요 + (index.css도 삭제) -->
@@ -41,7 +33,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      <!-- 독후감 검색창 -->
                <div class="search-box-p">
             <form action="<%=withFormTag%>" method="get" class="searchbox-btn">
-            <input type="hidden" name="command" value="reviewSearch">
+            <input type="hidden" name="command" value="reviewSearched">
             <input class="search-box" type="text" id="keyword" name="keyword" placeholder="내 독후감 검색">
             <button type="submit" class="search-btn">
                 <img src="/livre/assets/red-search.svg">
