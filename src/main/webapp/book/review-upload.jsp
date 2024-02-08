@@ -68,13 +68,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             </div>
 
             <div class="review-write">
-                <input class="review-title" placeholder="독후감 제목을 입력해주세요">
+                <input class="review-title" placeholder="독후감 제목을 입력해주세요"  readonly>
 
-                <textarea class="review-content" >내용을 입력해주세요
+                <textarea class="review-content" readonly>내용을 입력해주세요
                 </textarea>
 
                 <p class="remember-text">기억하고싶은 구절</p>
-                <textarea class="remember">
+                <textarea class="remember" readonly>
                     
                 </textarea>
             </div>
@@ -86,8 +86,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
         
         <div class="review-info">
-            <input type="text" class="book-title" placeholder="책 제목">
-            
+            <input type="text" id="search" class="book-title" placeholder="책 제목" autocomplete="off">
+            <div class="autocomplete"></div>
             <div class="book-info">
             <p>지은이</p>
             <p>출판사</p>
@@ -172,4 +172,5 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
    
 </body>
+<script src="/livre/js/review-upload.js"></script>
 </html>
