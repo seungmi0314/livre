@@ -12,6 +12,7 @@ searchingBook=com.livre.controller.book.BookSearchingController
 searchedBooks=com.livre.controller.book.BookSearchedController
 #bookDetail=com.livre.controller.book.BookDetailController
 my-review=com.livre.controller.book.MyReviewController
+reviewDel=com.livre.controller.book.DeleteReviewController
+reviewSearch=com.livre.controller.book.MyReviewSearchController
 # member section
-login=com.livre.controller.member.MemberLoginController
-logout=com.livre.controller.member.MemberLogoutController
+meLogin=com.livre.controller.member.MemberLoginController
