@@ -160,7 +160,7 @@ public class MyReviewDao extends SuperDao{
 	 * 내 독후감 삭제 DAO
 	 * */
 	public int deleteData(int reviewNo) { 				
-		String sql = "delete from reviews where reviewno = ?" ;
+		String sql = "delete from reviews where reviewNo = ?" ;
 		
 		PreparedStatement pstmt = null ;
 		int cnt = -9999999 ;
@@ -173,16 +173,22 @@ public class MyReviewDao extends SuperDao{
 			pstmt = conn.prepareStatement(sql) ;
 			
 			pstmt.setInt(1, reviewNo);
-			
+			System.out.println(reviewNo);
+			System.out.println(sql);
 			cnt = pstmt.executeUpdate() ;			
 			conn.commit();
-			
+			System.out.println("1");
 		} catch (Exception e) {
+			System.out.println("2");
 			e.printStackTrace();
 			try {
+				System.out.println("3");
 				conn.rollback();
+				System.out.println("4");
 			} catch (SQLException e1) {
+				System.out.println("5");
 				e1.printStackTrace();
+				System.out.println("6");
 			}
 			
 		} finally {

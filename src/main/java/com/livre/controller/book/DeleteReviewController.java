@@ -7,7 +7,6 @@ import com.livre.common.SuperClass;
 import com.livre.model.dao.MyReviewDao;
 
 public class DeleteReviewController extends SuperClass{
-	private final String PREFIX = "book/";
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -18,7 +17,7 @@ public class DeleteReviewController extends SuperClass{
 		int cnt = -1;
 		cnt = dao.deleteData(reviewNo);		
 
-		new DeleteReviewController().doGet(request, response); 
+		new MyReviewController().doGet(request, response); 
 	}
 	
 }

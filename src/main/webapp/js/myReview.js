@@ -18,21 +18,3 @@ function xBtn(){
 	}
 }
 
-/* 독후감 삭제 */
-function deleteReview(reviewNo, paramList){
-	/* no : 삭제될 게시물 번호, paramList : 페이징 관련 파라미터들 */
-		
-		var response = window.confirm('해당 게시물을 삭제하시겠습니까?');
-		
-		if(response==true){
-			var url = '<%=notWithFormTag%>reviewDel&reviewno=' + reviewNo + paramList;
-			/*alert(url);*/
-			location.href = url ;
-		
-		}else{
-			alert('게시물 삭제가 취소되었습니다.');
-			return false ;
-		}
-}
-
-

@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../common/common.jsp"%>
+<%@ include file="../common/common2.jsp"%>
 
 
 
@@ -19,21 +19,34 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <link rel="icon" href="/livre/css/favicon.png">
     
     <title>내 독후감</title>
-    <script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
+   <script>
+	/* 독후감 삭제 */
+	function delReview(reviewNo, paramList){
+	/* no : 삭제될 게시물 번호, paramList : 페이징 관련 파라미터들 */
+		
+		var response = window.confirm('해당 게시물을 삭제하시겠습니까?');
+		
+		if(response==true){
+			var url = '<%=notWithFormTag%>reviewDel&reviewNo=' + reviewNo + paramList;
+			/*alert(url);*/
+			location.href = url ;
+		
+		}else{
+			alert('게시물 삭제가 취소되었습니다.');
+			return false ;
+		}
+}
+
+
+   
+   </script> 
   	
 </head>
 
 <body>
     
-
-   
-    <!--  
+  
     
-    메뉴 바 사용하는 사람들만 주석 풀어서 사용 해 주세요
-    사용하지 않는 페이지는 삭제하고 쓰기 (+css)
-     --> 
-    
-
     <section>
      
      <!-- index.jsp를 복사 후 section 내부를 삭제하고 코드를 작성 해 주세요 + (index.css도 삭제) -->
@@ -65,9 +78,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <%-- 박스 누르면 상세 페이지로 이동 --%>
                <c:forEach var="bean" items="${requestScope.dataList}" varStatus="status">
                 
-                <div class="my-review" value="${review.no}">
-	      		  <div id="del" class="del" onclick="return deleteReview('${bean.reviewNo}', '${requestScope.paging.flowParameter}');"><i class="fa-solid fa-x"></i></div>
-            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${review.no}">
+                <div class="my-review" value="${bean.reviewNo}">
+	      		  <div id="del" class="del" onclick="return delReview('${bean.reviewNo}','${requestScope.paging.flowParameter}');"><i class="fa-solid fa-x"></i></div>
+            
+            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${bean.reviewNo}">
                 <!-- X 표시 -->
                     <p class="book-name">${bean.reviewTitle}</p>
                     <div class="star-author">
@@ -102,4 +116,5 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    
 </body>
 <script src="/livre/js/myReview.js"></script>
+<script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
 </html>
