@@ -47,14 +47,14 @@ public class MemberDao extends SuperDao{
 			bean.setMemberEmail(rs.getString("memberEmail"));
 			bean.setMemberPw(rs.getString("memberPw"));
 			bean.setMemberNick(rs.getString("memberNick"));
-			bean.setTermsFL(rs.getString("termsFL"));
-			bean.setEnrollDate(rs.getString("enrollDate"));
-			bean.setSnsFL(rs.getString("snsFL"));
-			bean.setMemberImg(rs.getString("memberImg"));
-			bean.setMemberAddress(rs.getString("memberAddress"));
-			bean.setGenreNo(rs.getInt("genreNo"));
-			bean.setReivewNo(rs.getInt("reviewNo"));
-			bean.setRankNo(rs.getInt("rankNo"));
+//			bean.setTermsFL(rs.getString("termsFL"));
+//			bean.setEnrollDate(rs.getString("enrollDate"));
+//			bean.setSnsFL(rs.getString("snsFL"));
+//			bean.setMemberImg(rs.getString("memberImg"));
+//			bean.setMemberAddress(rs.getString("memberAddress"));
+//			bean.setGenreNo(rs.getInt("genreNo"));
+//			bean.setReivewNo(rs.getInt("reviewNo"));
+//			bean.setRankNo(rs.getInt("rankNo"));
 			return bean ;
 			
 		} catch (Exception e) {

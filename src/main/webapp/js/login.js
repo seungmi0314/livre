@@ -1,4 +1,8 @@
-window.onload = function() {
+
+
+
+/*window.onload = function() {
+	const 
 
 	const pw_show_hide = document.querySelector('.pw_show_hide')
 	const input_email = document.querySelector('input[type=text]')
@@ -25,9 +29,9 @@ window.onload = function() {
 			pw_show_hide.style.backgroundPosition = '-126px 0'
 			i = true
 		}
-	})
+	})*/
 
-	// JavaScript 코드 (login.js 파일 등)
+/*	// JavaScript 코드 (login.js 파일 등)
 
 	// 페이지 로드 시 호출되는 함수
 	document.addEventListener("DOMContentLoaded", function() {
@@ -76,28 +80,28 @@ window.onload = function() {
 				return cookie.substring(nameEQ.length, cookie.length);
 			}
 		}
-		return null;
+		return null;*/
+	
+
+// 쿠키를 삭제하는 함수
+function deleteCookie(name) {
+	document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// 저장된 쿠키를 확인하고 이메일을 입력란에 설정하는 함수
+function checkRememberEmail() {
+	var rememberCheckbox = document.getElementById("remember-check");
+	var memberEmailInput = document.getElementById("memberEmail");
+
+	// 저장된 이메일 쿠키 확인
+	var rememberEmail = getCookie("rememberEmail");
+
+	if (rememberEmail) {
+		// 쿠키가 존재하면 이메일 입력란에 설정하고 체크박스를 체크
+		memberEmailInput.value = rememberEmail;
+		rememberCheckbox.checked = true;
 	}
+}
 
-	// 쿠키를 삭제하는 함수
-	function deleteCookie(name) {
-		document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-	}
-
-	// 저장된 쿠키를 확인하고 이메일을 입력란에 설정하는 함수
-	function checkRememberEmail() {
-		var rememberCheckbox = document.getElementById("remember-check");
-		var memberEmailInput = document.getElementById("memberEmail");
-
-		// 저장된 이메일 쿠키 확인
-		var rememberEmail = getCookie("rememberEmail");
-
-		if (rememberEmail) {
-			// 쿠키가 존재하면 이메일 입력란에 설정하고 체크박스를 체크
-			memberEmailInput.value = rememberEmail;
-			rememberCheckbox.checked = true;
-		}
-	}
-
-} // onload end
+ // onload end
 
