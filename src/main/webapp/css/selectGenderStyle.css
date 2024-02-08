@@ -140,3 +140,6 @@ img:hover {
 }
 
 
+.hiddenCheckbox {
+	display: none;
+}

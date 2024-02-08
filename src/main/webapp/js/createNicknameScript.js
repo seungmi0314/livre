@@ -64,7 +64,7 @@
             }
 
             // 입력 값이 유효한 경우 다음 페이지로 이동합니다.
-            window.location.href = "finalCheck.jsp"; // 다음 페이지 주소를 입력하세요.
+            window.location.href = "/Mylivre/member/finalCheck.jsp"; // 다음 페이지 주소를 입력하세요.
         }
         
      // preButton을 눌렀을 때 이전 페이지로 돌아가는 함수

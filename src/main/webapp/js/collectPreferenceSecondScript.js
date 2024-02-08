@@ -59,7 +59,7 @@
             // 최소 1개의 이미지가 선택되었는지 확인
             if (selectedImageCount >= 1) {
                 // 다음 페이지로 이동합니다.
-                window.location.href = "selectGender.jsp";
+                window.location.href = "/Mylivre/member/selectGender.jsp";
             } else {
                 // 메시지를 표시하거나 다른 조치를 취할 수 있습니다.
                 alert("최소 1개의 장르를 선택해야 합니다.");

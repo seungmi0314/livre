@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,10 @@
 <title>회원가입 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="./../js/joinMemberShipScript.js"></script>
-<link rel="stylesheet" href="./../css/joinMemberShipStyle.css">
-<link rel="stylesheet" href="./../css/index.css" />
-<link rel="stylesheet" href="./../css/header.css" />
+<script src="/Mylivre/js/joinMemberShipScript.js"></script>
+<link rel="stylesheet" type="text/css" href="/Mylivre/css/joinMemberShipStyle.css">
+<link rel="stylesheet" href="/Mylivre/css/index.css" />
+<link rel="stylesheet" href="/Mylivre/css/header.css" />
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -21,7 +22,7 @@
 		<header>
 			<!-- 헤더 입니다 -->
 			<div class="header">
-				<img src="./../assets/logo.svg" class="h-logo">
+				<img src="/Mylivre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
 			</div>
 
@@ -31,7 +32,8 @@
 		</header>
 	</main>
 	<section>
-	<form name="logInForm" method="post" action="agreement.jsp">
+	<form name="logInForm" method="post" action="<%=withFormTag%>">
+	<input type="hidden" name="command" value="meInsert">
 		<!-- 로그인 배너 -->
 		<div class="container mt-3">
 			<span id="banner"><b>회원가입</b></span><br /> <span id="checkAccount">이미
@@ -41,7 +43,7 @@
 				<!-- 이메일 기입란 -->
 				<div class="mb-3 mt-3">
 					<label for="uname" class="form-label" id="emailbanner"></label>
-					<input id="inputEmail" type="text" class="form-control" name="email"
+					<input id="inputEmail" type="text" class="form-control" name="emailParam"
 						placeholder="이메일 " required>
 					<div class="valid-feedback"></div>
 					<hr width="450px">
@@ -50,9 +52,9 @@
 				</div>
 				<!-- 비밀번호 기입란 -->
 				<div class="mb-3">
-					<label for="pwd" class="form-label" id="passwordbanner"></label> <input
-						id="inputPassword" type="password" class="form-control" id="pwd"
-						placeholder="비밀번호" required>
+					<label for="pwd" class="form-label" id="passwordbanner"></label> 
+					<input id="inputPassword" type="password" class="form-control" id="pwd"
+						placeholder="비밀번호" name="passwordParam" required>
 					<div class="valid-feedback"></div>
 					<hr width="450px">
 					<div class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
@@ -62,7 +64,7 @@
 				<div class="mb-3">
 					<label for="pwdCheck" class="form-label" id="passwordCheckbanner"></label>
 					<input id="inputPasswordck" type="password" class="form-control"
-						id="pwdck" placeholder="비밀번호 확인" required>
+						id="pwdck" name="passwordckParam" placeholder="비밀번호 확인" required>
 					<div class="valid-feedback"></div>
 					<hr width="450px">
 					<div class="invalid-feedback" id="validPasswordck">* 비밀번호가
@@ -89,7 +91,7 @@
 				</div>
 				<!-- 카카오톡 로그인 -->
 				<a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img
-					id="kakaoIcon" class="img-concert" src="./../assets/kakaoIcon.png"
+					id="kakaoIcon" class="img-concert" src="/Mylivre/assets/kakaoIcon.png"
 					width="40px" height="40px" /></a> </br> </br>
 				<!-- 환영문구 -->
 				<span id="welcomeTitle"> <b>어서오세요! </br>

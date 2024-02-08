@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="./../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./../css/finalCheckStyle.css">
-<link rel="stylesheet" href="./../css/index.css" />
-<link rel="stylesheet" href="./../css/header.css" />
-<script src="./../js/finalCheckScript.js"></script>
+<link rel="stylesheet" href="/Mylivre/css/finalCheckStyle.css">
+<link rel="stylesheet" href="/Mylivre/css/index.css" />
+<link rel="stylesheet" href="/Mylivre/css/header.css" />
+<script src="/Mylivre/js/finalCheckScript.js"></script>
 
 
 <title>최종 완료</title>
