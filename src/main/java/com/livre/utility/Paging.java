@@ -41,6 +41,23 @@ public class Paging {
 		this.flowParameter += "&keyword=" + keyword;
 	}
 	
+	/*
+	 * 독후감 검색
+	 * */
+	public Paging(String url, String keyword) {
+		
+		this.url = url;
+
+
+		this.keyword = keyword == null || keyword.equals("null") || keyword.equals("") ? "" : keyword;
+		/* in searchedBooks.jsp */
+
+		this.flowParameter = "";
+		this.flowParameter += "&keyword=" + keyword;
+	}
+	
+	
+	
 	public Paging(String _pageNumber, String _pageSize, int totalCount, String url, String mode, String keyword,
 			boolean isGrid) {
 		if (_pageNumber == null || _pageNumber.equals("null") || _pageNumber.equals("")) {

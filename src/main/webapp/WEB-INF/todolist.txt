@@ -14,5 +14,6 @@ searchedBooks=com.livre.controller.book.BookSearchedController
 my-review=com.livre.controller.book.MyReviewController
 reviewDel=com.livre.controller.book.DeleteReviewController
 reviewSearch=com.livre.controller.book.MyReviewSearchController
+reviewSearched=com.livre.controller.book.MyReviewSearchedController
 # member section
 meLogin=com.livre.controller.member.MemberLoginController

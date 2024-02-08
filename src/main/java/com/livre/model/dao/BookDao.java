@@ -123,7 +123,7 @@ public class BookDao extends SuperDao {
 		// 필드 검색을 위해 mode 변수로 분기 처리 하도록 합니다.
 		String mode = paging.getMode();
 		String keyword = paging.getKeyword();
-		if (keyword != null && !keyword.equals("null") && !keyword.equals("")) {
+		if (keyword != null && !keyword.equals("null") && !keyword.equals("") || mode.equals("")) {
 		    sql += " where (booktitle like '%" + keyword + "%' or author like '%" + keyword + "%')";
 		}
 
