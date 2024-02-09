@@ -31,7 +31,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <div class="header-right">
             <a href="/livre/Livre?command=login">로그인</a>
-            <a href="#">회원가입</a>
+            <a href="/livre/Livre?command=meInsert">회원가입</a>
         </div>
         </header>
 

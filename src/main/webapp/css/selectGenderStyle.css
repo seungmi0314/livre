@@ -1,12 +1,18 @@
 @charset "UTF-8";
+
 @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-
-
+	font-family: 'Pretendard-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+		format('woff');
+	font-weight: 400;
+	font-style: normal;
 }
+
+* {
+	box-sizing: border-box;
+}
+
 section {
 	width: 100vw;
 	height: 100vh;
@@ -18,9 +24,9 @@ section {
 }
 
 #mainBoard {
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	text-align: center;
 	width: 350px;
 	height: 450px;
@@ -31,7 +37,7 @@ section {
 
 img {
 	width: 120px;
-	height:130px;
+	height: 130px;
 	border-radius: 20px;
 }
 
@@ -47,7 +53,7 @@ img:hover {
 	background-color: #E4C8C8;
 }
 
-#firstLineDiv{
+#firstLineDiv {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -60,7 +66,7 @@ img:hover {
 	margin: -2px;
 }
 
-#manText, #womenText{
+#manText, #womenText {
 	font-weight: 700;
 	color: #742323;
 }
@@ -96,11 +102,10 @@ img:hover {
 	justify-content: flex-end;
 }
 
-
 #questionTitle {
 	color: #742323;
 	font-weight: 700;
-	margin-bottom: 30px; 
+	margin-bottom: 30px;
 }
 
 #progressDiv {
@@ -139,7 +144,18 @@ img:hover {
 	color: black; /* 텍스트 색상 */
 }
 
-
 .hiddenCheckbox {
 	display: none;
+}
+
+.hiddenRadio {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+    clip: rect(0 0 0 0);
 }

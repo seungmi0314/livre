@@ -2,7 +2,7 @@
 # member section
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
-#meInsert=com.shopping.controller.member.MemberInsertController
+meInsert=com.livre.controller.member.MemberInsertController
 #meUpdate=com.shopping.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController

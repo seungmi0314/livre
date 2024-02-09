@@ -44,4 +44,14 @@
 	</section>
 
 </body>
+<script>
+    // 다음 페이지로 이동하는 함수
+    function moveToNextPage() {
+        // 메인 페이지의 절대 경로 설정
+        var mainPageURL = "/Mylivre/index.jsp"; // 수정 필요
+
+        // 메인 페이지로 이동
+        window.location.href = mainPageURL;
+    }
+</script>
 </html>
