@@ -9,8 +9,8 @@
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
 searchingBook=com.livre.controller.book.BookSearchingController
-searchedBooks=com.livre.controller.book.BookSearchedController
-#bookDetail=com.livre.controller.book.BookDetailController
+bookList=com.livre.controller.book.BookListController
+bookDetail=com.livre.controller.book.BookDetailController
 my-review=com.livre.controller.book.MyReviewController
 reviewDel=com.livre.controller.book.DeleteReviewController
 reviewSearch=com.livre.controller.book.MyReviewSearchController

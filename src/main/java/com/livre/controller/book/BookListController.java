@@ -10,7 +10,7 @@ import com.livre.model.bean.Book;
 import com.livre.model.dao.BookDao;
 import com.livre.utility.Paging;
 
-public class BookSearchedController extends SuperClass {
+public class BookListController extends SuperClass {
 	private final String PREFIX = "book/";
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,7 +25,7 @@ public class BookSearchedController extends SuperClass {
 		BookDao dao = new BookDao();
 		
 		int totalCount = dao.getTotalRecordCount("books", mode, keyword);
-		String url = super.getUrlInformation("searchedBooks");
+		String url = super.getUrlInformation("bookList");
 		//boolean isGrid = false;
 		
 		//Paging paging = new Paging(pageNumber, pageSize, totalCount, url, mode, keyword, isGrid);
@@ -40,6 +40,6 @@ public class BookSearchedController extends SuperClass {
 		request.setAttribute("keyword", keyword);
 		request.setAttribute("mode", mode);
 		
-		super.goToPage(PREFIX + "searchedBooks.jsp");
+		super.goToPage(PREFIX + "bookList.jsp");
 	}
 }
