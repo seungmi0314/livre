@@ -9,12 +9,13 @@ meInsert=com.livre.controller.member.MemberInsertController
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
 searchingBook=com.livre.controller.book.BookSearchingController
-bookList=com.livre.controller.book.BookListController
-bookDetail=com.livre.controller.book.BookDetailController
+searchedBooks=com.livre.controller.book.BookSearchedController
+#bookDetail=com.livre.controller.book.BookDetailController
 my-review=com.livre.controller.book.MyReviewController
 reviewDel=com.livre.controller.book.DeleteReviewController
 reviewSearch=com.livre.controller.book.MyReviewSearchController
 reviewSearched=com.livre.controller.book.MyReviewSearchedController
+reviewDetail=com.livre.controller.book.MyReviewDetailController
 # member section
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
