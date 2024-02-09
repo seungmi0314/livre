@@ -62,4 +62,9 @@ public class MemberDao extends SuperDao{
 			return null ;
 		}
 	}
+
+	public int insertData(Member bean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

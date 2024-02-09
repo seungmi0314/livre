@@ -57,10 +57,10 @@ public class MemberInsertController extends SuperClass {
 		}
 		bean.setHobby(hobby);  
 		 
-		
+			*/
 		
 		//엑시큐트 업데이트의 반환타입이 int 라서 int로 적은것이다.
-		//int cnt = dao.insertData(bean);
+		int cnt = dao.insertData(bean);
 		
 		if(cnt==1){//인서트 성공
 			//로그인 컨트롤러의 doPost() 메소드를 호출하면 가입과 동시에 로그인하는 효과를 봅니다.
@@ -69,7 +69,7 @@ public class MemberInsertController extends SuperClass {
 		}else{//인서트 실패
 			new MemberInsertController().doGet(request, response);
 		}
-		*/
+	
 		
 		
 	}
