@@ -52,6 +52,7 @@ public class MemberDao extends SuperDao{
 //			bean.setSnsFL(rs.getString("snsFL"));
 //			bean.setMemberImg(rs.getString("memberImg"));
 //			bean.setMemberAddress(rs.getString("memberAddress"));
+//			bean.setMemberGender(rs.getString("memberGender"));
 //			bean.setGenreNo(rs.getInt("genreNo"));
 //			bean.setReivewNo(rs.getInt("reviewNo"));
 //			bean.setRankNo(rs.getInt("rankNo"));
@@ -64,7 +65,75 @@ public class MemberDao extends SuperDao{
 	}
 
 	public int insertData(Member bean) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println(bean);
+		String sql=" insert into members(memberNo, genreNo, rankNo, memberEmail, memberPw, memberNick, termsFL, enrollDate, snsFL, memberImg, memberAddress, memberGender ) ";
+		sql += " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstmt = null;
+		int cnt = -999999;
+		
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bean.getMemberNo());
+			pstmt.setInt(2, bean.getGenreNo());
+			pstmt.setInt(3, bean.getRankNo());
+			pstmt.setString(4, bean.getMemberEmail());
+			pstmt.setString(5, bean.getMemberPw());
+			pstmt.setString(6, bean.getMemberNick());
+			pstmt.setString(7, bean.getTermsFL());
+			pstmt.setString(8, bean.getEnrollDate());
+			pstmt.setString(9, bean.getSnsFL());
+			pstmt.setString(10, bean.getMemberImg());
+			pstmt.setString(11, bean.getMemberAddress());
+			pstmt.setString(12, bean.getMemberGender());
+			
+			cnt = pstmt.executeUpdate();
+			conn.commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}finally {
+			try {
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt;
 	}
+		
+	public MemberDao() {
+		super();
+	}	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

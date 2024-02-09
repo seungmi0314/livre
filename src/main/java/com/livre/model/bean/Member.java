@@ -10,6 +10,7 @@ public class Member {
 	private String snsFL;
 	private String memberImg;
 	private String memberAddress;
+	private String memberGender;
 	
 	private int genreNo;
 	private int reivewNo;
@@ -24,7 +25,7 @@ public class Member {
 
 	// 매개변수 생성자
 	public Member(int memberNo, String memberEmail, String memberPw, String memberNick, String termsFL,
-			String enrollDate, String snsFL, String memberImg, String memberAddress, int genreNo, int reivewNo,
+			String enrollDate, String snsFL, String memberImg, String memberAddress, String memberGender, int genreNo, int reivewNo,
 			int rankNo) {
 		super();
 		this.memberNo = memberNo;	// 회원 번호
@@ -36,10 +37,22 @@ public class Member {
 		this.snsFL = snsFL;	// 간편 가입 여부
 		this.memberImg = memberImg;	// 프로필 이미지
 		this.memberAddress = memberAddress;	// 주소
+		this.memberGender = memberGender; // 성별
 		
 		this.genreNo = genreNo;	// 장르 번호
 		this.reivewNo = reivewNo;	// 리뷰 번호
 		this.rankNo = rankNo;	// 등급 번호
+	}
+	
+	
+
+	public String getMemberGender() {
+		return memberGender;
+	}
+
+
+	public void setMemberGender(String gender) {
+		this.memberGender = gender;
 	}
 
 
@@ -167,7 +180,7 @@ public class Member {
 	public String toString() {
 		return "Member [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberPw=" + memberPw
 				+ ", memberNick=" + memberNick + ", termsFL=" + termsFL + ", enrollDate=" + enrollDate + ", snsFL="
-				+ snsFL + ", memberImg=" + memberImg + ", memberAddress=" + memberAddress + ", genreNo=" + genreNo
+				+ snsFL + ", memberImg=" + memberImg + ", memberAddress=" + memberAddress + ", gender=" + memberGender + ", genreNo=" + genreNo
 				+ ", reivewNo=" + reivewNo + ", rankNo=" + rankNo + "]";
 	}
 	

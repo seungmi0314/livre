@@ -41,10 +41,12 @@ public class MemberInsertController extends SuperClass {
 		bean.setReivewNo(Integer.parseInt(request.getParameter("reviewNo")));
 		bean.setSnsFL(request.getParameter("snsFL"));
 		bean.setTermsFL(request.getParameter("termsFL"));
+		bean.setMemberGender(request.getParameter("memberGender"));
 		
-		/*
+		
 		 //적립 포인트는 데이터 베이스 기본값으로 대체하면 문제 없음.
 		
+		/*
 		//for checkbox control
 		String hobby="";
 		String[] hobbies = request.getParameterValues("hobby");
@@ -56,8 +58,8 @@ public class MemberInsertController extends SuperClass {
 			}
 		}
 		bean.setHobby(hobby);  
-		 
-			*/
+		 */
+			
 		
 		//엑시큐트 업데이트의 반환타입이 int 라서 int로 적은것이다.
 		int cnt = dao.insertData(bean);
