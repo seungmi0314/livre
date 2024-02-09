@@ -86,15 +86,21 @@ body {
 
 
 .book-info p{
+	
     font-size: 14px;
     font-weight: 700;
     padding: 3px 10px;
     
 }
 
+.book-info span {
+	font-weight: 400;
+}
+
+
 .book-info {
     margin-bottom: 15px;
-}
+ }
 
 .star {
     padding: 0 10px;
@@ -242,6 +248,7 @@ input[type=checkbox]:checked + label {
     display: flex;
     justify-content: center;
     margin: 55px 0;
+    
 }
 
 .submit {
@@ -254,6 +261,7 @@ input[type=checkbox]:checked + label {
     background-color: #C24B4B;
     transition: all ease-in-out 0.15s;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .submit:hover {

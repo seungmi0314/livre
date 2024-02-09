@@ -9,8 +9,7 @@ import com.livre.common.SuperClass;
 import com.livre.model.bean.MyReview;
 import com.livre.model.dao.MyReviewDao;
 
-
-public class MyReviewController extends SuperClass{
+public class MyReviewController  extends SuperClass{
 	private final String PREFIX = "book/";
 
 	// 내 독후감 목록 기본 페이지
