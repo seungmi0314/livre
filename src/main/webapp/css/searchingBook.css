@@ -5,7 +5,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
 /* 페이지 스크롤바 없애기 */
 html, html::-webkit-scrollbar{
 	overflow: hidden;
@@ -21,10 +20,6 @@ section {
     background-repeat: no-repeat;
     background-position: bottom 200px left 30px;
     
-}
-/* 검색창 로고 */
-.h-logo-name {
-    padding-top: 17px;
 }
 
 /* 검색창 */

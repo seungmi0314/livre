@@ -6,15 +6,6 @@
     font-style: normal;
 }
 
-/* 돋보기 버튼의 이미지가 헤더와 메뉴를 뚫고 나오지 않게 z-index를 설정 */
-header{
-	z-index: 99999;
-}
-
-.menu-bar{
-	z-index: 99999;
-}
-
 section {
 	width: 100vw;
 	height: 100vh;
@@ -28,11 +19,6 @@ section {
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-}
-
-/* 검색창 로고 */
-.h-logo-name {
-    padding-top: 17px;
 }
 
 /* 검색창 */
