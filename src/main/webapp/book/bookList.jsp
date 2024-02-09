@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>livre</title>
-	<link rel="stylesheet" href="/livre/css/searchedBooks.css">
+	<link rel="stylesheet" href="/livre/css/bookList.css">
 	<script type="text/javascript">
 		$(document).ready(function(){
 	        /* 필드 검색시 체크한 콤보박스 상태 보존 */
@@ -30,7 +30,7 @@
 
 		<!-- 검색창 -->
 		<form action="<%=withFormTag%>" method="get">
-		<input type="hidden" name="command" value="searchedBooks">
+		<input type="hidden" name="command" value="bookList">
 			<div class="d-flex bd-highlight search-box-p">
 				<div class="p-2 flex-fill bd-highlight searchbox-btn">
 					<input class="search-box" type="text" id="keyword" name="keyword" placeholder="검색어를 입력해 주세요.">
@@ -78,7 +78,7 @@
 		
 			<c:forEach var="bean" items="${dataList}">
 				<div class="result-card">
-					<a href="/livre/book/bookDetail.jsp">
+					<a href="<%=notWithFormTag%>bookDetail&bookNo=${bean.bookNo}">
 					<span>
 						<img class="book-img" src="/livre/dummy/${bean.bookImg}">
 					</span>

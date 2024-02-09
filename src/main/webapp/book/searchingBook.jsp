@@ -17,7 +17,7 @@
 	
 		<!-- 검색창 -->
 		<form action="<%=withFormTag%>" method="get">
-		<input type="hidden" name="command" value="searchedBooks">
+		<input type="hidden" name="command" value="bookList">
 			<div class="d-flex bd-highlight search-box-p">
 				<div class="p-2 flex-fill bd-highlight searchbox-btn">
 					<input class="search-box" type="text" id="keyword" name="keyword" placeholder="검색어를 입력해 주세요.">

@@ -21,21 +21,12 @@
 			
 			<!-- 책 정보 -->
 			<div class="book-detail">
-				<img class="book-image" src="/livre/assets/bookimage.svg">
+				<img class="book-image" src="/livre/dummy/${requestScope.bean.bookImg}">
 				<div class="book-info">
-					<p class="book-info-p book-title">책 제목 입니다.</p>
-					<p class="book-info-p book-subTitle">부제목(?) 입니다.부제목(?) 입니다.</p>
-					<p class="author-publisher">지은이 | 출판사</p>
-					<p>
-						<본서의 특징><br>
-						■ 수험생 입장에서 정보처리기사 합격을 위한 다양한 솔루션 제공!<br>
-						■ 2023년 CBT 기출 복원문제+암기 비법서 PDF+별도 족보 문제 제공비전공자를 위한 최고의 수험서!!<br>
-						1. 2023년 CBT 기출 복원문제 상세 반영!<br>
-						2. 빠른 학습을 위한 중요도 표시 및 학습 Point 수록<br>
-						3. 데일리 문제 및 유튜브 문제 풀이 강의 영상 제공<br>
-						4. 최적의 암기비법 PDF 제공<br>
-						5. 합격만을 위한 수제비 학습 전략 안내
-					</p>
+					<p class="book-info-p book-title">${requestScope.bean.bookTitle}</p>
+					<p></p>
+					<p class="author-publisher">${requestScope.bean.author} | ${requestScope.bean.publisher}</p>
+					<p>${requestScope.bean.bookContent}</p>
 				</div>
 				<div class="buyBook-btn-div">
 					<button class="buyBook-btn"><span>이 책 사러가기</span></button>
