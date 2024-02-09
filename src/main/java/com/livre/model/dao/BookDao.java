@@ -137,7 +137,7 @@ public class BookDao extends SuperDao {
 		}
 		
 		sql += " )";
-		sql += " where ranking between ? and ? ";
+		//sql += " where ranking between ? and ? ";
 		
 		System.out.println("sql 구문 :\n" + sql);
 		
@@ -152,8 +152,8 @@ public class BookDao extends SuperDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, 1);
-			pstmt.setInt(2, 107);
+			//pstmt.setInt(1, 1);
+			//pstmt.setInt(2, 107);
 			
 			rs = pstmt.executeQuery();
 			
