@@ -81,7 +81,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <div class="my-review" value="${bean.reviewNo}">
 	      		  <div id="del" class="del" onclick="return delReview('${bean.reviewNo}','${requestScope.paging.flowParameter}');"><i class="fa-solid fa-x"></i></div>
             
-            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${bean.reviewNo}">
+           <%-- <c:set var="readhitUpdate" value="${not (sessionScope.loginfo.memberEmail == bean.memberEmail)}"/>  --%>
+            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${bean.reviewNo}&readhitUpdate=${readhitUpdate}${requestScope.paging.flowParameter}">
                 <!-- X 표시 -->
                     <p class="book-name">${bean.reviewTitle}</p>
                     <div class="star-author">

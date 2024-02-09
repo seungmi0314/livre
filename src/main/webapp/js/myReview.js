@@ -6,14 +6,15 @@ function xBtn(){
 	
 	// x버튼 숨기기
 	 for (let i = 0; i < xBtn.length; i++) {
-	    // x버튼 숨기기
-		if(xBtn[i].style.visibility !== 'hidden') {
+	    
+		if(xBtn[i].style.visibility == 'hidden') {
 	
-		    xBtn[i].style.visibility = 'hidden';
+		    // 보이기
+		    xBtn[i].style.visibility = 'visible';
 	
 		  } else {
-			// 보이기
-		    xBtn[i].style.visibility = 'visible';
+			
+		    xBtn[i].style.visibility = 'hidden';
 	  }
 	}
 }

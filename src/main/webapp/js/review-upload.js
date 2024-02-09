@@ -59,3 +59,45 @@ const showList = (data, value, nowIndex) => {
     )
     .join("");
 };
+
+
+
+
+/* 수정하기 버튼 눌렀을 때 */
+function submit(){
+	
+	const submitBtn = document.getElementById('submit');
+	
+	
+	 // btn1 숨기기 (visibility: hidden)
+
+	  if(submitBtn.style.visibility !== 'hidden') {
+
+	   		 submitBtn.style.visibility = 'hidden';
+
+	  }
+
+	  // btn` 보이기 (visibility: visible)
+
+	  else {
+
+	    submitBtn.style.visibility = 'visible';
+
+	  }
+	
+}
+
+function edit() {
+
+	var inputs = document.getElementsByClassName('write');
+	
+		for(var i = 0; i < inputs.length; i++) {
+			
+			if(inputs[i].readOnly = true) {
+				
+				inputs[i].readOnly = false;
+			} else {
+				inputs[i].readOnly = true;
+			}
+		}
+}
