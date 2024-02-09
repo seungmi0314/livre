@@ -45,77 +45,31 @@
 			</div>
 			
 			<!-- 독후감 카드 -->
-			<div class="reviewCard">
-				<img class="user-image" src="/livre/assets/user-image.svg">
-				<div class="user-simple-review">
-					<p class="user-nickname">닉네임</p>
-					<p class="review-title">독후감 제목</p>
-					<p>
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-					</p>
+			<c:forEach var="bean" items="${dataList}">
+			<a class="review-a" href="#">
+				<div class="reviewCard">
+					<img class="user-image" src="/livre/assets/${bean.memberImg}">
+					<div class="user-simple-review">
+						<p class="user-nickname">${bean.memberNick}</p>
+						<p class="review-title">${bean.reviewTitle}</p>
+						<p>
+						    <c:choose>
+						        <c:when test="${fn:length(bean.reviewText) > 150}">
+						            ${fn:substring(bean.reviewText, 0, 120)} <span class="moreView">...더보기</span>
+						        </c:when>
+						        <c:otherwise>
+						            ${bean.reviewText}
+						        </c:otherwise>
+						    </c:choose>
+						</p>
+					</div>
+					<div class="cd-rh">
+						<p>작성일자 : ${bean.createDate}</p>
+						<p>조회수 : ${bean.readHit}</p>
+					</div>
 				</div>
-				<div class="cd-rh">
-					<p>작성일자 : 2020/02/02</p>
-					<p>조회수 : 33</p>
-				</div>
-			</div>
-			
-			<div class="reviewCard">
-				<img class="user-image" src="/livre/assets/user-image.svg">
-				<div class="user-simple-review">
-					<p class="user-nickname">닉네임</p>
-					<p class="review-title">독후감 제목</p>
-					<p>
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-					</p>
-				</div>
-				<div class="cd-rh">
-					<p>작성일자 : 2020/02/02</p>
-					<p>조회수 : 33</p>
-				</div>
-			</div>
-			
-			<div class="reviewCard">
-				<img class="user-image" src="/livre/assets/user-image.svg">
-				<div class="user-simple-review">
-					<p class="user-nickname">닉네임</p>
-					<p class="review-title">독후감 제목</p>
-					<p>
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-					</p>
-				</div>
-				<div class="cd-rh">
-					<p>작성일자 : 2020/02/02</p>
-					<p>조회수 : 33</p>
-				</div>
-			</div>
-			
-			<div class="reviewCard">
-				<img class="user-image" src="/livre/assets/user-image.svg">
-				<div class="user-simple-review">
-					<p class="user-nickname">닉네임</p>
-					<p class="review-title">독후감 제목</p>
-					<p>
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-						독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용 독후감 내용
-					</p>
-				</div>
-				<div class="cd-rh">
-					<p>작성일자 : 2020/02/02</p>
-					<p>조회수 : 33</p>
-				</div>
-			</div>
+			</a>
+			</c:forEach>
 			
 		</div>
 		

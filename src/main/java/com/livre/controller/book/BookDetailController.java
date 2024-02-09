@@ -1,5 +1,7 @@
 package com.livre.controller.book;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +24,10 @@ public class BookDetailController extends SuperClass {
 			super.goToPage(PREFIX + "searchedBooks.jsp");
 		}
 		
+		List<Book> dataList = dao.getDataListForBookDetail(bookNo);
+		
 		request.setAttribute("bean", bean);
+		request.setAttribute("dataList", dataList);
 		super.goToPage(PREFIX + "bookDetail.jsp");
 	}
 }

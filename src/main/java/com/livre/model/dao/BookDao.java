@@ -10,6 +10,7 @@ import com.livre.model.bean.Book;
 import com.livre.utility.Paging;
 
 public class BookDao extends SuperDao {
+	
 	//해당 책 번호를 이용하여 1건의 정보를 반환합니다.
 	public Book getDataBean(int bookNo) {
 		String sql = "select * from books";
@@ -69,6 +70,24 @@ public class BookDao extends SuperDao {
 		}
 		
 	}
+	private Book resultSet2Bean2(ResultSet rs) {
+		try {
+			Book bean = new Book();
+			
+			bean.setMemberImg(rs.getString("memberImg"));
+			bean.setMemberNick(rs.getString("memberNick"));
+			bean.setReviewTitle(rs.getString("reviewTitle"));
+			bean.setReviewText(rs.getString("reviewText"));
+			bean.setCreateDate(rs.getString("createDate"));
+			bean.setReadHit(rs.getInt("readHit"));
+			return bean;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
 
 	public BookDao() {
 		super();
@@ -110,6 +129,51 @@ public class BookDao extends SuperDao {
 			}
 		}
 				
+		return dataList;
+	}
+	
+	public List<Book> getDataListForBookDetail(int bookNo){
+		
+		String sql = "select m.memberimg, m.membernick, r.reviewtitle, r.reviewtext, r.createdate, r.readhit";
+		sql += " from members m";
+		sql += " join reviews r on r.memberno = m.memberno";
+		sql += " join books b on r.bookno = b.bookno";
+		sql += " where b.bookno = ?";
+		PreparedStatement pstmt = null; // 문장 객체
+		ResultSet rs = null;
+		
+		List<Book> dataList = new ArrayList<Book>();
+		
+		super.conn = super.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			System.out.println("sql 구문 : ");
+			System.out.println(sql);
+			pstmt.setInt(1, bookNo);
+			rs = pstmt.executeQuery();
+			
+			// 요소들을 읽어서 컬렉션에 담습니다.
+			while(rs.next()) {
+				Book bean = this.resultSet2Bean2(rs);
+				dataList.add(bean);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if(rs != null) {rs.close();}
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+				
+			} catch(Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
 		return dataList;
 	}
 	

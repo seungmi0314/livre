@@ -221,12 +221,22 @@ section {
 	padding-top: 1%;
 	font-size: 18px;
 }
+/* 요약 독후감 카드 */
+.review-a{
+	color: black;
+	text-decoration: none;
+}
 
 /* 독후감 제목 */
 .review-title{
 	font-size: 18px;	
 }
-
+/* ...더보기 */
+.moreView{
+	color: blue;
+	font-weight: bold;
+	font-style: italic;
+}
 /* 작성일자&조회수 */
 .cd-rh{
 	display: flex;

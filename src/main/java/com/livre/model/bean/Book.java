@@ -9,19 +9,92 @@ public class Book {
 	private String bookContent; // 책 내용
 	private int genreNo;	// 장르 번호
 	
+	private int memberNo;	// 회원 번호
+	private String memberImg; // 유저 프로필 이미지
+	private String memberNick; // 유저 닉네임
+	private String reviewTitle; // 독후감 제목
+	private String reviewText; // 독후감 내용
+	private String createDate;	// 작성일자
+	private int readHit;	// 조회수
+	
 	// 기본 생성자
 	public Book() {}
 
 	// 매개 변수 생성자
-	public Book(int bookNo, String bookTitle, String author, String publisher, String bookImg, int genreNo, String bookContent) {
+	public Book(int bookNo, String bookTitle, String author, String publisher, String bookImg, String bookContent,
+			int genreNo, int memberNo, String memberImg, String memberNick, String reviewTitle, String reviewText,
+			String createDate, int readHit) {
 		super();
 		this.bookNo = bookNo;
 		this.bookTitle = bookTitle;
 		this.author = author;
 		this.publisher = publisher;
 		this.bookImg = bookImg;
-		this.genreNo = genreNo;
 		this.bookContent = bookContent;
+		this.genreNo = genreNo;
+		this.memberNo = memberNo;
+		this.memberImg = memberImg;
+		this.memberNick = memberNick;
+		this.reviewTitle = reviewTitle;
+		this.reviewText = reviewText;
+		this.createDate = createDate;
+		this.readHit = readHit;
+	}
+
+	public int getMemberNo() {
+		return memberNo;
+	}
+
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
+
+	public String getMemberImg() {
+		return memberImg;
+	}
+
+	public void setMemberImg(String memberImg) {
+		this.memberImg = memberImg;
+	}
+
+	public String getMemberNick() {
+		return memberNick;
+	}
+
+	public void setMemberNick(String memberNick) {
+		this.memberNick = memberNick;
+	}
+
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+
+	public String getReviewText() {
+		return reviewText;
+	}
+
+	public void setReviewText(String reviewText) {
+		this.reviewText = reviewText;
+	}
+
+	public String getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public int getReadHit() {
+		return readHit;
+	}
+
+	public void setReadHit(int readHit) {
+		this.readHit = readHit;
 	}
 
 	public int getBookNo() {
@@ -83,7 +156,9 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [bookNo=" + bookNo + ", bookTitle=" + bookTitle + ", author=" + author + ", publisher=" + publisher
-				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + "]";
+				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + ", memberNo="
+				+ memberNo + ", memberImg=" + memberImg + ", memberNick=" + memberNick + ", reviewTitle=" + reviewTitle
+				+ ", reviewText=" + reviewText + ", createDate=" + createDate + ", readHit=" + readHit + "]";
 	}
 	
 	
