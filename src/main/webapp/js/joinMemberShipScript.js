@@ -6,7 +6,7 @@ $(document).ready(function() {
         // 이메일, 비밀번호, 비밀번호 확인 유효성 검사
         if (checkEmail() && checkPassword() && confirmPassword()) {
             // 유효한 경우 다음 페이지로 이동
-            window.location.href = '/Mylivre/member/agreement.jsp'; // 이동할 페이지 경로를 적절히 수정하세요
+            window.location.href = '/livre/member/agreement.jsp'; // 이동할 페이지 경로를 적절히 수정하세요
         }
     });
 });

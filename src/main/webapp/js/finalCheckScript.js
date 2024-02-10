@@ -62,7 +62,7 @@
 
 	function moveToNextPage() {
 		// 여기에 다음 페이지로 이동하는 코드를 추가합니다.
-		window.location.href = "/Mylivre/member/celebrate.jsp"; // 다음 페이지의 URL을 입력하세요.
+		window.location.href = "/livre/member/celebrate.jsp"; // 다음 페이지의 URL을 입력하세요.
 	}
 
 	// preButton을 눌렀을 때 이전 페이지로 돌아가는 함수

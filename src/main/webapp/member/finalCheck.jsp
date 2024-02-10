@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/Mylivre/css/finalCheckStyle.css">
-<link rel="stylesheet" href="/Mylivre/css/index.css" />
-<link rel="stylesheet" href="/Mylivre/css/header.css" />
-<script src="/Mylivre/js/finalCheckScript.js"></script>
+<link rel="stylesheet" href="/livre/css/finalCheckStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
+<script src="/livre/js/finalCheckScript.js"></script>
 
 
 <title>최종 완료</title>
