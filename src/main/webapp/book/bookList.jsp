@@ -18,7 +18,6 @@
 	                optionList[i].selected = true;
 	            }
 	        }
-	
 	        /* 필드 검색시 입력한 keyword 내용 보존 */
 	        $('#keyword').val('${requestScope.paging.keyword}');
     	});
@@ -45,7 +44,18 @@
 		
 			<!-- 검색 결과 텍스트 -->
 			<div class="result-text-div">
-	            <span class="result-text">"${requestScope.keyword}"에 대한 ${requestScope.paging.pagingStatus}의 검색 결과</span>
+				<c:choose>
+			        <c:when test="${requestScope.paging.pagingStatus == '총 0건'}">
+			            <span class="result-text" style="visibility: hidden">
+			                "${requestScope.keyword}"에 대한 ${requestScope.paging.pagingStatus}의 검색 결과
+			            </span>
+			        </c:when>
+			        <c:otherwise>
+			            <span class="result-text">
+			                "${requestScope.keyword}"에 대한 ${requestScope.paging.pagingStatus}의 검색 결과
+			            </span>
+			        </c:otherwise>
+			    </c:choose>
 	            <!-- 장르별 선택 -->
 	            <select class="select-genre" id="mode" name="mode">
             		<option value="all">전체 검색</option>

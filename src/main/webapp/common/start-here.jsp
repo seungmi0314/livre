@@ -36,7 +36,7 @@
 		<div class="menu-bar">
 			<ul class="menu">
 				<li class="menu-item"><a href="<%=notWithFormTag%>">홈</a></li>
-				<li class="menu-item active"><a href="<%=notWithFormTag%>searchingBook">독후감 검색</a></li>
+				<li class="menu-item active"><a href="<%=notWithFormTag%>bookList">독후감 검색</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>">내 독후감</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>">마이 페이지</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>">이용약관</a></li>

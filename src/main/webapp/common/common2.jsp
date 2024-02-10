@@ -81,7 +81,7 @@ String notWithFormTag = withFormTag + "?command=";
     
              <ul class="menu">
 				<li class="menu-item"><a href="<%=notWithFormTag%>main-page">홈</a></li>
-				<li class="menu-item active"><a href="<%=notWithFormTag%>searchingBook">독후감 검색</a></li>
+				<li class="menu-item active"><a href="<%=notWithFormTag%>bookList">독후감 검색</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>my-review">내 독후감</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>my-page">마이 페이지</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>">이용약관</a></li>
