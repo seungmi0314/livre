@@ -132,13 +132,14 @@ public class BookDao extends SuperDao {
 		return dataList;
 	}
 	
-	public List<Book> getDataListForBookDetail(int bookNo){
+	public List<Book> getReviewList(int bookNo){
 		
 		String sql = "select m.memberimg, m.membernick, r.reviewtitle, r.reviewtext, r.createdate, r.readhit";
 		sql += " from members m";
 		sql += " join reviews r on r.memberno = m.memberno";
 		sql += " join books b on r.bookno = b.bookno";
 		sql += " where b.bookno = ?";
+		sql += " order by r.reviewno desc";
 		PreparedStatement pstmt = null; // 문장 객체
 		ResultSet rs = null;
 		

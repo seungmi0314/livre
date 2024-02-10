@@ -9,6 +9,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Livre</title>
 	<link rel="stylesheet" href="/livre/css/bookDetail.css">
+	<script type="text/javascript">
+	
+		function goToShop(bookTitle){
+			var url = 'https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=';
+			var fullUrl = url + bookTitle;
+			
+			window.location.href = fullUrl;
+		}
+			
+		
+	</script>
 </head>
 <body>
 	
@@ -29,7 +40,9 @@
 					<p>${requestScope.bean.bookContent}</p>
 				</div>
 				<div class="buyBook-btn-div">
-					<button class="buyBook-btn"><span>이 책 사러가기</span></button>
+					<button class="buyBook-btn" onclick="goToShop('${requestScope.bean.bookTitle}')">
+						<span>이 책 사러가기</span>
+					</button>
 				</div>
 			</div>
 			

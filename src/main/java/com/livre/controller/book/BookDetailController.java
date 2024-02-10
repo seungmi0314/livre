@@ -24,7 +24,7 @@ public class BookDetailController extends SuperClass {
 			super.goToPage(PREFIX + "searchedBooks.jsp");
 		}
 		
-		List<Book> dataList = dao.getDataListForBookDetail(bookNo);
+		List<Book> dataList = dao.getReviewList(bookNo);
 		
 		request.setAttribute("bean", bean);
 		request.setAttribute("dataList", dataList);
