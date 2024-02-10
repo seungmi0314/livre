@@ -1,10 +1,12 @@
 package com.livre.controller.member;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
-import com.livre.controller.book.MyReviewController;
 import com.livre.model.bean.Member;
 import com.livre.model.dao.MemberDao;
 
@@ -25,12 +27,27 @@ public class MemberLoginController extends SuperClass{
 		// memberEmail, memberPw, remember-check 정보 받아오기
 		String memberEmail = request.getParameter("memberEmail") ; // email 넘어옴
 		String memberPw = request.getParameter("memberPw") ;       // pw 넘어옴
-		 //remember-check 체크여부 넘어옴
+		String checkbox = request.getParameter("checkbox");	       //checkbox 체크여부 넘어옴
 		
-		System.out.println(memberEmail + "/" + memberPw);
+		System.out.println(memberEmail + "/" + memberPw + "/" + checkbox);
 		
 		MemberDao dao = new MemberDao();
 		Member bean = dao.getDataByEmailAndPassword(memberEmail, memberPw);
+		
+		PrintWriter out = response.getWriter();
+		Cookie cookie = new Cookie("memberEmail", memberEmail);// 일단 쿠키 생성
+		
+		System.out.println(checkbox);
+		if (checkbox != null) { // 체크박스 체크여부에 따라 쿠키 저장 확인
+			// 체크박스 체크 되었을 때
+			// 쿠키 저장
+			response.addCookie(cookie);
+		} else {
+			// 체크박스 체크 해제되었을 때
+			// 쿠키 유효시간 0으로 해서 브라우저에서 삭제하게 한다.
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+		}
 		
 		if(bean == null) { // 로그인 실패
 			String message = "로그인에 실패하였습니다.";

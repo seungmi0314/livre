@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="/livre/css/reset.css" />
 <link rel="stylesheet" href="/livre/css/login.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="/livre/js/login.js"></script>
 
 <title>로그인 페이지</title>
@@ -18,9 +20,7 @@
 </head>
 
 <body>
-	<main>
-		
-	</main>
+	<main></main>
 
 	<section>
 		<!-- 왼쪽 하얀배경 영역 -->
@@ -35,24 +35,37 @@
 				<p class="livre">livre</p>
 			</div>
 
-			<!-- action 수정 -->
+			<!-- 쿠키값으로 email정보 받아오기 -->
+			<%
+			String cookie = "";
+			Cookie[] cookies = request.getCookies(); //쿠키생성
+			if (cookies != null && cookies.length > 0)
+				for (int i = 0; i < cookies.length; i++) {
+					if (cookies[i].getName().equals("memberEmail")) { // 내가 원하는 쿠키명 찾아서 값 저장
+				cookie = cookies[i].getValue();
+					}
+				}
+			%>
+
 			<form action="<%=withFormTag%>" method="post" id="loginform">
-			<input type="hidden" name="command" value="login">
+				<input type="hidden" name="command" value="login">
 				<fieldset>
 					<legend class="skip">로그인 양식</legend>
 					<ul>
 						<li>
 							<!--이메일 입력--> <span><input class="form-input" type="text"
-								name="memberEmail" id="memberEmail" placeholder="이메일 입력" value=""></span>
+								name="memberEmail" id="memberEmail" placeholder="이메일 입력"
+								value="<%=cookie%>"></span>
 						</li>
 
 						<li class="error email_error">이메일을 입력해주세요</li>
 
 						<li>
-							<!--비밀번호 입력--> <span><input class="form-input"
-								type="password" name="memberPw" id="memberPw"
-								placeholder="비밀번호 입력" value=""></span> <sapn class="pw_show_hide"
-								title="비밀번호 보이기(수정)"></sapn>
+							<!--비밀번호 입력--> <span class="password"> <input
+								class="form-input" type="password" name="memberPw" id="memberPw"
+								placeholder="비밀번호 입력" value=""> <i
+								class="fa fa-eye-slash fa-lg"></i>
+						</span>
 						</li>
 
 						<li class="error pw_error">비밀번호를 입력해주세요</li>
@@ -61,8 +74,8 @@
 					<div class="remember-me">
 						<!--이메일 기억하기-->
 						<p>
-							<label> <input type="checkbox" name="remember-check"
-								id="remember-check"> <span>이메일 저장</span>
+							<label> <input type="checkbox" name="checkbox"
+								id="checkbox" value="<%=cookie%>"> <span>이메일 저장</span>
 							</label>
 						</p>
 						<!--비밀번호를 잊으셨나요?-->
@@ -91,7 +104,8 @@
 			</div>
 
 			<p class="yet">
-				아직도 회원이 아니신가요?<a class="join" href="/livre/member/joinMemberShip.jsp">회원가입</a>
+				아직도 회원이 아니신가요?<a class="join"
+					href="/livre/member/joinMemberShip.jsp">회원가입</a>
 			</p>
 		</div>
 
