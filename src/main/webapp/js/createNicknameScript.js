@@ -1,5 +1,5 @@
 // 랜덤 닉네임 설정
-var nicknames = ["21세기 윤동주", "현명한 백석", "책읽는 셰익스피어", "지혜로운 트루먼", "문학소년 소크라테스"];
+var nicknames = ["21세기 윤동주", "현명한 백석", "책읽는 셰익스피어", "지혜로운 트루먼", "문학소년 소크라테스", "몽상가 무라카미 하루키"];
 
 window.onload = function() {
     var randomIndex = Math.floor(Math.random() * nicknames.length);

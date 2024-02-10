@@ -38,7 +38,7 @@ img:hover {
 	opacity: 0.7;
 }
 
-#nextButton {
+#nextButton, #skipButton {
 	background-color: #C24B4B;
 	transition: all ease-in-out 0.15s;
 	cursor: pointer;
@@ -47,16 +47,16 @@ img:hover {
 	border-radius: 10px;
 	background: #C24B4B;
 	width: 100px;
-	height: 25px;
+	height: 20px;
 	font-weight: 700;
 	color: white;
 }
 
-#nextButton:hover {
+#nextButton:hover, #skipButton:hover {
 	background-color: #D17D7D;
 }
 
-#nextButton:active {
+#nextButton:active, #skipButton:hover {
 	background-color: #E4C8C8;
 }
 
@@ -79,7 +79,14 @@ img:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
-	margin-top: 20px;
+	margin-top: 10px;
+}
+
+#skipDiv {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-top: 5px;
 }
 
 #questionTitle {

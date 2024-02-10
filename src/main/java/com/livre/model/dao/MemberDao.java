@@ -47,15 +47,14 @@ public class MemberDao extends SuperDao{
 			bean.setMemberEmail(rs.getString("memberEmail"));
 			bean.setMemberPw(rs.getString("memberPw"));
 			bean.setMemberNick(rs.getString("memberNick"));
-//			bean.setTermsFL(rs.getString("termsFL"));
-//			bean.setEnrollDate(rs.getString("enrollDate"));
-//			bean.setSnsFL(rs.getString("snsFL"));
-//			bean.setMemberImg(rs.getString("memberImg"));
-//			bean.setMemberAddress(rs.getString("memberAddress"));
-//			bean.setMemberGender(rs.getString("memberGender"));
-//			bean.setGenreNo(rs.getInt("genreNo"));
-//			bean.setReivewNo(rs.getInt("reviewNo"));
-//			bean.setRankNo(rs.getInt("rankNo"));
+			bean.setTermsFL(rs.getString("termsFL"));
+			bean.setEnrollDate(rs.getString("enrollDate"));
+			bean.setSnsFL(rs.getString("snsFL"));
+			bean.setMemberImg(rs.getString("memberImg"));
+			bean.setMemberAddress(rs.getString("memberAddress"));
+			bean.setMemberGender(rs.getString("memberGender"));
+			bean.setGenreNo(rs.getInt("genreNo"));
+			bean.setRankNo(rs.getInt("rankNo"));
 			return bean ;
 			
 		} catch (Exception e) {
@@ -66,7 +65,7 @@ public class MemberDao extends SuperDao{
 
 	public int insertData(Member bean) {
 		System.out.println(bean);
-		String sql=" insert into members(memberNo, genreNo, rankNo, memberEmail, memberPw, memberNick, termsFL, enrollDate, snsFL, memberImg, memberAddress, memberGender ) ";
+		String sql=" insert into members( memberNo, memberEmail, memberPw, memberNick, termsFL, enrollDate, snsFL, memberImg, memberAddress, memberGender, genreNo, rankNo ) ";
 		sql += " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		int cnt = -999999;
