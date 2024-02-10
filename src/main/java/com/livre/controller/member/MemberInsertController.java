@@ -30,34 +30,35 @@ public class MemberInsertController extends SuperClass {
 		MemberDao dao = new MemberDao();
 		Member bean = new Member();
 		
-		bean.setMemberAddress(request.getParameter("memberAddress"));
-		bean.setEnrollDate(request.getParameter("enrollDate"));
-		bean.setGenreNo(Integer.parseInt(request.getParameter("genreNo")));
-		bean.setMemberEmail(request.getParameter("memberEmail"));
-		bean.setMemberNick(request.getParameter("memberNick"));
 		bean.setMemberNo(Integer.parseInt(request.getParameter("MemberNo")));
+		bean.setMemberEmail(request.getParameter("memberEmail"));
 		bean.setMemberPw(request.getParameter("memberPw"));
-		bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
-		bean.setReivewNo(Integer.parseInt(request.getParameter("reviewNo")));
-		bean.setSnsFL(request.getParameter("snsFL"));
+		bean.setMemberNick(request.getParameter("memberNick"));
 		bean.setTermsFL(request.getParameter("termsFL"));
+		bean.setEnrollDate(request.getParameter("enrollDate"));
+		bean.setSnsFL(request.getParameter("snsFL"));
+		bean.setMemberImg(request.getParameter("memberImg"));
+		bean.setMemberAddress(request.getParameter("memberAddress"));
 		bean.setMemberGender(request.getParameter("memberGender"));
+		
+		bean.setGenreNo(Integer.parseInt(request.getParameter("genreNo")));
+		bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
 		
 		
 		 //적립 포인트는 데이터 베이스 기본값으로 대체하면 문제 없음.
 		
 		/*
 		//for checkbox control
-		String hobby="";
-		String[] hobbies = request.getParameterValues("hobby");
-		if(hobbies == null){
-			hobby = null;//디비에 null값으로 채우기
+		String preferGenre="";
+		String[] preferGenre = request.getParameterValues("genreNo");
+		if(preferGenres == null){
+			genre = null;//디비에 null값으로 채우기
 		}else{
-			for(int i=0; i<hobbies.length; i++){
-				hobby += hobbies[i] + "/";
+			for(int i=0; i<preferGenres.length; i++){
+				genre += preferGenres[i] + "/";
 			}
 		}
-		bean.setHobby(hobby);  
+		bean.setHobby(genre);  
 		 */
 			
 		
@@ -66,7 +67,7 @@ public class MemberInsertController extends SuperClass {
 		
 		if(cnt==1){//인서트 성공
 			//로그인 컨트롤러의 doPost() 메소드를 호출하면 가입과 동시에 로그인하는 효과를 봅니다.
-			//new MemberLoginController().doPost(request, response);
+			new MemberLoginController().doPost(request, response);
 			
 		}else{//인서트 실패
 			new MemberInsertController().doGet(request, response);

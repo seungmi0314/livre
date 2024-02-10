@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet"
-	href="/livre/css/collectPreferenceFirstStyle.css">
+<link rel="stylesheet" href="/livre/css/collectPreferenceFirstStyle.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <script src="/livre/js/collectPreferenceFirstScript.js"></script>
@@ -97,8 +96,8 @@
 						<div>과학</div>
 					</div>
 				</div>
-				<br/>
-				
+				<br />
+
 				<div id="thirdLineDiv">
 					<div id="cartoonDiv">
 						<input type="checkbox" id="cartoonCheckbox" class="hiddenCheckbox"
@@ -126,8 +125,11 @@
 				</div>
 
 				<div id="buttonDiv">
-
 					<button type="button" id="nextButton" onclick="moveToNextPage()">다음</button>
+				</div>
+				<div id="skipDiv">
+					<button type="button" id="skipButton" onclick="skipPage()">건너뛰기</button>
+
 				</div>
 
 			</div>
