@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="/Mylivre/js/agreementScript.js"></script>
-<link rel="stylesheet" type="text/css" href="/Mylivre/css/agreementStyle.css">
-<link rel="stylesheet" href="/Mylivre/css/index.css" />
-<link rel="stylesheet" href="/Mylivre/css/header.css" />
+<script src="/livre/js/agreementScript.js"></script>
+<link rel="stylesheet" type="text/css" href="/livre/css/agreementStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
 </head>
 <body>
 	<main>

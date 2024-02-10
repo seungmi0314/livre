@@ -7,10 +7,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="/Mylivre/css/collectPreferenceFirstStyle.css">
-<link rel="stylesheet" href="/Mylivre/css/index.css" />
-<link rel="stylesheet" href="/Mylivre/css/header.css" />
-<script src="/Mylivre/js/collectPreferenceFirstScript.js"></script>
+	href="/livre/css/collectPreferenceFirstStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
+<script src="/livre/js/collectPreferenceFirstScript.js"></script>
+
 
 <title>선호장르1</title>
 </head>
@@ -41,7 +42,7 @@
 			<div id="mainBoard">
 				<div id="questionTitle">
 					Q. 관심있는 분야를 알려줄래요? <br />
-					<sapn id="chooseThree">3개까지 선택 가능해요</sapn>
+					<sapn id="chooseThree">원하는 만큼 선택 가능해요</sapn>
 				</div>
 				<br />
 				<div id="firstLineDiv">
@@ -137,35 +138,6 @@
 
 
 </body>
-<script>
-//이미지 선택 여부를 추적하기 위한 변수
-var selectedImages = [];
 
-function selectJenre(id) {
-    var imageToShowBorder = document.getElementById(id);
-
-    // 이미지를 선택하거나 선택을 취소합니다.
-    imageToShowBorder.classList.toggle('showBorder');
-
-    // 선택된 이미지인지 확인
-    var index = selectedImages.indexOf(id);
-
-    if (index === -1) {
-        // 선택되지 않은 경우 선택 목록에 추가
-        selectedImages.push(id);
-    } else {
-        // 이미 선택된 경우 선택 목록에서 제거
-        selectedImages.splice(index, 1);
-    }
-}
-
-function moveToNextPage() {
-    // 선택된 이미지 개수 확인
-    var selectedImageCount = document.querySelectorAll('.showBorder').length;
-
-    // 선택된 이미지가 없어도 다음 페이지로 이동
-    window.location.href = "/Mylivre/member/collectPreferenceSecond.jsp";
-}
-</script>
 
 </html>

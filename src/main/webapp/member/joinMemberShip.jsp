@@ -9,10 +9,10 @@
 <title>회원가입 페이지</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="/Mylivre/js/joinMemberShipScript.js"></script>
-<link rel="stylesheet" type="text/css" href="/Mylivre/css/joinMemberShipStyle.css">
-<link rel="stylesheet" href="/Mylivre/css/index.css" />
-<link rel="stylesheet" href="/Mylivre/css/header.css" />
+<script src="/livre/js/joinMemberShipScript.js"></script>
+<link rel="stylesheet" type="text/css" href="/livre/css/joinMemberShipStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -22,7 +22,7 @@
 		<header>
 			<!-- 헤더 입니다 -->
 			<div class="header">
-				<img src="/Mylivre/assets/logo.svg" class="h-logo">
+				<img src="/livre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
 			</div>
 
@@ -91,7 +91,7 @@
 				</div>
 				<!-- 카카오톡 로그인 -->
 				<a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img
-					id="kakaoIcon" class="img-concert" src="/Mylivre/assets/kakaoIcon.png"
+					id="kakaoIcon" class="img-concert" src="/livre/assets/kakaoIcon.png"
 					width="40px" height="40px" /></a> </br> </br>
 				<!-- 환영문구 -->
 				<span id="welcomeTitle"> <b>어서오세요! </br>

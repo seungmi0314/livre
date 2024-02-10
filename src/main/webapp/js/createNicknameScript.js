@@ -32,6 +32,37 @@ function trackSelectedImages(id) {
     }
 }
 
+// 초기 진행 상태 설정
+var progress = 60;
+
+// 진행 상태 갱신 함수
+function updateProgress() {
+    var progressBar = document.getElementById('progress');
+    var progressText = document.getElementById('progressText');
+
+    // 진행도 업데이트
+    progressBar.style.width = progress + '%';
+    progressText.innerText = progress + '%';
+
+    // 다음 진행 상태로 이동
+    if (progress < 80) {
+        progress++;
+    }
+}
+
+// 10ms마다 진행 상태 업데이트
+setInterval(updateProgress, 10);
+
+function moveToNextPage() {
+    // 다음 페이지로 이동합니다.
+    window.location.href = "/livre/member/createNickname.jsp";
+}
+
+// preButton을 눌렀을 때 이전 페이지로 돌아가는 함수
+function goToPreviousPage() {
+    history.back(); // 브라우저의 이전 페이지로 이동
+}
+
 
 
 // 다음 페이지로 이동
@@ -43,7 +74,7 @@ function moveToNextPage() {
         return;
     }
 
-    window.location.href = "/Mylivre/member/finalCheck.jsp";
+    window.location.href = "/livre/member/finalCheck.jsp";
 }
 
 // 이전 페이지로 이동

@@ -45,7 +45,7 @@ setInterval(updateProgress, 10);
 
 function moveToNextPage() {
     // 다음 페이지로 이동합니다.
-    window.location.href = "/Mylivre/member/selectGender.jsp";
+    window.location.href = "/livre/member/selectGender.jsp";
 }
 
 // preButton을 눌렀을 때 이전 페이지로 돌아가는 함수

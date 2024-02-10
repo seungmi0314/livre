@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet"
-	href="/Mylivre/css/collectPreferenceSecondStyle.css">
-<link rel="stylesheet" href="/Mylivre/css/index.css" />
-<link rel="stylesheet" href="/Mylivre/css/header.css" />
-<script src="/Mylivre/js/collectPreferenceSecondScript.js"></script>
+	href="/livre/css/collectPreferenceSecondStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
+<script src="/livre/js/collectPreferenceSecondScript.js"></script>
 <title>선호장르2</title>
 
 
@@ -184,7 +184,7 @@ setInterval(updateProgress, 10);
 
 function moveToNextPage() {
     // 다음 페이지로 이동합니다.
-    window.location.href = "/Mylivre/member/selectGender.jsp";
+    window.location.href = "/livre/member/selectGender.jsp";
 }
 
 // preButton을 눌렀을 때 이전 페이지로 돌아가는 함수
