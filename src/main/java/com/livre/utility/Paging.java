@@ -33,7 +33,7 @@ public class Paging {
 
 		this.keyword = keyword == null || keyword.equals("null") || keyword.equals("") ? "" : keyword;
 		
-		/* in searchedBooks.jsp */
+		/* in bookList.jsp */
 		this.pagingStatus = "총 " + totalCount + "건";
 
 		this.flowParameter = "";
