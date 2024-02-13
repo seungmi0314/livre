@@ -63,7 +63,7 @@ String notWithFormTag = withFormTag + "?command=";
 			<div class="header-right">
 
 				<c:if test="${whologin eq 0}">
-					<a href="">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
+					<a href="/livre/Livre?command=login">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
 				</c:if>
 				<c:if test="${whologin ne 0}">
 					<!-- 프로필 사진 추가 -->
