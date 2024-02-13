@@ -1,3 +1,5 @@
+/*const url = "http://localhost:8090/livre/";
+
 const hiddenEmail = document.getElementById("hiddenEmail");
 // 모든 부분들을 가려놨다가 이메일 인증이 되면
 // 해당 창들이 보이게 하는 작업
@@ -70,7 +72,7 @@ newPasswordButton.addEventListener("click", function() { // 새로운비밀번�
 	} else if ($("#newPassword").val() == $("#newPasswordCheck").val()) { // 표현식에 대응하며, 입력부분과 재입력부분이 동일할 경우
 		
 		$.ajax({
-			url: "changePassword.do",
+			url: "/livre/member/findPassword.jsp",
 			data: { "password": $("#newPassword").val(),
 					"email": hiddenEmail.value},
 			success: function(result) {
@@ -89,4 +91,4 @@ newPasswordButton.addEventListener("click", function() { // 새로운비밀번�
 		alert("두개의 비밀번호가 일치하지 않습니다.");
 		$("#newPassword").focus();
 	}
-})
+})*/

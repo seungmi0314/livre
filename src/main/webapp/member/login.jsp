@@ -79,7 +79,7 @@
 							</label>
 						</p>
 						<!--비밀번호를 잊으셨나요?-->
-						<a href="#" class="forget_pw">비밀번호를 잊으셨나요?</a>
+						<a href="/livre/member/findPassword.jsp" class="forget_pw">비밀번호를 잊으셨나요?</a>
 					</div>
 
 					<!--로그인 버튼-->
