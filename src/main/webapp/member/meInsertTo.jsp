@@ -12,14 +12,13 @@
 	bean.setMemberEmail(request.getParameter("memberEmail"));
 	bean.setMemberPw(request.getParameter("memberPw"));
 	bean.setMemberNick(request.getParameter("memberNick"));
-	bean.setTermsFL(request.getParameter("termsFL"));
+	bean.setTerm_FL(request.getParameter("term_FL"));
 	bean.setEnrollDate(request.getParameter("enrollDate"));
-	bean.setSnsFL(request.getParameter("snsFL"));
+	bean.setSns_FL(request.getParameter("sns_FL"));
 	bean.setMemberImg(request.getParameter("memberImg"));
-	bean.setMemberAddress(request.getParameter("memberAddress"));
-	bean.setMemberGender(request.getParameter("memberGender"));
+	bean.setAddress(request.getParameter("Address"));
+	bean.setGender(request.getParameter("memberGender"));
 	bean.setGenreNo(Integer.parseInt(request.getParameter("genreNo")));
-	bean.setReivewNo(Integer.parseInt(request.getParameter("reivewNo")));
 	bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
 	
 	/*
