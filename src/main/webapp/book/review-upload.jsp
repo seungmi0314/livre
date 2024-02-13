@@ -13,15 +13,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <title>독후감 작성</title>
     
     <script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
-  <script>
-  const rating_input = document.querySelector('.rating input');
-  const rating_star = document.querySelector('.rating_star');
 
-  // 별점 드래그 할 때
-  rating_input.addEventListener('input', () => {
-    rating_star.style.width = `${rating_input.value * 20}%`;
-  });
-  </script>
 </head>
 
 <body>
@@ -64,24 +56,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <p>지은이 <span>${requestScope.bean.author}</span></p>
             <p>출판사 <span>${requestScope.bean.publisher}</span></p>
         </div>
-            <div class="star-box">
-            	<div class="rating">
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		
-            		<span class="rating-star">
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	</span>
-            	<input type="range" value="1" step="1" min="0" max="5">
-            	</div>
-            </div>
+        
+            
+            	 <div id="star" class="star">
+                            <input type="radio" name="reviewStar" value="1" id="rate1"><label
+								for="rate1"><i class="fa-solid fa-star"></i></label>
+							<input type="radio" name="reviewStar" value="2" id="rate2"><label
+								for="rate2"><i class="fa-solid fa-star"></i></label>
+							<input type="radio" name="reviewStar" value="3" id="rate3"><label
+								for="rate3"><i class="fa-solid fa-star"></i></label>
+							<input type="radio" name="reviewStar" value="4" id="rate4"><label
+								for="rate4"><i class="fa-solid fa-star"></i></label>
+							<input type="radio" name="reviewStar" value="5" id="rate5"><label
+								for="rate5"><i class="fa-solid fa-star"></i></label>
+                        </div>
+            
+            
             <div class="read-date">
                 <input class="start-date write" name="startDate" placeholder="시작날짜">
                 ~
@@ -156,4 +146,5 @@ uri="http://java.sun.com/jsp/jstl/core" %>
    
 </body>
 <script src="/livre/js/review-upload.js"></script>
+
 </html>
