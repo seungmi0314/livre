@@ -78,7 +78,7 @@
 			
 			<!-- 독후감 카드 -->
 			<c:forEach var="bean" items="${dataList}">
-			<a class="review-a" href="#">
+			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${bean.reviewNo}">
 				<div class="reviewCard">
 					<img class="user-image" src="/livre/assets/${bean.memberImg}">
 					<div class="user-simple-review">

@@ -28,6 +28,8 @@ public class BookDetailController extends SuperClass {
 		
 		request.setAttribute("bean", bean);
 		request.setAttribute("dataList", dataList);
+		System.out.println("북디컨 bean" + bean);
+		System.out.println("북디컨 dataList" + dataList);
 		super.goToPage(PREFIX + "bookDetail.jsp");
 	}
 }
