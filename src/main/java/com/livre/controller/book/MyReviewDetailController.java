@@ -35,7 +35,7 @@ public class MyReviewDetailController extends SuperClass{
 			}
 			
 			request.setAttribute("bean", bean); 
-			super.goToPage(PREFIX + "review-upload.jsp");	
+			super.goToPage(PREFIX + "review-detail.jsp");	
 		}
 	}
 
