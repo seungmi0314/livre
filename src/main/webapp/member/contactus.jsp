@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +48,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 				<p class="title">Contact Us</p>
 
 				<div class="inner-form">
-					<form action="#">
+					<form class="subform" method="post"
+						data-email="chylee917@gmail.com"
+						action="https://script.google.com/macros/s/AKfycbzJu68cik8LQcm32i2lNBN5FamHnXw6Zq-SCtmpTTxamZlhCokvTUy9jrPShrPSyz8W/exec"
+						target="frAttachFiles">
 
 						<div class="name">
 							<p>성함</p>
@@ -58,7 +60,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 						<div class="email">
 							<p>이메일 주소</p>
-							<input type="email" placeholder="메일주소를 입력해 주세요">
+							<input type="text" placeholder="메일주소를 입력해 주세요">
 						</div>
 
 						<div class="ask">
@@ -66,7 +68,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 								<p>문의 유형</p>
 							</label>
 
-							<!--어디다가 전송?-->
 							<!-- size -->
 							<select class="category" name="category" id="category">
 								<option value="null">선택하세요</option>
@@ -83,10 +84,14 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 							<p>문의 내용</p>
 							<input type="text" placeholder="내용을 입력해주세요">
 						</div>
+
+						<button type="submit">제출하기</button>
 					</form>
+
+					<iframe name="frAttachFiles" style="display: none"></iframe>
 				</div>
 
-				<button type="submit">제출하기</button>
+
 			</div>
 
 
@@ -114,7 +119,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
 						<div class="address">
 							<p>
-								<img src="/livre/assets/address.svg">&nbsp 서울특별시 마포구 백범로 23
+								<img src="/livre/assets/address.svg">&nbsp 서울특별시 마포구 백범로
+								23
 							</p>
 						</div>
 
