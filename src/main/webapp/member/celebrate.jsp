@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./../css/celebrateStyle.css">
-<link rel="stylesheet" href="./../css/index.css" />
-<link rel="stylesheet" href="./../css/header.css" />
+<link rel="stylesheet" href="/livre/css/celebrateStyle.css">
+<link rel="stylesheet" href="/livre/css/index.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
 <title>Insert title here</title>
 </head>
 
@@ -16,7 +16,7 @@
 		<header>
 			<!-- 헤더 입니다 -->
 			<div class="header">
-				<img src="./../assets/logo.svg" class="h-logo">
+				<img src="/livre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
 			</div>
 
@@ -26,12 +26,12 @@
 		</header>
 	</main>
 	<section>
-	<img id="ta-da" src="./../assets/124de3d1b5e12f1d8fcec1685e634361.gif">
+	<img id="ta-da" src="/livre/assets/124de3d1b5e12f1d8fcec1685e634361.gif">
 		<div id="celebrateMention">
 			<span>
 				축하합니다! 
 				<br/> 
-				<span id="livrelogo"><img id="livreIcon" src="./../assets/logo.svg" width="30px" height="30px">livre</span>&nbsp;에서 함께 생각을 나눠봐요!
+				<span id="livrelogo"><img id="livreIcon" src="/livre/assets/logo.svg" width="30px" height="30px">livre</span>&nbsp;에서 함께 생각을 나눠봐요!
 			</span>	
 		</div>
 		</tr>

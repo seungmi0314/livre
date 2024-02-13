@@ -1,4 +1,4 @@
-	//다음 페이지로 이동하는 함수
+	//다음 페이지로 체크확인 함수
 	function moveToNextPage() {
 		var useAgreeChecked = document.getElementById('useAgreeCheckbox').checked;
 		var infoAgreeChecked = document.getElementById('infoAgreeCheckbox').checked;
@@ -8,8 +8,7 @@
 			return;
 		}
 
-		var nextPageURL = "/livre/member/collectPreferenceFisrst.jsp";
-		window.location.href = nextPageURL;
+
 	}
 	
 	   // 전체 동의 체크박스 클릭 시 모든 필수 약관에 체크를 동기화하는 함수
