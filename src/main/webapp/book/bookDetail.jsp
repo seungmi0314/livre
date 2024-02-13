@@ -10,15 +10,32 @@
 	<title>Livre</title>
 	<link rel="stylesheet" href="/livre/css/bookDetail.css">
 	<script type="text/javascript">
-	
+		$(document).ready(function(){
+			
+			var bookContent = "${requestScope.bean.bookContent}";
+			
+			// . ? ! 뒤에 공백이 오는 경우 <br>을 추가하는 정규식
+			var regex1 = /([.?!])\s/g;
+			var modifiedContent = bookContent.replace(regex1, '$1<br>');
+			
+			// ?! 나 !!! 로 끝나는 문장에서 마지막 ! 뒤에만 <br>을 추가하는 정규식
+			var regex2 = /(!+)(?=[^.?!]*$)/g;
+			modifiedContent = modifiedContent.replace(regex2, '$1<br>');
+			
+			if(modifiedContent.length > 420){
+				modifiedContent = modifiedContent.substring(0, 430) + ' ...';
+			}
+			
+			$('.bookContent-p').html(modifiedContent);
+				    
+		});
+			
 		function goToShop(bookTitle){
 			var url = 'https://search.shopping.naver.com/book/search?bookTabType=ALL&pageIndex=1&pageSize=40&query=';
 			var fullUrl = url + bookTitle;
 			
 			window.location.href = fullUrl;
 		}
-			
-		
 	</script>
 </head>
 <body>
@@ -37,7 +54,9 @@
 					<p class="book-info-p book-title">${requestScope.bean.bookTitle}</p>
 					<p></p>
 					<p class="author-publisher">${requestScope.bean.author} | ${requestScope.bean.publisher}</p>
-					<p>${requestScope.bean.bookContent}</p>
+					<p class="bookContent-p">
+						${requestScope.bean.bookContent}
+					</p>
 				</div>
 				<div class="buyBook-btn-div">
 					<button class="buyBook-btn" onclick="goToShop('${requestScope.bean.bookTitle}')">
