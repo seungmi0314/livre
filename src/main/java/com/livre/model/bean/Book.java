@@ -9,6 +9,7 @@ public class Book {
 	private String bookContent; // 책 내용
 	private int genreNo;	// 장르 번호
 	
+	private int reviewNo; // 리뷰 번호
 	private int memberNo;	// 회원 번호
 	private String memberImg; // 유저 프로필 이미지
 	private String memberNick; // 유저 닉네임
@@ -22,7 +23,7 @@ public class Book {
 
 	// 매개 변수 생성자
 	public Book(int bookNo, String bookTitle, String author, String publisher, String bookImg, String bookContent,
-			int genreNo, int memberNo, String memberImg, String memberNick, String reviewTitle, String reviewText,
+			int genreNo, int reviewNo, int memberNo, String memberImg, String memberNick, String reviewTitle, String reviewText,
 			String createDate, int readHit) {
 		super();
 		this.bookNo = bookNo;
@@ -32,6 +33,7 @@ public class Book {
 		this.bookImg = bookImg;
 		this.bookContent = bookContent;
 		this.genreNo = genreNo;
+		this.reviewNo = reviewNo;
 		this.memberNo = memberNo;
 		this.memberImg = memberImg;
 		this.memberNick = memberNick;
@@ -39,6 +41,14 @@ public class Book {
 		this.reviewText = reviewText;
 		this.createDate = createDate;
 		this.readHit = readHit;
+	}
+	
+	public int getReviewNo() {
+		return reviewNo;
+	}
+	
+	public void setReviewNo(int reviewNo) {
+		this.reviewNo = reviewNo;
 	}
 
 	public int getMemberNo() {
@@ -156,8 +166,8 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [bookNo=" + bookNo + ", bookTitle=" + bookTitle + ", author=" + author + ", publisher=" + publisher
-				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + ", memberNo="
-				+ memberNo + ", memberImg=" + memberImg + ", memberNick=" + memberNick + ", reviewTitle=" + reviewTitle
+				+ ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genreNo=" + genreNo + ", reviewNo=" + reviewNo
+				+ ", memberNo=" + memberNo + ", memberImg=" + memberImg + ", memberNick=" + memberNick + ", reviewTitle=" + reviewTitle
 				+ ", reviewText=" + reviewText + ", createDate=" + createDate + ", readHit=" + readHit + "]";
 	}
 	
