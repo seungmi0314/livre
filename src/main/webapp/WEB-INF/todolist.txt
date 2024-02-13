@@ -8,14 +8,17 @@ meInsert=com.livre.controller.member.MemberInsertController
 #meDelete=com.shopping.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
-bookList=com.livre.controller.book.BookListController
-bookDetail=com.livre.controller.book.BookDetailController
+searchingBook=com.livre.controller.book.BookSearchingController
+searchedBooks=com.livre.controller.book.BookSearchedController
+#bookDetail=com.livre.controller.book.BookDetailController
 my-review=com.livre.controller.book.MyReviewController
 reviewDel=com.livre.controller.book.DeleteReviewController
 reviewSearch=com.livre.controller.book.MyReviewSearchController
 reviewSearched=com.livre.controller.book.MyReviewSearchedController
 reviewDetail=com.livre.controller.book.MyReviewDetailController
+reviewUpdate=com.livre.controller.book.MyReviewUpdateController
+reviewInsert=com.livre.controller.book.InsertReviewController
 # member section
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
-findPassword=com.livre.controller.member.FindPasswordController
+#findPassword=com.livre.controller.member.FindPasswordController

@@ -36,8 +36,8 @@ public class MyReviewDao extends SuperDao{
 			bean.setRaiting(rs.getInt("raiting"));
 			bean.setCreateDate(String.valueOf(rs.getString("createDate")));	// 날짜
 			bean.setPhrase(rs.getString("phrase"));
-			bean.setStartDate(String.valueOf(rs.getString("startDate")));	// 날짜
-			bean.setEndDate(String.valueOf(rs.getString("endDate")));	// 날짜
+			bean.setStartDate(rs.getString("startDate"));	
+			bean.setEndDate(rs.getString("endDate"));	
 			bean.setReadHit(rs.getInt("readHit"));
 			
 		
@@ -275,6 +275,98 @@ public class MyReviewDao extends SuperDao{
 		}
 		
 		
+	}
+
+	public int updateData(MyReview bean) {
+		System.out.print("게시물 수정 페이지 : ");
+		System.out.println(bean);
+		
+		
+		String sql = " update reviews set" ;
+		sql += "  reviewtitle = ?, reviewtext = ?, raiting = ?, phrase = ?, createdate = default, startdate = ?, enddate = ?" ;
+		sql += " where reviewno = 50" ;
+		
+		
+		PreparedStatement pstmt = null ;
+		int cnt = -9999999 ;
+		
+		try {
+			super.conn = super.getConnection() ;  
+			conn.setAutoCommit(false);			
+			pstmt = conn.prepareStatement(sql) ;
+			
+			pstmt.setString(1, bean.getReviewTitle());
+			pstmt.setString(2, bean.getReviewText());
+			pstmt.setInt(3, bean.getRaiting());
+			pstmt.setString(4, bean.getPhrase());
+			//pstmt.setInt(5, bean.getBookNo());
+			pstmt.setString(6, bean.getStartDate());
+			pstmt.setString(7, bean.getEndDate());
+			
+			cnt = pstmt.executeUpdate() ;			
+			conn.commit();			
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}			
+		} finally {
+			try {
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt ;
+	}
+
+	public int insertData(MyReview bean) {
+		// no 컬럼은 시퀀스가 알아서 처리합니다. 			
+				String sql = " insert into reviews (reviewno, memberno, reviewtitle, reviewtext, phrase, startdate, enddate)" ;
+				sql += " values (1003, 1, ?, ?, ?, ?, ?)";
+				// reviews_seq.NEXTVAL (테이블 재생성 후 시퀀스로 변경)	
+				
+				PreparedStatement pstmt = null ;
+				int cnt = -9999999 ;
+				
+				try {
+					super.conn = super.getConnection() ;
+					// 자동 커밋 기능을 비활성화 시킵니다.
+					// 실행이 성공적으로 완료된 이후 commit() 메소드를 명시해 줍니다. 
+					conn.setAutoCommit(false);			
+					pstmt = conn.prepareStatement(sql) ;
+					
+					pstmt.setString(1, bean.getReviewTitle());
+					pstmt.setString(2, bean.getReviewText());
+					pstmt.setString(3, bean.getPhrase());
+					pstmt.setString(4, bean.getStartDate());
+					pstmt.setString(5, bean.getEndDate());
+					
+					cnt = pstmt.executeUpdate() ;			
+					conn.commit();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+					try {
+						conn.rollback();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+					
+				} finally {
+					try {
+						if(pstmt != null) {pstmt.close();}
+						super.closeConnection();
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
+				}
+				
+				
+				return cnt ;
 	}
 	
 }

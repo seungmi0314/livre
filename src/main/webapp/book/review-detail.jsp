@@ -8,20 +8,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/livre/css/reivew-upload.css?after" />
+    <link rel="stylesheet" href="/livre/css/reivew-detail.css" />
     <link rel="icon" href="/livre/assets/favicon.png">
     <title>독후감 작성</title>
     
     <script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
-  <script>
-  const rating_input = document.querySelector('.rating input');
-  const rating_star = document.querySelector('.rating_star');
-
-  // 별점 드래그 할 때
-  rating_input.addEventListener('input', () => {
-    rating_star.style.width = `${rating_input.value * 20}%`;
-  });
-  </script>
+  
 </head>
 
 <body>
@@ -38,54 +30,46 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             
 
             
-          
+            <div class="button-box">
+                <button class="edit" onclick="submit(); edit();"><i class="fa-solid fa-pen-to-square" ></i> 수정하기</button>
+                <button class="del"><i class="fa-regular fa-trash-can"></i> 삭제하기</button>
+            </div>
  <form action="<%=withFormTag%>" method="post" class="review">
- <input type="hidden" name="command" value="reviewInsert"> 
+ <input type="hidden" name="command" value="reviewUpdate"> 
             <div class="review-write">
-                <input class="review-title write" name="reviewTitle" placeholder="독후감 제목을 입력해주세요">
+                <input class="review-title write" placeholder="${requestScope.bean.reviewTitle}"  readonly>
 
-                <textarea class="review-content write" name="reviewText">독후감 내용을 입력해주세요</textarea>
+                <textarea class="review-content write" readonly>${requestScope.bean.reviewText}</textarea>
 
                 <p class="remember-text">기억하고싶은 구절</p>
-                <textarea class="remember write" name="phrase"></textarea>
+                <textarea class="remember write" readonly>${requestScope.bean.phrase}</textarea>
                 
             </div>
 
 
             <div class="submit-btn">
-                <button type="submit" id="submit" class="submit" onclick="return;">등록하기</button> 
+                <button type="submit" id="submit" class="submit">등록하기</button> 
             </div>
         </div>
         
         <div class="review-info">
-            <input type="text" id="search" class="book-title write" placeholder="책 제목" autocomplete="off">
-            <div class="autocomplete"></div>
+            <input type="text" id="search" class="book-title write" placeholder="${requestScope.bean.bookTitle}" autocomplete="off" readonly>
+            <!-- <div class="autocomplete"></div> -->
             <div class="book-info">
             <p>지은이 <span>${requestScope.bean.author}</span></p>
             <p>출판사 <span>${requestScope.bean.publisher}</span></p>
         </div>
-            <div class="star-box">
-            	<div class="rating">
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		<i class="fa-solid fa-star"></i>
-            		
-            		<span class="rating-star">
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	<i class="fa-solid fa-star"></i>
-	            	</span>
-            	<input type="range" value="1" step="1" min="0" max="5">
-            	</div>
+            <div class="star">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
             </div>
             <div class="read-date">
-                <input class="start-date write" name="startDate" placeholder="시작날짜">
+                <input class="start-date write" readonly placeholder="${requestScope.bean.startDate}">
                 ~
-                <input class="end-date write" name="endDate" placeholder="끝난날짜">
+                <input class="end-date write" readonly placeholder="${requestScope.bean.endDate}">
             </div>
 
             <div class="genre-box">

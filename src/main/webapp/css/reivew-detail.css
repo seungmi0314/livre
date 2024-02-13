@@ -45,7 +45,6 @@ body {
 .review-write{
     width: 100%;
     height: 900px;
-    margin-top: 35px;
     border-radius: 15px;
     background-color:#fbfbfb ;
     
@@ -103,34 +102,9 @@ body {
     margin-bottom: 15px;
  }
 
-.star-box {
+.star {
     padding: 0 10px;
     margin-bottom: 20px;
-}
-
-.rating {
-	position: relative;
-	color: #8d8d8d;
-}
-
-.rating input {
-	position: absolute;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	cursor: pointer;
-}
-
-.rating_star {
-  width: 0;
-  color: #8D2020;
-  position: absolute;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  pointer-events: none;
 }
 
 
@@ -287,7 +261,7 @@ input[type=checkbox]:checked + label {
     background-color: #C24B4B;
     transition: all ease-in-out 0.15s;
     cursor: pointer;
-    
+    visibility: hidden;
 }
 
 .submit:hover {
