@@ -9,8 +9,8 @@ public class Member {
 	private String enrollDate;
 	private String sns_FL;
 	private String memberImg;
-	private String Address;
-	private String Gender;
+	private String address;
+	private String gender;
 
 	private int genreNo;
 
@@ -31,8 +31,8 @@ public class Member {
 		this.enrollDate = enrollDate;
 		this.sns_FL = sns_FL;
 		this.memberImg = memberImg;
-		Address = address;
-		Gender = gender;
+		this.address = address;
+		this.gender = gender;
 		this.genreNo = genreNo;
 		this.rankNo = rankNo;
 	}
@@ -102,19 +102,19 @@ public class Member {
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 
 	public int getGenreNo() {
@@ -137,7 +137,7 @@ public class Member {
 	public String toString() {
 		return "Member [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberPw=" + memberPw
 				+ ", memberNick=" + memberNick + ", term_FL=" + term_FL + ", enrollDate=" + enrollDate + ", sns_FL="
-				+ sns_FL + ", memberImg=" + memberImg + ", Address=" + Address + ", Gender=" + Gender + ", genreNo="
+				+ sns_FL + ", memberImg=" + memberImg + ", Address=" + address + ", Gender=" + gender + ", genreNo="
 				+ genreNo + ", rankNo=" + rankNo + "]";
 	}
 

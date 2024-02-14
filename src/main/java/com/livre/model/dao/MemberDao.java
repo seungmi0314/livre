@@ -185,6 +185,85 @@ public class MemberDao extends SuperDao {
             }
         }
     }
+
+	public Member getDataBean(String memberNo) {
+		String sql = "select * from members " ;
+		sql += " where memberNo = ?" ;
+		
+		PreparedStatement pstmt = null ; 
+		ResultSet rs = null ;		
+		Member bean = null ;
+		
+		super.conn = super.getConnection() ;
+		try {
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setString(1, memberNo); 
+			rs = pstmt.executeQuery() ;
+			if(rs.next()) {				
+				bean = this.resultSet2Bean(rs) ;
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {rs.close();}
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}	
+		System.out.println("id로 조회 결과 :");
+		System.out.println(bean); 
+		
+		return bean ;
+	}
+
+	public int updateData(Member bean) {
+		String sql = " update members set memberEmail=?, memberPw=?, term_FL=?, enrollDate=?, sns_FL=?, memberImg=?, address=?, gender=?, genreNo=?, rankNo=? " ;
+		sql += " where memberNo = ?" ;
+		
+		PreparedStatement pstmt = null ;
+		int cnt = -9999999 ;
+		
+		try {
+			super.conn = super.getConnection() ;  
+			conn.setAutoCommit(false);			
+			pstmt = conn.prepareStatement(sql) ;
+			
+			pstmt.setString(1, bean.getMemberEmail());
+			pstmt.setString(2, bean.getMemberPw());
+			pstmt.setString(3, bean.getMemberNick());
+			pstmt.setString(4, bean.getTerm_FL());
+			pstmt.setString(5, bean.getEnrollDate());
+			pstmt.setString(6, bean.getSns_FL());
+			pstmt.setString(7, bean.getMemberImg());
+			pstmt.setString(8, bean.getAddress());
+			pstmt.setString(9, bean.getGender());
+			pstmt.setInt(10, bean.getGenreNo());
+			pstmt.setInt(11, bean.getRankNo());
+			pstmt.setInt(12, bean.getMemberNo());
+			
+			cnt = pstmt.executeUpdate() ;			
+			conn.commit();			
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}			
+		} finally {
+			try {
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt ;
+	}
 }
 
 

@@ -2,6 +2,29 @@ html {
     overflow: hidden;
 }
 
+button{
+	background: #fbe9e9;
+	color: #8d2020;
+	border: none;
+	font-size: 10px;
+	font-style: normal;
+	margin-left: 2px;
+}
+
+.profile_input{
+	width: 237px;
+    height: 25px;
+    background: #f1e1e1;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: -0.01em;
+    border-radius: 15px;
+    margin-left: 12px;
+	border: none;
+}
 
 * {
     margin: 0;
@@ -225,19 +248,7 @@ section {
     margin-top: 11px;
 }
 
-.mid-right ul li div {
-    width: 237px;
-    height: 25px;
-    background: #f1e1e1;
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 25px;
-    letter-spacing: -0.01em;
-    border-radius: 15px;
-    margin-left: 12px;
-}
+
 
 .update-set {
     display: flex;

@@ -3,7 +3,7 @@
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
 meInsert=com.livre.controller.member.MemberInsertController
-#meUpdate=com.shopping.controller.member.MemberUpdateController
+meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
