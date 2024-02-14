@@ -80,7 +80,7 @@
 			<c:forEach var="bean" items="${dataList}">
 			<%-- 로그인 아이디와 작성자의 아이디가 다르면 true 로 지정합니다. --%>
 			<%-- readhitUpdate 파라미터는 조회수 업데이트를 할 것인지 결정해주는 boolean 변수입니다. --%>
-			<c:set var="readhitUpdate" value="${(sessionScope.logInfo.memberEmail == bean.memberEmail)}" />
+			<c:set var="readhitUpdate" value="${not (sessionScope.logInfo.memberEmail == bean.memberEmail)}" />
 			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${bean.reviewNo}&readhitUpdate=${readhitUpdate}">
 				<div class="reviewCard">
 					<img class="user-image" src="/livre/assets/${bean.memberImg}">
