@@ -12,7 +12,7 @@
 <%-- 미로그인(0), 일반 사용자(1), 관리자(2) --%>
 <c:set var="whologin" value="0" />
 
-<%-- 아이디가 'admin' 이면 '관리자' 입니다.--%>
+<%-- 이메일이 'admin' 이면 '관리자' 입니다.--%>
 <%-- logInfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. --%>
 <c:if test="${not empty sessionScope.logInfo}">
 	<c:if test="${sessionScope.logInfo.memberEmail =='admin'}">

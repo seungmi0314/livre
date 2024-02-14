@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <%@ include file="./../common/common2.jsp"%>
+<script src="/livre/js/contactUs.js"></script>
 
 <title>Contact Us</title>
 
@@ -79,7 +80,7 @@
 								<option value="etc">기타</option>
 							</select>
 						</div>
-						
+
 						<div class="detail">
 							<p>문의 내용</p>
 							<textarea name="message" placeholder="내용을 입력해주세요"></textarea>
@@ -87,11 +88,11 @@
 
 						<button type="submit">제출하기</button>
 
-						<div style="display: none" class="thankyou_message">
-							<!-- You can customize the thankyou message by editing the code below -->
-							<h2>
-								<em>Thanks</em> for contacting us! We will get back to you soon!
-							</h2>
+						<div id="pop_info" class="pop_wrap" style="display: none;">
+							<div class="pop_inner">
+								<p class="dsc">문의해주셔서 감사합니다. 빠른 시일 내에 답변해 드리겠습니다.</p>
+								<button type="button" class="btn_close">닫기</button>
+							</div>
 						</div>
 
 					</form>
