@@ -10,7 +10,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="/livre/js/findPassword.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="/livre/css/findPassword.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
@@ -34,8 +34,8 @@
 	</main>
 
 	<section>
-		<form name="logInForm" method="post" action="<%=withFormTag%>">
-			<input type="hidden" name="command" value="meInsert">
+		<form name="findPasswordForm" method="post" action="<%=withFormTag%>">
+			<input type="hidden" name="command" value="findPassword">
 
 			<div class="container mt-3">
 				<span id="banner"><b>비밀번호 찾기</b></span><br /> <br /> <br /> <br />
@@ -43,7 +43,7 @@
 
 				<!-- 비밀번호 찾기 -->
 				<div class="mb-3 mt-3">
-					<label for="uname" class="form-label" id="emailbanner"></label> <input
+					<label for="memberEmail" class="form-label" id="emailbanner"></label> <input
 						id="memberEmail" type="text" class="form-control" name="memberEmail"
 						placeholder="이메일 " required>
 					<div class="valid-feedback"></div>
@@ -54,14 +54,14 @@
 
 				</br> </br>
 				<!-- 비밀번호 찾기 버튼 -->
-				<button id="submitButton" type="button" class="btn btn-primary"
+				<button id="submitButton" type="submit" class="btn btn-primary"
 					onclick="return checkEmail();">인증코드 전송</button>
 				</br> </br>
 
 				<!-- ============================================================== -->
 
 				<input type="hidden" id="hiddenEmail" name="email"
-					value="<%=(String) request.getAttribute("memberEmail")%>">
+					value="<%=request.getAttribute("memberEmail")%>">
 				<div class="findPwdClass1">
 					<input type="text" id="findPwdAuth" placeholder="인증번호 입력"
 						autocomplete="off">
@@ -78,8 +78,25 @@
 				<button id="newPasswordButton">변경</button>
 			</div>
 		</form>
+<%-- <script src="/livre/js/findPassword.js"></script>--%>
 
+	<script>
+	
+	function checkEmail() {
+	    var emailInput = document.getElementById("memberEmail").value;
+	    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+	    if (!emailPattern.test(emailInput)) {
+	        // 이메일 형식이 올바르지 않을 때의 처리
+	        document.getElementById("validEmail").style.display = "block";
+	        return false;
+	    } else {
+	        // 이메일 형식이 올바를 때의 처리
+	        document.getElementById("validEmail").style.display = "none";
+	        return true;
+	    }
+	}
+	</script>
 	</section>
 </body>
 </html>

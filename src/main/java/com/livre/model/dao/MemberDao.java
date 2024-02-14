@@ -52,13 +52,15 @@ public class MemberDao extends SuperDao {
 			bean.setMemberPw(rs.getString("memberPw"));
 			bean.setMemberNick(rs.getString("memberNick"));
 			
-			 bean.setTermsFL(rs.getString("termsFL"));
-			 bean.setEnrollDate(rs.getString("enrollDate"));
-			 bean.setSnsFL(rs.getString("snsFL"));
-			 bean.setMemberImg(rs.getString("memberImg"));
-			 bean.setMemberAddress(rs.getString("memberAddress"));
-			 bean.setMemberGender(rs.getString("memberGender"));
-			 bean.setGenreNo(rs.getInt("genreNo")); bean.setRankNo(rs.getInt("rankNo"));
+			/*
+			 * bean.setTermsFL(rs.getString("termsFL"));
+			 * bean.setEnrollDate(rs.getString("enrollDate"));
+			 * bean.setSnsFL(rs.getString("snsFL"));
+			 * bean.setMemberImg(rs.getString("memberImg"));
+			 * bean.setMemberAddress(rs.getString("memberAddress"));
+			 * bean.setMemberGender(rs.getString("memberGender"));
+			 * bean.setGenreNo(rs.getInt("genreNo")); bean.setRankNo(rs.getInt("rankNo"));
+			 */
 			 
 			return bean;
 
@@ -86,13 +88,13 @@ public class MemberDao extends SuperDao {
 			pstmt.setInt(3, bean.getRankNo());
 			pstmt.setString(4, bean.getMemberEmail());
 			pstmt.setString(5, bean.getMemberPw());
-			pstmt.setString(6, bean.getMemberNick());
-			pstmt.setString(7, bean.getTermsFL());
-			pstmt.setString(8, bean.getEnrollDate());
-			pstmt.setString(9, bean.getSnsFL());
-			pstmt.setString(10, bean.getMemberImg());
-			pstmt.setString(11, bean.getMemberAddress());
-			pstmt.setString(12, bean.getMemberGender());
+			pstmt.setString(6,
+					bean.getMemberNick());/*
+											 * pstmt.setString(7, bean.getTermsFL()); pstmt.setString(8,
+											 * bean.getEnrollDate()); pstmt.setString(9, bean.getSnsFL());
+											 * pstmt.setString(10, bean.getMemberImg()); pstmt.setString(11,
+											 * bean.getMemberAddress()); pstmt.setString(12, bean.getMemberGender());
+											 */
 
 			cnt = pstmt.executeUpdate();
 			conn.commit();
@@ -122,6 +124,8 @@ public class MemberDao extends SuperDao {
 	}
 
 	public Member getMemberByEmail(String memberEmail) {
+		
+		
 		// 이메일을 이용하여 해당 회원이 존재하는지 확인합니다.
 		String sql = " select * from members where memberEmail = ?";
 		PreparedStatement pstmt = null;
@@ -132,6 +136,7 @@ public class MemberDao extends SuperDao {
 			super.conn = super.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, memberEmail);
+			
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
