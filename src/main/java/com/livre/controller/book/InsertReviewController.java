@@ -36,12 +36,14 @@ public class InsertReviewController extends SuperClass{
 	String phrase = request.getParameter("phrase");
 	String startDate = request.getParameter("startdate");
 	String endDate = request.getParameter("enddate");
+	int genreNo = Integer.parseInt(request.getParameter("genreNo"));
 	
 	bean.setReviewTitle(reviewTitle);
 	bean.setReviewText(reviewText);
 	bean.setPhrase(phrase);
 	bean.setStartDate(startDate);		
 	bean.setEndDate(endDate);		
+	bean.setGenreNo(genreNo);
 	
 	int cnt = -1 ;
 	cnt = dao.insertData(bean); 

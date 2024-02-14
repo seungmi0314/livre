@@ -37,12 +37,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
  <form action="<%=withFormTag%>" method="post" class="review">
  <input type="hidden" name="command" value="reviewUpdate"> 
             <div class="review-write">
-                <input class="review-title write" placeholder="${requestScope.bean.reviewTitle}"  readonly>
+                <input class="review-title write" name="reviewTitle" placeholder="${requestScope.bean.reviewTitle}"  readonly>
 
-                <textarea class="review-content write" readonly>${requestScope.bean.reviewText}</textarea>
+                <textarea class="review-content write" name="reviewText" readonly>${requestScope.bean.reviewText}</textarea>
 
                 <p class="remember-text">기억하고싶은 구절</p>
-                <textarea class="remember write" readonly>${requestScope.bean.phrase}</textarea>
+                <textarea class="remember write" name="phrase" readonly>${requestScope.bean.phrase}</textarea>
                 
             </div>
 
@@ -67,67 +67,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <img src="/livre/assets/stroke-star.svg">
             </div>
             <div class="read-date">
-                <input class="start-date write" readonly placeholder="${requestScope.bean.startDate}">
+                <input class="start-date write" name="startDate" readonly placeholder="${requestScope.bean.startDate}">
                 ~
-                <input class="end-date write" readonly placeholder="${requestScope.bean.endDate}">
+                <input class="end-date write" name="endDate" readonly placeholder="${requestScope.bean.endDate}">
             </div>
 
             <div class="genre-box">
-            
-                <input type="checkbox" id="genre01" value="1">
-                <label for="genre01">경영/경제</label>
-
-                <input type="checkbox" id="genre02" value="2">
-                <label for="genre02">건강/취미</label>
-
-                <input type="checkbox" id="genre03" value="3">
-                <label for="genre03">어린이</label>
-
-                <input type="checkbox" id="genre04" value="4">
-                <label for="genre04">역사</label>
-
-                <input type="checkbox" id="genre05" value="5">
-                <label for="genre05">여행</label>
-
-                <input type="checkbox" id="genre06" value="6">
-                <label for="genre06">과학</label>
-
-                <input type="checkbox" id="genre07" value="7">
-                <label for="genre07">만화</label>
-
-                <input type="checkbox" id="genre08" value="8">
-                <label for="genre08">사회</label>
-
-                <input type="checkbox" id="genre09" value="9">
-                <label for="genre09">소설/시/희곡</label>
-
-                <input type="checkbox" id="genre10" value="10">
-                <label for="genre10">예술/대중문화</label>
-
-                <input type="checkbox" id="genre11" value="11">
-                <label for="genre11">요리/살림</label>
-
-                <input type="checkbox" id="genre12" value="12">
-                <label for="genre12">인문학</label>
-
-                <input type="checkbox" id="genre13" value="13">
-                <label for="genre13">자기계발</label>
-
-                <input type="checkbox" id="genre14" value="14">
-                <label for="genre14">종교/역학</label>
-
-                <input type="checkbox" id="genre15" value="15">
-                <label for="genre15">청소년</label>
-
-                <input type="checkbox" id="genre16" value="16">
-                <label for="genre16">컴퓨터/모바일</label>
-
-                <input type="checkbox" id="genre17" value="17">
-                <label for="genre17">가정/원예/인테리어</label>
-
-                <input type="checkbox" id="genre18" value="18">
-                <label for="genre18">스포츠</label>
-
+            	<p>${requestScope.bean.genre}</p>
             </div>
         </div>
 

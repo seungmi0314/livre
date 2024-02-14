@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.livre.common.SuperClass;
 import com.livre.model.bean.MyReview;
 import com.livre.model.dao.MyReviewDao;
+import com.livre.model.dao.MyReviewDao2;
 
 
 
@@ -20,7 +21,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 	
 	// 넘어 오는 게시물 번호를 우선 챙깁니다.
 	int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
-	MyReviewDao dao = new MyReviewDao();
+	MyReviewDao2 dao = new MyReviewDao2();
 	MyReview bean = dao.getDataBean(reviewNo);
 	
 	// 이전에 작성했던 게시물 내용을 폼 양식에서 볼수 있도록 바인딩합니다. 
@@ -72,10 +73,10 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 	cnt = dao.updateData(bean);
 
 	if(cnt == 1){ // 수정 성공
-		new MyReviewDetailController().doGet(request, response) ;
+		new MyReviewController().doGet(request, response) ;
 		
 	}else{ // 수정 실패
-		new MyReviewUpdateController().doGet(request, response);
+		new MyReviewController().doGet(request, response);
 	}	
 }
 }

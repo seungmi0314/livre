@@ -127,8 +127,27 @@ body {
     outline: none;
 }
 
+.genre-box {
+	height: 30%;
+	
+}
 
-input[type=checkbox] {
+.genre-box p{
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+	letter-spacing: 0.1em;
+	text-align: center;
+	
+	
+	
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 10px;
+	background-color: #8D2020;
+}
+
+/*input[type=checkbox] {
     display: none;
     
 }
@@ -156,7 +175,7 @@ input[type=checkbox]:checked + label {
     border-radius: 5px;
     background-color: #8D2020;
     cursor: pointer;
-}
+}*/
 
 .button-box {
     display: flex;
