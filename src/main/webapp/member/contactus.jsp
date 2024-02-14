@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/livre/css/contactus.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
+<%@ include file="./../common/common2.jsp"%>
 
 <title>Contact Us</title>
 
@@ -16,8 +17,8 @@
 
 <body>
 	<main>
-		<header>
-			<!-- 헤더 입니다 -->
+		<!-- 	<header>
+			헤더 입니다
 			<div class="header">
 				<img src="/livre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
@@ -25,9 +26,9 @@
 
 			<div class="header-right">
 				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-
+			</div> 
+		</header> -->
+		<!-- 
 		<div class="menu-bar">
 			<ul class="menu">
 				<li class="menu-item"><a>홈</a></li>
@@ -37,7 +38,7 @@
 				<li class="menu-item"><a>이용약관</a></li>
 				<li class="menu-item"><a>contact us</a></li>
 			</ul>
-		</div>
+		</div> -->
 	</main>
 
 	<section>
@@ -48,19 +49,18 @@
 				<p class="title">Contact Us</p>
 
 				<div class="inner-form">
-					<form class="subform" method="post"
-						data-email="chylee917@gmail.com"
+					<form class="gform" method="post" data-email="chylee917@gmail.com"
 						action="https://script.google.com/macros/s/AKfycbzJu68cik8LQcm32i2lNBN5FamHnXw6Zq-SCtmpTTxamZlhCokvTUy9jrPShrPSyz8W/exec"
 						target="frAttachFiles">
 
 						<div class="name">
 							<p>성함</p>
-							<input type="text" placeholder="성함을 입력해 주세요">
+							<input type="text" placeholder="성함을 입력해 주세요" name="name">
 						</div>
 
 						<div class="email">
 							<p>이메일 주소</p>
-							<input type="text" placeholder="메일주소를 입력해 주세요">
+							<input type="text" placeholder="메일주소를 입력해 주세요" name="email">
 						</div>
 
 						<div class="ask">
@@ -79,13 +79,21 @@
 								<option value="etc">기타</option>
 							</select>
 						</div>
-
+						
 						<div class="detail">
 							<p>문의 내용</p>
-							<input type="text" placeholder="내용을 입력해주세요">
+							<textarea name="message" placeholder="내용을 입력해주세요"></textarea>
 						</div>
 
 						<button type="submit">제출하기</button>
+
+						<div style="display: none" class="thankyou_message">
+							<!-- You can customize the thankyou message by editing the code below -->
+							<h2>
+								<em>Thanks</em> for contacting us! We will get back to you soon!
+							</h2>
+						</div>
+
 					</form>
 
 					<iframe name="frAttachFiles" style="display: none"></iframe>
@@ -107,7 +115,8 @@
 					<div class="info-detail">
 						<div class="email">
 							<p>
-								<img src="/livre/assets/email.svg">&nbsp livre@gmail.com
+								<img src="/livre/assets/email.svg">&nbsp
+								chylee917@gmail.com
 							</p>
 						</div>
 

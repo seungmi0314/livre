@@ -55,7 +55,7 @@
 				</br> </br>
 				<!-- 비밀번호 찾기 버튼 -->
 				<button id="submitButton" type="submit" class="btn btn-primary"
-					onclick="return checkEmail();">인증코드 전송</button>
+					onclick="return checkEmail();">임시 비밀번호 전송</button>
 				</br> </br>
 
 				<!-- ============================================================== -->
