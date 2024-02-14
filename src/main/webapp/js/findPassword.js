@@ -1,94 +1,92 @@
-/*const url = "http://localhost:8090/livre/";
+/*// 요청한 이메일을 가져온다.
+		String memberEmail = request.getParameter("memberEmail");
+		String memberPw = request.getParameter("memberPw");
 
-const hiddenEmail = document.getElementById("hiddenEmail");
-// 모든 부분들을 가려놨다가 이메일 인증이 되면
-// 해당 창들이 보이게 하는 작업
-$("#newPassword").css("display", "none");
-$("#newPasswordCheck").css("display", "none");
-$("#newPasswordButton").css("display", "none");
+		// 데이터베이스에 이메일이 존재한지 확인한다.
+		MemberDao dao = new MemberDao();
+		Member bean = dao.getMemberByEmail(memberEmail);
 
-$(function() {
-	$.ajax({
-		url: "findPwdSendEmail",
-		data: { "inputEmail": hiddenEmail.value },
-		success: function(result) {
-		},
-		error: function() {
+		if (bean == null) {
+			setAlertMessage("아이디나 이메일 정보가 맞지 않습니다");
+			goToPage("/findPassword.jsp");
 		}
-	})
-});
 
-const findPwdAuth = document.getElementById("findPwdAuth"); // document 타입으로 선택자 선택
-const findPwdAuthButton = document.getElementById("findPwdAuthButton");
-const findPwdAuthId = $("#findPwdAuthId"); // jquery로 선택자 선택
+		// mail server 설정
+		String host = "smtp.naver.com";
+		String user = "chylee917@naver.com"; // 자신의 네이버 계정
+		String password = "qwerqwerqwer1122"; // 자신의 네이버 페스워드
 
-findPwdAuthButton.addEventListener("click", function() { // 1. 인증 버튼 클릭했을 때
-	
-	if (findPwdAuth.value.length == 8) { // 2. 입력된 인증번호가 6자리 맞는지 확인
-		$.ajax({
-			url: "checkNumber",
-			data: {
-				"cNumber": findPwdAuth.value,
-				"inputEmail": hiddenEmail.value
-			},
-			success: function(result) {
+		// 메일 받을 주소
+		String to_email = bean.getMemberEmail();
 
-				if (result == 1) { //    1  : 인증번호 O , 시간도 O
-					findPwdAuthId.text("인증되었습니다.").css("color", "green");
-					$("#newPassword").css("display", "block");
-					$("#newPasswordCheck").css("display", "block");
-					$("#newPasswordButton").css("display", "block");
+		// SMAP 서버 정보를 설정한다.
+		Properties props = new Properties();
+		props.put("mail.smtp.host", "smtp.naver.com");
+		props.put("mail.smtp.port", 465);
+		props.put("mail.smtp.port", "465");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.ssl.enable", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.ssl.trust", "smtp.naver.com");
 
-				} else if (result == 2) { //    2  : 인증번호 O , 시간이 X 
-					alert("만료된 인증번호 입니다");
-				} else {  // 그외는 인증번호 일치하지않을 때!
-					alert("인증번호가 일치하지 않습니다."); 
-				}
-			},
-			error: function() { 
-				console.log("이메일 인증 실패");
+		// 인증 번호 생성기
+		StringBuffer temp = new StringBuffer();
+		Random rnd = new Random();
+		for (int i = 0; i < 10; i++) {
+			int rIndex = rnd.nextInt(3);
+			switch (rIndex) {
+			case 0:
+				// a-z
+				temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+				break;
+			case 1:
+				// A-Z
+				temp.append((char) ((int) (rnd.nextInt(26)) + 65));
+				break;
+			case 2:
+				// 0-9
+				temp.append((rnd.nextInt(10)));
+				break;
 			}
-		})
-	} else {  // 인증번호가 8글자가 아닐경우
-		alert("인증번호를 정확하게 입력해주세요.");
-		findPwdAuth.focus();
-	}
-});
+		}
+		String authenticationKey = temp.toString();
+		System.out.println(authenticationKey);
 
-
-// 새로운 비밀번호 변경창 나왔을 때
-const newPassword = document.getElementById("newPassword");
-const newPasswordButton = document.getElementById("newPasswordButton");
-
-newPasswordButton.addEventListener("click", function() { // 새로운비밀번호 변경창 나왔을 때 그 변경버튼 클릭했을 때
-	// 영대소문자, 숫자, 특수기호 최소 하나씩 8글자 이상
-	const regExp3 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*~()_+])[a-zA-Z\d!@#$%^&*~()_+]{8,16}$/;
-	if (findPwdAuth.value == $("#newPassword").val() && $("#newPassword").val() == $("#newPasswordCheck").val()) {
-		alert("현재 비밀번호와 동일한 비밀번호로 변경할 수 없습니다.")
-		$("#newPassword").focus();
-	} else if (!regExp3.test($("#newPassword").val())) { // 위 정규표현식에 해당하지 않을경우
-		alert("영대소문자,숫자,특수기호 포함 8글자이상 입력하세요.");
-		$("#newPassword").focus();
-	} else if ($("#newPassword").val() == $("#newPasswordCheck").val()) { // 표현식에 대응하며, 입력부분과 재입력부분이 동일할 경우
-		
-		$.ajax({
-			url: "/livre/member/findPassword.jsp",
-			data: { "password": $("#newPassword").val(),
-					"email": hiddenEmail.value},
-			success: function(result) {
-				if(result!=null){  // 비밀번호가 정상적으로 변경됬을 경우 (dao에서 update문)
-					alert("비밀번호가 성공적으로 변경되었습니다.");
-					location.href = url;
-				}
-			},
-			error: function() {
-				console.log("서블릿으로이동실패");
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(memberEmail, memberPw);
+				// bean.getMemberEmail(), bean.getMemberPw()???
 			}
-		})
+		});
 
+		// email 전송
+		try {
+			// Create a MimeMessage object
+			MimeMessage msg = new MimeMessage(session);
 
-	} else {
-		alert("두개의 비밀번호가 일치하지 않습니다.");
-		$("#newPassword").focus();
-	}
-})*/
+			// Set the sender and recipient addresses
+			msg.setFrom(new InternetAddress(user, "Livre"));
+			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
+
+			// 메일 제목
+			msg.setSubject("안녕하세요 Livre 인증 메일입니다.");
+			// 메일 내용
+			msg.setText("인증 번호는 :" + temp);
+
+			Transport.send(msg);
+			System.out.println("이메일 전송 성공");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("이메일 전송 실패");
+		}
+
+		// HttpSession 객체를 사용하여 AuthenticationKey 저장
+		HttpSession session2 = request.getSession();
+		session2.setAttribute("AuthenticationKey", authenticationKey);
+
+		// 패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
+		request.setAttribute("memberEmail", memberEmail);
+
+		// 페이지 포워딩
+		request.getRequestDispatcher("/findPassword.jsp").forward(request, response);*/
