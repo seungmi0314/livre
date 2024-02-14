@@ -20,6 +20,7 @@ public class MyReview {
 	private String publisher;	// 출판사
 	private String bookImg;	// 책 이미지
 	private String bookContent; // 책 내용
+	private String genre; // 장르 이름
 	
 	
 	public MyReview() {}
@@ -27,7 +28,7 @@ public class MyReview {
 
 	public MyReview(int reviewNo, int memberNo, int bookNo, int genreNo, String reviewTitle, String reviewText,
 			int raiting, String createDate, String phrase, String startDate, String endDate, int readHit,
-			String bookTitle, String author, String publisher, String bookImg, String bookContent) {
+			String bookTitle, String author, String publisher, String bookImg, String bookContent, String genre) {
 		super();
 		this.reviewNo = reviewNo;
 		this.memberNo = memberNo;
@@ -46,6 +47,7 @@ public class MyReview {
 		this.publisher = publisher;
 		this.bookImg = bookImg;
 		this.bookContent = bookContent;
+		this.genre = genre;
 	}
 
 
@@ -219,14 +221,25 @@ public class MyReview {
 	}
 
 
+	public String getGenre() {
+		return genre;
+	}
+
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+
 	@Override
 	public String toString() {
 		return "MyReview [reviewNo=" + reviewNo + ", memberNo=" + memberNo + ", bookNo=" + bookNo + ", genreNo="
 				+ genreNo + ", reviewTitle=" + reviewTitle + ", reviewText=" + reviewText + ", raiting=" + raiting
 				+ ", createDate=" + createDate + ", phrase=" + phrase + ", startDate=" + startDate + ", endDate="
 				+ endDate + ", readHit=" + readHit + ", bookTitle=" + bookTitle + ", author=" + author + ", publisher="
-				+ publisher + ", bookImg=" + bookImg + ", bookContent=" + bookContent + "]";
+				+ publisher + ", bookImg=" + bookImg + ", bookContent=" + bookContent + ", genre=" + genre + "]";
 	}
-	
+
+
 	
 }
