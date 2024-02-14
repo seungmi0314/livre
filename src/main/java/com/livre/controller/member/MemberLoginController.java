@@ -29,27 +29,29 @@ public class MemberLoginController extends SuperClass{
 		String memberPw = request.getParameter("memberPw") ;       // pw 넘어옴
 		String checkbox = request.getParameter("checkbox");	       //checkbox 체크여부 넘어옴
 		
-		System.out.println(memberEmail + "/" + memberPw + "/" + checkbox);
+		System.out.println("이메일 : " + memberEmail + "/ 비밀번호 : " + memberPw);
+		System.out.println("아이디 저장 여부:" + checkbox);
 		
 		MemberDao dao = new MemberDao();
 		Member bean = dao.getDataByEmailAndPassword(memberEmail, memberPw);
 		
 		PrintWriter out = response.getWriter();
-		Cookie cookie = new Cookie("memberEmail", memberEmail);// 일단 쿠키 생성
 		
-		System.out.println(checkbox);
+		
 		if (checkbox != null) { // 체크박스 체크여부에 따라 쿠키 저장 확인
-			// 체크박스 체크 되었을 때
-			// 쿠키 저장
+			Cookie cookie = new Cookie("checkbox", memberEmail); // 일단 쿠키 생성
 			response.addCookie(cookie);
-		} else {
-			// 체크박스 체크 해제되었을 때
-			// 쿠키 유효시간 0으로 해서 브라우저에서 삭제하게 한다.
-			cookie.setMaxAge(0);
-			response.addCookie(cookie);
+			System.out.println("아이디 저장 쿠키 생성완료");
+
+		} else { // 체크박스 체크 해제되었을 때
+            Cookie noCookie = new Cookie("checkbox", "");
+            noCookie.setMaxAge(0); // 쿠키 유효시간 0으로 해서 브라우저에서 삭제하게 한다.
+            response.addCookie(noCookie);
+            System.out.println("아이디 저장 쿠키 생성 선택 안함");
 		}
 		
 		if(bean == null) { // 로그인 실패
+			System.out.println("로그인에 실패하였습니다.");
 			String message = "로그인에 실패하였습니다.";
 			super.setAlertMessage(message) ;
 			super.goToPage(PREFIX + "login.jsp");

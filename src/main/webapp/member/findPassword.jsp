@@ -78,9 +78,8 @@
 				<button id="newPasswordButton">변경</button>
 			</div>
 		</form>
-<%-- <script src="/livre/js/findPassword.js"></script>--%>
 
-	<script>
+<!-- 	<script>
 	
 	function checkEmail() {
 	    var emailInput = document.getElementById("memberEmail").value;
@@ -96,7 +95,8 @@
 	        return true;
 	    }
 	}
-	</script>
+	</script> -->
+	<script src="/livre/js/findPassword.js"></script>
 	</section>
 </body>
 </html>
