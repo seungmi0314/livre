@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+    margin : 0;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3, U+0030-0039;
+    
+}
+
+
+
+section {
+    width: 100vw;
+    padding:  0 200px ;
+}
+
+
+body {
+
+    background-image: url(./../assets/reading-girl.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 100px right 30px;
+    background-size: 600px 450px;
+    
+}
+
+.write-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.left {
+    width: 60%;
+    height: 100%;
+    margin-top: 290px;
+    margin-bottom: 157px;
+}
+
+.review-write{
+    width: 100%;
+    height: 900px;
+    border-radius: 15px;
+    background-color:#fbfbfb ;
+    
+}
+
+.review-info {
+    width: 30%;
+    height: 490px;
+    margin-top: 290px;
+    padding: 45px 35px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.book-title {
+    width: 100%;
+    font-size: 25px;
+    border: none;
+    padding: 5px 10px;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 20px;
+}
+
+.book-title:focus {
+    outline: none;
+}
+
+/* 현재 선택된 검색어 */
+.autocomplete > div.active {
+	background: #e0e5f6;
+  color: #000;
+}
+
+.autocomplete > div {
+  background: #f1f3f499;
+  padding: .2rem .6rem;
+}
+
+
+.book-info p{
+	
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 10px;
+    
+}
+
+.book-info span {
+	font-weight: 400;
+}
+
+
+.book-info {
+    margin-bottom: 15px;
+ }
+
+.star {
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+
+.read-date {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.read-date input {
+    width: 45%;
+    border: none;
+    padding: 5px 10px;
+    border:none;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.read-date input:focus {
+    outline: none;
+}
+
+.genre-box {
+	height: 30%;
+	
+}
+
+.genre-box p{
+	font-size: 14px;
+	font-weight: 600;
+	color: white;
+	letter-spacing: 0.1em;
+	text-align: center;
+	
+	
+	
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 10px;
+	background-color: #8D2020;
+}
+
+input[type=checkbox] {
+    display: none;
+    
+}
+
+
+
+input[type=checkbox] + label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5C5757;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked + label {
+    
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #8D2020;
+    cursor: pointer;
+}
+
+.button-box {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 10px;
+}
+
+.edit {
+    height: 16px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #8D2020;
+    border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.review-write {
+    padding: 60px;
+}
+
+.review-title {
+    width: 90%;
+    font-size: 30px;
+    border: none;
+    background-color: #fbfbfb;
+    padding: 5px 10px;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 30px;
+}
+
+#bookmark{
+	position: relative;
+	left: 6%;
+}
+
+.review-title:focus {
+    outline: none;
+}
+
+.review-content {
+    width: 100%;
+    height: 60%;
+    padding: 30px 10px;
+    font-size: 14px;
+    line-height: 25px;
+    resize: none;
+    color: #5C5757;
+    border: none;
+    background-color: #fbfbfb;
+}
+
+.review-content:focus {
+    outline: none;
+}
+
+.remember-text {
+    font-size: 20px;
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.remember{
+    width: 100%;
+    height: 27%;
+    background-color: white;
+    padding: 20px 30px;
+    font-size: 16px;
+    line-height: 25px;
+    resize: none;
+    color: #5C5757;
+    border: none;
+    border-radius: 20px;
+}
+
+.remember:focus{
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 55px 0;
+    
+}
+
+.submit {
+    padding: 12px 30px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    background-color: #C24B4B;
+    transition: all ease-in-out 0.15s;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.submit:hover {
+    background-color: #D17D7D;
+}
+
+.submit:active {
+    background-color: #E4C8C8;
+}
