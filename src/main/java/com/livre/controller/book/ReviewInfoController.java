@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
 import com.livre.model.bean.MyReview;
-import com.livre.model.dao.MyReviewDao;
+import com.livre.model.dao.MyReviewDao2;
 
 public class ReviewInfoController extends SuperClass {
 	private final String PREFIX = "book/";
@@ -14,7 +14,7 @@ public class ReviewInfoController extends SuperClass {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
 		
-		MyReviewDao dao = new MyReviewDao();
+		MyReviewDao2 dao = new MyReviewDao2();
 		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
 		MyReview bean = dao.getDataBean(reviewNo);		
 		
