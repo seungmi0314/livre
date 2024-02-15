@@ -59,7 +59,7 @@ public class MemberDao extends SuperDao{
 			bean.setGender(rs.getString("Gender"));
 			
 			
-			return bean ;
+			 return bean ;  
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null ;

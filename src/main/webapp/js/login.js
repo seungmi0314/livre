@@ -1,57 +1,72 @@
-$(document).ready(function(){
-    $('.password i').on('click',function(){
-        $('input').toggleClass('active');
-        if($('input').hasClass('active')){
-            $(this).attr('class',"fa fa-eye fa-lg")
-            .prev('input').attr('type',"text");
-        }else{
-            $(this).attr('class',"fa fa-eye-slash fa-lg")
-            .prev('input').attr('type','password');
-        }
-    });
+$(document).ready(function() {
+	$('.password i').on('click', function() {
+		$('input').toggleClass('active');
+		if ($('input').hasClass('active')) {
+			$(this).attr('class', "fa fa-eye fa-lg")
+				.prev('input').attr('type', "text");
+		} else {
+			$(this).attr('class', "fa fa-eye-slash fa-lg")
+				.prev('input').attr('type', 'password');
+		}
+	});
 });
 
+/*
+$(document).ready(function() {
+});
 
+function validCheck() {  form validation check 
+	var memberEmail = $('#memberEmail').val();
 
+	// 이메일 정규식 패턴
+	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+	if (!emailPattern.test(memberEmail) || memberEmail.length < 4 || memberEmail.length > 30) {
+		$('#validEmail').show(); // 이메일 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
+		$('#inputEmail').focus();
+		return false;
+	} else {
+		$('#validEmail').hide(); // 이메일 형식이 올바르다면 해당 요소를 숨깁니다.
+	}
 
-
-
- 
-/*// 페이지 로드 시 실행되는 함수
-window.onload = function() {
-    // 쿠키 또는 로컬 스토리지에서 이메일을 가져와서 입력 필드에 설정
-    var rememberedEmail = getCookie("rememberedEmail") || localStorage.getItem("rememberedEmail");
-    if (rememberedEmail) {
-        document.getElementById("memberEmail").value = rememberedEmail;
-        document.getElementById("remember-check").checked = true;
-    } else {
-        // 기존에 저장된 정보가 없을 경우에는 체크박스 해제
-        document.getElementById("remember-check").checked = false;
-    }
-};
-
-// 로그아웃 버튼 클릭 시 실행되는 함수
-function logout() {
-    // 로컬 스토리지에서 이메일 삭제
-    localStorage.removeItem("rememberedEmail");
-    // 이후 로그아웃 처리 등을 수행
+	var memberPw = $('#memberPw').val();
+	if (memberPw.length < 5 || memberPw.length > 12) {
+		alert('비밀 번호는 5자리 이상 12자리 이하로 입력해 주세요.');
+		$('#memberPw').focus();
+		return false;
+	}
 }
 
-// 폼 제출 시 실행되는 함수
-function submitForm() {
-    var email = document.getElementById("memberEmail").value;
-    var rememberCheckbox = document.getElementById("remember-check");
-    
-    // 쿠키 또는 로컬 스토리지에 이메일 저장
-    if (rememberCheckbox.checked) {
-        document.cookie = "rememberedEmail=" + email + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        localStorage.setItem("rememberedEmail", email);
-    } else {
-        // 체크되어 있지 않을 경우 로컬 스토리지에서 이메일 삭제
-        localStorage.removeItem("rememberedEmail");
-    }
 
-    // 이후 폼 제출 등을 수행
+function checkEmail() {
+	var email = $('#inputEmail').val();
+
+	// 이메일 정규식 패턴
+	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+	// 이메일 형식 및 길이 유효성 검사
+	if (!emailPattern.test(email) || email.length < 4 || email.length > 30) {
+		$('#validEmail').show(); // 이메일 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
+		$('#inputEmail').focus();
+		return false;
+	} else {
+		$('#validEmail').hide(); // 이메일 형식이 올바르다면 해당 요소를 숨깁니다.
+	}
+
+	return true;
 }
-*/
+
+function checkPassword() {
+	var password = $('#inputPassword').val();
+	var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+
+	if (!passwordPattern.test(password)) {
+		$('#validPassword').show(); // 비밀번호 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
+		$('#inputPassword').focus();
+		return false;
+	} else {
+		$('#validPassword').hide(); // 비밀번호 형식이 올바르다면 해당 요소를 숨깁니다.
+	}
+
+	return true;
+}*/

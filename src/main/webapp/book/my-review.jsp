@@ -88,12 +88,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     <div class="star-author">
                     
                     	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div class="star">
-                            <img src="/livre/assets/fill-star.svg">
-                            <img src="/livre/assets/fill-star.svg">
-                            <img src="/livre/assets/stroke-star.svg">
-                            <img src="/livre/assets/stroke-star.svg">
-                            <img src="/livre/assets/stroke-star.svg">
+                        <div id="star" class="star">
+                            <input style="display: none;"type="radio" name="reviewStar" value="1" id="rate1"><label
+								for="rate1"><i class="fa-solid fa-star"></i></label>
+							<input style="display: none;" type="radio" name="reviewStar" value="2" id="rate2"><label
+								for="rate2"><i class="fa-solid fa-star"></i></label>
+							<input style="display: none;" type="radio" name="reviewStar" value="3" id="rate3"><label
+								for="rate3"><i class="fa-solid fa-star"></i></label>
+							<input style="display: none;" type="radio" name="reviewStar" value="4" id="rate4"><label
+								for="rate4"><i class="fa-solid fa-star"></i></label>
+							<input style="display: none;" type="radio" name="reviewStar" value="5" id="rate5"><label
+								for="rate5"><i class="fa-solid fa-star"></i></label>
                         </div>
                         <div class="author">
                            ${bean.author}

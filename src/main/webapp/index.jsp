@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="./common/common.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,18 +23,18 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     
 
     <main>
-        <header>
-        <!-- 헤더 입니다 -->
+       <!--  <header>
+        헤더 입니다
         <div class="header">
             <img src="/livre/assets/logo.svg" class="h-logo">
             <p class="h-logo-name">livre</p>
         </div>
 
         <div class="header-right">
-            <a href="/livre/Livre?command=login">로그인</a>
-            <a href="/livre/Livre?command=meInsert">회원가입</a>
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
         </div>
-        </header>
+        </header> -->
 
     <!--  
     

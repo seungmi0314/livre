@@ -38,8 +38,8 @@ body {
 .left {
     width: 60%;
     height: 100%;
-    margin-top: 255px;
-    
+    margin-top: 290px;
+    margin-bottom: 157px;
 }
 
 .review-write{
@@ -147,7 +147,7 @@ body {
 	background-color: #8D2020;
 }
 
-/*input[type=checkbox] {
+input[type=checkbox] {
     display: none;
     
 }
@@ -175,7 +175,7 @@ input[type=checkbox]:checked + label {
     border-radius: 5px;
     background-color: #8D2020;
     cursor: pointer;
-}*/
+}
 
 .button-box {
     display: flex;
@@ -194,29 +194,23 @@ input[type=checkbox]:checked + label {
   cursor: pointer;
 }
 
-/* 삭제하기 버튼 */
-.del {
-    height: 16px;
-    line-height: 16px;
-    font-size: 14px;
-    color: #8D2020;
-    border: 0;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .review-write {
     padding: 60px;
 }
 
 .review-title {
-    width: 100%;
+    width: 90%;
     font-size: 30px;
     border: none;
     background-color: #fbfbfb;
     padding: 5px 10px;
     border-bottom: 1px solid #D9D9D9;
     margin-bottom: 30px;
+}
+
+#bookmark{
+	position: relative;
+	left: 6%;
 }
 
 .review-title:focus {

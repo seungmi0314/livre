@@ -12,7 +12,7 @@
 <%-- 미로그인(0), 일반 사용자(1), 관리자(2) --%>
 <c:set var="whologin" value="0" />
 
-<%-- 아이디가 'admin' 이면 '관리자' 입니다.--%>
+<%-- 이메일이 'admin' 이면 '관리자' 입니다.--%>
 <%-- logInfo 속성을 사용하여 현재 로그인 상태를 확인할 수 있습니다. --%>
 <c:if test="${not empty sessionScope.logInfo}">
 	<c:if test="${sessionScope.logInfo.memberEmail =='admin'}">
@@ -40,21 +40,14 @@ String notWithFormTag = withFormTag + "?command=";
 <!-- 파비콘  -->
 <link rel="icon" href="/livre/assets/favicon.png">
 <!-- jQuery section -->
-<!-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-<!-- bootstrap section -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-
 <!-- header.css -->
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet" href="/livre/css/menu.css" />
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
 	<main>
@@ -67,7 +60,7 @@ String notWithFormTag = withFormTag + "?command=";
 			<div class="header-right">
 
 				<c:if test="${whologin eq 0}">
-					<a href="#">로그인</a><a href="#">회원가입</a>
+					<a href="/livre/Livre?command=login">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
 				</c:if>
 				<c:if test="${whologin ne 0}">
 					<!-- 프로필 사진 추가 -->

@@ -8,13 +8,14 @@ celebrate=com.livre.controller.member.CelebrateController
 selectGender=com.livre.controller.member.SelectGenderController
 createNickname=com.livre.controller.member.CreateNicknameController
 finalCheck=com.livre.controller.member.FinalCheckController
-#meUpdate=com.shopping.controller.member.MemberUpdateController
+meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
 bookList=com.livre.controller.book.BookListController
 bookDetail=com.livre.controller.book.BookDetailController
+reviewInfo=com.livre.controller.book.ReviewInfoController
 my-review=com.livre.controller.book.MyReviewController
 reviewDel=com.livre.controller.book.DeleteReviewController
 reviewSearch=com.livre.controller.book.MyReviewSearchController
@@ -25,4 +26,4 @@ reviewInsert=com.livre.controller.book.InsertReviewController
 # member section
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
-#findPassword=com.livre.controller.member.FindPasswordController
+findPassword=com.livre.controller.member.FindPasswordController

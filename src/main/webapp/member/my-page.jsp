@@ -19,11 +19,10 @@
     function validCheck(){/* form validation check */
 			var memberNick = $('#memberNick').val();  			
 			
-			if(memberNick.length < 2 || memberNick.length > 8){
-				alert('닉네임은 2자리 이상 8자리 이하로 입력해 주세요.');
+			if(memberNick.length < 4 || memberNick.length > 10){
+				alert('닉네임은 4자리 이상 10자리 이하로 입력해 주세요.');
 				return false ; /* false이면 이벤트 전파 방지 */
 			}
-    }
     	
     </script>
   

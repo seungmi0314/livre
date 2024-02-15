@@ -37,14 +37,18 @@
 
 			<!-- 쿠키값으로 email정보 받아오기 -->
 			<%
-			String cookie = "";
-			Cookie[] cookies = request.getCookies(); //쿠키생성
-			if (cookies != null && cookies.length > 0)
-				for (int i = 0; i < cookies.length; i++) {
-					if (cookies[i].getName().equals("memberEmail")) { // 내가 원하는 쿠키명 찾아서 값 저장
-				cookie = cookies[i].getValue();
+			String chek = null;
+			String memberEmail = "";
+			Cookie[] cookie = request.getCookies(); // 쿠키 생성
+			if (cookie != null) {
+				for (int i = 0; i < cookie.length; i++) {
+					if (cookie[i].getName().equals("checkbox")) { // 내가 원하는 쿠키명 찾아서 값 저장
+				chek = "checked";
+				memberEmail = cookie[i].getValue();
+				System.out.println(memberEmail);
 					}
 				}
+			}
 			%>
 
 			<form action="<%=withFormTag%>" method="post" id="loginform">
@@ -75,11 +79,12 @@
 						<!--이메일 기억하기-->
 						<p>
 							<label> <input type="checkbox" name="checkbox"
-								id="checkbox" value="<%=cookie%>"> <span>이메일 저장</span>
+								id="checkbox" value="chk"<%=chek%>> <span>이메일 저장</span>
 							</label>
 						</p>
 						<!--비밀번호를 잊으셨나요?-->
-						<a href="#" class="forget_pw">비밀번호를 잊으셨나요?</a>
+						<a href="/livre/member/findPassword.jsp" class="forget_pw">비밀번호를
+							잊으셨나요?</a>
 					</div>
 
 					<!--로그인 버튼-->
