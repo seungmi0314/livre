@@ -33,7 +33,7 @@ function trackSelectedImages(id) {
 }
 
 // 초기 진행 상태 설정
-var progress = 60;
+var progress = 50;
 
 // 진행 상태 갱신 함수
 function updateProgress() {
@@ -45,7 +45,7 @@ function updateProgress() {
     progressText.innerText = progress + '%';
 
     // 다음 진행 상태로 이동
-    if (progress < 80) {
+    if (progress < 75) {
         progress++;
     }
 }

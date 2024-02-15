@@ -16,7 +16,7 @@
 	bean.setEnrollDate(request.getParameter("enrollDate"));
 	bean.setSns_FL(request.getParameter("sns_FL"));
 	bean.setMemberImg(request.getParameter("memberImg"));
-	bean.setAddress(request.getParameter("Address"));
+	bean.setAddress(request.getParameter("address"));
 	bean.setGender(request.getParameter("memberGender"));
 	bean.setGenreNo(Integer.parseInt(request.getParameter("genreNo")));
 	bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));

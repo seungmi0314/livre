@@ -46,7 +46,7 @@ public class MemberDao extends SuperDao{
 		try {
 			Member bean = new Member() ;			
 			bean.setMemberNo(rs.getInt("memberNo"));
-			bean.setGenreNo(rs.getInt("genreNo"));
+			bean.setGenreNo(rs.getString("genreNo"));
 			bean.setRankNo(rs.getInt("rankNo"));
 			bean.setMemberEmail(rs.getString("memberEmail"));
 			bean.setMemberPw(rs.getString("memberPw"));
@@ -70,56 +70,63 @@ public class MemberDao extends SuperDao{
 		//members_seq.NEXTVAL
 		System.out.println(bean);
 		/*
-		 * String
-		 * sql=" insert into members( enrollDate, memberNo, genreNo, rankNo, memberEmail, memberPw, memberNick, term_FL, sns_FL, memberImg, Address, Gender) "
-		 * ; sql +=
-		 * " values(default, 2, 1, 1, ?, ? , null, null, default, null, null, null)";
+		  String
+		  sql=" insert into members( enrollDate, memberNo, genreNo, rankNo, memberEmail, memberPw, memberNick, term_FL, sns_FL, memberImg, Address, Gender) "
+		  ; sql +=
+		  " values(default, 2, 1, 1, ?, ? , null, null, default, null, null, null)";
 		 */
-		String sql=" insert into members(memberNo, memberEmail, memberPw,term_FL) ";
+		/*
+		String sql=" insert into members(memberNo, memberEmail, memberPw, term_FL) ";
 		sql += " values(members_seq.NEXTVAL, ?,?,?)";
+		*/
 		PreparedStatement pstmt = null;
 		int cnt = -999999;
 		
-		try {
-			super.conn = super.getConnection();
-			conn.setAutoCommit(false);
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			
-			//pstmt.setString(1, bean.getEnrollDate());
-			//pstmt.setInt(1, bean.getMemberNo());
-			//pstmt.setInt(3, bean.getGenreNo());
-			//pstmt.setInt(4, bean.getRankNo());
-			pstmt.setString(1, bean.getMemberEmail());
-			pstmt.setString(2, bean.getMemberPw());
-			//pstmt.setString(6, bean.getMemberNick());
-			pstmt.setString(3, bean.getTerm_FL());
-			//pstmt.setString(8, bean.getSnsFL());
-			//pstmt.setString(9, bean.getMemberImg());
-			//pstmt.setString(10, bean.getMemberAddress());
-			//pstmt.setString(11, bean.getMemberGender());
-			
-			cnt = pstmt.executeUpdate();
-			conn.commit();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			try {
-				conn.rollback();
-			}catch(Exception e2) {
-				e2.printStackTrace();
-			}
-		}finally {
-			try {
-				if(pstmt != null) {pstmt.close();}
-				super.closeConnection();
-			}catch(Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		return cnt;
-	}
+		 String sql = "";
+		    if (bean.getMemberNick() == null && bean.getGender() == null && bean.getGenreNo() == "") {
+		        // 건너뛰기 버튼을 눌렀을 때 필요한 정보만 받아서 DB에 저장
+		        sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL) VALUES(members_seq.NEXTVAL, ?, ?, ?)";
+		    } else {
+		        // 다음을 눌렀을 때 추가 정보까지 받아서 DB에 저장
+		        sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL, genreNo, gender, memberNick) VALUES(members_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+		    }
+
+		    try {
+		        super.conn = super.getConnection();
+		        conn.setAutoCommit(false);
+		        
+		        pstmt = conn.prepareStatement(sql);
+		        
+		        pstmt.setString(1, bean.getMemberEmail());
+		        pstmt.setString(2, bean.getMemberPw());
+		        pstmt.setString(3, bean.getTerm_FL());
+		        pstmt.setString(4, bean.getGenreNo());
+		        pstmt.setString(5, bean.getMemberNick());
+		        pstmt.setString(6, bean.getGender());
+		        
+		        
+		        cnt = pstmt.executeUpdate();
+		        conn.commit();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        try {
+		            conn.rollback();
+		        } catch(Exception e2) {
+		            e2.printStackTrace();
+		        }
+		    } finally {
+		        try {
+		            if(pstmt != null) {pstmt.close();}
+		            super.closeConnection();
+		        } catch(Exception e2) {
+		            e2.printStackTrace();
+		        }
+		    }
+		    return cnt;
+	    }
+	
+	
+	
 		
 	public int updateData(Member bean) {
 		System.out.println(bean);
@@ -210,9 +217,9 @@ public class MemberDao extends SuperDao{
 	
 	
 	
-
-	
 }
+
+
 
 
 

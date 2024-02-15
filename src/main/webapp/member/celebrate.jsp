@@ -34,12 +34,9 @@
 				<span id="livrelogo"><img id="livreIcon" src="/livre/assets/logo.svg" width="30px" height="30px">livre</span>&nbsp;에서 함께 생각을 나눠봐요!
 			</span>	
 		</div>
-		</tr>
 		<div id="buttonDiv">
 
 			<button type="button" id="nextButton" onclick="moveToNextPage()">홈으로</button>
-		</div>
-		</p>
 		</div>
 	</section>
 

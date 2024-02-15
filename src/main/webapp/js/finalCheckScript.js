@@ -41,7 +41,7 @@
 	}
 
 	// 초기 진행 상태 설정
-	var progress = 100;
+	var progress = 75;
 
 	// 진행 상태 갱신 함수
 	function updateProgress() {

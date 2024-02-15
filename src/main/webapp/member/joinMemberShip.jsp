@@ -4,6 +4,8 @@
 <%
 String term_FL = request.getParameter("term_FL");
 %>
+<%@ page import="com.livre.model.dao.MemberDao" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,12 +97,14 @@ function confirmPassword() {
     }
 
     return true;
+    
 }
 
 </script>
 <link rel="stylesheet" type="text/css" href="/livre/css/joinMemberShipStyle.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -121,7 +125,7 @@ function confirmPassword() {
 	</main>
 	<section>
 	<form name="logInForm" method="post" action="<%=withFormTag%>">
-	<input type="hidden" name="command" value="meInsert">
+	<input type="hidden" name="command" value="collectPreference">
 		<!-- 로그인 배너 -->
 		<div class="container mt-3">
 			<span id="banner"><b>회원가입</b></span><br /> <span id="checkAccount">이미
@@ -142,6 +146,7 @@ function confirmPassword() {
 					<label for="pwd" class="form-label" id="passwordbanner"></label> 
 					<input id="inputPassword" type="password" class="form-control" name="memberPw"
 						placeholder="비밀번호" name="passwordParam" >
+						
 					<div class="valid-feedback"></div>
 					<hr width="450px">
 					<div class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
@@ -187,7 +192,7 @@ function confirmPassword() {
 					</br> 리버(livrer)가 되어 우리에게 들려줄래요?
 				</b>
 				</span>
-				<input type="text" value="<%=term_FL%>" name="term_FL">
+				<input type="hidden" value="<%=term_FL%>" name="term_FL">
 			</form>
 		</div>
 	</section>
