@@ -32,13 +32,30 @@
 <body>
      
     <form action="<%=withFormTag%>" method="post">
-    	<input type="hidden" name="command" value="meUpdate">
+    	<input type="hidden" name="command" value="my-page">
+    	<input type="hidden" id="memberNo" name="memberNo" value="${sessionScope.loginfo.memberNo}">
 		<div class="content-warp">
 			<section>
 				<div class="section-1">
 					<div class="section-1-top">
 						<ul>
-							<li>${bean.rankNo}</li>
+							<li>
+								<c:if test="${bean.rankNo eq 1}">
+									브론즈
+								</c:if>
+								<c:if test="${bean.rankNo eq 2}">
+									실버
+								</c:if>
+								<c:if test="${bean.rankNo eq 3}">
+									골드
+								</c:if>
+								<c:if test="${bean.rankNo eq 4}">
+									플레
+								</c:if>
+								<c:if test="${bean.rankNo eq 5}">
+									다이아
+								</c:if>
+							</li>
 							<li>${bean.memberEmail}님</li>
 							<li>
 								<img src="/livre/assets/security_mypage.png" >
@@ -78,7 +95,21 @@
 						<div class="content-layout">
 							<div class="mid2-left">
 								<img src="/livre/assets/rank_first.png" >
-								<span>새싹</span>
+									<c:if test="${bean.rankNo eq 1}">
+										<span>브론즈</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 2}">
+										<span>실버</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 3}">
+										<span>골드</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 4}">
+										<span>플레</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 5}">
+										<span>다이아</span>
+									</c:if>
 							</div>
 							<div class="mid2-mid">
 								<div class="mid2-background">
@@ -90,7 +121,18 @@
 								<span>다음 단계까지 열심히 해봐요!</span>
 							</div>
 							<div class="mid2-right"><img src="/livre/assets/rank_second.png" >
-								<span>책린이</span>
+									<c:if test="${bean.rankNo eq 1}">
+										<span>실버</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 2}">
+										<span>골드</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 3}">
+										<span>플레</span>
+									</c:if>
+									<c:if test="${bean.rankNo eq 4}">
+										<span>다이아</span>
+									</c:if>
 							</div>
 						</div>
 					</div>
@@ -98,18 +140,18 @@
 						<p>관심 분야</p>
 						<div class="bottom-layout">
 							<div><img src="/livre/assets/hobby_mypage.png" >
-								<p>스포츠</p>
+								<p>"${bean.genreNo}"</p>
 							</div>
 							<div><img src="/livre/assets/hobby2_mypage.png" >
-								<p>건강/취미</p>
+								<p>"${bean.genreNo}"</p>
 							</div>
 							<div><img src="/livre/assets/hobby3_mypage.png" >
-								<p>소설/시/희곡</p>
+								<p>"${bean.genreNo}"</p>
 							</div>
 						</div>
 						<div class="update-set">
 	
-							<div class="btn-right"><img src="/livre/assets/edit_bookmark.png" ><a href="">등록/수정</a></div>
+							<div class="btn-right"><img src="/livre/assets/edit_bookmark.png" ><button type="submit" onclick="return validCheck();">등록/수정</button></div>
 						</div>
 					</div>
 				</div>

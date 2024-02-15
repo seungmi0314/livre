@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.livre.model.bean.Member;
+import com.livre.model.bean.MyReview;
 
 public class MemberDao extends SuperDao {
 
@@ -186,7 +187,7 @@ public class MemberDao extends SuperDao {
         }
     }
 
-	public Member getDataBean(String memberNo) {
+	public Member getDataBean(int memberNo) {
 		String sql = "select * from members " ;
 		sql += " where memberNo = ?" ;
 		
@@ -197,7 +198,7 @@ public class MemberDao extends SuperDao {
 		super.conn = super.getConnection() ;
 		try {
 			pstmt = conn.prepareStatement(sql);	
-			pstmt.setString(1, memberNo); 
+			pstmt.setInt(1, memberNo); 
 			rs = pstmt.executeQuery() ;
 			if(rs.next()) {				
 				bean = this.resultSet2Bean(rs) ;
@@ -214,14 +215,14 @@ public class MemberDao extends SuperDao {
 				e2.printStackTrace();
 			}
 		}	
-		System.out.println("id로 조회 결과 :");
+		System.out.println("memberNo로 조회 결과 :");
 		System.out.println(bean); 
 		
 		return bean ;
 	}
 
 	public int updateData(Member bean) {
-		String sql = " update members set memberEmail=?, memberPw=?, term_FL=?, enrollDate=?, sns_FL=?, memberImg=?, address=?, gender=?, genreNo=?, rankNo=? " ;
+		String sql = " update members set memberEmail=?, memberPw=?, memberNick=?, memberImg=?, address=?, genreNo=?, rankNo=? " ;
 		sql += " where memberNo = ?" ;
 		
 		PreparedStatement pstmt = null ;
@@ -235,15 +236,15 @@ public class MemberDao extends SuperDao {
 			pstmt.setString(1, bean.getMemberEmail());
 			pstmt.setString(2, bean.getMemberPw());
 			pstmt.setString(3, bean.getMemberNick());
-			pstmt.setString(4, bean.getTerm_FL());
-			pstmt.setString(5, bean.getEnrollDate());
-			pstmt.setString(6, bean.getSns_FL());
-			pstmt.setString(7, bean.getMemberImg());
-			pstmt.setString(8, bean.getAddress());
-			pstmt.setString(9, bean.getGender());
-			pstmt.setInt(10, bean.getGenreNo());
-			pstmt.setInt(11, bean.getRankNo());
-			pstmt.setInt(12, bean.getMemberNo());
+			//pstmt.setString(4, bean.getTerm_FL());
+			//pstmt.setString(5, bean.getEnrollDate());
+			//pstmt.setString(6, bean.getSns_FL());
+			pstmt.setString(4, bean.getMemberImg());
+			pstmt.setString(5, bean.getAddress());
+			//pstmt.setString(6, bean.getGender());
+			pstmt.setInt(6, bean.getGenreNo());
+			pstmt.setInt(7, bean.getRankNo());
+			pstmt.setInt(8, bean.getMemberNo());
 			
 			cnt = pstmt.executeUpdate() ;			
 			conn.commit();			
@@ -264,6 +265,7 @@ public class MemberDao extends SuperDao {
 		}
 		return cnt ;
 	}
+
 }
 
 

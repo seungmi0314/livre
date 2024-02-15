@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.livre.model.bean.Member;
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
 
@@ -372,6 +372,42 @@ public class MyReviewDao extends SuperDao{
 			}
 		}
 		return cnt ;
+	}
+
+	public MyReview getRank(int reviewNo) {
+		
+		String sql = "select * from reviews " ;
+		sql += " order by readhit desc" ;
+		sql += " limit 4" ;
+		
+		PreparedStatement pstmt = null ; 
+		ResultSet rs = null ;		
+		MyReview bean = null ;
+		
+		super.conn = super.getConnection() ;
+		try {
+			pstmt = conn.prepareStatement(sql);	
+			rs = pstmt.executeQuery() ;
+			if(rs.next()) {				
+				bean = this.resultSet2Bean(rs) ;
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {rs.close();}
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}	
+		System.out.println("상위 4개 :");
+		System.out.println(bean); 
+		
+		return bean ;
+		
 	}
 
 	
