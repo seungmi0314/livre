@@ -21,7 +21,7 @@ reviewInsert=com.livre.controller.book.InsertReviewController
 # member section
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
-findPassword=com.livre.controller.member.FindPasswordController
+#findPassword=com.livre.controller.member.FindPasswordController
 my-page=com.livre.controller.member.MyPageController
 # main section
 main-page=com.livre.controller.book.MainPageController
