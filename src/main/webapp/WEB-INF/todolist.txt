@@ -3,7 +3,7 @@
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
 meInsert=com.livre.controller.member.MemberInsertController
-meUpdate=com.livre.controller.member.MemberUpdateController
+#meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
@@ -22,3 +22,6 @@ reviewInsert=com.livre.controller.book.InsertReviewController
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
 findPassword=com.livre.controller.member.FindPasswordController
+my-page=com.livre.controller.member.MyPageController
+# main section
+main-page=com.livre.controller.book.MainPageController
