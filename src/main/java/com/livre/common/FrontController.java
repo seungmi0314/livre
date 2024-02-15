@@ -26,6 +26,7 @@ public class FrontController extends HttpServlet{
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+	
 		ServletContext application = config.getServletContext();
 		
 		this.todolist = config.getInitParameter("todolist");

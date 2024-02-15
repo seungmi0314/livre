@@ -7,9 +7,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>비밀번호 찾기</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="/livre/css/findPassword.css">
@@ -47,7 +44,7 @@
 						id="memberEmail" type="text" class="form-control" name="memberEmail"
 						placeholder="이메일 " required>
 					<div class="valid-feedback"></div>
-					<hr width="450px">
+					
 					<div class="invalid-feedback" id="validEmail">* 올바른 이메일을
 						작성해주세요.</div>
 				</div>
@@ -60,22 +57,6 @@
 
 				<!-- ============================================================== -->
 
-				<input type="hidden" id="hiddenEmail" name="email"
-					value="<%=request.getAttribute("memberEmail")%>">
-				<div class="findPwdClass1">
-					<input type="text" id="findPwdAuth" placeholder="인증번호 입력"
-						autocomplete="off">
-					<button type="button" id="findPwdAuthButton">인증</button>
-				</div>
-				<span id="findPwdAuthId"></span>
-
-				<div class="findPwdClass2">
-					<input type="text" id="newPassword" name="pass"
-						placeholder="새로운 패스워드 입력" autocomplete="off"> <input
-						type="text" id="newPasswordCheck" placeholder="새로운 패스워드 확인"
-						autocomplete="off">
-				</div>
-				<button id="newPasswordButton">변경</button>
 			</div>
 		</form>
 

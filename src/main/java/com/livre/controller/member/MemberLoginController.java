@@ -37,7 +37,6 @@ public class MemberLoginController extends SuperClass{
 		
 		PrintWriter out = response.getWriter();
 		
-		
 		if (checkbox != null) { // 체크박스 체크여부에 따라 쿠키 저장 확인
 			Cookie cookie = new Cookie("checkbox", memberEmail); // 일단 쿠키 생성
 			response.addCookie(cookie);

@@ -18,20 +18,22 @@ import com.livre.model.bean.Member;
 import com.livre.model.dao.MemberDao;
 
 public class FindPasswordController extends SuperClass {
+	private final String PREFIX = "member/";
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
-		
+
 	}
-	
+
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
 		super.doPost(request, response);
-	
+
 		// 요청한 이메일을 가져온다.
 		String memberEmail = request.getParameter("memberEmail");
-		//String memberPw = request.getParameter("memberPw");
+		// String memberPw = request.getParameter("memberPw");
 		String memberPw = "qwerqwerqwer1122";
 		System.out.println("memberPw : " + memberPw);
 		// 데이터베이스에 이메일이 존재한지 확인한다.
@@ -50,7 +52,7 @@ public class FindPasswordController extends SuperClass {
 
 		// 메일 받을 주소
 		String to_email = bean.getMemberEmail();
-		
+
 		// SMAP 서버 정보를 설정한다.
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.naver.com");
@@ -59,9 +61,10 @@ public class FindPasswordController extends SuperClass {
 		props.put("mail.smtp.ssl.enable", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // 사용할 TLS/SSL 프로토콜 명시
-		//props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // 사용 중인 프로토콜에 맞게 변경
-		//props.put("mail.smtp.ssl.ciphersuites", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"); // 사용 중인 암호 알고리즘에 맞게 변경
-		
+		// props.put("mail.smtp.ssl.protocols", "TLSv1.2"); // 사용 중인 프로토콜에 맞게 변경
+		// props.put("mail.smtp.ssl.ciphersuites",
+		// "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"); // 사용 중인 암호 알고리즘에 맞게 변경
+
 		// 인증 번호 생성기
 		StringBuffer temp = new StringBuffer();
 		Random rnd = new Random();
@@ -82,8 +85,10 @@ public class FindPasswordController extends SuperClass {
 				break;
 			}
 		}
-		String authenticationKey = temp.toString();
-		System.out.println(authenticationKey);
+
+		String authkey = temp.toString();
+
+		System.out.println(authkey);
 
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -92,7 +97,7 @@ public class FindPasswordController extends SuperClass {
 				// bean.getMemberEmail(), bean.getMemberPw()???
 			}
 		});
-		
+
 		// email 전송
 		try {
 			System.out.println("session : " + session);
@@ -110,21 +115,28 @@ public class FindPasswordController extends SuperClass {
 
 			Transport.send(msg);
 			System.out.println("이메일 전송 성공");
+			
+			super.goToPage(PREFIX + "updatePassword.jsp");
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("이메일 전송 실패");
+			
+			super.goToPage(PREFIX + "findPassword.jsp");
+			return;
 		}
-		
-		// HttpSession 객체를 사용하여 AuthenticationKey 저장
-		HttpSession session2 = request.getSession();
-		session2.setAttribute("AuthenticationKey", authenticationKey);
 
-		// 패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
-		request.setAttribute("memberEmail", memberEmail);
+		// HttpSession 객체를 사용하여 authkey 저장
+		HttpSession session2 = request.getSession();
+		session2.setAttribute("authkey", authkey);
+
+//		// 패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
+//		request.setAttribute("memberEmail", memberEmail);
 
 		// 페이지 포워딩
-		request.getRequestDispatcher("/findPassword.jsp").forward(request, response);
+		//request.getRequestDispatcher("/findPassword.jsp").forward(request, response);
+		//super.goToPage(PREFIX + "findPassword.jsp");
+
 	}
 
 }
