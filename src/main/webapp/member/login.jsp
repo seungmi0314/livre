@@ -13,8 +13,12 @@
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script src="/livre/js/login.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+	integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8"
+	crossorigin="anonymous"></script>
 
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="/livre/js/snsLogin.js"></script>
 <title>로그인 페이지</title>
 
 </head>
@@ -79,7 +83,7 @@
 						<!--이메일 기억하기-->
 						<p>
 							<label> <input type="checkbox" name="checkbox"
-								id="checkbox" value="chk"<%=chek%>> <span>이메일 저장</span>
+								id="checkbox" value="chk" <%=chek%>> <span>이메일 저장</span>
 							</label>
 						</p>
 						<!--비밀번호를 잊으셨나요?-->
@@ -96,13 +100,13 @@
 			<div class="sns">
 				<p>sns계정으로 간편로그인 하세요</p>
 				<div class="sns-login">
-					<div class="kakao">
+					<div class="kakao" onclick="kakaoLogin()" value="카카오톡 간편로그인">
 						<img src="/livre/assets/login-kakao.svg">
 					</div>
-					<div class="naver">
+					<div class="naver" onclick="naverLogin()">
 						<img src="/livre/assets/login-naver.svg">
 					</div>
-					<div class="google">
+					<div class="google" onclick="googleLogin()" value="구글로 간편로그인">
 						<img src="/livre/assets/login-google.svg">
 					</div>
 				</div>
@@ -113,7 +117,7 @@
 					href="/livre/member/joinMemberShip.jsp">회원가입</a>
 			</p>
 		</div>
-
+		<script src="/livre/js/login.js"></script>
 	</section>
 </body>
 </html>
