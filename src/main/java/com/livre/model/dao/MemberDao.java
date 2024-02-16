@@ -43,7 +43,7 @@ public class MemberDao extends SuperDao {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-		}
+		} 
 		return bean;
 	}
 
