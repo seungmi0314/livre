@@ -21,8 +21,8 @@ section {
 
 #mainBoard {
 	text-align: center;
-	width: 350px;
-	height: 500px;
+	width: 720px;
+	height: 510px;
 	background: #FFF4F4;
 	padding: 30px;
 	border-radius: 20px;
@@ -70,7 +70,9 @@ img:hover {
 
 #economy.showBorder, #child.showBorder, #health.showBorder, #history.showBorder,
 	#travel.showBorder, #science.showBorder, #cartoon.showBorder, #society.showBorder,
-	#novel.showBorder {
+	#novel.showBorder, #art.showBorder, #cooking.showBorder, #humanities.showBorder, #selfdev.showBorder,
+	#religion.showBorder, #teenager.showBorder, #mobile.showBorder, #gardening.showBorder,
+	#sports.showBorder {
 	border: 2px solid #C24B4B;
 	margin: -2px;
 }

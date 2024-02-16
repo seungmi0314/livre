@@ -33,13 +33,13 @@ public class MemberInsertController extends SuperClass {
 		//bean.setMemberNo(Integer.parseInt(request.getParameter("memberNo")));
 		bean.setMemberEmail(request.getParameter("memberEmail"));
 		bean.setMemberPw(request.getParameter("memberPw"));
-		//bean.setMemberNick(request.getParameter("memberNick"));
+		bean.setMemberNick(request.getParameter("memberNick"));
 		bean.setTerm_FL(request.getParameter("term_FL"));
 		//bean.setEnrollDate(request.getParameter("enrollDate"));
 		//bean.setSnsFL(request.getParameter("snsFL"));
 		//bean.setMemberImg(request.getParameter("memberImg"));
 		//bean.setMemberAddress(request.getParameter("memberAddress"));
-		//bean.setMemberGender(request.getParameter("memberGender"));
+		bean.setGender(request.getParameter("gender"));
 		
 		//bean.setGenreNo(Integer.parseInt(request.getParameter("genreNo")));
 		//bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
