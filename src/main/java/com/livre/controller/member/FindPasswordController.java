@@ -19,7 +19,7 @@ import com.livre.model.dao.MemberDao;
 
 public class FindPasswordController extends SuperClass {
 	private final String PREFIX = "member/";
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
@@ -101,27 +101,40 @@ public class FindPasswordController extends SuperClass {
 		// email 전송
 		try {
 			System.out.println("session : " + session);
-			// Create a MimeMessage object
+			// MimeMessage 객체 생성
 			MimeMessage msg = new MimeMessage(session);
 
-			// Set the sender and recipient addresses
+			// 송신자 및 수신자 주소 설정
 			msg.setFrom(new InternetAddress(user, "Livre"));
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 
 			// 메일 제목
 			msg.setSubject("안녕하세요 Livre 인증 메일입니다.");
 			// 메일 내용
-			msg.setText("인증 번호는 :" + temp);
+			msg.setText("인증 번호는 : " + temp);
 
 			Transport.send(msg);
 			System.out.println("이메일 전송 성공");
-			
-			super.goToPage(PREFIX + "updatePassword.jsp");
 
+			// 생성된 authkey로 회원 비밀번호 업데이트
+			int updateResult = dao.updateMemberPwWithAuthkey(memberEmail, authkey);
+
+			if (updateResult == 1) {
+				// 이메일 전송 및 비밀번호 업데이트 성공 시
+				HttpSession session2 = request.getSession();
+				session2.setAttribute("authkey", authkey);
+
+				super.goToPage(PREFIX + "updatePassword.jsp");
+			} else {
+				// 비밀번호 업데이트 실패 시
+				setAlertMessage("비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.");
+				super.goToPage(PREFIX + "findPassword.jsp");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("이메일 전송 실패");
-			
+
 			super.goToPage(PREFIX + "findPassword.jsp");
 			return;
 		}
@@ -134,8 +147,8 @@ public class FindPasswordController extends SuperClass {
 //		request.setAttribute("memberEmail", memberEmail);
 
 		// 페이지 포워딩
-		//request.getRequestDispatcher("/findPassword.jsp").forward(request, response);
-		//super.goToPage(PREFIX + "findPassword.jsp");
+		// request.getRequestDispatcher("/findPassword.jsp").forward(request, response);
+		// super.goToPage(PREFIX + "findPassword.jsp");
 
 	}
 

@@ -45,8 +45,7 @@
 						placeholder="이메일 " required>
 					<div class="valid-feedback"></div>
 					
-					<div class="invalid-feedback" id="validEmail">* 올바른 이메일을
-						작성해주세요.</div>
+					<div class="invalid-feedback" id="validEmail">* 임시 비밀번호 발급을 위해 이메일을 작성해주세요.</div>
 				</div>
 
 				</br> </br>
