@@ -11,8 +11,8 @@ public class Member {
 	private String memberImg;
 	private String address;
 	private String gender;
-
-	private String genreNo;
+	private String genreList;
+	
 
 	private int rankNo;
 	
@@ -20,7 +20,7 @@ public class Member {
 	}
 
 	public Member(int memberNo, String memberEmail, String memberPw, String memberNick, String term_FL,
-			String enrollDate, String sns_FL, String memberImg, String address, String gender, String genreNo,
+			String enrollDate, String sns_FL, String memberImg, String address, String gender, String genreList,
 			int rankNo) {
 		super();
 		this.memberNo = memberNo;
@@ -33,7 +33,7 @@ public class Member {
 		this.memberImg = memberImg;
 		this.address = address;
 		this.gender = gender;
-		this.genreNo = genreNo;
+		this.genreList = genreList;
 		this.rankNo = rankNo;
 	}
 
@@ -117,12 +117,12 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public String getGenreNo() {
-		return genreNo;
+	public String getGenreList() {
+		return genreList;
 	}
 
-	public void setGenreNo(String genreNo) {
-		this.genreNo = genreNo;
+	public void setGenreList(String genreNo) {
+		this.genreList = genreNo;
 	}
 
 	public int getRankNo() {
@@ -138,7 +138,7 @@ public class Member {
 		return "Member [memberNo=" + memberNo + ", memberEmail=" + memberEmail + ", memberPw=" + memberPw
 				+ ", memberNick=" + memberNick + ", term_FL=" + term_FL + ", enrollDate=" + enrollDate + ", sns_FL="
 				+ sns_FL + ", memberImg=" + memberImg + ", Address=" + address + ", Gender=" + gender + ", genreNo="
-				+ genreNo + ", rankNo=" + rankNo + "]";
+				+ genreList + ", rankNo=" + rankNo + "]";
 	}
 
 }

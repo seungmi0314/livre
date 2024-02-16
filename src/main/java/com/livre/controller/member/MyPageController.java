@@ -40,7 +40,7 @@ public class MyPageController extends SuperClass{
 		bean.setMemberImg(request.getParameter("memberImg"));
 		bean.setAddress(request.getParameter("address"));
 		bean.setGender(request.getParameter("gender"));		
-		bean.setGenreNo(request.getParameter("genreNo"));
+		bean.setGenreList(request.getParameter("genreList"));
 		bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
 
 		

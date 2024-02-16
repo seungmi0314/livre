@@ -26,7 +26,7 @@ public class CelebrateController extends SuperClass {
         bean.setMemberNick(request.getParameter("memberNick"));
         
 		String genreNo="";
-		String[] genreNos = request.getParameterValues("genreNo");
+		String[] genreNos = request.getParameterValues("genreList");
 		if(genreNos == null){
 			genreNo = null;//디비에 null값으로 채우기
 		}else{
@@ -34,7 +34,7 @@ public class CelebrateController extends SuperClass {
 				genreNo += genreNos[i] + "/";
 			}
 		}
-		bean.setGenreNo(genreNo); 
+		bean.setGenreList(genreNo); 
         
       
         
