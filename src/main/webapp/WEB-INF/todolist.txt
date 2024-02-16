@@ -3,11 +3,6 @@
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
 meInsert=com.livre.controller.member.MemberInsertController
-collectPreference=com.livre.controller.member.CollectPreferenceController
-celebrate=com.livre.controller.member.CelebrateController
-selectGender=com.livre.controller.member.SelectGenderController
-createNickname=com.livre.controller.member.CreateNicknameController
-finalCheck=com.livre.controller.member.FinalCheckController
 #meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController
@@ -26,7 +21,8 @@ reviewInsert=com.livre.controller.book.InsertReviewController
 # member section
 login=com.livre.controller.member.MemberLoginController
 logout=com.livre.controller.member.MemberLogoutController
-#findPassword=com.livre.controller.member.FindPasswordController
+findPassword=com.livre.controller.member.FindPasswordController
+tempPassword=com.livre.controller.member.TempPasswordController
 my-page=com.livre.controller.member.MyPageController
 # main section
 main-page=com.livre.controller.book.MainPageController

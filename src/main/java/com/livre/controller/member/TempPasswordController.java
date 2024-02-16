@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.livre.common.SuperClass;
 import com.livre.model.dao.MemberDao;
 
-public class UpdatePasswordController extends SuperClass {
+public class TempPasswordController extends SuperClass {
 	private final String PREFIX = "member/";
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
@@ -25,7 +25,7 @@ public class UpdatePasswordController extends SuperClass {
 
 		// 사용자로부터 입력받은 새로운 비밀번호
 		String newPassword = request.getParameter("newPassword");
-		
+
 		// 입력할 입증코드
 		String findPwdAuth = request.getParameter("findPwdAuth");
 
@@ -34,22 +34,27 @@ public class UpdatePasswordController extends SuperClass {
 
 		// 사용자 이메일 (세션에서 가져옴)
 		String memberEmail = (String) request.getSession().getAttribute("memberEmail");
-		
+		String memberPw = (String) request.getSession().getAttribute("memberPw");
+
+		MemberDao dao = new MemberDao();
 
 		if (authkey.equals(findPwdAuth)) {
 			// 인증코드가 일치할 때의 동작
 			System.out.println("인증코드가 일치합니다. authkey: " + authkey + ", findPwdAuth: " + findPwdAuth);
-			 setAlertMessage("인증되었습니다");
-			super.goToPage(PREFIX + "updatePassword.jsp");
+
+
+			super.goToPage(PREFIX + "login.jsp");
+
+		
 			
 		} else {
 			// 인증코드가 일치하지 않을 때의 동작
 			System.out.println("인증코드가 일치하지 않습니다. authkey: " + authkey + ", findPwdAuth: " + findPwdAuth);
-			 setAlertMessage("다시 시도해주세요");
+
 			super.goToPage(PREFIX + "findPassword.jsp");
-			
+
 		}
-		
+
 //		// 비밀번호 업데이트를 처리하는 서비스 메서드 호출
 //		MemberDao dao = new MemberDao();
 //

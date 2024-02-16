@@ -8,6 +8,7 @@ function checkEmail() {
 	} else {
 		document.getElementById("validEmail").style.display = "none";
 		alert('임시 비밀번호를 전송했습니다.');
+		
 		// 여기에 서버로 폼을 제출하는 코드를 추가할 수 있습니다.
 		// document.forms["findPasswordForm"].submit();
 		return true;
