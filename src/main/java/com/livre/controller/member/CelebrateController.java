@@ -25,26 +25,18 @@ public class CelebrateController extends SuperClass {
         bean.setGender(request.getParameter("gender"));
         bean.setMemberNick(request.getParameter("memberNick"));
         
-        // 선택된 장르에 대해 처리
-        String[] selectedGenres = request.getParameterValues("genreNo");
-        if(selectedGenres != null) {
-            StringBuilder genreNoBuilder = new StringBuilder();
-            for(String genre : selectedGenres) {
-                try {
-                    int genreValue = Integer.parseInt(genre.trim().replaceAll("[\\[\\]]", ""));
-                    if (genreNoBuilder.length() > 0) {
-                        genreNoBuilder.append(",");
-                    }
-                    genreNoBuilder.append(genreValue);
-                } catch (NumberFormatException e) {
-                    // 정수로 변환할 수 없는 경우 예외 처리
-                    e.printStackTrace(); // 로그 출력
-                }
-            }
-            bean.setGenreNo(genreNoBuilder.toString());
-        } else {
-            bean.setGenreNo("0"); // 선택된 장르가 없는 경우
-        }
+		String genreNo="";
+		String[] genreNos = request.getParameterValues("genreNo");
+		if(genreNos == null){
+			genreNo = null;//디비에 null값으로 채우기
+		}else{
+			for(int i=0; i<genreNos.length; i++){
+				genreNo += genreNos[i] + "/";
+			}
+		}
+		bean.setGenreNo(genreNo); 
+        
+      
         
         int cnt = dao.insertData(bean);
         

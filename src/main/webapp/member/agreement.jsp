@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <script>
+
 //다음 페이지로 체크 확인 함수
 // moveToNextPage() 함수 수정
 function moveToNextPage() {
@@ -21,7 +22,7 @@ function moveToNextPage() {
     var infoAgreeChecked = document.getElementById('infoAgreeCheckbox').checked;
 
     if (!useAgreeChecked || !infoAgreeChecked) {
-        alert('모든 필수 항목에 동의해주세요.');
+        alert('이용 약관 및 개인정보 수집 및 이용 동의에 모두 동의해주세요.');
         return false; // 폼 제출 방지
     }
 
@@ -68,7 +69,7 @@ if (!useAgreeCheckbox.checked || !infoAgreeCheckbox.checked || !marketingAgreeCh
 // 다른 체크 박스들 중 하나라도 해제되면, 모두 동의 체크박스도 체크 해제
 if (!useAgreeCheckbox.checked || !infoAgreeCheckbox.checked || !marketingAgreeCheckbox.checked) {
     allCheckbox.checked = false;
-}
+	}
 }
 
 function submitForm() {
@@ -76,7 +77,18 @@ function submitForm() {
     var infoAgreeChecked = document.getElementById('infoAgreeCheckbox').checked;
     var marketingAgreeChecked = document.getElementById('marketingAgreeCheckbox').checked;
 
-    var term_FL = (useAgreeChecked && infoAgreeChecked && marketingAgreeChecked) ? 'Y' : 'N';
+    var term_FL = '';
+
+    if (useAgreeChecked && infoAgreeChecked) {
+        if (marketingAgreeChecked) {
+            term_FL = 'Y'; // 모든 약관에 동의한 경우
+        } else {
+            term_FL = 'N'; // 마케팅 수신 동의 체크 안 한 경우
+        }
+    } else {
+        alert('이용 약관 및 개인정보 수집 및 이용 동의에 모두 동의해주세요.');
+        return false; // 폼 제출 방지
+    }
 
     // hidden input의 값을 변경
     document.getElementById('term_FL_input').value = term_FL;
@@ -84,6 +96,7 @@ function submitForm() {
     // 폼 제출
     document.getElementById('agreementForm').submit();
 }
+
 </script>
 
 </head>
@@ -111,8 +124,8 @@ function submitForm() {
         </div>
 
         <!-- 약관동의 테이블 -->
-        <form name="agreementForm" method="post" action="/livre/member/joinMemberShip.jsp">
-        <input type="hidden" id="term_FL_input" name="term_FL" value="">
+        <form name="agreementForm" method="post" action="<%=withFormTag%>">
+        <input type="hidden" id="term_FL_input" name="command" value="joinMemberShip">
             <div id="mainDiv">
                 <div id="titleDiv">
                         <span id="agreeTitle">약관 동의</span>
