@@ -44,7 +44,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
 	//int bookNo = Integer.parseInt(request.getParameter("bookNo"));
 	//String bookTitle = request.getParameter("bookTitle");
-	//int genreNo = Integer.parseInt(request.getParameter("genreNo"));
+	//String genreNo = request.getParameter("genreNo");
 	String reviewTitle = request.getParameter("reviewTitle");
 	String reviewText = request.getParameter("reviewText");
 	//String author = request.getParameter("author");

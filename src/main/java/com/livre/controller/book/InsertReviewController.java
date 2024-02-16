@@ -14,9 +14,11 @@ public class InsertReviewController extends SuperClass{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
-		
+		System.out.println("doGet");
 		super.goToPage(PREFIX + "review-uploade.jsp");
 	}
+	
+	
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -34,9 +36,9 @@ public class InsertReviewController extends SuperClass{
 	String reviewText = request.getParameter("reviewText");
 	//String password = request.getParameter("raiting");
 	String phrase = request.getParameter("phrase");
-	String startDate = request.getParameter("startdate");
-	String endDate = request.getParameter("enddate");
-	int genreNo = Integer.parseInt(request.getParameter("genreNo"));
+	String startDate = request.getParameter("startDate");
+	String endDate = request.getParameter("endDate");
+	String genreNo = request.getParameter("genreNo");
 	
 	bean.setReviewTitle(reviewTitle);
 	bean.setReviewText(reviewText);
@@ -47,6 +49,7 @@ public class InsertReviewController extends SuperClass{
 	
 	int cnt = -1 ;
 	cnt = dao.insertData(bean); 
+
 	if(cnt == 1){ // 인서트 성공
 		new MyReviewController().doGet(request, response) ;
 		
