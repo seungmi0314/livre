@@ -187,9 +187,9 @@ function confirmPassword() {
 				<!-- 환영문구 -->
 				<span id="welcomeTitle"> 
 				<b>
-					어서오세요! </br>
-					</br> 책에 대한 당신만의 생각이 궁금해요. </br>
-					</br> 리버(livrer)가 되어 우리에게 들려줄래요?
+					어서오세요! <br>
+					<br> 책에 대한 당신만의 생각이 궁금해요. </br>
+					<br> 리버(livrer)가 되어 우리에게 들려줄래요?
 				</b>
 				</span>
 				<input type="text" value="<%=term_FL%>" name="term_FL">
