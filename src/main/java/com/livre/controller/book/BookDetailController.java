@@ -23,8 +23,8 @@ public class BookDetailController extends SuperClass {
 			super.setAlertMessage("잘못된 요청 입니다.");
 			super.goToPage(PREFIX + "bookList.jsp");
 		}
-		
-		List<Book> dataList = dao.getReviewList(bookNo);
+		String whichBtn = request.getParameter("whichBtn");
+		List<Book> dataList = dao.getReviewList(bookNo, whichBtn);
 		
 		request.setAttribute("bean", bean);
 		request.setAttribute("dataList", dataList);
