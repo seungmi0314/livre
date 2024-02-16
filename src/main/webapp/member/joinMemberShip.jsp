@@ -192,7 +192,8 @@ function confirmPassword() {
 					</br> 리버(livrer)가 되어 우리에게 들려줄래요?
 				</b>
 				</span>
-				<input type="hidden" value="<%=term_FL%>" name="term_FL">
+				<input type="text" value="<%=term_FL%>" name="term_FL">
+
 			</form>
 		</div>
 	</section>
