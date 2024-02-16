@@ -95,7 +95,7 @@ public class MemberDao extends SuperDao {
 			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL) VALUES(members_seq.NEXTVAL, ?, ?, ?)";
 		} else {
 			// 다음을 눌렀을 때 추가 정보까지 받아서 DB에 저장
-			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL, genreList, gender, memberNick) VALUES(members_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL, genreList, memberNick, gender) VALUES(members_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		}
 
 		try {

@@ -7,10 +7,10 @@ String memberEmail = request.getParameter("memberEmail");
 String memberPw = request.getParameter("memberPw");
 String term_FL = request.getParameter("term_FL");
 String gender = request.getParameter("gender"); // 추가된 부분
-String[] genreNo = request.getParameterValues("genreNo");
-if (genreNo == null) {
+String[] genreList = request.getParameterValues("genreList");
+if (genreList == null) {
  // 선택된 장르가 없는 경우, 빈 배열로 초기화합니다.
- genreNo = new String[0];
+ genreList = new String[0];
 }
 %>
 <!DOCTYPE html>
@@ -134,7 +134,7 @@ function selectGender(gender) {
         <input type="text" value="<%=memberEmail%>" name="memberEmail">
         <input type="text" value="<%=memberPw%>" name="memberPw">
         <input type="text" value="<%=term_FL%>" name="term_FL">
-		<input type="text" name="genreNo" value="<%= genreNo != null ? java.util.Arrays.stream(genreNo).collect(java.util.stream.Collectors.joining(",")) : "" %>">
+		<input type="text" name="genreList" value="<%= genreList != null ? java.util.Arrays.stream(genreList).collect(java.util.stream.Collectors.joining(",")) : "" %>">
 
     </form>
 

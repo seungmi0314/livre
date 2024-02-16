@@ -10,9 +10,9 @@ String memberPw = request.getParameter("memberPw");
 String memberNick = request.getParameter("memberNick");
 String term_FL = request.getParameter("term_FL");
 String gender = request.getParameter("gender"); // 추가된 부분
-String[] genreNo = request.getParameterValues("genreNo");
-if (genreNo == null) {
-    genreNo = new String[0];
+String[] genreList = request.getParameterValues("genreList");
+if (genreList == null) {
+    genreList = new String[0];
 }
 %>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ if (genreNo == null) {
 			<input type="text" value="<%=term_FL%>" name="term_FL">
 			<input type="text" value="<%=gender%>" name="gender">
 			<input type="text" value="<%=memberNick%>" name="memberNick">
-			<input type="text" name="genreNo" value="<%= genreNo != null ? java.util.Arrays.stream(genreNo).collect(java.util.stream.Collectors.joining(",")) : "" %>">
+			<input type="text" name="genreList" value="<%= genreList != null ? java.util.Arrays.stream(genreList).collect(java.util.stream.Collectors.joining(",")) : "" %>">
         </form>
     </section>
 </body>
