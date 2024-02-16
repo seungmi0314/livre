@@ -21,7 +21,7 @@ public class BookDetailController extends SuperClass {
 		
 		if(bean == null) {
 			super.setAlertMessage("잘못된 요청 입니다.");
-			super.goToPage(PREFIX + "searchedBooks.jsp");
+			super.goToPage(PREFIX + "bookList.jsp");
 		}
 		
 		List<Book> dataList = dao.getReviewList(bookNo);

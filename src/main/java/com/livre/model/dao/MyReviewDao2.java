@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.livre.model.bean.LikeReview;
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
 
@@ -19,15 +20,76 @@ public class MyReviewDao2 extends SuperDao{
 		super();
 	}
 	
+	// 북마크 관련...
+	public LikeReview getLikeReviewBean(int reviewNo) {
+		PreparedStatement pstmt = null ; 
+		ResultSet rs = null ;		
+		LikeReview bean2 = null ;
+		
+		String sql = "select l.likereviewno, m.memberno, r.reviewno";
+		sql += " from likereviews l";
+		sql += " join reviews r on r.reviewno = l.reviewno";
+		sql += " join members m on m.memberno = l.memberno";
+		sql += " where l.reviewno = ?";
+		
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);	
+			pstmt.setInt(1, reviewNo); 
+			rs = pstmt.executeQuery() ;
+			if(rs.next()) {
+				bean2 = this.resultSet2Bean2(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) {rs.close();}
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return bean2;
+	}
+	
+	// 북마크 관련..
+	private LikeReview resultSet2Bean2(ResultSet rs) {
+		try {
+			LikeReview bean2 = new LikeReview();
+			
+			bean2.setLikeReviewNo(rs.getInt("likeReviewNo"));
+			bean2.setMemberNo(rs.getInt("memberNo"));
+			bean2.setReviewNo(rs.getInt("reviewNo"));
+			
+			return bean2;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	// 북마크 토글 AJAX...
-	public void insertLikeReview(int memberNo, int reviewNo) {
+	public void insertLikeReview(int memberNo, int reviewNo, boolean isToggled) {
 		// 로그인 한 사람이 좋아요를 누르면 데이터를 DB에 추가합니다.
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int cnt = -1;
-		String sql = "insert into likereviews(likereviewno, memberno, reviewno)";
-		sql += " values (likereviews_seq.nextval, ?, ?)";
-		System.out.println("sql 문장 : " + sql);
+		String sql = "";
+		
+		if(isToggled) {
+			sql = "insert into likereviews(likereviewno, memberno, reviewno)";
+			sql += " values (likereviews_seq.nextval, ?, ?)";
+			System.out.println("sql 문장 : " + sql);
+			
+		} else {
+			sql = "delete from likereviews where memberno = ? and reviewno = ?";
+			System.out.println("sql 문장 : " + sql);
+		}
+		
 		try {
 			super.conn = super.getConnection();
 			conn.setAutoCommit(false);
@@ -36,7 +98,6 @@ public class MyReviewDao2 extends SuperDao{
 			
 			pstmt.setInt(1, memberNo);
 			pstmt.setInt(2, reviewNo);
-			
 			cnt = pstmt.executeUpdate();
 			conn.commit();
 			

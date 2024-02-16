@@ -137,7 +137,7 @@ public class BookDao extends SuperDao {
 	
 	public List<Book> getReviewList(int bookNo){
 		
-		String sql = "select m.memberemail, r.reviewno, m.memberimg, m.membernick, r.reviewtitle, r.reviewtext, r.createdate, r.readhit";
+		String sql = "select m.memberno, m.memberemail, r.reviewno, m.memberimg, m.membernick, r.reviewtitle, r.reviewtext, r.createdate, r.readhit";
 		sql += " from members m";
 		sql += " join reviews r on r.memberno = m.memberno";
 		sql += " join books b on r.bookno = b.bookno";
