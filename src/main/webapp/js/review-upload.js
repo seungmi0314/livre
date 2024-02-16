@@ -1,6 +1,5 @@
+const dataList = ["빨간색"];
 
-const dataList = ["빨간색", "파란색", "빨간문어"];
- 
 const $search = document.querySelector("#search");
 const $autoComplete = document.querySelector(".autocomplete");
 
@@ -60,7 +59,7 @@ const showList = (data, value, nowIndex) => {
     .join("");
 };
 
-
+//--------------------------------------------------------------
 
 
 /* 수정하기 버튼 눌렀을 때 */
@@ -101,4 +100,12 @@ function edit() {
 			}
 		}
 }
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+  };
+}, true);
+
+
 

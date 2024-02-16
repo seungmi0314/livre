@@ -4,7 +4,7 @@ public class MyReview {
 	private int reviewNo;	// 리뷰 번호
 	private int memberNo;	// 회원 번호
 	private int bookNo;	//  책 번호
-	private int genreNo;	// 장르 번호
+	private String genreNo;	// 장르 번호
 	private String reviewTitle;	// 독후감 제목
 	private String reviewText;	// 독후감 내용
 	private int raiting;	// 별점
@@ -26,7 +26,7 @@ public class MyReview {
 	public MyReview() {}
 
 
-	public MyReview(int reviewNo, int memberNo, int bookNo, int genreNo, String reviewTitle, String reviewText,
+	public MyReview(int reviewNo, int memberNo, int bookNo, String genreNo, String reviewTitle, String reviewText,
 			int raiting, String createDate, String phrase, String startDate, String endDate, int readHit,
 			String bookTitle, String author, String publisher, String bookImg, String bookContent, String genre) {
 		super();
@@ -81,12 +81,12 @@ public class MyReview {
 	}
 
 
-	public int getGenreNo() {
+	public String getGenreNo() {
 		return genreNo;
 	}
 
 
-	public void setGenreNo(int genreNo) {
+	public void setGenreNo(String genreNo) {
 		this.genreNo = genreNo;
 	}
 
@@ -242,4 +242,5 @@ public class MyReview {
 
 
 	
+
 }

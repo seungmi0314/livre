@@ -53,7 +53,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      
      <!-- 독후감 검색창 -->
                <div class="search-box-p">
-            <form action="<%=withFormTag%>" method="get" class="searchbox-btn">
+            <form action="<%=withFormTag%>" method="post" class="searchbox-btn">
             <input type="hidden" name="command" value="reviewSearch">
             <input class="search-box" type="text" id="keyword" name="keyword" placeholder="내 독후감 검색">
             <button type="submit" class="search-btn">
@@ -82,24 +82,19 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 	      		  <div id="del" class="del" onclick="return delReview('${bean.reviewNo}','${requestScope.paging.flowParameter}');"><i class="fa-solid fa-x"></i></div>
             
            <%-- <c:set var="readhitUpdate" value="${not (sessionScope.loginfo.memberEmail == bean.memberEmail)}"/>  --%>
-            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${bean.reviewNo}&readhitUpdate=${readhitUpdate}${requestScope.paging.flowParameter}">
+            <a href="<%=notWithFormTag%>reviewDetail&reviewNo=${bean.reviewNo}${requestScope.paging.flowParameter}">
                 <!-- X 표시 -->
                     <p class="book-name">${bean.reviewTitle}</p>
                     <div class="star-author">
                     
                     	<!-- 별 모양 사용자가 입력한 평점에 따라 동적으로 변경되어야 함 -->
-                        <div id="star" class="star">
-                            <input style="display: none;"type="radio" name="reviewStar" value="1" id="rate1"><label
-								for="rate1"><i class="fa-solid fa-star"></i></label>
-							<input style="display: none;" type="radio" name="reviewStar" value="2" id="rate2"><label
-								for="rate2"><i class="fa-solid fa-star"></i></label>
-							<input style="display: none;" type="radio" name="reviewStar" value="3" id="rate3"><label
-								for="rate3"><i class="fa-solid fa-star"></i></label>
-							<input style="display: none;" type="radio" name="reviewStar" value="4" id="rate4"><label
-								for="rate4"><i class="fa-solid fa-star"></i></label>
-							<input style="display: none;" type="radio" name="reviewStar" value="5" id="rate5"><label
-								for="rate5"><i class="fa-solid fa-star"></i></label>
-                        </div>
+             <div class="star-box">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+            </div>
                         <div class="author">
                            ${bean.author}
                         </div>

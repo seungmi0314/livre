@@ -36,7 +36,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <div class="review-write">
                 <input class="review-title write" name="reviewTitle" placeholder="독후감 제목을 입력해주세요">
 
-                <textarea class="review-content write" name="reviewText">독후감 내용을 입력해주세요</textarea>
+                <textarea class="review-content write" name="reviewText" placeholder="독후감 내용을 입력해주세요"></textarea>
 
                 <p class="remember-text">기억하고싶은 구절</p>
                 <textarea class="remember write" name="phrase"></textarea>
@@ -51,6 +51,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         
         <div class="review-info">
             <input type="text" id="search" class="book-title write" placeholder="책 제목" autocomplete="off">
+            <!-- 검색창 -->
             <div class="autocomplete"></div>
             <div class="book-info">
             <p>지은이 <span>${requestScope.bean.author}</span></p>
@@ -58,18 +59,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
         
             
-            	 <div id="star" class="star">
-                            <input type="radio" name="reviewStar" value="1" id="rate1"><label
-								for="rate1"><i class="fa-solid fa-star"></i></label>
-							<input type="radio" name="reviewStar" value="2" id="rate2"><label
-								for="rate2"><i class="fa-solid fa-star"></i></label>
-							<input type="radio" name="reviewStar" value="3" id="rate3"><label
-								for="rate3"><i class="fa-solid fa-star"></i></label>
-							<input type="radio" name="reviewStar" value="4" id="rate4"><label
-								for="rate4"><i class="fa-solid fa-star"></i></label>
-							<input type="radio" name="reviewStar" value="5" id="rate5"><label
-								for="rate5"><i class="fa-solid fa-star"></i></label>
-                        </div>
+            	  <div class="star-box">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/fill-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+                <img src="/livre/assets/stroke-star.svg">
+            </div>
             
             
             <div class="read-date">

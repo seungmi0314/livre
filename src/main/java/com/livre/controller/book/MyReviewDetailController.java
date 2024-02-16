@@ -27,17 +27,10 @@ public class MyReviewDetailController extends SuperClass{
 		if(bean == null) {
 			super.setAlertMessage("잘못된 게시물 정보입니다.");
 			super.goToPage(PREFIX + "login.jsp");
-			
-		}else{
-			// 현재 로그인한 사람이 작성한 글이 아니면 조회수를 1증가 시킵니다.
-			String readhitUpdate = request.getParameter("readhitUpdate") ;
-			if(readhitUpdate.equals("true")) {
-				dao.updateReadhit(reviewNo);
-			}
-			
-			request.setAttribute("bean", bean); 
+		} else {
+			request.setAttribute("bean", bean); 	
 			super.goToPage(PREFIX + "review-detail.jsp");	
 		}
+	
 	}
-
 }

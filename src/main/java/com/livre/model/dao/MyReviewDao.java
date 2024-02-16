@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.livre.model.bean.Member;
+
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
 
@@ -27,13 +27,13 @@ public class MyReviewDao extends SuperDao{
 			bean.setMemberNo(rs.getInt("memberNo"));
 			bean.setBookNo(rs.getInt("bookNo"));
 			bean.setBookTitle(rs.getString("bookTitle"));
-			bean.setGenreNo(rs.getInt("genreNo"));
+			bean.setGenreNo(rs.getString("genreNo"));
 			//bean.setGenre(rs.getString("genre"));
 			bean.setReviewTitle(rs.getString("reviewTitle"));
 			bean.setReviewText(rs.getString("reviewText"));
 			bean.setAuthor(rs.getString("author"));
 			bean.setPublisher(rs.getString("publisher"));
-			bean.setRaiting(rs.getInt("raiting"));
+			//bean.setRaiting(rs.getInt("raiting"));
 			bean.setCreateDate(String.valueOf(rs.getString("createDate")));	// 날짜
 			bean.setPhrase(rs.getString("phrase"));
 			bean.setStartDate(rs.getString("startDate"));	
@@ -58,7 +58,7 @@ public class MyReviewDao extends SuperDao{
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 1"; // 추후 로그인멤버로 변경
+		sql += " where memberno = 2"; // 추후 로그인멤버로 변경
 		sql += " order by reviewno desc";
 		
 		PreparedStatement pstmt = null; // 문장 객체
@@ -71,6 +71,8 @@ public class MyReviewDao extends SuperDao{
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
+		
+			;
 			rs = pstmt.executeQuery();
 			
 			// 요소를 읽어서 컬렉션에 담기
@@ -110,7 +112,7 @@ public class MyReviewDao extends SuperDao{
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 1";
+		sql += " where memberno = 2";
 		
 		
 		String keyword = paging.getKeyword();
@@ -158,8 +160,6 @@ public class MyReviewDao extends SuperDao{
 		return dataList;
 	}
 	
-
-	
 	/*
 	 * 내 독후감 삭제 DAO
 	 * */
@@ -181,18 +181,12 @@ public class MyReviewDao extends SuperDao{
 			System.out.println(sql);
 			cnt = pstmt.executeUpdate() ;			
 			conn.commit();
-			System.out.println("1");
 		} catch (Exception e) {
-			System.out.println("2");
 			e.printStackTrace();
 			try {
-				System.out.println("3");
 				conn.rollback();
-				System.out.println("4");
 			} catch (SQLException e1) {
-				System.out.println("5");
 				e1.printStackTrace();
-				System.out.println("6");
 			}
 			
 		} finally {
@@ -208,83 +202,14 @@ public class MyReviewDao extends SuperDao{
 
 
 	
-	/* 
-	 * 독후감 상세 보기 -> Dao2 로 옮김
-	 * 
-	public MyReview getDataBean(int reviewNo) {
-		// 해당 게시물 번호를 이용하여 1건의 정보를 반환합니다.
-				String sql = "select *" ;
-				sql += " from reviews r" ;
-				sql += " join books b" ;
-				sql += " on r.bookno = b.bookno" ;
-				sql += " join genres g" ;
-				sql += " on b.genreno = g.genreno" ;
-				sql += " where reviewno = ?" ;
-				
-				PreparedStatement pstmt = null ; 
-				ResultSet rs = null ;		
-				MyReview bean = null ;
-				
-				super.conn = super.getConnection() ;
-				try {
-					pstmt = conn.prepareStatement(sql);	
-					pstmt.setInt(1, reviewNo); 
-					rs = pstmt.executeQuery() ;
-					if(rs.next()) {				
-						bean = this.resultSet2Bean(rs) ;
-					}			
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}finally {
-					try {
-						if(rs != null) {rs.close();}
-						if(pstmt != null) {pstmt.close();}
-						super.closeConnection();
-						
-					} catch (Exception e2) {
-						e2.printStackTrace();
-					}
-				}	
-				return bean ;
-	}
-
-	public void updateReadhit(int reviewNo) {
-		String sql = " update reviews set readhit = readhit + 1 where reviewno = ? " ;		
-		PreparedStatement pstmt = null ;
-		int cnt = -9999999 ;
-		
-		try {
-			super.conn = super.getConnection() ;  
-			conn.setAutoCommit(false);			
-			pstmt = conn.prepareStatement(sql) ;			
-			pstmt.setInt(1, reviewNo);			
-			cnt = pstmt.executeUpdate() ;			
-			conn.commit();			
-		} catch (Exception e) {
-			e.printStackTrace(); 
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}			
-		} finally {
-			try {
-				if(pstmt != null) {pstmt.close();}
-				super.closeConnection();
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		
-		
-	}*/
+	
 
 	
 
 	public int insertData(MyReview bean) {
 		// no 컬럼은 시퀀스가 알아서 처리합니다. 			
-				String sql = " insert into reviews (reviewno, memberno, reviewtitle, reviewtext, phrase, startdate, enddate, genreno)" ;
-				sql += " values (1020, 1, ?, ?, ?, ?, ?, ?)";
+				String sql = " insert into reviews (reviewno, memberno, reviewtitle, reviewtext, phrase, startdate, enddate, genreno, bookno)" ;
+				sql += " values (reviews_seq.NEXTVAL, 2, ?, ?, ?, ?, ?, ?, 1)";
 				// reviews_seq.NEXTVAL (테이블 재생성 후 시퀀스로 변경)	
 				
 				PreparedStatement pstmt = null ;
@@ -297,12 +222,14 @@ public class MyReviewDao extends SuperDao{
 					conn.setAutoCommit(false);			
 					pstmt = conn.prepareStatement(sql) ;
 					
+					
+					//pstmt.setInt(1, bean.getMemberNo());
 					pstmt.setString(1, bean.getReviewTitle());
 					pstmt.setString(2, bean.getReviewText());
 					pstmt.setString(3, bean.getPhrase());
 					pstmt.setString(4, bean.getStartDate());
 					pstmt.setString(5, bean.getEndDate());
-					pstmt.setInt(6, bean.getGenreNo());
+					pstmt.setString(6, bean.getGenreNo());
 					
 					cnt = pstmt.executeUpdate() ;			
 					conn.commit();
@@ -328,6 +255,9 @@ public class MyReviewDao extends SuperDao{
 	}
 
 	
+	
+	
+	
 	public int updateData(MyReview bean) {
 		System.out.print("게시물 수정 페이지 : ");
 		System.out.println(bean);
@@ -335,7 +265,7 @@ public class MyReviewDao extends SuperDao{
 		
 		String sql = " update reviews set" ;
 		sql += "  reviewtitle = ?, reviewtext = ?, phrase = ?, createdate = default, startdate = ?, enddate = ?" ;
-		sql += " where reviewno = 50" ;
+		sql += " where reviewno = ?" ;
 		
 		
 		PreparedStatement pstmt = null ;
@@ -353,6 +283,7 @@ public class MyReviewDao extends SuperDao{
 			//pstmt.setInt(5, bean.getBookNo());
 			pstmt.setString(4, bean.getStartDate());
 			pstmt.setString(5, bean.getEndDate());
+			pstmt.setInt(6, bean.getReviewNo());
 			
 			cnt = pstmt.executeUpdate() ;			
 			conn.commit();			
@@ -372,42 +303,6 @@ public class MyReviewDao extends SuperDao{
 			}
 		}
 		return cnt ;
-	}
-
-	public MyReview getRank(int reviewNo) {
-		
-		String sql = "select * from reviews " ;
-		sql += " order by readhit desc" ;
-		sql += " limit 4" ;
-		
-		PreparedStatement pstmt = null ; 
-		ResultSet rs = null ;		
-		MyReview bean = null ;
-		
-		super.conn = super.getConnection() ;
-		try {
-			pstmt = conn.prepareStatement(sql);	
-			rs = pstmt.executeQuery() ;
-			if(rs.next()) {				
-				bean = this.resultSet2Bean(rs) ;
-			}			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rs != null) {rs.close();}
-				if(pstmt != null) {pstmt.close();}
-				super.closeConnection();
-				
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}	
-		System.out.println("상위 4개 :");
-		System.out.println(bean); 
-		
-		return bean ;
-		
 	}
 
 	
