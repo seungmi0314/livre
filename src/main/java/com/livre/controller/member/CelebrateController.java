@@ -31,7 +31,7 @@ public class CelebrateController extends SuperClass {
 			genreNo = null;//디비에 null값으로 채우기
 		}else{
 			for(int i=0; i<genreNos.length; i++){
-				genreNo += genreNos[i] + "/";
+				genreNo += genreNos[i];
 			}
 		}
 		bean.setGenreList(genreNo); 

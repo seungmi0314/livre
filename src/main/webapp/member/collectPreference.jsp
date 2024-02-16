@@ -143,35 +143,35 @@ String term_FL = request.getParameter("term_FL");
 
 					<div id="economyDiv">
 						<input type="checkbox" id="economyCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('economy');" name="genreNo" value="1">
+							onclick="selectJenre('economy');" name="genreList" value="1">
 						<label for="economyCheckbox"><img id="economy"
 							src="/livre/assets/undraw_Finance_re_gnv2.png"></label>
 						<div>경제</div>
 					</div>
 					<div id="healthDiv">
 						<input type="checkbox" id="healthCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('health');" name="genreNo" value="2">
+							onclick="selectJenre('health');" name="genreList" value="2">
 						<label for="healthCheckbox"><img id="health"
 							src="/livre/assets/undraw_Personal_trainer_re_cnua.png"></label>
 						<div>취미/건강</div>
 					</div>
 					<div id="childDiv">
 						<input type="checkbox" id="childCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('child');" name="genreNo" value="3">
+							onclick="selectJenre('child');" name="genreList" value="3">
 						<label for="childCheckbox"><img id="child"
 							src="/livre/assets/undraw_Children_re_c37f.png"></label>
 						<div>어린이</div>
 					</div>
 					<div id="artDiv">
 						<input type="checkbox" id="artCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('art');" name="genreNo" value="10">
+							onclick="selectJenre('art');" name="genreList" value="10">
 						<label for="artCheckbox"><img id="art"
 							src="/livre/assets/undraw_Making_art_re_ee8w.png"></label>
 						<div>예술/대중문화</div>
 					</div>
 					<div id="cookingDiv">
 						<input type="checkbox" id="cookingCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('cooking');" name="genreNo" value="11">
+							onclick="selectJenre('cooking');" name="genreList" value="11">
 						<label for="cookingCheckbox"><img id="cooking"
 							src="/livre/assets/undraw_Cooking_p7m1.png"></label>
 						<div>요리</div>
@@ -179,7 +179,7 @@ String term_FL = request.getParameter("term_FL");
 					<div id="humanitiesDiv">
 						<input type="checkbox" id="humanitiesCheckbox"
 							class="hiddenCheckbox" onclick="selectJenre('humanities');"
-							name="genreNo" value="12"> <label
+							name="genreList" value="12"> <label
 							for="humanitiesCheckbox"><img id="humanities"
 							src="/livre/assets/undraw_Logic_re_nyb4.png"></label>
 						<div>인문학</div>
@@ -189,28 +189,28 @@ String term_FL = request.getParameter("term_FL");
 				<div id="secondLineDiv">
 					<div id="historyDiv">
 						<input type="checkbox" id="historyCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('history');" name="genreNo" value="4">
+							onclick="selectJenre('history');" name="genreList" value="4">
 						<label for="historyCheckbox"><img id="history"
 							src="/livre/assets/undraw_Image_focus_re_qqxc.png"></label>
 						<div>역사</div>
 					</div>
 					<div id="travelDiv">
 						<input type="checkbox" id="travelCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('travel');" name="genreNo" value="5">
+							onclick="selectJenre('travel');" name="genreList" value="5">
 						<label for="travelCheckbox"><img id="travel"
 							src="/livre/assets/undraw_Travel_mode_re_2lxo.png"></label>
 						<div>여행</div>
 					</div>
 					<div id="scienceDiv">
 						<input type="checkbox" id="scienceCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('science');" name="genreNo" value="6">
+							onclick="selectJenre('science');" name="genreList" value="6">
 						<label for="scienceCheckbox"><img id="science"
 							src="/livre/assets/undraw_Scientist_ft0o.png"></label>
 						<div>과학</div>
 					</div>
 					<div id="selfdevDiv">
 						<input type="checkbox" id="selfdevCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('selfdev');" name="genreNo" value="13">
+							onclick="selectJenre('selfdev');" name="genreList" value="13">
 						<label for="selfdevCheckbox"><img id="selfdev"
 							src="/livre/assets/undraw_Reading_time_re_phf7.png"></label>
 						<div>자기계발</div>
@@ -218,14 +218,14 @@ String term_FL = request.getParameter("term_FL");
 					<div id="religionDiv">
 						<input type="checkbox" id="religionCheckbox"
 							class="hiddenCheckbox" onclick="selectJenre('religion');"
-							name="genreNo" value="14"> <label for="religionCheckbox"><img
+							name="genreList" value="14"> <label for="religionCheckbox"><img
 							id="religion" src="/livre/assets/undraw_Speed_test_re_pe1f.png"></label>
 						<div>종교/역학</div>
 					</div>
 					<div id="teenagerDiv">
 						<input type="checkbox" id="teenagerCheckbox"
 							class="hiddenCheckbox" onclick="selectJenre('teenager');"
-							name="genreNo" value="15"> <label for="teenagerCheckbox"><img
+							name="genreList" value="15"> <label for="teenagerCheckbox"><img
 							id="teenager" src="/livre/assets/undraw_true_friends_c94g.png"></label>
 						<div>청소년</div>
 					</div>
@@ -234,28 +234,28 @@ String term_FL = request.getParameter("term_FL");
 				<div id="thirdLineDiv">
 					<div id="cartoonDiv">
 						<input type="checkbox" id="cartoonCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('cartoon');" name="genreNo" value="7">
+							onclick="selectJenre('cartoon');" name="genreList" value="7">
 						<label for="cartoonCheckbox"><img id="cartoon"
 							src="/livre/assets/undraw_super_woman_dv0y.png"></label>
 						<div>만화</div>
 					</div>
 					<div id="societyDiv">
 						<input type="checkbox" id="societyCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('society');" name="genreNo" value="8">
+							onclick="selectJenre('society');" name="genreList" value="8">
 						<label for="societyCheckbox"><img id="society"
 							src="/livre/assets/undraw_Social_ideas_re_j5v4.png"></label>
 						<div>사회</div>
 					</div>
 					<div id="novelDiv">
 						<input type="checkbox" id="novelCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('novel');" name="genreNo" value="9">
+							onclick="selectJenre('novel');" name="genreList" value="9">
 						<label for="novelCheckbox"><img id="novel"
 							src="/livre/assets/undraw_Bibliophile_re_xarc.png"></label>
 						<div>소설/시</div>
 					</div>
 					<div id="mobileDiv">
 						<input type="checkbox" id="mobileCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('mobile');" name="genreNo" value="16">
+							onclick="selectJenre('mobile');" name="genreList" value="16">
 						<label for="mobileCheckbox"><img id="mobile"
 							src="/livre/assets/undraw_android_jr64.png"></label>
 						<div>컴퓨터/모바일</div>
@@ -263,13 +263,13 @@ String term_FL = request.getParameter("term_FL");
 					<div id="gardeningDiv">
 						<input type="checkbox" id="gardeningCheckbox"
 							class="hiddenCheckbox" onclick="selectJenre('gardening');"
-							name="genreNo" value="17"> <label for="gardeningCheckbox"><img
+							name="genreList" value="17"> <label for="gardeningCheckbox"><img
 							id="gardening" src="/livre/assets/undraw_Gardening_re_e658.png"></label>
 						<div>가정/원예</div>
 					</div>
 					<div id="sportsDiv">
 						<input type="checkbox" id="sportsCheckbox" class="hiddenCheckbox"
-							onclick="selectJenre('sports');" name="genreNo" value="18">
+							onclick="selectJenre('sports');" name="genreList" value="18">
 						<label for="sportsCheckbox"><img id="sports"
 							src="/livre/assets/undraw_Basketball_re_7701.png"></label>
 						<div>스포츠</div>
