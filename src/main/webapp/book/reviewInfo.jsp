@@ -12,7 +12,12 @@
 	<title>Insert title here</title>
 	<script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
+		var isToggled = false;
+		if(${sessionScope.logInfo.memberNo == bean2.memberNo}){
+			isToggled = true;
+		}
 		function toggleLike() {
+			
 			if(${whologin == 0}){
 				alert('로그인이 필요한 서비스입니다.');
 				var result = confirm("로그인 페이지로 이동하시겠습니까?");
@@ -22,24 +27,36 @@
 					return;
 				}
 			}
-			  $.ajax({
-			    url: '<%=notWithFormTag%>reviewInfo',
-			    type: 'post',
-			    data: 'reviewNo=' + '${requestScope.bean.reviewNo}',
-			    datatype: 'json',
-			    
-			    success: function(result, status){
-					console.log('success');
-					console.log(result);
-					console.log('상태 메시지 : ' + status);
-				},
-				error:function(result, status){
-					console.log('error');
-					console.log(result);
-					console.log('상태 메시지 : ' + status);
-				}
-			});
-		}
+			
+			isToggled = !isToggled
+			if(isToggled){
+				$('#likeReview').attr('src', '/livre/assets/bookmarked.svg');
+			}else{
+				$('#likeReview').attr('src', '/livre/assets/unBookmarked.svg');
+			}
+			
+		    $.ajax({
+		      url: '<%=notWithFormTag%>reviewInfo',
+		      type: 'post',
+		      data: {
+		      	  reviewNo : ${requestScope.bean.reviewNo},
+		      	  isToggled : isToggled
+		      },
+		      datatype: 'json',
+		    
+		      success: function(result, status){
+				  console.log('success');
+				  console.log(result);
+				  console.log('상태 메시지 : ' + status);
+			  },
+			  error:function(result, status){
+				  console.log('error');
+				  console.log(result);
+				  console.log('상태 메시지 : ' + status);
+			  }
+		  }); // ajax section END
+		    
+		} // function toggleLike() section END
 	</script>
 </head>
 
@@ -52,7 +69,18 @@
 					<div class="review-write">
 						<input class="review-title write"
 							placeholder="${requestScope.bean.reviewTitle}" readonly>
-						<img src="/livre/assets/likeReview.svg" id="likeReview" onclick="toggleLike()">
+							
+						<c:if test="${not(sessionScope.logInfo.memberNo == bean.memberNo)}">
+						<c:choose>
+							<c:when test="${whologin == 0 || not(sessionScope.logInfo.memberNo == bean2.memberNo)}">
+								<img src="/livre/assets/unBookmarked.svg" id="likeReview" onclick="toggleLike()">
+							</c:when>
+							<c:when test="${sessionScope.logInfo.memberNo == bean2.memberNo}">
+								<img src="/livre/assets/bookmarked.svg" id="likeReview" onclick="toggleLike()">
+							</c:when>
+						</c:choose>
+						</c:if>
+						
 						<textarea class="review-content write" readonly>${requestScope.bean.reviewText}</textarea>
 
 						<p class="remember-text">기억하고싶은 구절</p>

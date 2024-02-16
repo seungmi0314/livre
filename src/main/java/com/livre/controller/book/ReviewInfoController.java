@@ -18,6 +18,7 @@ public class ReviewInfoController extends SuperClass {
 		MyReviewDao2 dao = new MyReviewDao2();
 		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
 		MyReview bean = dao.getDataBean(reviewNo);		
+		LikeReview bean2 = dao.getLikeReviewBean(reviewNo);
 		
 		if(bean == null) {
 			super.setAlertMessage("잘못된 게시물 정보입니다.");
@@ -36,6 +37,8 @@ public class ReviewInfoController extends SuperClass {
 			}
 			
 			request.setAttribute("bean", bean);
+			request.setAttribute("bean2", bean2);
+			System.out.println("bean2 : " + bean2);
 			super.goToPage(PREFIX + "reviewInfo.jsp");
 		}
 		
@@ -44,17 +47,17 @@ public class ReviewInfoController extends SuperClass {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doPost(request, response);
-		System.out.println("리인컨 포스트");
 		
 		if(super.logInfo == null) {
-			
 			return;
 		}
 		
 		MyReviewDao2 dao = new MyReviewDao2();
-		LikeReview bean = new LikeReview();
+		// LikeReview bean = new LikeReview();
 		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
 		int memberNo = super.logInfo.getMemberNo();
-		dao.insertLikeReview(memberNo, reviewNo);
+		System.out.println("isToggled : ["+ request.getParameter("isToggled") +"]");
+		boolean isToggled = Boolean.parseBoolean(request.getParameter("isToggled"));
+		dao.insertLikeReview(memberNo, reviewNo, isToggled);
 	}
 }
