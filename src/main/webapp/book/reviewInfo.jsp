@@ -9,10 +9,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/livre/css/reviewInfo.css" />
 	<link rel="icon" href="/livre/assets/favicon.png">
-	<title>독후감 작성</title>
+	<title>Insert title here</title>
 	<script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-	
+		function toggleLike() {
+			if(${whologin == 0}){
+				alert('로그인이 필요한 서비스입니다.');
+				var result = confirm("로그인 페이지로 이동하시겠습니까?");
+				if (result){
+					window.location.href = 'member/login.jsp';
+				} else{
+					return;
+				}
+			}
+			  $.ajax({
+			    url: '<%=notWithFormTag%>reviewInfo',
+			    type: 'post',
+			    data: 'reviewNo=' + '${requestScope.bean.reviewNo}',
+			    datatype: 'json',
+			    
+			    success: function(result, status){
+					console.log('success');
+					console.log(result);
+					console.log('상태 메시지 : ' + status);
+				},
+				error:function(result, status){
+					console.log('error');
+					console.log(result);
+					console.log('상태 메시지 : ' + status);
+				}
+			});
+		}
 	</script>
 </head>
 
@@ -25,7 +52,7 @@
 					<div class="review-write">
 						<input class="review-title write"
 							placeholder="${requestScope.bean.reviewTitle}" readonly>
-						<img src="/livre/assets/bookmark.svg" id="bookmark" alt="북마크" onclick="">
+						<img src="/livre/assets/likeReview.svg" id="likeReview" onclick="toggleLike()">
 						<textarea class="review-content write" readonly>${requestScope.bean.reviewText}</textarea>
 
 						<p class="remember-text">기억하고싶은 구절</p>
@@ -67,5 +94,4 @@
 		</form>
 	</section>
 </body>
-<script src="/livre/js/review-upload.js"></script>
 </html>

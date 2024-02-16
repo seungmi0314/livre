@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
+import com.livre.model.bean.LikeReview;
 import com.livre.model.bean.MyReview;
 import com.livre.model.dao.MyReviewDao2;
 
@@ -38,5 +39,22 @@ public class ReviewInfoController extends SuperClass {
 			super.goToPage(PREFIX + "reviewInfo.jsp");
 		}
 		
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		super.doPost(request, response);
+		System.out.println("리인컨 포스트");
+		
+		if(super.logInfo == null) {
+			
+			return;
+		}
+		
+		MyReviewDao2 dao = new MyReviewDao2();
+		LikeReview bean = new LikeReview();
+		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
+		int memberNo = super.logInfo.getMemberNo();
+		dao.insertLikeReview(memberNo, reviewNo);
 	}
 }

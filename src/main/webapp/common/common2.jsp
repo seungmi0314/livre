@@ -40,9 +40,17 @@ String notWithFormTag = withFormTag + "?command=";
 <!-- 파비콘  -->
 <link rel="icon" href="/livre/assets/favicon.png">
 <!-- jQuery section -->
+<!-- Bootstrap 은 JQuery 를 기반으로 구동이 되므로 반드시 JQuery 선언이 먼저 되어야 합니다. -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<!-- bootstrap section -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <!-- header.css -->
 <link rel="stylesheet" href="/livre/css/header.css" />

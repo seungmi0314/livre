@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
@@ -19,6 +19,47 @@ public class MyReviewDao2 extends SuperDao{
 		super();
 	}
 	
+	// 북마크 토글 AJAX...
+	public void insertLikeReview(int memberNo, int reviewNo) {
+		// 로그인 한 사람이 좋아요를 누르면 데이터를 DB에 추가합니다.
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int cnt = -1;
+		String sql = "insert into likereviews(likereviewno, memberno, reviewno)";
+		sql += " values (likereviews_seq.nextval, ?, ?)";
+		System.out.println("sql 문장 : " + sql);
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, reviewNo);
+			
+			cnt = pstmt.executeUpdate();
+			conn.commit();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			}catch(Exception e2) {
+				e2.printStackTrace();
+				
+			}
+		}finally {
+			try {
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+				
+			}catch(Exception e3) {
+				e3.printStackTrace();
+				
+			}
+		}
+		
+	}
 
 	private MyReview resultSet2Bean(ResultSet rs) {
 		try {
