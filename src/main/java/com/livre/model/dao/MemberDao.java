@@ -62,7 +62,7 @@ public class MemberDao extends SuperDao {
 			 * bean.setMemberImg(rs.getString("memberImg"));
 			 * bean.setMemberAddress(rs.getString("memberAddress"));
 			 * bean.setMemberGender(rs.getString("memberGender"));
-			 * bean.setGenreNo(rs.getInt("genreNo")); bean.setRankNo(rs.getInt("rankNo"));
+			 * bean.setGenreList(rs.getInt("genreList")); bean.setRankNo(rs.getInt("rankNo"));
 			 */
 
 			return bean;
@@ -78,7 +78,7 @@ public class MemberDao extends SuperDao {
 		System.out.println(bean);
 		/*
 		 * String
-		 * sql=" insert into members( enrollDate, memberNo, genreNo, rankNo, memberEmail, memberPw, memberNick, term_FL, sns_FL, memberImg, Address, Gender) "
+		 * sql=" insert into members( enrollDate, memberNo, genreList, rankNo, memberEmail, memberPw, memberNick, term_FL, sns_FL, memberImg, Address, Gender) "
 		 * ; sql +=
 		 * " values(default, 2, 1, 1, ?, ? , null, null, default, null, null, null)";
 		 */
@@ -90,12 +90,12 @@ public class MemberDao extends SuperDao {
 		int cnt = -999999;
 
 		String sql = "";
-		if (bean.getMemberNick() == null && bean.getGender() == null && bean.getGenreNo() == "") {
+		if (bean.getMemberNick() == null && bean.getGender() == null && bean.getGenreList() == "") {
 			// 건너뛰기 버튼을 눌렀을 때 필요한 정보만 받아서 DB에 저장
 			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL) VALUES(members_seq.NEXTVAL, ?, ?, ?)";
 		} else {
 			// 다음을 눌렀을 때 추가 정보까지 받아서 DB에 저장
-			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL, genreNo, gender, memberNick) VALUES(members_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO members(memberNo, memberEmail, memberPw, term_FL, genreList, gender, memberNick) VALUES(members_seq.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		}
 
 		try {
@@ -107,7 +107,7 @@ public class MemberDao extends SuperDao {
 			pstmt.setString(1, bean.getMemberEmail());
 			pstmt.setString(2, bean.getMemberPw());
 			pstmt.setString(3, bean.getTerm_FL());
-			pstmt.setString(4, bean.getGenreNo());
+			pstmt.setString(4, bean.getGenreList());
 			pstmt.setString(5, bean.getMemberNick());
 			pstmt.setString(6, bean.getGender());
 
@@ -272,7 +272,7 @@ public class MemberDao extends SuperDao {
 	}
 
 	public int updateData(Member bean) {
-		String sql = " update members set memberEmail=?, memberPw=?, memberNick=?, memberImg=?, address=?, genreNo=?, rankNo=? ";
+		String sql = " update members set memberEmail=?, memberPw=?, memberNick=?, memberImg=?, address=?, genreList=?, rankNo=? ";
 		sql += " where memberNo = ?";
 
 		PreparedStatement pstmt = null;
@@ -292,7 +292,7 @@ public class MemberDao extends SuperDao {
 			pstmt.setString(4, bean.getMemberImg());
 			pstmt.setString(5, bean.getAddress());
 			// pstmt.setString(6, bean.getGender());
-			pstmt.setString(6, bean.getGenreNo());
+			pstmt.setString(6, bean.getGenreList());
 			pstmt.setInt(7, bean.getRankNo());
 			pstmt.setInt(8, bean.getMemberNo());
 
