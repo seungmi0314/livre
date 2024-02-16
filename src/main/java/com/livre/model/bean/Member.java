@@ -12,7 +12,7 @@ public class Member {
 	private String address;
 	private String gender;
 
-	private int genreNo;
+	private String genreNo;
 
 	private int rankNo;
 	
@@ -20,7 +20,7 @@ public class Member {
 	}
 
 	public Member(int memberNo, String memberEmail, String memberPw, String memberNick, String term_FL,
-			String enrollDate, String sns_FL, String memberImg, String address, String gender, int genreNo,
+			String enrollDate, String sns_FL, String memberImg, String address, String gender, String genreNo,
 			int rankNo) {
 		super();
 		this.memberNo = memberNo;
@@ -117,11 +117,11 @@ public class Member {
 		this.gender = gender;
 	}
 
-	public int getGenreNo() {
+	public String getGenreNo() {
 		return genreNo;
 	}
 
-	public void setGenreNo(int genreNo) {
+	public void setGenreNo(String genreNo) {
 		this.genreNo = genreNo;
 	}
 

@@ -3,6 +3,11 @@
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
 meInsert=com.livre.controller.member.MemberInsertController
+collectPreference=com.livre.controller.member.CollectPreferenceController
+celebrate=com.livre.controller.member.CelebrateController
+selectGender=com.livre.controller.member.SelectGenderController
+createNickname=com.livre.controller.member.CreateNicknameController
+finalCheck=com.livre.controller.member.FinalCheckController
 #meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
 #meDelete=com.shopping.controller.member.MemberDeleteController

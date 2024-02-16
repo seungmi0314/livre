@@ -70,6 +70,20 @@ if (!useAgreeCheckbox.checked || !infoAgreeCheckbox.checked || !marketingAgreeCh
     allCheckbox.checked = false;
 }
 }
+
+function submitForm() {
+    var useAgreeChecked = document.getElementById('useAgreeCheckbox').checked;
+    var infoAgreeChecked = document.getElementById('infoAgreeCheckbox').checked;
+    var marketingAgreeChecked = document.getElementById('marketingAgreeCheckbox').checked;
+
+    var term_FL = (useAgreeChecked && infoAgreeChecked && marketingAgreeChecked) ? 'Y' : 'N';
+
+    // hidden input의 값을 변경
+    document.getElementById('term_FL_input').value = term_FL;
+
+    // 폼 제출
+    document.getElementById('agreementForm').submit();
+}
 </script>
 
 </head>
@@ -78,7 +92,7 @@ if (!useAgreeCheckbox.checked || !infoAgreeCheckbox.checked || !marketingAgreeCh
         <header>
             <!-- 헤더 입니다 -->
             <div class="header">
-                <img src="./../assets/logo.svg" class="h-logo">
+                <img src="/livre/assets/logo.svg" class="h-logo">
                 <p class="h-logo-name">livre</p>
             </div>
 
@@ -98,6 +112,7 @@ if (!useAgreeCheckbox.checked || !infoAgreeCheckbox.checked || !marketingAgreeCh
 
         <!-- 약관동의 테이블 -->
         <form name="agreementForm" method="post" action="/livre/member/joinMemberShip.jsp">
+        <input type="hidden" id="term_FL_input" name="term_FL" value="">
             <div id="mainDiv">
                 <div id="titleDiv">
                         <span id="agreeTitle">약관 동의</span>

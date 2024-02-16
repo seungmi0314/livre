@@ -34,12 +34,9 @@
 				<span id="livrelogo"><img id="livreIcon" src="/livre/assets/logo.svg" width="30px" height="30px">livre</span>&nbsp;에서 함께 생각을 나눠봐요!
 			</span>	
 		</div>
-		</tr>
 		<div id="buttonDiv">
 
 			<button type="button" id="nextButton" onclick="moveToNextPage()">홈으로</button>
-		</div>
-		</p>
 		</div>
 	</section>
 
@@ -48,7 +45,7 @@
     // 다음 페이지로 이동하는 함수
     function moveToNextPage() {
         // 메인 페이지의 절대 경로 설정
-        var mainPageURL = "/livre/index.jsp"; // 수정 필요
+        var mainPageURL = "/livre/index.jsp";
 
         // 메인 페이지로 이동
         window.location.href = mainPageURL;
