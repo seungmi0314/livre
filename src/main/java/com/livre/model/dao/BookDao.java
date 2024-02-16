@@ -135,14 +135,25 @@ public class BookDao extends SuperDao {
 		return dataList;
 	}
 	
-	public List<Book> getReviewList(int bookNo){
+	public List<Book> getReviewList(int bookNo, String whichBtn){
 		
 		String sql = "select m.memberno, m.memberemail, r.reviewno, m.memberimg, m.membernick, r.reviewtitle, r.reviewtext, r.createdate, r.readhit";
 		sql += " from members m";
 		sql += " join reviews r on r.memberno = m.memberno";
 		sql += " join books b on r.bookno = b.bookno";
+		sql += " join (select reviewno, count(*) as review_count";
+		sql += " from likereviews group by reviewno) l on r.reviewno = l.reviewno";
 		sql += " where b.bookno = ?";
-		sql += " order by r.reviewno desc";
+		String sql1 = "";
+		
+		if(whichBtn == "L" || whichBtn == null || whichBtn == "") {
+			sql1 = " order by r.reviewno desc";
+			
+		} else {
+			sql1 = " order by l.review_count desc";
+		}
+		
+		String sql2 = sql + sql1;
 		PreparedStatement pstmt = null; // 문장 객체
 		ResultSet rs = null;
 		
@@ -151,9 +162,9 @@ public class BookDao extends SuperDao {
 		super.conn = super.getConnection();
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			System.out.println("sql 구문 : ");
-			System.out.println(sql);
+			pstmt = conn.prepareStatement(sql2);
+			System.out.println("sql2 구문 : ");
+			System.out.println(sql2);
 			pstmt.setInt(1, bookNo);
 			rs = pstmt.executeQuery();
 			

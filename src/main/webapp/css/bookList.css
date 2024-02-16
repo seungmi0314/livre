@@ -130,7 +130,7 @@ section {
 .book-img{
 	width: 230px;
 	height: 322px;
-	border: solid;
+	border: solid black;
 }
 
 /* 책 제목 */

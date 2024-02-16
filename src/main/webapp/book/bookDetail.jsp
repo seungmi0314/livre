@@ -36,6 +36,33 @@
 			
 			window.location.href = fullUrl;
 		}
+		
+		$(document).on('click', '.bookmarks, .latest', function(event) {
+		    var whichBtn = "";
+		    if ($(this).hasClass('bookmarks')) {
+		        whichBtn = "B";
+		    } else if ($(this).hasClass('latest')) {
+		        whichBtn = "L";
+		    }
+		    $.ajax({
+		        url: '<%=notWithFormTag%>bookDetail',
+		        data: {
+		            bookNo: ${requestScope.bean.bookNo},
+		            whichBtn: whichBtn
+		        },
+		        type: 'get',
+		        dataType: 'json',
+		        success: function(result, status) {
+		            console.log(result);
+		            console.log('상태 메시지 : ' + status);
+		        },
+		        error: function(result, status) {
+		            console.log('error');
+		            console.log(result);
+		            console.log('상태 메시지 : ' + status);
+		        }
+		    });
+		});
 	</script>
 </head>
 <body>
@@ -67,13 +94,13 @@
 			
 			<!-- 북마크순 최신순 분류 -->
 			<div class="sorted-by">
-				<a class="bookmarks" href="#">
+				<button class="bookmarks">
 					북마크순
-				</a>
+				</button>
 				<span> | </span>
-				<a class="latest" href="#">
+				<button class="latest">
 					최신순
-				</a>
+				</button>
 			</div>
 			
 			<!-- 독후감 카드 -->
@@ -83,7 +110,9 @@
 			<c:set var="readhitUpdate" value="${not (sessionScope.logInfo.memberEmail == bean.memberEmail)}" />
 			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${bean.reviewNo}&readhitUpdate=${readhitUpdate}">
 				<div class="reviewCard">
-					<img class="user-image" src="/livre/assets/${bean.memberImg}">
+					<div class="user-image">
+						<img src="/livre/assets/${bean.memberImg}">
+					</div>
 					<div class="user-simple-review">
 						<p class="user-nickname">${bean.memberNick}</p>
 						<p class="review-title">${bean.reviewTitle}</p>

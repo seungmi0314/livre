@@ -38,7 +38,6 @@ public class ReviewInfoController extends SuperClass {
 			
 			request.setAttribute("bean", bean);
 			request.setAttribute("bean2", bean2);
-			System.out.println("bean2 : " + bean2);
 			super.goToPage(PREFIX + "reviewInfo.jsp");
 		}
 		

@@ -184,13 +184,13 @@ section {
 }
 
 .bookmarks{
-	text-decoration: none;
-	color: black;
+	background: none;
+	border: none;
 }
 
 .latest{
-	text-decoration: none;
-	color: black;
+	background: none;
+	border: none;
 }
 
 /* 독후감 카드 */
@@ -206,8 +206,7 @@ section {
 
 /* 유저 프사 */
 .user-image{
-	width: 6%;
-	margin: 0 5%;
+	margin: 2% 5%;
 }
 
 /* 요약 독후감 */
