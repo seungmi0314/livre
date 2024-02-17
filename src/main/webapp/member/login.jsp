@@ -100,15 +100,24 @@
 			<div class="sns">
 				<p>sns계정으로 간편로그인 하세요</p>
 				<div class="sns-login">
-					<div class="kakao" onclick="kakaoLogin()" value="카카오톡 간편로그인">
-						<img src="/livre/assets/login-kakao.svg">
-					</div>
-					<div class="naver" onclick="naverLogin()">
-						<img src="/livre/assets/login-naver.svg">
-					</div>
-					<div class="google" onclick="googleLogin()" value="구글로 간편로그인">
-						<img src="/livre/assets/login-google.svg">
-					</div>
+					<form id="kakaoLoginForm" method="POST"
+						action="/livre/member/kakaoLogin" value="카카오톡 간편로그인">
+						<div class="kakao" onclick="kakaoLogin()">
+							<img src="/livre/assets/login-kakao.svg">
+						</div>
+					</form>
+					<form id="naverLoginForm" method="POST"
+						action="/livre/member/naverLogin" value="네이버 간편로그인">
+						<div class="naver" onclick="naverLogin()">
+							<img src="/livre/assets/login-naver.svg">
+						</div>
+					</form>
+					<form id="googleLoginForm" method="POST"
+						action="/livre/member/googleLogin" value="구글 간편로그인">
+						<div class="google" onclick="googleLogin()">
+							<img src="/livre/assets/login-google.svg">
+						</div>
+					</form>
 				</div>
 			</div>
 

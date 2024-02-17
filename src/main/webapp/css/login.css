@@ -192,6 +192,7 @@ button:active {
 
 .sns-login {
 	display: flex;
+	padding: 0;
 
 }
 

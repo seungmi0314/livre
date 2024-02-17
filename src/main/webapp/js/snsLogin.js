@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 카카오 로그인 함수
 function kakaoLogin() {
+	console.log("kakaoLogin 함수가 호출되었습니다.");
 	Kakao.Auth.login({
 		scope: 'account_email', // 사용자에게 이메일 정보 제공 동의를 받기 위한 scope 추가
 		success: function(authObj) {
@@ -24,7 +25,8 @@ function kakaoLogin() {
 					if (kakaoAccount && kakaoAccount.email) {
 						var memberEmail = kakaoAccount.email;
 						console.log("Member Email", memberEmail);
-						process(memberEmail);
+						// 카카오 로그인 처리
+						processLogin(memberEmail);
 					} else {
 						console.error("사용자 이메일 정보를 찾을 수 없습니다.");
 					}
@@ -41,9 +43,9 @@ function kakaoLogin() {
 }
 
 
-function process(memberEmail) {
+function processLogin(memberEmail) {
 	$.ajax({
-		url: "kakaoLogin",
+		url: "/livre/member/kakaoLogin",
 		data: {
 			"memberEmail": memberEmail,
 
@@ -53,12 +55,12 @@ function process(memberEmail) {
 		success: function(memberNo) {
 			//성공적으로 하고나면 이동할 url
 
-			console.log("aJax", memberEmail);
+			console.log("aJax Success", memberEmail);
 
 			if (memberNo != 0) {
-				location.href = '../book/main-page';
+				location.href = '../book/my-review'; // 경로 바꿔
 			} else {
-				location.href = '${contextPath}/member/joinMemberShip';
+				location.href = '../member/joinMemberShip';
 			}
 
 		},

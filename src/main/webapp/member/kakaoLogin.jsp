@@ -2,10 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Kakao Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <script src="/livre/js/snsLogin.js"></script>
 </head>
 <body>
