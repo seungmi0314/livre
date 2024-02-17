@@ -141,8 +141,8 @@ public class BookDao extends SuperDao {
 		sql += " from members m";
 		sql += " join reviews r on r.memberno = m.memberno";
 		sql += " join books b on r.bookno = b.bookno";
-		sql += " join (select reviewno, count(*) as review_count";
-		sql += " from likereviews group by reviewno) l on r.reviewno = l.reviewno";
+		//sql += " join (select reviewno, count(*) as review_count";
+		//sql += " from likereviews group by reviewno) l on r.reviewno = l.reviewno";
 		sql += " where b.bookno = ?";
 		String sql1 = "";
 		
@@ -150,7 +150,7 @@ public class BookDao extends SuperDao {
 			sql1 = " order by r.reviewno desc";
 			
 		} else {
-			sql1 = " order by l.review_count desc";
+			//sql1 = " order by l.review_count desc";
 		}
 		
 		String sql2 = sql + sql1;
