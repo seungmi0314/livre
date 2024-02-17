@@ -231,9 +231,6 @@ public class BookDao extends SuperDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			//pstmt.setInt(1, 1);
-			//pstmt.setInt(2, 107);
-			
 			rs = pstmt.executeQuery();
 			
 			// 요소들을 읽어서 컬렉션에 담습니다.
