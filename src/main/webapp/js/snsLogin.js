@@ -4,115 +4,120 @@ document.addEventListener('DOMContentLoaded', function() {
 	console.log(Kakao.isInitialized());
 }); // sdk초기화여부판단
 
-var memberEmail;
-
 
 // 카카오 로그인 함수
 function kakaoLogin() {
 	Kakao.Auth.login({
-		success: function(response) {
+		scope: 'account_email', // 사용자에게 이메일 정보 제공 동의를 받기 위한 scope 추가
+		success: function(authObj) {
+			console.log("Kakao login success:", authObj);
+
+			// 사용자 정보에서 이메일 정보 가져오기
 			Kakao.API.request({
+				// 변경된 API 주소 사용
 				url: '/v2/user/me',
 				success: function(response) {
-					// 로그인 성공 시 사용자 정보 출력
-					console.log(response)
-					// 이 부분이 로그인 된것임.
-	        	  // DB에 저장하는 서블릿 연결해주고 로그아웃 따로 마련하겠음
-	        	  
-	        	  memberEmail = JSON.stringify(response.kakao_account.email);
-	        	  console.log("memberEmail", memberEmail);
-	        	  
-	        	   process(memberEmail);
+					console.log("Kakao user info:", response);
 
-                    //접속된 회원의 토큰값 출력됨
-                    //alert(JSON.stringify(authObj));
-	        	  
+					var kakaoAccount = response.kakao_account;
+
+					if (kakaoAccount && kakaoAccount.email) {
+						var memberEmail = kakaoAccount.email;
+						console.log("Member Email", memberEmail);
+						process(memberEmail);
+					} else {
+						console.error("사용자 이메일 정보를 찾을 수 없습니다.");
+					}
 				},
-			})
+				fail: function(error) {
+					console.error("Kakao user info fail:", error);
+				}
+			});
 		},
 		fail: function(error) {
-			console.log(error)
-		},
-	})
+			console.error("Kakao login fail:", error);
+		}
+	});
 }
 
- function process(memberEmail) {
-        $.ajax({
-            url: "kakaoLogin",
-            data: {
-                "memberEmail": memberEmail,
 
-            },
-            type: "post",
-            //dataType:"JSON",
-            success: function (memberNo) {
-                //성공적으로 하고나면 이동할 url
+function process(memberEmail) {
+	$.ajax({
+		url: "kakaoLogin",
+		data: {
+			"memberEmail": memberEmail,
 
-                console.log("aJax", memberEmail);
+		},
+		type: "post",
+		//dataType:"JSON",
+		success: function(memberNo) {
+			//성공적으로 하고나면 이동할 url
 
-                if(memberNo != 0) {
-					location.href = '../book/main-page';
-				} else {
-					location.href= '${contextPath}/member/joinMemberShip';
-				}
-                
-            },
+			console.log("aJax", memberEmail);
 
-            error: function (error, status) {
-                console.log(error, status);
-            },
-        });
-    }
+			if (memberNo != 0) {
+				location.href = '../book/main-page';
+			} else {
+				location.href = '${contextPath}/member/joinMemberShip';
+			}
+
+		},
+
+		error: function(error, status) {
+			console.log(error, status);
+		},
+	});
+}
 
 //====================================================================
 
 function kakaoSignUp() {
-    Kakao.Auth.login({
-        success: function (response) {
-            Kakao.API.request({
-                url: "/v2/user/me",
-                success: function (response) {
-                    //console.log(response)
+	Kakao.Auth.login({
+		success: function(response) {
+			Kakao.API.request({
+				url: "/v2/user/me",
+				success: function(response) {
+					//console.log(response)
 
-                    memberEmail = JSON.stringify(response.kakao_account.email);
+					memberEmail = JSON.stringify(response.kakao_account.email);
 
-                    console.log("memberEmail", memberEmail);
+					console.log("memberEmail", memberEmail);
 
-                    process(memberEmail);
+					process(memberEmail);
 
-                    //접속된 회원의 토큰값 출력됨
-                    //alert(JSON.stringify(authObj));
-                },
-                fail: function (error) {
-                    console.log(error);
-                },
-            });
-        },
-    });
+					//접속된 회원의 토큰값 출력됨
+					//alert(JSON.stringify(authObj));
+				},
+				fail: function(error) {
+					console.log(error);
+				},
+			});
+		},
+	});
 
-    function process(memberEmail) {
-        $.ajax({
-            url: "kakaoSignUp",
-            data: {
-                memberEmail: memberEmail,
-            },
-            type: "post",
-            //dataType:"JSON",
-            success: function (data) {
-                //성공적으로 하고나면 이동할 url
+	function process(memberEmail) {
+		$.ajax({
+			url: "kakaoSignUp",
+			data: {
+				memberEmail: memberEmail,
+			},
+			type: "post",
+			//dataType:"JSON",
+			success: function(data) {
+				//성공적으로 하고나면 이동할 url
 
-                console.log("data", data);
-                console.log("aJax", memberEmail);
+				console.log("data", data);
+				console.log("aJax", memberEmail);
 
-                alert("livre에 오신걸 환영합니다");
-                location.href = "login";
-            },
+				alert("livre에 오신걸 환영합니다");
+				location.href = "login";
+			},
 
-            error: function (error, status) {
-                console.log(error, status);
-            },
-        });
-    }
+			error: function(error, status) {
+				console.log(error, status);
+			},
+		});
+	}
 }
 
 
@@ -132,5 +137,5 @@ function kakaoLogout() {
 		})
 		Kakao.Auth.setAccessToken(undefined)
 	}
-}  
+}
 

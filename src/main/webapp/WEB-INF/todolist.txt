@@ -31,6 +31,6 @@ findPassword=com.livre.controller.member.FindPasswordController
 tempPassword=com.livre.controller.member.TempPasswordController
 updatePassword=com.livre.controller.member.UpdatePasswordController
 my-page=com.livre.controller.member.MyPageController
-kakaologin=com.livre.controller.member.SnsLoginController
+kakaoLogin=com.livre.controller.member.KakaoLoginController
 # main section
 main-page=com.livre.controller.book.MainPageController

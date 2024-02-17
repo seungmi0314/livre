@@ -43,7 +43,7 @@ public class MemberDao extends SuperDao {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-		} 
+		}
 		return bean;
 	}
 
@@ -62,7 +62,8 @@ public class MemberDao extends SuperDao {
 			 * bean.setMemberImg(rs.getString("memberImg"));
 			 * bean.setMemberAddress(rs.getString("memberAddress"));
 			 * bean.setMemberGender(rs.getString("memberGender"));
-			 * bean.setGenreList(rs.getInt("genreList")); bean.setRankNo(rs.getInt("rankNo"));
+			 * bean.setGenreList(rs.getInt("genreList"));
+			 * bean.setRankNo(rs.getInt("rankNo"));
 			 */
 
 			return bean;
@@ -348,4 +349,94 @@ public class MemberDao extends SuperDao {
 
 		return updateResult;
 	}
+
+	
+//	Kakao 로그인 처리를 위한 메서드
+//	
+//	@param kakaoEmail Kakao 로그인 시 전달된 이메일
+//	@return Kakao 이메일을 가진 회원 정보
+	
+	public Member getMemberByKakaoEmail(String kakaoEmail) {
+		String sql = "SELECT * FROM members WHERE memberEmail = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member bean = null;
+
+		try {
+			super.conn = super.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, kakaoEmail);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				bean = resultSet2Bean(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return bean;
+	}
+
+	
+//	Kakao 로그인 시 회원으로 등록하는 메서드
+//	
+//	@param kakaoEmail Kakao 로그인 시 전달된 이메일
+//	@return 등록된 회원 정보
+
+	public Member registerKakaoMember(String kakaoEmail) {
+		// 필요한 경우 회원 등록에 필요한 추가 정보를 받아서 처리할 수 있습니다.
+		String sql = "INSERT INTO members (memberNo, memberEmail, term_FL) VALUES (members_seq.NEXTVAL, ?, 'Y')";
+		PreparedStatement pstmt = null;
+		Member registeredMember = null;
+
+		try {
+			super.conn = super.getConnection();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, kakaoEmail);
+
+			int rowCount = pstmt.executeUpdate();
+
+			if (rowCount > 0) {
+				// 등록된 회원 정보를 가져옵니다.
+				registeredMember = getMemberByKakaoEmail(kakaoEmail);
+			}
+
+			conn.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return registeredMember;
+	}
+
 }
