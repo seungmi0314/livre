@@ -208,7 +208,7 @@ input[type=checkbox]:checked + label {
     margin-bottom: 30px;
 }
 
-#likeReview{
+.likeReview{
 	position: relative;
 	left: 6%;
 	cursor: pointer;

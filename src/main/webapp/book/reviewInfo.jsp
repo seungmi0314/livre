@@ -13,8 +13,9 @@
 	<script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		var isToggled = false;
-		if(${sessionScope.logInfo.memberNo == bean2.memberNo}){
+		if(${sessionScope.logInfo.memberNo == data.memberNo}){
 			isToggled = true;
+			$('.likeReview').attr('src', '/livre/assets/bookmarked.svg');
 		}
 		function toggleLike() {
 			
@@ -30,9 +31,9 @@
 			
 			isToggled = !isToggled
 			if(isToggled){
-				$('#likeReview').attr('src', '/livre/assets/bookmarked.svg');
+				$('.likeReview').attr('src', '/livre/assets/bookmarked.svg');
 			}else{
-				$('#likeReview').attr('src', '/livre/assets/unBookmarked.svg');
+				$('.likeReview').attr('src', '/livre/assets/unBookmarked.svg');
 			}
 			
 		    $.ajax({
@@ -69,17 +70,13 @@
 					<div class="review-write">
 						<input class="review-title write"
 							placeholder="${requestScope.bean.reviewTitle}" readonly>
-							
-						<c:if test="${not(sessionScope.logInfo.memberNo == bean.memberNo)}">
-						<c:choose>
-							<c:when test="${whologin == 0 || not(sessionScope.logInfo.memberNo == bean2.memberNo)}">
-								<img src="/livre/assets/unBookmarked.svg" id="likeReview" onclick="toggleLike()">
-							</c:when>
-							<c:when test="${sessionScope.logInfo.memberNo == bean2.memberNo}">
-								<img src="/livre/assets/bookmarked.svg" id="likeReview" onclick="toggleLike()">
-							</c:when>
-						</c:choose>
-						</c:if>
+						
+						
+						<c:forEach var="data" items="${dataList}">
+						    <c:if test="${sessionScope.logInfo.memberNo != bean.memberNo}">
+						    	<img src="/livre/assets/unBookmarked.svg" class="likeReview" onclick="toggleLike()">
+						    </c:if>
+						</c:forEach>
 						
 						<textarea class="review-content write" readonly>${requestScope.bean.reviewText}</textarea>
 
