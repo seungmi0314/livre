@@ -3,6 +3,7 @@
 #meLogin=com.shopping.controller.member.MemberLoginController
 #meLogout=com.shopping.controller.member.MemberLogoutController
 meInsert=com.livre.controller.member.MemberInsertController
+meEmailCheck=com.livre.controller.member.MeEmailCheckController
 joinMemberShip=com.livre.controller.member.joinMemberShipController
 collectPreference=com.livre.controller.member.CollectPreferenceController
 celebrate=com.livre.controller.member.CelebrateController
