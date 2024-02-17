@@ -141,4 +141,5 @@ public class Member {
 				+ genreList + ", rankNo=" + rankNo + "]";
 	}
 
+
 }

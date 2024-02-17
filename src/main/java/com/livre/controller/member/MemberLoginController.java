@@ -26,6 +26,12 @@ public class MemberLoginController extends SuperClass{
 		
 		// memberEmail, memberPw, remember-check 정보 받아오기
 		String memberEmail = request.getParameter("memberEmail") ; // email 넘어옴
+		
+		 // 카카오 로그인으로 받은 이메일이 있다면 사용 (사용자가 직접 입력한 이메일은 무시하게 된다.)
+	    if (request.getParameter("account_email") != null) {
+	        memberEmail = request.getParameter("account_email");
+	    }
+		
 		String memberPw = request.getParameter("memberPw") ;       // pw 넘어옴
 		String checkbox = request.getParameter("checkbox");	       //checkbox 체크여부 넘어옴
 		
