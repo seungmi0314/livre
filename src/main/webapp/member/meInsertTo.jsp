@@ -18,7 +18,7 @@
 	bean.setMemberImg(request.getParameter("memberImg"));
 	bean.setAddress(request.getParameter("Address"));
 	bean.setGender(request.getParameter("memberGender"));
-	bean.setGenreNo(request.getParameter("genreNo"));
+	bean.setGenreList(request.getParameter("genreList"));
 	bean.setRankNo(Integer.parseInt(request.getParameter("rankNo")));
 	
 	/*

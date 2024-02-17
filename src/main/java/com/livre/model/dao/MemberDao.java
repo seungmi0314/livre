@@ -438,5 +438,44 @@ public class MemberDao extends SuperDao {
 
 		return registeredMember;
 	}
+	
+	
+	public Member getDataEmail(String memberEmail) {
+		String sql = "select * from members ";
+		sql += " where memberEmail = ?";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member bean = null;
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberEmail);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = this.resultSet2Bean(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		System.out.println("memberEmail로 조회 결과 :");
+		System.out.println(bean);
+
+		return bean;
+	}
 
 }

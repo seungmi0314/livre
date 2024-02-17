@@ -13,7 +13,7 @@ String term_FL = request.getParameter("term_FL");
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/livre/css/collectPreferenceFirstStyle.css">
+<link rel="stylesheet" href="/livre/css/collectPreferenceStyle.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <script>
