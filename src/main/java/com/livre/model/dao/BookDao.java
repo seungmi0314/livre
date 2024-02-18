@@ -141,7 +141,7 @@ public class BookDao extends SuperDao {
 		sql += " from members m";
 		sql += " join reviews r on r.memberno = m.memberno";
 		sql += " join books b on r.bookno = b.bookno";
-		sql += " join (select reviewno, count(*) as rCount";
+		sql += " left join (select reviewno, count(*) as rCount";
 		sql += " from likereviews group by reviewno) l on r.reviewno = l.reviewno";
 		sql += " where b.bookno = ?";
 		String sql1 = "";
