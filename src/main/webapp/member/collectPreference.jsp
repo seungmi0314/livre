@@ -109,7 +109,7 @@ String term_FL = request.getParameter("term_FL");
 		<header>
 			<!-- 헤더 입니다 -->
 			<div class="header">
-				<img src="./../assets/logo.svg" class="h-logo">
+				<img src="/livre/assets/logo.svg" class="h-logo">
 				<p class="h-logo-name">livre</p>
 			</div>
 

@@ -35,7 +35,7 @@ section {
 	border-radius: 20px;
 }
 
-img {
+#manIcon, #womanIcon{
 	width: 120px;
 	height: 130px;
 	border-radius: 20px;

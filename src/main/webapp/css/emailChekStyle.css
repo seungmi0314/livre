@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#closeButton {
+	background-color: #C24B4B;
+	transition: all ease-in-out 0.15s;
+	cursor: pointer;
+	text-align: center;
+	border: none;
+	border-radius: 10px;
+	background: #C24B4B;
+	width: 100px;
+	height: 35px;
+	font-weight: 700;
+	color: white;
+}
+
+#closeButton:hover {
+	background-color: #D17D7D;
+}
+
+#closeButton:active {
+	background-color: #E4C8C8;
+}
+
+.container{
+	margin: 10px;
+}
+
+#textDiv {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+body{
+    padding: 15%;	
+}
