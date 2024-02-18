@@ -104,32 +104,32 @@
 			</div>
 			
 			<!-- 독후감 카드 -->
-			<c:forEach var="bean" items="${dataList}">
+			<c:forEach var="data" items="${dataList}">
 			<%-- 로그인 아이디와 작성자의 아이디가 다르면 true 로 지정합니다. --%>
 			<%-- readhitUpdate 파라미터는 조회수 업데이트를 할 것인지 결정해주는 boolean 변수입니다. --%>
-			<c:set var="readhitUpdate" value="${not (sessionScope.logInfo.memberEmail == bean.memberEmail)}" />
-			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${bean.reviewNo}&readhitUpdate=${readhitUpdate}">
+			<c:set var="readhitUpdate" value="${not (sessionScope.logInfo.memberEmail == data.memberEmail)}" />
+			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${data.reviewNo}&readhitUpdate=${readhitUpdate}">
 				<div class="reviewCard">
 					<div class="user-image">
-						<img src="/livre/assets/${bean.memberImg}">
+						<img src="/livre/assets/${data.memberImg}">
 					</div>
 					<div class="user-simple-review">
-						<p class="user-nickname">${bean.memberNick}</p>
-						<p class="review-title">${bean.reviewTitle}</p>
+						<p class="user-nickname">${data.memberNick}</p>
+						<p class="review-title">${data.reviewTitle}</p>
 						<p>
 						    <c:choose>
-						        <c:when test="${fn:length(bean.reviewText) > 150}">
-						            ${fn:substring(bean.reviewText, 0, 120)} <span class="moreView">...더보기</span>
+						        <c:when test="${fn:length(data.reviewText) > 150}">
+						            ${fn:substring(data.reviewText, 0, 120)} <span class="moreView">...더보기</span>
 						        </c:when>
 						        <c:otherwise>
-						            ${bean.reviewText}
+						            ${data.reviewText}
 						        </c:otherwise>
 						    </c:choose>
 						</p>
 					</div>
 					<div class="cd-rh">
-						<p>작성일자 : ${bean.createDate}</p>
-						<p>조회수 : ${bean.readHit}</p>
+						<p>작성일자 : ${data.createDate}</p>
+						<p>조회수 : ${data.readHit}</p>
 					</div>
 				</div>
 			</a>

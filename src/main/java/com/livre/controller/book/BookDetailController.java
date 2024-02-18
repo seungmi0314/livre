@@ -24,6 +24,7 @@ public class BookDetailController extends SuperClass {
 			super.goToPage(PREFIX + "bookList.jsp");
 		}
 		String whichBtn = request.getParameter("whichBtn");
+		System.out.println("whichBtn : " + whichBtn);
 		List<Book> dataList = dao.getReviewList(bookNo, whichBtn);
 		
 		request.setAttribute("bean", bean);
