@@ -13,7 +13,7 @@
 	<script src="https://kit.fontawesome.com/a54a73652a.js" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		var isToggled = false;
-		if(${sessionScope.logInfo.memberNo == data.memberNo}){
+		if(${isBookmarked}){
 			isToggled = true;
 		}
 		
@@ -72,20 +72,13 @@
 							placeholder="${requestScope.bean.reviewTitle}" readonly>
 							
 						<c:if test="${not(sessionScope.logInfo.memberNo == bean.memberNo)}">
-						    <c:choose>
-						        <c:when test="${empty sessionScope.logInfo}">
-						            <img src="/livre/assets/unBookmarked.svg" class="likeReview" onclick="toggleLike()">
-						        </c:when>
-						        <c:otherwise>
-						        	<c:if test="${empty dataList}">
-						        	
-						        	</c:if>
-						            <c:forEach var="data" items="${dataList}">
-						                <c:if test="${sessionScope.logInfo.memberNo == data.memberNo}">
-						                    <img src="/livre/assets/bookmarked.svg" class="likeReview" onclick="toggleLike()">
-						                </c:if>
-						            </c:forEach>
-						        </c:otherwise>
+							<c:choose>
+							    <c:when test="${isBookmarked == false}">
+							    	<img src="/livre/assets/unBookmarked.svg" class="likeReview" onclick="toggleLike()">
+							    </c:when>
+							    <c:otherwise>
+							    	<img src="/livre/assets/bookmarked.svg" class="likeReview" onclick="toggleLike()">
+							    </c:otherwise>
 						    </c:choose>
 						</c:if>
 						

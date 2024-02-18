@@ -1,5 +1,6 @@
 package com.livre.controller.book;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,10 +41,23 @@ public class ReviewInfoController extends SuperClass {
 				rdao.updateReadhit(reviewNo);
 			}
 			
+			boolean isBookmarked = false;
+			for(LikeReview data : dataList) {
+				if(super.logInfo == null) {
+					isBookmarked = false;
+					break;
+					
+				}else if(super.logInfo.getMemberNo() == data.getMemberNo()) {
+					isBookmarked = true;
+					break;
+				}
+			}
 			request.setAttribute("bean", bean);
 			request.setAttribute("dataList", dataList);
+			request.setAttribute("isBookmarked", isBookmarked);
 			System.out.println("bean : " + bean);
 			System.out.println("dataList : " + dataList);
+			System.out.println("isBookmarked : " + isBookmarked);
 			super.goToPage(PREFIX + "reviewInfo.jsp");
 		}
 		
