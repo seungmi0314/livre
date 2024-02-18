@@ -37,32 +37,6 @@
 			window.location.href = fullUrl;
 		}
 		
-		$(document).on('click', '.bookmarks, .latest', function(event) {
-		    var whichBtn = "";
-		    if ($(this).hasClass('bookmarks')) {
-		        whichBtn = "B";
-		    } else if ($(this).hasClass('latest')) {
-		        whichBtn = "L";
-		    }
-		    $.ajax({
-		        url: '<%=notWithFormTag%>bookDetail',
-		        data: {
-		            bookNo: ${requestScope.bean.bookNo},
-		            whichBtn: whichBtn
-		        },
-		        type: 'get',
-		        dataType: 'json',
-		        success: function(result, status) {
-		            console.log(result);
-		            console.log('상태 메시지 : ' + status);
-		        },
-		        error: function(result, status) {
-		            console.log('error');
-		            console.log(result);
-		            console.log('상태 메시지 : ' + status);
-		        }
-		    });
-		});
 	</script>
 </head>
 <body>
@@ -94,13 +68,13 @@
 			
 			<!-- 북마크순 최신순 분류 -->
 			<div class="sorted-by">
-				<button class="bookmarks">
+				<a class="bookmarks" href="<%=notWithFormTag%>bookDetail&bookNo=${requestScope.bean.bookNo}&whichBtn=B">
 					북마크순
-				</button>
+				</a>
 				<span> | </span>
-				<button class="latest">
+				<a class="latest" href="<%=notWithFormTag%>bookDetail&bookNo=${requestScope.bean.bookNo}&whichBtn=L">
 					최신순
-				</button>
+				</a>
 			</div>
 			
 			<!-- 독후감 카드 -->

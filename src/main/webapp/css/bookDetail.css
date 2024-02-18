@@ -184,13 +184,13 @@ section {
 }
 
 .bookmarks{
-	background: none;
-	border: none;
+	text-decoration: none;
+	color: black;
 }
 
 .latest{
-	background: none;
-	border: none;
+	text-decoration: none;
+	color: black;
 }
 
 /* 독후감 카드 */
@@ -221,6 +221,8 @@ section {
 }
 /* 요약 독후감 카드 */
 .review-a{
+	display: flex;
+	flex-grow: 1;
 	color: black;
 	text-decoration: none;
 }
