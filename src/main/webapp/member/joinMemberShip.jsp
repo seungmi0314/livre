@@ -124,7 +124,7 @@ function emailCheck(){/* 이메일 중복 체크를 수행합니다. */
 	}
 	
 	var url = '<%=notWithFormTag%>meEmailCheck&memberEmail=' + email ;
-	window.open(url, 'emailCheck', width=400,height=300) ;
+	window.open(url, 'emailCheck', 'width=640, height=340') ;
 }
 
 function validCheck(){/* form validation check */
@@ -174,7 +174,7 @@ function validCheck(){/* form validation check */
 					계정이 있나요?</span> &nbsp;<a href="" id="existingLogin">로그인</a> <br /> <br />
 				<br />
 				<!-- 이메일 기입란 -->
-				<%-- 중복 체크를 했는지 판단하기 위한 부울 타입의 히든 양식으로 true이면 회원 가입이 가능합니다.  --%>
+				<%-- 중복 체크를 했는지 판단하기 위한 부울 타입의 히든 양식으로 true 이면 회원 가입이 가능합니다.  --%>
 					<input type="hidden" id="isRegister" name="isRegister" value="false">
 					
 				<div class="mb-3 mt-3">
@@ -209,11 +209,11 @@ function validCheck(){/* form validation check */
 					<div class="invalid-feedback" id="validPasswordck">* 비밀번호가
 						일치하지 않습니다.</div>
 				</div>
-				</br> </br>
+				<br> <br>
 				<!-- 가입하기 버튼 -->
 				<button id="submitButton" type="submit" class="btn btn-primary"
 					onclick="return checkEmail();">가입하기</button>
-				</br> </br>
+				<br> <br>
 				<!-- SNS로그인 -->
 				<div class="flex-container">
 					<div class="flex-item">
@@ -224,17 +224,17 @@ function validCheck(){/* form validation check */
 						</b>
 					</div>
 					<div id="accounLine2" class="flex-item">
-						<hr width="200px" height="30px">
+						<hr width="200px">
 						<br>
 					</div>
 				</div>
 				<!-- 카카오톡 로그인 -->
 				<a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><img
 					id="kakaoIcon" class="img-concert"
-					src="/livre/assets/kakaoIcon.png" width="40px" height="40px" /></a> </br> </br>
+					src="/livre/assets/kakaoIcon.png" width="40px" height="40px" /></a> <br> <br>
 				<!-- 환영문구 -->
 				<span id="welcomeTitle"> <b> 어서오세요! <br> <br>
-						책에 대한 당신만의 생각이 궁금해요. </br> <br> 리버(livrer)가 되어 우리에게 들려줄래요?
+						책에 대한 당신만의 생각이 궁금해요. <br> <br> 리버(livrer)가 되어 우리에게 들려줄래요?
 				</b>
 				</span> <input type="text" value="<%=term_FL%>" name="term_FL">
 		</form>

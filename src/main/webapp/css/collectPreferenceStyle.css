@@ -28,7 +28,7 @@ section {
 	border-radius: 20px;
 }
 
-img {
+#economy, #health, #child, #art, #cooking, #humanities, #history, #travel, #science, #selfdev, #religion, #teenager, #cartoon, #society, #novel, #mobile, #gardening, #sports{
 	width: 80px;
 	height: 80px;
 	border-radius: 20px;
