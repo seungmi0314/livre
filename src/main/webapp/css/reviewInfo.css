@@ -210,7 +210,8 @@ input[type=checkbox]:checked + label {
 
 .likeReview{
 	position: relative;
-	left: 6%;
+	left: 5%;
+	top: -9%;
 	cursor: pointer;
 }
 
