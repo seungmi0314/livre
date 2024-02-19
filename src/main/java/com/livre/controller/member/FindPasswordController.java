@@ -94,7 +94,7 @@ public class FindPasswordController extends SuperClass {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(user, password);
 				// memberEmail, memberPw
-				// bean.getMemberEmail(), bean.getMemberPw()???
+				// bean.getMemberEmail(), bean.getMemberPw()??? 아님
 			}
 		});
 
