@@ -63,7 +63,7 @@
 						<li>
 							<!--이메일 입력--> <span><input class="form-input" type="text"
 								name="memberEmail" id="memberEmail" placeholder="이메일 입력"
-								value="<%=cookie%>"></span>
+								value="<%=memberEmail%>"></span>
 						</li>
 
 						<li class="error email_error">이메일을 입력해주세요</li>

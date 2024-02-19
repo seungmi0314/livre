@@ -350,7 +350,6 @@ public class MemberDao extends SuperDao {
 		return updateResult;
 	}
 
-	
 //	Kakao 로그인 처리를 위한 메서드
 //	
 //	@param kakaoEmail Kakao 로그인 시 전달된 이메일
@@ -438,8 +437,7 @@ public class MemberDao extends SuperDao {
 
 		return registeredMember;
 	}
-	
-	
+
 	public Member getDataEmail(String memberEmail) {
 		String sql = "select * from members ";
 		sql += " where memberEmail = ?";
