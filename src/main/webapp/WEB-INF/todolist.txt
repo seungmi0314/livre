@@ -12,7 +12,7 @@ createNickname=com.livre.controller.member.CreateNicknameController
 finalCheck=com.livre.controller.member.FinalCheckController
 #meUpdate=com.livre.controller.member.MemberUpdateController
 #meList=com.shopping.controller.member.MemberListController
-#meDelete=com.shopping.controller.member.MemberDeleteController
+meDelete=com.livre.controller.member.MemberDeleteController
 #meDetail=com.shopping.controller.member.MemberDetailController
 # book section
 bookList=com.livre.controller.book.BookListController

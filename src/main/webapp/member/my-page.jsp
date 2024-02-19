@@ -21,7 +21,14 @@
 				alert('닉네임은 4자리 이상 10자리 이하로 입력해 주세요.');
 				return false ; /* false이면 이벤트 전파 방지 */
 			}
-	
+    }
+    
+    function fn_meDelete(memberNo){
+    	if(confirm("정말 탈퇴 하시겠습니까?")){
+    		location.href="/livre/Livre?command=meDelete&memberNo="+memberNo;
+    		
+    	}
+    }
 			
     </script>
 
@@ -97,7 +104,7 @@
 							</ul>
 							<div class="update-set">
 								<div class="btn-left">
-									<img src="/livre/assets/octicon_trash-24.png"><a href="">회원탈퇴</a>
+									<img src="/livre/assets/octicon_trash-24.png"><a href="#" onclick="fn_meDelete('${bean.memberNo}');">회원탈퇴</a>
 								</div>
 								<div class="btn-right">
 									<img src="/livre/assets/edit_bookmark.png">
@@ -169,26 +176,30 @@
 					<div class="section-1-bottom">
 						<p>관심 분야</p>
 						<div class="bottom-layout">
-							<c:set var="newGenre" value="${bean.genreList}" /> 
-							<c:forEach var="one" items="${genreList}" varStatus="status">
+							<c:set var="genresList1" value="${fn:split(bean.genreList, ',')}" /> 
+							<c:set var="genresLength" value="${fn:length(genresList1)}" />
+							<c:set var="countChk" value="1"/>
+							<c:forEach var="result1" items="${genresList1}" varStatus="status">
+								<c:forEach var="result2" items="${genresList}" varStatus="status">
 									<c:choose>
-										<c:when test="">
-							            	브론즈
-							        	</c:when>
-								        <c:when test="">
-								            실버
-								        </c:when>
-								        <c:when test="">
-								            골드
-								        </c:when>
-								        <c:when test="">
-								            플레
-								        </c:when>
-								        <c:when test="">
-								            다이아
-								        </c:when>
-    								</c:choose>
+										<c:when test="${result1 eq result2.genreno and countChk eq genresLength}">
+												<img src="/livre/assets/hobby_mypage.png">
+												<p>${result2.genre}</p>
+											</div>	
+										</c:when>
+										<c:when test="${result1 eq result2.genreno}">
+											<c:set var="countChk" value="${countChk+1}"/>
+											<div style="flex-direction:row; width: 100%">
+											<img src="/livre/assets/hobby_mypage.png">
+												<p>${result2.genre}</p>
+										</c:when>
+										<c:otherwise>
+										
+										</c:otherwise>
+									</c:choose>
+									
 								</c:forEach>
+							</c:forEach>
 						</div>
 						<div class="update-set">
 
@@ -264,13 +275,12 @@
 							<p>My Pick</p>
 						</div>
 						<div class="section-3-content">
-							<p>진정한 작가에게, 매 작품은성취감을 넘어 무언가를 다시 시도하는새로운 시작이어야 한다</p>
+							<p>${myReview.phrase}</p>
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</form>
-
 </body>
 </html>

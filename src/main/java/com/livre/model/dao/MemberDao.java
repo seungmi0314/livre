@@ -6,11 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.livre.model.bean.Genres;
 import com.livre.model.bean.Member;
 import com.livre.model.bean.MyReview;
 
 public class MemberDao extends SuperDao {
-
+	com.livre.utility.MyUtility MyUtility;
+	
 	public Member getDataByEmailAndPassword(String memberEmail, String memberPw) {
 		// 이메일과 비밀번호를 이용하여 해당 회원이 존재하는지 확인합니다.
 		String sql = "select * from members ";
@@ -66,6 +68,19 @@ public class MemberDao extends SuperDao {
 
 			return bean;
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+	private Genres resultSetGenresBean(ResultSet rs) {
+		try {
+			Genres bean = new Genres();
+			bean.setGenreno(rs.getInt("genreno"));
+			bean.setGenre(rs.getString("genre"));
+			return bean;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -249,6 +264,45 @@ public class MemberDao extends SuperDao {
 
 			while (rs.next()) {
 				Member bean = this.resultSet2Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {// 200p 5번
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
+	
+	
+	public List<Genres> getGenresList() {
+		String sql = "select * from genres";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<Genres> dataList = new ArrayList<Genres>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Genres bean = this.resultSetGenresBean(rs);
 				dataList.add(bean);
 			}
 
@@ -499,6 +553,52 @@ public class MemberDao extends SuperDao {
 		} finally {
 			try {
 				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt ;
+	}
+	
+	
+	
+	
+	public int deleteData(int id) {
+		int cnt = -1 ;
+		String sql = "" ;
+		Member bean = this.getDataBean(id) ;
+		PreparedStatement pstmt = null ;
+		conn = super.getConnection() ;
+		
+		try {
+			conn.setAutoCommit(false);
+			
+			//리뷰 삭제
+			sql = " DELETE FROM REVIEWS where MEMBERNO = ? " ;
+			pstmt = conn.prepareStatement(sql) ;
+			pstmt.setInt(1, bean.getMemberNo());
+			cnt = pstmt.executeUpdate() ;
+			if(pstmt != null) {pstmt.close();}
+			
+			//회원정보 삭제	
+			sql = " delete from members where MEMBERNO = ? " ;
+			pstmt = conn.prepareStatement(sql) ;
+			pstmt.setInt(1, bean.getMemberNo());
+			cnt = pstmt.executeUpdate() ;
+			if(pstmt != null) {pstmt.close();}			
+			
+			conn.commit();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally {
+			try {
 				super.closeConnection();
 			} catch (Exception e2) {
 				e2.printStackTrace();
