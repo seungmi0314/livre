@@ -1,3 +1,4 @@
+<%@page import="com.livre.model.dao.MyReviewDao2"%>
 <%@page import="com.livre.model.bean.MyReview"%>
 <%@page import="com.livre.model.dao.MyReviewDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,10 +8,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../common/common2.jsp"%>
 
 <%
-	MyReviewDao dao = new MyReviewDao();
+	MyReviewDao2 dao = new MyReviewDao2();
 	MyReview bean = new MyReview();
 	
-	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
+	int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
 	//int bookNo = Integer.parseInt(request.getParameter("bookNo"));
 	//String bookTitle = request.getParameter("bookTitle");
 	//int genreNo = Integer.parseInt(request.getParameter("genreNo"));
@@ -24,7 +25,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 	String startDate = request.getParameter("startDate");
 	String endDate = request.getParameter("endDate");
 	
-	//bean.setReviewNo(reviewNo) ;
+	bean.setReviewNo(reviewNo) ;
 	//bean.setBookNo(bookNo);
 	//bean.setBookTitle(bookTitle);
 //	bean.setGenreNo(genreNo);
