@@ -59,6 +59,7 @@ $(document).ready(function() {
             // 유효성 검사를 통과하지 못한 경우 회원가입 막기
             event.preventDefault();
         }
+        
     });
 });
 
@@ -110,7 +111,7 @@ function confirmPassword() {
     return true;
     
 }
-///////////////////////////////////0217 작업중
+
 
 function emailCheck(){/* 이메일 중복 체크를 수행합니다. */
 	var isRegister = $('#isRegister').val();
@@ -152,19 +153,6 @@ function validCheck(){/* form validation check */
 <title>Insert title here</title>
 </head>
 <body>
-	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-	</main>
 	<section>
 		<form name="logInForm" method="post" action="<%=withFormTag%>">
 			<input type="hidden" name="command" value="collectPreference">
