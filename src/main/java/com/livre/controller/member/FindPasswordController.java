@@ -94,7 +94,7 @@ public class FindPasswordController extends SuperClass {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(user, password);
 				// memberEmail, memberPw
-				// bean.getMemberEmail(), bean.getMemberPw()???
+				// bean.getMemberEmail(), bean.getMemberPw()??? 아님
 			}
 		});
 
@@ -124,7 +124,7 @@ public class FindPasswordController extends SuperClass {
 				HttpSession session2 = request.getSession();
 				session2.setAttribute("authkey", authkey);
 
-				super.goToPage(PREFIX + "updatePassword.jsp");
+				super.goToPage(PREFIX + "tempPassword.jsp");
 			} else {
 				// 비밀번호 업데이트 실패 시
 				setAlertMessage("비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.");
