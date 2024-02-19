@@ -21,9 +21,6 @@ public class BookListController extends SuperClass {
 		//String pageSize = request.getParameter("pageSize");
 		String mode = request.getParameter("mode");
 		String keyword = request.getParameter("keyword");
-		int currentPage = 1;
-		int booksPerPage = 20;
-		
 		
 		BookDao dao = new BookDao();
 		
@@ -34,8 +31,7 @@ public class BookListController extends SuperClass {
 		//Paging paging = new Paging(pageNumber, pageSize, totalCount, url, mode, keyword, isGrid);
 		Paging paging = new Paging(totalCount, url, mode, keyword);
 		
-		
-		List<Book> dataList = dao.getDataList(paging, currentPage, booksPerPage);
+		List<Book> dataList = dao.getDataList(paging);
 		
 		
 		request.setAttribute("paging", paging); // 페이징 객체도 바인딩

@@ -192,7 +192,7 @@ public class BookDao extends SuperDao {
 		return dataList;
 	}
 	
-	public List<Book> getDataList(Paging paging, int currentPage, int booksPerPage){
+	public List<Book> getDataList(Paging paging){
 		// 페이징 처리를 이용하여 데이터를 조회합니다.
 		String sql = "select *";
 		sql += " from (select rank() over(order by bookno) as ranking, b.*";
@@ -229,9 +229,8 @@ public class BookDao extends SuperDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			//pstmt.setInt(1, ((currentPage-1)*booksPerPage+1));
-			//pstmt.setInt(2, currentPage*booksPerPage);
-			
+			//pstmt.setInt(1, paging.getBeginRow());
+			//pstmt.setInt(2, paging.getEndRow());
 			rs = pstmt.executeQuery();
 			
 			// 요소들을 읽어서 컬렉션에 담습니다.
