@@ -1,8 +1,10 @@
 //페이지 로딩 시 카카오 SDK 초기화
 document.addEventListener('DOMContentLoaded', function() {
 	Kakao.init('07dab2542e666ab276222d8f579c67be');
-	console.log(Kakao.isInitialized());
+	console.log("Kakao SDK Initialized:", Kakao.isInitialized());
 }); // sdk초기화여부판단
+
+
 
 
 // 카카오 로그인 함수
@@ -25,8 +27,8 @@ function kakaoLogin() {
 					if (kakaoAccount && kakaoAccount.email) {
 						var memberEmail = kakaoAccount.email;
 						console.log("Member Email", memberEmail);
-						// 카카오 로그인 처리
-						processLogin(memberEmail);
+						  // 서버에 카카오 로그인 처리 요청
+                        processLogin(memberEmail);
 					} else {
 						console.error("사용자 이메일 정보를 찾을 수 없습니다.");
 					}

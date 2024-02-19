@@ -37,7 +37,7 @@
 	<section>
 
 		<form name="findPasswordForm" method="post" action="<%=withFormTag%>">
-			<input type="hidden" name="command" value="updatePassword"> <span
+			<input type="hidden" name="command" value="tempPassword"> <span
 				id="banner"><b>임시 비밀번호 입력</b></span><br /> <br /> <br /> <br />
 
 
@@ -45,7 +45,7 @@
 			<div class="findPwdClass1">
 				<input type="text" id="findPwdAuth" name="findPwdAuth"
 					placeholder="임시 비밀번호 입력" autocomplete="off">
-				<button type="submit" id="findPwdAuthButton" onclick="return checkAuthentication();">인증</button>
+				<button type="submit" id="findPwdAuthButton" onclick="return checkAuthentication();">확인</button>
 			</div>
 			<span id="findPwdAuthId"></span>
 		</form>
@@ -60,7 +60,7 @@
 		</div>
 		<button id="newPasswordButton">변경</button>
   -->
-<script src="/livre/js/tempPassword.js"></script>
+<!-- <script src="/livre/js/tempPassword.js"></script> -->
 	</section>
 
 

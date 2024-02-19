@@ -1,5 +1,7 @@
 package com.livre.controller.member;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,7 +22,9 @@ public class TempPasswordController extends SuperClass {
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		super.doPost(request, response);
 
 		// 사용자로부터 입력받은 새로운 비밀번호
@@ -39,20 +43,13 @@ public class TempPasswordController extends SuperClass {
 		MemberDao dao = new MemberDao();
 
 		if (authkey.equals(findPwdAuth)) {
-			// 인증코드가 일치할 때의 동작
-			System.out.println("인증코드가 일치합니다. authkey: " + authkey + ", findPwdAuth: " + findPwdAuth);
-
-
-			super.goToPage(PREFIX + "login.jsp");
-
-		
-			
+		    // 인증코드가 일치할 때의 동작
+		    out.println("<script>alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.'); location.href='" + request.getContextPath() + "/book/my-review.jsp';</script>");
+		    out.flush();
 		} else {
-			// 인증코드가 일치하지 않을 때의 동작
-			System.out.println("인증코드가 일치하지 않습니다. authkey: " + authkey + ", findPwdAuth: " + findPwdAuth);
-
-			super.goToPage(PREFIX + "findPassword.jsp");
-
+		    // 인증코드가 일치하지 않을 때의 동작
+		    out.println("<script>alert('발송된 임시 비밀번호와 일치하지 않습니다.\\n다시 시도해 주세요.'); location.href='" + request.getContextPath() + "/"+ PREFIX + "findPassword.jsp';</script>");
+		    out.flush();
 		}
 
 //		// 비밀번호 업데이트를 처리하는 서비스 메서드 호출

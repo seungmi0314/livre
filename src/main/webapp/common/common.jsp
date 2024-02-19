@@ -63,7 +63,8 @@ String notWithFormTag = withFormTag + "?command=";
 			<div class="header-right">
 
 				<c:if test="${whologin eq 0}">
-					<a href="<%=notWithFormTag%>login">로그인</a><a href="<%=notWithFormTag%>meInsert">회원가입</a>
+					<a href="<%=notWithFormTag%>login">로그인</a>
+					<a href="<%=notWithFormTag%>meInsert">회원가입</a>
 				</c:if>
 				<c:if test="${whologin ne 0}">
 					<!-- 프로필 사진 추가 -->
@@ -72,10 +73,20 @@ String notWithFormTag = withFormTag + "?command=";
 				</c:if>
 			</div>
 		</header>
-		
-		
-       
-    </main>
-	
+
+
+
+	</main>
+	<%-- 사용자에게 주의/경고/오류 등을 알려 주기 위한 Alert Box --%>
+	<c:if test="${not empty sessionScope.alertMessage}">
+		<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			<strong>경고 메시지 : </strong>${sessionScope.alertMessage}
+		</div>
+	</c:if>
+
+	<%-- 보여준 Alert Box의 내용을 session 영역에서 제거합니다. --%>
+	<%-- session.removeAttribute("alertMessage"); --%>
+	<c:remove var="alertMessage" scope="session" />
 </body>
 </html>
