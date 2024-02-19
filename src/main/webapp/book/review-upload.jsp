@@ -59,13 +59,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
         
             
-            	  <div class="star-box">
-                <img src="/livre/assets/fill-star.svg">
-                <img src="/livre/assets/fill-star.svg">
-                <img src="/livre/assets/stroke-star.svg">
-                <img src="/livre/assets/stroke-star.svg">
-                <img src="/livre/assets/stroke-star.svg">
-            </div>
+            	   <div class="rating_box">
+        <div class="rating">
+          ★★★★★
+          <span class="rating_star">★★★★★</span>
+          <input type="range" value="1" step="1" min="0" max="10">
+        </div>
+      </div>
             
             
             <div class="read-date">
