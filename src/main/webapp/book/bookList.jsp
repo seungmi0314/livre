@@ -59,6 +59,12 @@
 			            </span>
 			        </c:when>
 			        
+			        <c:when test="${requestScope.keyword == null || requestScope.keyword == ''}">
+			            <span class="result-text">
+			                전체 검색 결과 : ${requestScope.paging.pagingStatus}
+			            </span>
+			        </c:when>
+			        
 			        <c:otherwise>
 		                <span class="result-text">
 		                    "${requestScope.keyword}"에 대한 ${requestScope.paging.pagingStatus}의 검색 결과
