@@ -24,6 +24,7 @@
 				var result = confirm("로그인 페이지로 이동하시겠습니까?");
 				if (result){
 					window.location.href = 'member/login.jsp';
+					return;
 				} else{
 					return;
 				}

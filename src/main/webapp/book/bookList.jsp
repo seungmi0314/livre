@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ include file="../common/common2.jsp"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +22,6 @@
 	        $('#keyword').val('${requestScope.paging.keyword}');
 		    
 		});
-
 	</script>
 </head>
 <body>
@@ -99,15 +97,15 @@
 		<!-- 검색 결과 책 -->
 		<div class="result-all">
 		
-			<c:forEach var="bean" items="${dataList}">
+			<c:forEach var="data" items="${dataList}">
 				<div class="result-card">
-					<a href="<%=notWithFormTag%>bookDetail&bookNo=${bean.bookNo}">
+					<a href="<%=notWithFormTag%>bookDetail&bookNo=${data.bookNo}">
 					<span>
-						<img class="book-img" src="/livre/dummy/${bean.bookImg}">
+						<img class="book-img" src="/livre/dummy/${data.bookImg}">
 					</span>
 					</a>
-					<p class="book-title">${bean.bookTitle}</p>
-					<p>${bean.author} | ${bean.publisher}</p>
+					<p class="book-title">${data.bookTitle}</p>
+					<p>${data.author} | ${data.publisher}</p>
 				</div>
 			</c:forEach>
 			
