@@ -45,7 +45,7 @@ public class Paging {
 	 * 독후감 검색
 	 * */
 	public Paging(String url, String keyword) {
-		
+
 		this.url = url;
 
 

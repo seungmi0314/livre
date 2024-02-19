@@ -54,7 +54,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
      
      <!-- 독후감 검색창 -->
                <div class="search-box-p">
-            <form action="<%=withFormTag%>" method="post" class="searchbox-btn">
+            <form action="<%=withFormTag%>" method="get" class="searchbox-btn">
             <input type="hidden" name="command" value="reviewSearch">
             <input class="search-box" type="text" id="keyword" name="keyword" placeholder="내 독후감 검색">
             <button type="submit" class="search-btn">
