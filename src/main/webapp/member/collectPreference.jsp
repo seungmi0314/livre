@@ -287,9 +287,9 @@ String term_FL = request.getParameter("term_FL");
 			</div>
 
 
-			<input type="text" value="<%=memberEmail%>" name="memberEmail">
-			<input type="text" value="<%=memberPw%>" name="memberPw"> 
-			<input type="text" value="<%=term_FL%>" name="term_FL">
+			<input type="hidden" value="<%=memberEmail%>" name="memberEmail">
+			<input type="hidden" value="<%=memberPw%>" name="memberPw"> 
+			<input type="hidden" value="<%=term_FL%>" name="term_FL">
 
 		</form>
 	</section>

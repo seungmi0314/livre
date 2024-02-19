@@ -49,6 +49,8 @@ public class SuperClass implements SuperController {
 		this.response = response;
 		this.session = request.getSession();
 		this.logInfo = (Member) session.getAttribute("logInfo");
+	
+
 	}
 	
 	public void setAlertMessage(String message) {

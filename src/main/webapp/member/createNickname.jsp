@@ -84,11 +84,11 @@ if (genreList == null) {
                 <button type="button" id="preButton" onclick="goToPreviousPage()">이전</button>
                 <button type="submit" id="nextButton">다음</button>
             </div>
-        	<input type="text" value="<%=memberEmail%>" name="memberEmail">
-			<input type="text" value="<%=memberPw%>" name="memberPw">
-			<input type="text" value="<%=term_FL%>" name="term_FL">
-			<input type="text" value="<%=gender%>" name="gender">
-			<input type="text" name="genreList" value="<%= genreList != null ? java.util.Arrays.stream(genreList).collect(java.util.stream.Collectors.joining(",")) : "" %>">
+        	<input type="hidden" value="<%=memberEmail%>" name="memberEmail">
+			<input type="hidden" value="<%=memberPw%>" name="memberPw">
+			<input type="hidden" value="<%=term_FL%>" name="term_FL">
+			<input type="hidden" value="<%=gender%>" name="gender">
+			<input type="hidden" name="genreList" value="<%= genreList != null ? java.util.Arrays.stream(genreList).collect(java.util.stream.Collectors.joining(",")) : "" %>">
 
 
 

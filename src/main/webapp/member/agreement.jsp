@@ -140,7 +140,7 @@ function checkIndividual() {
         <!-- 약관동의 테이블 -->
         <form name="agreementForm" method="post" action="<%=withFormTag%>" onsubmit="return moveToNextPage();">
             <input type="hidden" id="term_FL_input" name="command" value="joinMemberShip">
-            <input type="text" id="marketingAgreeInput" name="term_FL" value="N"> <!-- 초기값 'N' 설정 -->
+            <input type="hidden" id="marketingAgreeInput" name="term_FL" value="N"> <!-- 초기값 'N' 설정 -->
         
             <div id="mainDiv">
                 <div id="titleDiv">
