@@ -100,7 +100,7 @@ public class Paging {
 			endPage = totalPage;
 		}
 		
-		/* in bookList.jsp */
+		/* in searchedBooks.jsp */
 		this.pagingStatus = "총 " + totalCount + "건";
 		//this.pagingStatus = "총 " + totalCount + "건[" + pageNumber + "/" + totalPage + "]";
 
