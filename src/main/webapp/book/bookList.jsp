@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ include file="../common/common2.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
