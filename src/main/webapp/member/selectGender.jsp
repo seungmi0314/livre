@@ -19,7 +19,6 @@ if (genreList == null) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/livre/css/selectGenderStyle.css">
-<link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <script>
 // 이미지 선택 함수
@@ -83,28 +82,12 @@ function selectGender(gender) {
 <title>성별선택</title>
 </head>
 <body>
-
-<main>
-    <header>
-        <!-- 헤더 입니다 -->
-        <div class="header">
-            <img src="/livre/assets/logo.svg" class="h-logo">
-            <p class="h-logo-name">livre</p>
-        </div>
-
-        <div class="header-right">
-            <a href="#">로그인</a> <a href="#">회원가입</a>
-        </div>
-    </header>
-</main>
-
 <section>
     <div id="progressBar">
         <div id="progress"></div>
         <div id="progressText">0%</div>
     </div>
     <br />
-
     <form className="checkForm" method="post" action="<%=withFormTag%>">
     <input type="hidden" name="command" value="createNickname">
         <div id="mainBoard">
@@ -124,22 +107,16 @@ function selectGender(gender) {
                     <div id="womanText">여자</div>
                 </label>
             </div>
-
             <div id="buttonDiv">
                 <button type="button" id="preButton" onclick="goToPreviousPage()">이전</button>
                 <button type="submit" id="nextButton">다음</button>
             </div>
         </div>
-
         <input type="hidden" value="<%=memberEmail%>" name="memberEmail">
         <input type="hidden" value="<%=memberPw%>" name="memberPw">
         <input type="hidden" value="<%=term_FL%>" name="term_FL">
 		<input type="hidden" name="genreList" value="<%= genreList != null ? java.util.Arrays.stream(genreList).collect(java.util.stream.Collectors.joining(",")) : "" %>">
-
     </form>
-
 </section>
-
-
 </body>
 </html>

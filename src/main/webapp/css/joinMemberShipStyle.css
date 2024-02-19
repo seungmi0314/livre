@@ -6,7 +6,12 @@
 	font-weight: 400;
 	font-style: normal;
 
+}
 
+
+#inputEmail, #inputPassword, #inputPasswordck{
+	outline: none;
+	
 }
 
 section {

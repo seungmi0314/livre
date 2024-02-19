@@ -28,20 +28,6 @@ if (genreList == null) {
     <title>최종 완료</title>
 </head>
 <body>
-    <main>
-        <header>
-            <!-- 헤더 입니다 -->
-            <div class="header">
-                <img src="/livre/assets/logo.svg" class="h-logo">
-                <p class="h-logo-name">livre</p>
-            </div>
-
-            <div class="header-right">
-                <a href="#">로그인</a> <a href="#">회원가입</a>
-            </div>
-        </header>
-    </main>
-    
     <section>
         <div id="progressBar">
             <div id="progress"></div>

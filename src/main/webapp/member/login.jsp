@@ -6,6 +6,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/livre/css/reset.css" />
@@ -13,13 +18,26 @@
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
-	integrity="sha384-6MFdIr0zOira1CHQkedUqJVql0YtcZA1P0nbPrQYJXVJZUkTk/oX4U9GhUIs3/z8"
-	crossorigin="anonymous"></script>
 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="/livre/js/snsLogin.js"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
 <title>로그인 페이지</title>
+
+<style>  
+.carousel-inner{
+margin-top: 250px;
+}
+
+.carousel-caption {
+            color: black;
+            padding:10px
+        }
+</style>
 
 </head>
 
@@ -28,7 +46,37 @@
 
 	<section>
 		<!-- 왼쪽 하얀배경 영역 -->
-		<div class="left"></div>
+		<div class="left">
+
+			<div id="carouselExampleCaptions" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active" data-bs-interval="2500">
+						<img src="/livre/assets/loginImage01.svg" class="d-block w-100"
+							alt="..." style="width: 800px; height: 472px">
+							
+						<div class="carousel-caption">
+							<h5>지금의 감동, 나누면 배가 될거에요.</h5>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2500">
+						<img src="/livre/assets/loginImage02.svg" class="d-block w-100"
+							alt="..."  style="width: 470px; height: 415px">
+						<div class="carousel-caption">
+							<h5>캘린더로 나만의 독서 정보를 한눈에 정리할 수 있어요.</h5>
+						</div>
+					</div>
+					<div class="carousel-item" data-bs-interval="2500">
+						<img src="/livre/assets/loginImage03.svg" class="d-block w-100"
+							alt="..."  style="width: 800px; height: 520px">
+						<div class="carousel-caption">
+							<h5>마음에 드는 감상문을 모아보세요.</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 
 		<!-- 오른쪽 분홍색 배경 영역 -->
 		<div class="right">
@@ -62,21 +110,23 @@
 					<ul>
 						<li>
 							<!--이메일 입력--> <span><input class="form-input" type="text"
-								name="memberEmail" id="memberEmail" placeholder="이메일 입력"
+								name="memberEmail" id="inputEmail" placeholder="이메일 입력"
 								value="<%=memberEmail%>"></span>
 						</li>
 
-						<li class="error email_error">이메일을 입력해주세요</li>
+						<li class="invalid-feedback" id="validEmail">* 올바른 형식의 이메일을
+						작성해주세요.</li>
 
 						<li>
 							<!--비밀번호 입력--> <span class="password"> <input
-								class="form-input" type="password" name="memberPw" id="memberPw"
+								class="form-input" type="password" name="memberPw" id="inputPassword"
 								placeholder="비밀번호 입력" value=""> <i
 								class="fa fa-eye-slash fa-lg"></i>
 						</span>
 						</li>
 
-						<li class="error pw_error">비밀번호를 입력해주세요</li>
+						<li class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
+						숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</li>
 					</ul>
 
 					<div class="remember-me">
@@ -92,7 +142,8 @@
 					</div>
 
 					<!--로그인 버튼-->
-					<button type="submit" id="login_btn" onclick="return validCheck();">로그인</button>
+					<button class="submit" id="login_btn"
+						onclick="return validCheck();">로그인</button>
 
 				</fieldset>
 			</form>
