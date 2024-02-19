@@ -91,7 +91,6 @@ String notWithFormTag = withFormTag + "?command=";
   				alert('이미지의 확장자는 png 또는 jpg 형식이어야 합니다.');
   				return false ;
   			}
-  			
   		}
   	</script>
 

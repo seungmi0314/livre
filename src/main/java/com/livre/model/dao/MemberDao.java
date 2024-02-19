@@ -226,6 +226,7 @@ public class MemberDao extends SuperDao {
 				e2.printStackTrace();
 			}
 		}
+		
 		System.out.println("memberNo로 조회 결과 :");
 		System.out.println(bean);
 
@@ -472,7 +473,7 @@ public class MemberDao extends SuperDao {
 
 	public int updateImg(Member bean) {
 		
-		String sql = " update products set memberImg=?" ;
+		String sql = " update members set memberImg=?" ;
 		sql += " where memberNo = ?" ;
 		
 		PreparedStatement pstmt = null ;

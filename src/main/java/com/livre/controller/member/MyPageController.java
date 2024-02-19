@@ -18,7 +18,17 @@ public class MyPageController extends SuperClass {
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
 		MemberDao dao = new MemberDao();
 		Member bean = dao.getDataBean(memberNo);
+		
+		String genreNo = bean.getGenreList(); // bean에서 genreNo 값을 가져옵니다.
+		String[] genreNosArray;
 
+		if (genreNo != null && !genreNo.isEmpty()) {
+		    genreNosArray = genreNo.split(","); // 쉼표를 기준으로 문자열을 분리하여 배열에 저장합니다.
+		} else {
+		    genreNosArray = new String[0]; // genreNo가 null이거나 비어있는 경우, 빈 배열을 할당합니다.
+		}
+		
+		request.setAttribute("genreList", genreNosArray);
 		request.setAttribute("bean", bean);
 		super.goToPage(PREFIX + "my-page.jsp");
 	}

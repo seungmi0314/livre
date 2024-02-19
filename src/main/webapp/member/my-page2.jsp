@@ -88,12 +88,12 @@
 									name="memberNick" value="${bean.memberNick}"></li>
 								<li><img src="/livre/assets/gender_mypage.png"> <input
 									class="profile_input" type="text" id="fakegender"
-									name="fakegender" value="${bean.gender}" placeholder="남자" disabled="disabled">
+									name="fakegender" value="${bean.gender}" disabled="disabled">
 									<input type="hidden" id="gender" name="gender"
 									value="${bean.gender}"></li>
 								<li><img src="/livre/assets/address_mypage.png"> <input
 									class="profile_input" type="text" id="name" name="address"
-									value="${bean.address}" placeholder="서울시 마포구"></li>
+									value="${bean.address}"></li>
 							</ul>
 							<div class="update-set">
 								<div class="btn-left">
@@ -169,26 +169,18 @@
 					<div class="section-1-bottom">
 						<p>관심 분야</p>
 						<div class="bottom-layout">
-							<c:set var="newGenre" value="${bean.genreList}" /> 
-							<c:forEach var="one" items="${genreList}" varStatus="status">
-									<c:choose>
-										<c:when test="">
-							            	브론즈
-							        	</c:when>
-								        <c:when test="">
-								            실버
-								        </c:when>
-								        <c:when test="">
-								            골드
-								        </c:when>
-								        <c:when test="">
-								            플레
-								        </c:when>
-								        <c:when test="">
-								            다이아
-								        </c:when>
-    								</c:choose>
-								</c:forEach>
+							<div>
+								<img src="/livre/assets/hobby_mypage.png">
+								<p>스포츠</p>
+							</div>
+							<div>
+								<img src="/livre/assets/hobby2_mypage.png">
+								<p>건강/취미</p>
+							</div>
+							<div>
+								<img src="/livre/assets/hobby3_mypage.png">
+								<p>소설/시/희곡</p>
+							</div>
 						</div>
 						<div class="update-set">
 

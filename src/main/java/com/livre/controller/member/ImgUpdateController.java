@@ -53,6 +53,7 @@ public class ImgUpdateController extends SuperClass{
 			System.out.println("이미지 업로드 실패");
 			new ImgUpdateController().doGet(request, response);
 		}	
+		System.out.println("Post메소드 구동");
 	}
 
 }
