@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/common2.jsp"%>
+<%@ include file="../common/common3.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<form action="<%=withFormTag%>" method="post">
+	<form action="<%=withFormTag%>" method="get">
 		<input type="hidden" name="command" value="main-page">
 		<section>
 			<div class="content-wrap">

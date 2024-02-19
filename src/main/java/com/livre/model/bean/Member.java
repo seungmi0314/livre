@@ -12,8 +12,6 @@ public class Member {
 	private String address;
 	private String gender;
 	private String genreList;
-	
-
 	private int rankNo;
 	
 	public Member() {

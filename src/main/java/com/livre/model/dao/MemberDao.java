@@ -54,17 +54,15 @@ public class MemberDao extends SuperDao {
 			bean.setMemberEmail(rs.getString("memberEmail"));
 			bean.setMemberPw(rs.getString("memberPw"));
 			bean.setMemberNick(rs.getString("memberNick"));
-
-			/*
-			 * bean.setTermsFL(rs.getString("termsFL"));
-			 * bean.setEnrollDate(rs.getString("enrollDate"));
-			 * bean.setSnsFL(rs.getString("snsFL"));
-			 * bean.setMemberImg(rs.getString("memberImg"));
-			 * bean.setMemberAddress(rs.getString("memberAddress"));
-			 * bean.setMemberGender(rs.getString("memberGender"));
-			 * bean.setGenreList(rs.getInt("genreList"));
-			 * bean.setRankNo(rs.getInt("rankNo"));
-			 */
+			//bean.setTerm_FL(rs.getString("termsFL"));
+			//bean.setEnrollDate(rs.getString("enrollDate"));
+			//bean.setSns_FL(rs.getString("snsFL"));
+			bean.setMemberImg(rs.getString("memberImg"));
+			bean.setAddress(rs.getString("address"));
+			bean.setGender(rs.getString("gender"));
+			bean.setGenreList(rs.getString("genreList"));
+			bean.setRankNo(rs.getInt("rankNo"));
+			
 
 			return bean;
 
@@ -273,7 +271,7 @@ public class MemberDao extends SuperDao {
 	}
 
 	public int updateData(Member bean) {
-		String sql = " update members set memberEmail=?, memberPw=?, memberNick=?, memberImg=?, address=?, genreList=?, rankNo=? ";
+		String sql = " update members set memberNick=?, address=?, genreList=? ";
 		sql += " where memberNo = ?";
 
 		PreparedStatement pstmt = null;
@@ -284,18 +282,15 @@ public class MemberDao extends SuperDao {
 			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, bean.getMemberEmail());
-			pstmt.setString(2, bean.getMemberPw());
-			pstmt.setString(3, bean.getMemberNick());
+			pstmt.setString(1, bean.getMemberNick());
 			// pstmt.setString(4, bean.getTerm_FL());
 			// pstmt.setString(5, bean.getEnrollDate());
 			// pstmt.setString(6, bean.getSns_FL());
-			pstmt.setString(4, bean.getMemberImg());
-			pstmt.setString(5, bean.getAddress());
+			pstmt.setString(2, bean.getAddress());
 			// pstmt.setString(6, bean.getGender());
-			pstmt.setString(6, bean.getGenreList());
-			pstmt.setInt(7, bean.getRankNo());
-			pstmt.setInt(8, bean.getMemberNo());
+			pstmt.setString(3, bean.getGenreList());
+			//pstmt.setInt(4, bean.getRankNo());
+			pstmt.setInt(4, bean.getMemberNo());
 
 			cnt = pstmt.executeUpdate();
 			conn.commit();
@@ -354,7 +349,7 @@ public class MemberDao extends SuperDao {
 //	
 //	@param kakaoEmail Kakao 로그인 시 전달된 이메일
 //	@return Kakao 이메일을 가진 회원 정보
-	
+
 	public Member getMemberByKakaoEmail(String kakaoEmail) {
 		String sql = "SELECT * FROM members WHERE memberEmail = ?";
 		PreparedStatement pstmt = null;
@@ -390,7 +385,6 @@ public class MemberDao extends SuperDao {
 		return bean;
 	}
 
-	
 //	Kakao 로그인 시 회원으로 등록하는 메서드
 //	
 //	@param kakaoEmail Kakao 로그인 시 전달된 이메일
@@ -474,6 +468,42 @@ public class MemberDao extends SuperDao {
 		System.out.println(bean);
 
 		return bean;
+	}
+
+	public int updateImg(Member bean) {
+		
+		String sql = " update products set memberImg=?" ;
+		sql += " where memberNo = ?" ;
+		
+		PreparedStatement pstmt = null ;
+		int cnt = -9999999 ;
+		
+		try {
+			super.conn = super.getConnection() ;  
+			conn.setAutoCommit(false);			
+			pstmt = conn.prepareStatement(sql) ;
+			
+			pstmt.setString(1, bean.getMemberImg());
+			pstmt.setInt(2, bean.getMemberNo());			
+			
+			cnt = pstmt.executeUpdate() ;			
+			conn.commit();			
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}			
+		} finally {
+			try {
+				if(pstmt != null) {pstmt.close();}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return cnt ;
 	}
 
 }
