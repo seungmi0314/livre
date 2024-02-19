@@ -14,7 +14,6 @@ String term_FL = request.getParameter("term_FL");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/livre/css/collectPreferenceStyle.css">
-<link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <script>
 	function submitForm() {
@@ -105,20 +104,6 @@ String term_FL = request.getParameter("term_FL");
 <title>선호장르1</title>
 </head>
 <body>
-	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-	</main>
-
 	<section>
 		<!-- 진행도 창 -->
 		<div id="progressBar">
