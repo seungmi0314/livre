@@ -1,5 +1,6 @@
 package com.livre.controller.member;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,11 +13,18 @@ public class ImgUpdateController extends SuperClass{
 	private final String PREFIX = "member/";
 	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void doGet(
+			HttpServletRequest request
+			, HttpServletResponse response
+		) throws Exception {
 		// TODO Auto-generated method stub
 		super.doGet(request, response);
 		
+		//MultipartRequest multipartRequest = new MultipartRequest(request, "C:\\");
+		//String aa = (String) request.getAttribute("memberNo");
+		//int memberNo = 0;
 		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		
 		MemberDao dao = new MemberDao();
 		Member bean = dao.getDataBean(memberNo);
 
@@ -46,7 +54,8 @@ public class ImgUpdateController extends SuperClass{
 		
 		cnt = dao.updateImg(bean);
 		
-		if(cnt == -1) {
+		if(cnt == 1) {
+			request.setAttribute("memberNo", bean.getMemberNo());
 			new MyPageController().doGet(request, response); 
 			
 		}else {
