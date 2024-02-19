@@ -34,14 +34,14 @@ public void doGet(HttpServletRequest request, HttpServletResponse response) thro
 public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	super.doPost(request, response);
 	
-	MyReviewDao dao = new MyReviewDao();
+	MyReviewDao2 dao = new MyReviewDao2();
 	MyReview bean = new MyReview();
 	
 	/* 다음 컬럼들에 대하여 주의하도록 합니다.
 	 * 글번호(no)는 반드시 파라미터를 챙겨야 합니다.
 	 * regdate 컬럼은 현재 시각으로 변경하도록 합니다. */
 	
-	//int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
+	int reviewNo = Integer.parseInt(request.getParameter("reviewNo")) ;
 	//int bookNo = Integer.parseInt(request.getParameter("bookNo"));
 	//String bookTitle = request.getParameter("bookTitle");
 	//String genreNo = request.getParameter("genreNo");
@@ -55,7 +55,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
 	String startDate = request.getParameter("startDate");
 	String endDate = request.getParameter("endDate");
 	
-	//bean.setReviewNo(reviewNo) ;
+	bean.setReviewNo(reviewNo) ;
 	//bean.setBookNo(bookNo);
 	//bean.setBookTitle(bookTitle);
 	//bean.setGenreNo(genreNo);

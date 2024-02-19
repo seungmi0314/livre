@@ -258,52 +258,7 @@ public class MyReviewDao extends SuperDao{
 	
 	
 	
-	public int updateData(MyReview bean) {
-		System.out.print("게시물 수정 페이지 : ");
-		System.out.println(bean);
-		
-		
-		String sql = " update reviews set" ;
-		sql += "  reviewtitle = ?, reviewtext = ?, phrase = ?, createdate = default, startdate = ?, enddate = ?" ;
-		sql += " where reviewno = ?" ;
-		
-		
-		PreparedStatement pstmt = null ;
-		int cnt = -9999999 ;
-		
-		try {
-			super.conn = super.getConnection() ;  
-			conn.setAutoCommit(false);			
-			pstmt = conn.prepareStatement(sql) ;
-			
-			pstmt.setString(1, bean.getReviewTitle());
-			pstmt.setString(2, bean.getReviewText());
-			//pstmt.setInt(3, bean.getRaiting());
-			pstmt.setString(3, bean.getPhrase());
-			//pstmt.setInt(5, bean.getBookNo());
-			pstmt.setString(4, bean.getStartDate());
-			pstmt.setString(5, bean.getEndDate());
-			pstmt.setInt(6, bean.getReviewNo());
-			
-			cnt = pstmt.executeUpdate() ;			
-			conn.commit();			
-		} catch (Exception e) {
-			e.printStackTrace();
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}			
-		} finally {
-			try {
-				if(pstmt != null) {pstmt.close();}
-				super.closeConnection();
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		return cnt ;
-	}
+	
 
 	
 }
