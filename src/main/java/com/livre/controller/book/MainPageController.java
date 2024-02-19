@@ -1,5 +1,7 @@
 package com.livre.controller.book;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,12 +15,12 @@ public class MainPageController extends SuperClass{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
 		
-		int reviewNo = Integer.parseInt(request.getParameter("reviewNo"));
-		MyReviewDao dao = new MyReviewDao();
-		MyReview bean = dao.getRank(reviewNo) ; 
-		
+		int reviewNo = Integer.parseInt( request.getParameter("reviewNo"));
+		MyReviewDao dao = new MyReviewDao();	
+		MyReview bean = dao.getRank(reviewNo);
 		request.setAttribute("bean", bean);
 		
 		super.goToPage(PREFIX + "main-page.jsp");
+		
 	}
 }
