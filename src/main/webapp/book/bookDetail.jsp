@@ -27,7 +27,7 @@
 			}
 			
 			$('.bookContent-p').html(modifiedContent);
-				    
+			
 		});
 			
 		function goToShop(bookTitle){

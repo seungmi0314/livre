@@ -81,7 +81,7 @@ public class BookDao extends SuperDao {
 			bean.setMemberNick(rs.getString("memberNick"));
 			bean.setReviewTitle(rs.getString("reviewTitle"));
 			bean.setReviewText(rs.getString("reviewText"));
-			bean.setCreateDate(rs.getString("createDate"));
+			bean.setCreateDate(String.valueOf(rs.getDate("createDate")));
 			bean.setReadHit(rs.getInt("readHit"));
 			return bean;
 			
@@ -192,12 +192,11 @@ public class BookDao extends SuperDao {
 		return dataList;
 	}
 	
-	public List<Book> getDataList(Paging paging){
+	public List<Book> getDataList(Paging paging, int currentPage, int booksPerPage){
 		// 페이징 처리를 이용하여 데이터를 조회합니다.
-		String sql = "select bookno, genreno, booktitle, author, publisher, bookimg, bookcontent";
-		sql += " from (select rank() over(order by bookno desc) as ranking, bookno, genreno, booktitle, author,";
-		sql += " publisher, bookimg, bookcontent";
-		sql += " from books";
+		String sql = "select *";
+		sql += " from (select rank() over(order by bookno) as ranking, b.*";
+		sql += " from books b";
 		
 		// 필드 검색을 위해 mode 변수로 분기 처리 하도록 합니다.
 		String mode = paging.getMode();
@@ -230,6 +229,8 @@ public class BookDao extends SuperDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			//pstmt.setInt(1, ((currentPage-1)*booksPerPage+1));
+			//pstmt.setInt(2, currentPage*booksPerPage);
 			
 			rs = pstmt.executeQuery();
 			
