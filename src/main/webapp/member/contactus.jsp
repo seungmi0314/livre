@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="/livre/css/contactus.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
-<%@ include file="./../common/common2.jsp"%>
-<script src="/livre/js/contactUs.js"></script>
+<%@ include file="./../common/common3.jsp"%>
 
 <title>Contact Us</title>
 
@@ -51,6 +50,7 @@
 
 				<div class="inner-form">
 					<form class="gform" method="post" data-email="chylee917@gmail.com"
+						id="contactForm"
 						action="https://script.google.com/macros/s/AKfycbzJu68cik8LQcm32i2lNBN5FamHnXw6Zq-SCtmpTTxamZlhCokvTUy9jrPShrPSyz8W/exec"
 						target="frAttachFiles">
 
@@ -83,17 +83,21 @@
 
 						<div class="detail">
 							<p>문의 내용</p>
-							<textarea name="message" placeholder="내용을 입력해주세요"></textarea>
+							<textarea style="resize: none;" class="textarea" name="message" placeholder="내용을 입력해주세요"></textarea>
 						</div>
 
-						<button type="submit">제출하기</button>
-
-						<div id="pop_info" class="pop_wrap" style="display: none;">
-							<div class="pop_inner">
-								<p class="dsc">문의해주셔서 감사합니다. 빠른 시일 내에 답변해 드리겠습니다.</p>
-								<button type="button" class="btn_close">닫기</button>
-							</div>
-						</div>
+						<button type="submit" onclick="submit();">제출하기</button>
+						<script>
+							document
+									.getElementById('contactForm')
+									.addEventListener(
+											'submit',
+											function(event) {
+												event.preventDefault(); // 폼의 기본 제출 동작을 중지
+												alert("정상적으로 제출되었습니다. \n문의해주셔서 감사합니다.");
+												// 여기에서 폼 데이터를 처리하거나, 폼을 프로그래밍 방식으로 제출할 수 있음
+											});
+						</script>
 
 					</form>
 

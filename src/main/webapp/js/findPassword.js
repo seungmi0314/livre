@@ -1,16 +1,20 @@
-function checkEmail() {
-	var emailInput = document.getElementById("memberEmail").value;
-	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+$(document).ready(function() {
+	// 초기에 모든 invalid-feedback 요소를 숨깁니다.
+	$('.invalid-feedback').hide();
 
-	if (!emailPattern.test(emailInput)) {
-		document.getElementById("validEmail").style.display = "block";
-		alert('올바른 이메일을 작성해주세요.');
-	} else {
-		document.getElementById("validEmail").style.display = "none";
-		alert('임시 비밀번호를 전송했습니다.');
-		
-		// 여기에 서버로 폼을 제출하는 코드를 추가할 수 있습니다.
-		// document.forms["findPasswordForm"].submit();
-		return true;
-	}
+	// 이메일 입력란에 키 입력 이벤트 핸들러 추가
+	$('#memberEmail').keyup(function() {
+		// 이메일 입력란에 텍스트가 입력되는 순간 invalid-feedback 숨김
+		$('#validEmail').hide();
+	});
+
+	// 폼 제출 이벤트 핸들러 추가
+	$('#findPasswordForm').on('submit', function(e) {
+		return validCheck(); // 유효성 검사를 수행하고 결과에 따라 폼 제출을 결정
+	});
+});
+
+function validCheck() {
+	// 이메일 유효성 검사 실행
+	return checkEmail();
 }

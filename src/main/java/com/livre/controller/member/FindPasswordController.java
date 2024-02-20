@@ -23,6 +23,16 @@ public class FindPasswordController extends SuperClass {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
+		String memberEmail = request.getParameter("memberEmail");
+		System.out.println(memberEmail);
+		MemberDao dao = new MemberDao();
+		Member bean = dao.getDataBean(memberEmail);
+		System.out.println("doget");
+		System.out.println(bean);
+		super.session.setAttribute("logInfo", bean);
+
+		// 비밀번호 찾기 페이지로 직접 이동
+		super.goToPage(PREFIX + "findPassword.jsp");
 
 	}
 
@@ -42,7 +52,8 @@ public class FindPasswordController extends SuperClass {
 
 		if (bean == null) {
 			setAlertMessage("아이디나 이메일 정보가 맞지 않습니다");
-			goToPage("/findPassword.jsp");
+			super.setAlertMessage("해당 메일 계정으로 가입된 이력이 없습니다.");
+			super.goToPage(PREFIX + "findPassword.jsp");
 		}
 
 		// mail server 설정
