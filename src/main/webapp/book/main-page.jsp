@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="./../css/main-page.css" />
-<link rel="stylesheet" href="./../css/header.css" />
-<link rel="stylesheet" href="./../css/menu.css" />
+<link rel="stylesheet" href="/livre/css/main-page.css" />
+<link rel="stylesheet" href="/livre/css/header.css" />
+<link rel="stylesheet" href="/livre/css/menu.css" />
 <link rel="icon" href="/livre/assets/favicon.png">
 
 <!-- Link Swiper's CSS -->
@@ -17,7 +17,33 @@
 	href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <title>메인 페이지</title>
-
+<script type="text/javascript">
+	function fn_genreChg(id){
+		var memberNo = "${bean.memberNo}";
+		location.href="/livre/Livre?command=main-page&memberNo="+memberNo+"&genreNo="+id;
+		/* 
+		$.ajax({
+			url: "/livre/Livre?command=MyServletAjax",
+			type:"POST",
+			data:{genreNo:id},
+			dataType:"json",
+			success:function(data){
+				JSON.stringify(data);
+				if(data == "fail"){
+					alert("데이터존재하지 않음");
+				}else{
+					alert(data.length);
+				}
+			},
+			  error:function(result, status){
+				  console.log('error');
+				  console.log(result);
+				  console.log('상태 메시지 : ' + status);
+			  }
+			
+		}); */
+	}
+</script>
 </head>
 
 <body>
@@ -47,12 +73,9 @@
 					<div class="box_content">
 						<div class="box_calendar">
 							<h2 class="title">Book Calendar</h2>
-							<div class="calendar">
-								<!-- <img src="/livre/assets/calendar.png" alt="" /> -->
+							<div class="calendar" style="text-align: center;">
 								<p>
-								<button onclick="previousMonth()">이전 달</button>
 								<span id="dateSpan"></span>
-								<button onclick="nextMonth()">다음 달</button>
 								</p>
 								<br> <br>
 
@@ -74,100 +97,108 @@
 							</div>
 						</div>
 						<form action="<%=withFormTag%>" method="get">
-							<input type="hidden" name="command" value="main-page"> <input
-								type="hidden" id="memberNo" name="memberNo" value="${bean.memberNo}">
-							<div class="box_ranking">
-								<h2 class="title">livre ‘s ranking</h2>
-								<div class="box_liver_ranking">
-									<ol class="list_ranking">
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_1.svg" alt="" /></span> <strong
-											class="ranking_title">오펜하이머</strong> <span class="name">파멸의
-												작곡가 : 오펜하이머</span>
-											<div class="box_author">
-												<span class="author">밀리</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_2.svg" alt="" /></span> <strong
-											class="ranking_title">어서오세요, 휴남동 서점</strong> <span
-											class="name">휴남동의 봄</span>
-											<div class="box_author">
-												<span class="author">Chhj923</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_3.svg" alt="" /></span> <strong
-											class="ranking_title">반지의 제왕</strong> <span class="name">프로도의
-												삶은 ..</span>
-											<div class="box_author">
-												<span class="author">FBK33</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_4.svg" alt="" /></span> <strong
-											class="ranking_title">남산의 부장들</strong> <span class="name">자리와
-												권력</span>
-											<div class="box_author">
-												<span class="author">Ghy13</span>
-											</div></li>
-									</ol>
-								</div>
-								<h2 class="title">Genre ranking</h2>
-								<ul class="list_tab">
-									<li class="item_tab">
-										<button type="button" class="btn_tab">경제</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">건강</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">만화</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">여행</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">역사</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">희곡</button>
-									</li>
-									<li class="item_tab">
-										<button type="button" class="btn_tab">기타</button>
-									</li>
-								</ul>
-								<div class="box_liver_ranking">
-									<ol class="list_ranking">
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_1.svg" alt="" /></span> <strong
-											class="ranking_title">오펜하이머</strong> <span class="name">파멸의
-												작곡가 : 오펜하이머</span>
-											<div class="box_author">
-												<span class="author">밀리</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_2.svg" alt="" /></span> <strong
-											class="ranking_title">어서오세요, 휴남동 서점</strong> <span
-											class="name">휴남동의 봄</span>
-											<div class="box_author">
-												<span class="author">Chhj923</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_3.svg" alt="" /></span> <strong
-											class="ranking_title">반지의 제왕</strong> <span class="name">프로도의
-												삶은 ..</span>
-											<div class="box_author">
-												<span class="author">FBK33</span>
-											</div></li>
-										<li class="item_ranking"><span class="number"><img
-												src="/livre/assets/icon_4.svg" alt="" /></span> <strong
-											class="ranking_title">남산의 부장들</strong> <span class="name">자리와
-												권력</span>
-											<div class="box_author">
-												<span class="author">Ghy13</span>
-											</div></li>
-									</ol>
-								</div>
-							</div>
-							</form>
+						    <input type="hidden" name="command" value="main-page"> <input type="hidden" id="memberNo" name="memberNo" value="${bean.memberNo}">
+						    <div class="box_ranking">
+						        <h2 class="title">livre ‘s ranking</h2>
+						        <div class="box_liver_ranking">
+						            <ol class="list_ranking">
+						            	<c:forEach var="result" items="${rankList}" varStatus="status">
+						            		<li class="item_ranking">
+						            			<span class="number"><img src="/livre/assets/icon_${status.count}.svg" alt="" /></span> 
+						            			<strong class="ranking_title">${result.bookTitle }</strong> 
+						            			<span class="name">
+						            				<c:choose>
+														<c:when test="${fn:length(result.reviewTitle) gt 10}">
+															${fn:substring(result.reviewTitle, 0, 10) }...	
+														</c:when>
+														<c:otherwise>
+															${result.reviewTitle}
+														</c:otherwise>
+													</c:choose>
+					            				</span>
+							                    <div class="box_author">
+							                        <span class="author">
+							                        	<c:choose>
+															<c:when test="${fn:length(result.memberNick ) gt 6}">
+																${fn:substring(result.memberNick , 0, 6) }...	
+															</c:when>
+															<c:otherwise>
+																${result.memberNick }
+															</c:otherwise>
+														</c:choose>
+							                        </span>
+							                    </div>
+							                </li>
+						            	</c:forEach>
+						            </ol>
+						        </div>
+						        <h2 class="title">Genre ranking</h2>
+						        <ul class="list_tab">
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('1');">경제</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('2');">건강</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('7');">만화</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('5');">여행</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('4');">역사</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('3');">어린이</button>
+						            </li>
+						            <li class="item_tab">
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('6');">기타</button>
+						            </li>
+						        </ul>
+						        <div class="box_liver_ranking">
+						            <ol class="list_ranking">
+						            	<c:forEach var="result" items="${genreRankList}" varStatus="status">
+						            		<li class="item_ranking">
+						            			<span class="number"><img src="/livre/assets/icon_${status.count}.svg" alt="" /></span> 
+						            			<strong class="ranking_title">
+						            				<c:choose>
+														<c:when test="${fn:length(result.bookTitle) gt 10}">
+															${fn:substring(result.bookTitle, 0, 10) }...	
+														</c:when>
+														<c:otherwise>
+															${result.bookTitle}
+														</c:otherwise>
+													</c:choose>
+						            			</strong> 
+						            			<span class="name">
+						            				<c:choose>
+														<c:when test="${fn:length(result.reviewTitle) gt 10}">
+															${fn:substring(result.reviewTitle, 0, 10) }...	
+														</c:when>
+														<c:otherwise>
+															${result.reviewTitle}
+														</c:otherwise>
+													</c:choose>
+					            				</span>
+							                    <div class="box_author">
+							                        <span class="author">
+							                        	<c:choose>
+															<c:when test="${fn:length(result.memberNick ) gt 6}">
+																${fn:substring(result.memberNick , 0, 6) }...	
+															</c:when>
+															<c:otherwise>
+																${result.memberNick }
+															</c:otherwise>
+														</c:choose>
+							                        </span>
+							                    </div>
+							                </li>
+						            	</c:forEach>
+						            </ol>
+						        </div>
+						    </div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -184,6 +215,10 @@
 
 	<script>
 		var today = new Date();
+		var s_endDate = "";
+		var s_bookimg = "";
+		var p_date = "";
+		var p_equalChk = "";
 		var currentMonth = today.getMonth();
 		var currentYear = today.getFullYear();
 		var months = [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월',
@@ -214,12 +249,37 @@
 					} else if (date > monthLength) {
 						break;
 					} else {
+						<c:forEach var="result" items="${myReviewList}" varStatus="status">
+							s_endDate = "${result.endDate}";
+							s_bookImg = "${result.bookImg}";
+							console.log(s_bookImg );
+							p_date=year + '/' + padZero((month + 1)) + '/' + padZero(date);
+							//console.log(p_date);
+							if(s_endDate == p_date){
+								row += '<td class="day-' + year + '-' + padZero((month + 1)) + '-' + padZero(date) + '"" id="day/' + year + '/'
+								+ padZero((month + 1)) + '/' + padZero(date)
+								+ '"">' + date + '<img src="/livre/assets/'+s_bookImg+'\"></td>';
+								p_equalChk = "T";
+							}
+						</c:forEach>
+						if(p_equalChk != "T"){
+							row += '<td class="day-' + year + '-'
+							+ padZero((month + 1)) + '-' + padZero(date)
+							+ '"" id="day/' + year + '/'
+							+ padZero((month + 1)) + '/' + padZero(date)
+							+ '"">' + date + '<img src="/livre/assets/17_07.jpg"></td>';
+						}else{
+							p_equalChk = "";
+						}
+						/* 
 						row += '<td class="day-' + year + '-'
 								+ padZero((month + 1)) + '-' + padZero(date)
 								+ '"" id="day/' + year + '/'
 								+ padZero((month + 1)) + '/' + padZero(date)
 								+ '"">' + date + '<img src="/livre/dummy/17_07.jpg"></td>';
-						date++;
+						 */
+							date++;
+						
 					}
 				}
 
@@ -265,3 +325,16 @@
 	<script src="/livre/js/main-page-banner.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

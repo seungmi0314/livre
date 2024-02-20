@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.livre.model.bean.Book;
+import com.livre.model.bean.MyReview;
+import com.livre.model.bean.Rank;
 import com.livre.utility.Paging;
 
 public class BookDao extends SuperDao {
@@ -70,6 +72,7 @@ public class BookDao extends SuperDao {
 		}
 		
 	}
+	
 	private Book resultSet2Bean2(ResultSet rs) {
 		try {
 			Book bean = new Book();
@@ -89,7 +92,35 @@ public class BookDao extends SuperDao {
 			e.printStackTrace();
 			return null;
 		}
-		
+	}
+	
+	//livre ‘s ranking resultSet
+	private Rank resultSet3Bean(ResultSet rs) {
+		try {
+			Rank bean = new Rank();
+			bean.setBookTitle(rs.getString("booktitle"));
+			bean.setReviewTitle(rs.getString("reviewtitle"));
+			bean.setMemberNick(rs.getString("membernick"));
+			bean.setReadhit(rs.getInt("readhit"));
+			return bean;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	//Calendar Books Img
+	private MyReview resultSet4Bean(ResultSet rs) {
+		try {
+			MyReview bean = new MyReview();
+			bean.setEndDate(rs.getString("enddate"));
+			bean.setBookImg(rs.getString("bookimg"));
+			return bean;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public BookDao() {
@@ -292,4 +323,153 @@ public class BookDao extends SuperDao {
 			}
 		}
 	}*/
+	
+	
+	//livre ‘s ranking 리스트 가져오기
+	public List<Rank> getDataRankBean() {
+		String sql = "";
+		sql += " select *                                                            ";
+		sql += " 	   from (                                                        ";
+		sql += " 	         select c.booktitle, a.reviewtitle, b.membernick, readhit";
+		sql += " 	           from reviews a inner join members b                   ";
+		sql += " 	             on a.memberno = b.memberno                          ";
+		sql += " 	             inner join books c                                  ";
+		sql += " 	             on a.bookno = c.bookno                              ";
+		sql += " 	          order by readhit desc                                  ";
+		sql += " 	         )                                                       ";
+		sql += " 	  where rownum <= 4                                              ";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<Rank> dataList = new ArrayList<Rank>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Rank bean = this.resultSet3Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {// 200p 5번
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
+	
+	
+	
+	//Genre ranking 리스트 가져오기
+	public List<Rank> getDataGenreRankBean(int genreno) {
+		String sql = "";
+		sql += " select *                                                            ";
+		sql += " 	   from (                                                        ";
+		sql += " 	         select c.booktitle, a.reviewtitle, b.membernick, readhit";
+		sql += " 	           from reviews a inner join members b                   ";
+		sql += " 	             on a.memberno = b.memberno                          ";
+		sql += " 	             inner join books c                                  ";
+		sql += " 	             on a.bookno = c.bookno                              ";
+		sql += " 	          where c.genreno = ?                                    ";
+		sql += " 	          order by readhit desc                                  ";
+		sql += " 	         )                                                       ";
+		sql += " 	  where rownum <= 4                                              ";
+		
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<Rank> dataList = new ArrayList<Rank>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, genreno);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Rank bean = this.resultSet3Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {// 200p 5번
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
+		
+	
+	//Genre ranking 리스트 가져오기
+	public List<MyReview> getDataGenreMyReviewBean(int memberNo) {
+		String sql = "";
+		sql += " 	select enddate, bookimg ";
+		sql += " 	  from (";
+		sql += " 	        select enddate, max(bookno) as bookno";
+		sql += " 	          from reviews";
+		sql += " 	         where memberno = ?";
+		sql += " 	         and replace(enddate, '/', '') like to_char(sysdate, 'YYYYMM') || '%'";
+		sql += " 	         group by enddate";
+		sql += " 	        ) a inner join books b on a.bookno = b.bookno";
+		
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<MyReview> dataList = new ArrayList<MyReview>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				MyReview bean = this.resultSet4Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
 }

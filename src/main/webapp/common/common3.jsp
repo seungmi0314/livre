@@ -87,7 +87,6 @@ $(document).ready(function(){
                 <p class="h-logo-name" style="margin: 0;">livre</p>
             </div></a>
 			<div class="header-right">
-
 				<c:if test="${whologin eq 0}">
 					<a href="/livre/Livre?command=login">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
 				</c:if>

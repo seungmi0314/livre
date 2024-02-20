@@ -37,3 +37,4 @@ ImgUpdate=com.livre.controller.member.ImgUpdateController
 contactus=com.livre.controller.member.ContactUsController
 # main section
 main-page=com.livre.controller.book.MainPageController
+MyServletAjax=com.livre.controller.member.MyServletAjax
