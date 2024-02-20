@@ -107,7 +107,6 @@ $(document).ready(function(){
         </header>
         
 		<div class="menu-bar">
-    
              <ul class="menu">
 				<li class="menu-item"><a href="<%=notWithFormTag%>main-page">홈</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>bookList">독후감 검색</a></li>
