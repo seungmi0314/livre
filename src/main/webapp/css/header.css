@@ -44,6 +44,8 @@ a {
 .h-logo-name {
     font-size: 25px;
     margin: 0;
+    text-decoration: none;
+	color: black;
 }
 
 .header {
