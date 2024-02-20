@@ -5,6 +5,28 @@ public class LikeReview {
 	private int memberNo; // 회원 번호
 	private int reviewNo; // 리뷰 번호
 	
+	private String reviewtitle;
+	private String reviewtext;
+	private String bookimg;
+	
+	public String getReviewtitle() {
+		return reviewtitle;
+	}
+	public void setReviewtitle(String reviewtitle) {
+		this.reviewtitle = reviewtitle;
+	}
+	public String getReviewtext() {
+		return reviewtext;
+	}
+	public void setReviewtext(String reviewtext) {
+		this.reviewtext = reviewtext;
+	}
+	public String getBookimg() {
+		return bookimg;
+	}
+	public void setBookimg(String bookimg) {
+		this.bookimg = bookimg;
+	}
 	public int getLikeReviewNo() {
 		return likeReviewNo;
 	}

@@ -47,9 +47,15 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <p class="logo-name">livre</p>
             </div>
             <p class="ment">함께 읽으면 더 멋진 책이 될지도 몰라요!</p>
-
             <!-- 메인페이지로 이동 -->
-            <a href="/livre/Livre?command=my-review"class="btn-start">
+            <c:choose>
+            	<c:when test="${empty sessionScope.logInfo.memberNo}">
+		            <a href="/livre/Livre?command=login"class="btn-start">
+            	</c:when>
+            	<c:otherwise>
+		            <a href="/livre/Livre?command=main-page&memberNo=${sessionScope.logInfo.memberNo }" class="btn-start">
+            	</c:otherwise>
+            </c:choose>
                 책 펼치기
             </a>
         </div>

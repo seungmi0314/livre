@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.livre.model.bean.Genres;
+import com.livre.model.bean.LikeReview;
 import com.livre.model.bean.Member;
 
 public class MemberDao extends SuperDao {
@@ -85,6 +86,25 @@ public class MemberDao extends SuperDao {
 		}
 	}
 
+	//내가 좋아하는 목록 Bean
+	private LikeReview resultSet3Bean(ResultSet rs) {
+		try {
+			LikeReview bean = new LikeReview();
+			bean.setLikeReviewNo(rs.getInt("likereviewno"));
+			bean.setMemberNo(rs.getInt("memberno"));
+			bean.setReviewNo(rs.getInt("reviewno"));
+			bean.setReviewtitle(rs.getString("reviewtitle"));
+			bean.setReviewtext(rs.getString("reviewtext"));
+			bean.setBookimg(rs.getString("bookimg"));
+
+			return bean;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public int insertData(Member bean) {
 		// members_seq.NEXTVAL
 		System.out.println(bean);
@@ -636,5 +656,59 @@ public class MemberDao extends SuperDao {
 		}
 		return bean;
 	}
+
+	
+	public List<LikeReview> getDataLikeReviewBean(int memberNo) {
+		String sql = "";
+		sql += " select a.likereviewno";
+		sql += " 		  , a.memberno";
+		sql += " 		  , a.reviewno";
+		sql += " 		  , c.reviewtitle";
+		sql += " 		  , c.reviewtext";
+		sql += " 		  , d.bookimg";
+		sql += " 		  from likereviews a inner join members b";
+		sql += " 		                 on a.memberno = b.memberno ";
+		sql += " 		                 inner join reviews c";
+		sql += " 		                 on a.reviewno = c.reviewno";
+		sql += " 		                 inner join books d";
+		sql += " 		                 on c.bookno = d.bookno";
+		sql += " 		 where a.memberno = ?";
+		sql += " 		 and rownum <= 3";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<LikeReview> dataList = new ArrayList<LikeReview>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				LikeReview bean = this.resultSet3Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {// 200p 5번
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
+
 
 }
