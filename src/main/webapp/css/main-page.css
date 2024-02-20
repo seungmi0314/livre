@@ -2,6 +2,11 @@
 	z-index: 5;
 }
 
+span#dateSpan {
+    font-size: 20px;
+    font-style: normal;
+}
+
 article,
 aside,
 details,
