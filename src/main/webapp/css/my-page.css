@@ -182,7 +182,10 @@ section {
 }
 
 .mid-left img:nth-child(2) {
-    margin-top: 25px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 .mid-left span {

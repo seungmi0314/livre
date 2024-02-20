@@ -47,10 +47,10 @@
 							<li>
 								<c:choose>
 									<c:when test="${bean.rankNo == 0}">
-							            브론즈
+							            새싹
 							        </c:when>
 							        <c:when test="${bean.rankNo == 1}">
-							            브론즈
+							            새싹
 							        </c:when>
 							        <c:when test="${bean.rankNo == 2}">
 							            실버
@@ -62,13 +62,13 @@
 							            플레
 							        </c:when>
 							        <c:when test="${bean.rankNo == 5}">
-							            다이아
+							            리버
 							        </c:when>
     							</c:choose>
     						</li>
 							<li>${bean.memberNick}</li>
 							<li><img src="/livre/assets/security_mypage.png"></li>
-							<li><a href="">비밀번호 설정</a></li>
+							<li><a href="/livre/Livre?command=collectPreference&memberNo=${sessionScope.logInfo.memberNo}">비밀번호 설정</a></li>
 						</ul>
 					</div>
 					<div class="section-1-mid">
@@ -122,10 +122,10 @@
 								<span>
 									<c:choose>
 										<c:when test="${bean.rankNo == 0}">
-							            	브론즈
+							            	새싹
 							        	</c:when>
 								        <c:when test="${bean.rankNo == 1}">
-								            브론즈
+								            새싹
 								        </c:when>
 								        <c:when test="${bean.rankNo == 2}">
 								            실버
@@ -136,8 +136,8 @@
 								        <c:when test="${bean.rankNo == 4}">
 								            플레
 								        </c:when>
-								        <c:when test="${bean.rankNo == 5}">
-								            다이아
+								        <c:when test="${bean.rankNo == 4}">
+								            리버
 								        </c:when>
     								</c:choose>
 								</span>
@@ -154,7 +154,7 @@
 								<span>
 									<c:choose>
 										<c:when test="${bean.rankNo == 0}">
-							            	브론즈
+							            	실버
 							        	</c:when>
 								        <c:when test="${bean.rankNo == 1}">
 								            실버
@@ -166,7 +166,7 @@
 								            플레
 								        </c:when>
 								        <c:when test="${bean.rankNo == 4}">
-								            다이아
+								            리버
 								        </c:when>
     								</c:choose>
 								</span>
@@ -183,15 +183,17 @@
 								<c:forEach var="result2" items="${genresList}" varStatus="status">
 									<c:choose>
 										<c:when test="${result1 eq result2.genreno and countChk eq genresLength}">
+											<div>
 												<img src="/livre/assets/hobby_mypage.png">
 												<p>${result2.genre}</p>
-											</div>	
+											</div>
 										</c:when>
 										<c:when test="${result1 eq result2.genreno}">
 											<c:set var="countChk" value="${countChk+1}"/>
-											<div style="flex-direction:row; width: 100%">
-											<img src="/livre/assets/hobby_mypage.png">
+											<div>
+												<img src="/livre/assets/hobby_mypage.png">
 												<p>${result2.genre}</p>
+											</div>
 										</c:when>
 										<c:otherwise>
 										

@@ -51,19 +51,7 @@ String notWithFormTag = withFormTag + "?command=";
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-	
-<style type="text/css">
-/* box model에 대한 공부가 필요합니다. */
-.submitbtn {
-    margin-top: 10px;
-    margin-left: 600px;
-}
-.resetbtn {
-	margin-top: 10px;
-	margin-left: 5px;
-}
-
-</style>
+<link rel="stylesheet" href="/livre/css/ChangeProfileImg.css">
 
 <script type="text/javascript">
   		$(document).ready(function(){ 
@@ -99,7 +87,7 @@ String notWithFormTag = withFormTag + "?command=";
 	<form action="<%=withFormTag%>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="command" value="ImgUpdate">
 		<input type="hidden" id="test" name="test" value="${bean.memberNo}">
-		<input type="text" id="memberNo" name="memberNo" value="${bean.memberNo}">
+		<input type="hidden" id="memberNo" name="memberNo" value="${bean.memberNo}">
 		<div class="input-group">
 			<span class="input-group-text">프로필 사진</span> 
 			<input class="form-control" type="file" id="memberImg" name="memberImg" value="${bean.memberImg}">
@@ -107,8 +95,6 @@ String notWithFormTag = withFormTag + "?command=";
 		</div>
 		<div id="buttonset">
 			<button type="submit" onclick="return validCheck();">수정</button>
-							&nbsp;&nbsp;&nbsp;
-			<button type="reset">초기화</button>
 		</div>
 	</form>
 </body>

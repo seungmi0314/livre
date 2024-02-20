@@ -21,59 +21,61 @@
 </head>
 
 <body>
-	<form action="<%=withFormTag%>" method="get">
-		<input type="hidden" name="command" value="main-page">
-		<section>
-			<div class="content-wrap">
-				<div class="container">
-					<div class="inner">
-						<div class="box_slide_no">
-							<!-- Swiper -->
-							<div class="swiper mySwiper">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
-									</div>
-									<div class="swiper-slide">
-										<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
-									</div>
-									<div class="swiper-slide">
-										<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
-									</div>
+	<section>
+		<div class="content-wrap">
+			<div class="container">
+				<div class="inner">
+					<div class="box_slide_no">
+						<!-- Swiper -->
+						<div class="swiper mySwiper">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
 								</div>
-								<div class="swiper-button-next"></div>
-								<div class="swiper-button-prev"></div>
-								<div class="swiper-pagination"></div>
+								<div class="swiper-slide">
+									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
+								</div>
+								<div class="swiper-slide">
+									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
+								</div>
+							</div>
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+					<div class="box_content">
+						<div class="box_calendar">
+							<h2 class="title">Book Calendar</h2>
+							<div class="calendar">
+								<!-- <img src="/livre/assets/calendar.png" alt="" /> -->
+								<p>
+								<button onclick="previousMonth()">이전 달</button>
+								<span id="dateSpan"></span>
+								<button onclick="nextMonth()">다음 달</button>
+								</p>
+								<br> <br>
+
+								<table id="calendar">
+									<thead>
+										<tr>
+											<th>일</th>
+											<th>월</th>
+											<th>화</th>
+											<th>수</th>
+											<th>목</th>
+											<th>금</th>
+											<th>토</th>
+										</tr>
+									</thead>
+									<tbody id="calendar-body">
+									</tbody>
+								</table>
 							</div>
 						</div>
-						<div class="box_content">
-							<div class="box_calendar">
-								<h2 class="title">Book Calendar</h2>
-								<div class="calendar">
-									<!-- <img src="/livre/assets/calendar.png" alt="" /> -->
-									<button onclick="previousMonth()">이전 달</button>
-									<span id="dateSpan"></span>
-									<button onclick="nextMonth()">다음 달</button>
-									<br>
-									<br>
-
-									<table id="calendar">
-										<thead>
-											<tr>
-												<th>일</th>
-												<th>월</th>
-												<th>화</th>
-												<th>수</th>
-												<th>목</th>
-												<th>금</th>
-												<th>토</th>
-											</tr>
-										</thead>
-										<tbody id="calendar-body">
-										</tbody>
-									</table>
-								</div>
-							</div>
+						<form action="<%=withFormTag%>" method="get">
+							<input type="hidden" name="command" value="main-page"> <input
+								type="hidden" id="memberNo" name="memberNo" value="${bean.memberNo}">
 							<div class="box_ranking">
 								<h2 class="title">livre ‘s ranking</h2>
 								<div class="box_liver_ranking">
@@ -165,14 +167,15 @@
 									</ol>
 								</div>
 							</div>
-						</div>
+							</form>
 					</div>
 				</div>
 			</div>
+		</div>
 
 
-		</section>
-	</form>
+	</section>
+	
 
 	<!-- Swiper JS -->
 	<script
@@ -213,7 +216,9 @@
 					} else {
 						row += '<td class="day-' + year + '-'
 								+ padZero((month + 1)) + '-' + padZero(date)
-								+ '"">' + date + '</td>';
+								+ '"" id="day/' + year + '/'
+								+ padZero((month + 1)) + '/' + padZero(date)
+								+ '"">' + date + '<img src="/livre/dummy/17_07.jpg"></td>';
 						date++;
 					}
 				}
