@@ -45,7 +45,7 @@ public class Paging {
 	 * 독후감 검색
 	 * */
 	public Paging(String url, String keyword) {
-		
+
 		this.url = url;
 
 
@@ -100,7 +100,7 @@ public class Paging {
 			endPage = totalPage;
 		}
 		
-		/* in bookList.jsp */
+		/* in searchedBooks.jsp */
 		this.pagingStatus = "총 " + totalCount + "건";
 		//this.pagingStatus = "총 " + totalCount + "건[" + pageNumber + "/" + totalPage + "]";
 

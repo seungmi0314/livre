@@ -91,7 +91,6 @@ String notWithFormTag = withFormTag + "?command=";
   				alert('이미지의 확장자는 png 또는 jpg 형식이어야 합니다.');
   				return false ;
   			}
-  			
   		}
   	</script>
 
@@ -99,6 +98,7 @@ String notWithFormTag = withFormTag + "?command=";
 <body>
 	<form action="<%=withFormTag%>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="command" value="ImgUpdate">
+		<input type="hidden" id="test" name="test" value="${bean.memberNo}">
 		<input type="text" id="memberNo" name="memberNo" value="${bean.memberNo}">
 		<div class="input-group">
 			<span class="input-group-text">프로필 사진</span> 

@@ -388,6 +388,12 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.bottom-layout::-webkit-scrollbar{
+    display: none; 
 }
 
 .bottom-layout div {

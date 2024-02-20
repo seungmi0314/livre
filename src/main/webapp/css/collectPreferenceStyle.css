@@ -9,6 +9,11 @@
 	font-style: normal;
 }
 
+#mainBoard img {
+    transition: transform 0.3s;
+    cursor: pointer; /* 호버 효과 시 커서 모양 변경 */
+}
+
 section {
 	width: 100vw;
 	height: 100vh;
@@ -22,7 +27,7 @@ section {
 #mainBoard {
 	text-align: center;
 	width: 720px;
-	height: 510px;
+	height: 460px;
 	background: #FFF4F4;
 	padding: 30px;
 	border-radius: 20px;

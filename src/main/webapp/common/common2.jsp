@@ -107,13 +107,11 @@ $(document).ready(function(){
         </header>
         
 		<div class="menu-bar">
-    
              <ul class="menu">
 				<li class="menu-item"><a href="<%=notWithFormTag%>main-page">홈</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>bookList">독후감 검색</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>my-review">내 독후감</a></li>
-				<li class="menu-item"><a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}"">마이 페이지</a></li>
-				<li class="menu-item"><a href="<%=notWithFormTag%>">이용약관</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}">마이 페이지</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>">contact us</a></li>
 			</ul>
         </div>

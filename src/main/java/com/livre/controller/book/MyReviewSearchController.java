@@ -15,22 +15,22 @@ public class MyReviewSearchController extends SuperClass{
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
-		
+
 		String keyword = request.getParameter("keyword");
-		
+
 		MyReviewDao dao = new MyReviewDao();
-		
+
 		String url = super.getUrlInformation("reviewSearch");
 
 		Paging paging = new Paging(url, keyword);
-		
+
 		List<MyReview> dataList = dao.getDataList(paging);
-		
-		
+
+
 		request.setAttribute("paging", paging); // 페이징 객체도 바인딩
 		request.setAttribute("dataList", dataList);
 		request.setAttribute("keyword", keyword);
-		
+
 		super.goToPage(PREFIX + "my-review.jsp");
 	}
 

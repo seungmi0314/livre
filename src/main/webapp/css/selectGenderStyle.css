@@ -9,9 +9,11 @@
 	font-style: normal;
 }
 
-* {
-	box-sizing: border-box;
+#mainBoard img {
+    transition: transform 0.3s;
+    cursor: pointer; /* 호버 효과 시 커서 모양 변경 */
 }
+
 
 section {
 	width: 100vw;

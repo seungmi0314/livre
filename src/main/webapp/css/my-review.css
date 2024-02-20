@@ -58,6 +58,12 @@ section {
     
 }
 
+.search-btn {
+	
+	border: none;
+	background-color:  white;
+	
+}
 
 /* 추가 삭제 */
 .plus-del {
