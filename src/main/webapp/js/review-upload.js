@@ -1,4 +1,4 @@
-const dataList = ["빨간색"];
+const dataList = ["빨간색", "빨간문어", "재난에 맞서는 과학"];
 
 const $search = document.querySelector("#search");
 const $autoComplete = document.querySelector(".autocomplete");

@@ -58,7 +58,7 @@ public class MyReviewDao extends SuperDao{
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 2"; // 추후 로그인멤버로 변경
+		sql += " where memberno = 62"; // 추후 로그인멤버로 변경
 		sql += " order by reviewno desc";
 		
 		PreparedStatement pstmt = null; // 문장 객체
@@ -112,7 +112,7 @@ public class MyReviewDao extends SuperDao{
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 2";
+		sql += " where memberno = 62";
 		
 		
 		String keyword = paging.getKeyword();
@@ -209,7 +209,7 @@ public class MyReviewDao extends SuperDao{
 	public int insertData(MyReview bean) {
 		// no 컬럼은 시퀀스가 알아서 처리합니다. 			
 				String sql = " insert into reviews (reviewno, memberno, reviewtitle, reviewtext, phrase, startdate, enddate, genreno, bookno)" ;
-				sql += " values (reviews_seq.NEXTVAL, 2, ?, ?, ?, ?, ?, ?, 1)";
+				sql += " values (reviews_seq.NEXTVAL, 62, ?, ?, ?, ?, ?, ?, 59)";
 				// reviews_seq.NEXTVAL (테이블 재생성 후 시퀀스로 변경)	
 				
 				PreparedStatement pstmt = null ;

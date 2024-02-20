@@ -89,10 +89,10 @@ $(document).ready(function(){
     <main>
         <header>
             <!-- 헤더 입니다 -->
-            <div class="header">
+            <a href="index.jsp"><div class="header">
                 <img src="/livre/assets/logo.svg" class="h-logo">
                 <p class="h-logo-name" style="margin: 0;">livre</p>
-            </div>
+            </div></a>
             <div class="header-right">
 
                 <c:if test="${whologin eq 0}">
