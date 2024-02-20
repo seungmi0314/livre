@@ -174,7 +174,7 @@ margin-top: 250px;
 
 			<p class="yet">
 				아직도 회원이 아니신가요?<a class="join"
-					href="/livre/member/joinMemberShip.jsp">회원가입</a>
+					href="/livre/member/agreement.jsp">회원가입</a>
 			</p>
 		</div>
 		<script src="/livre/js/login.js"></script>

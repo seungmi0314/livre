@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="./../common/common.jsp"%>
+<%@ include file="./../common/common3.jsp"%>
 <%
 String term_FL = request.getParameter("term_FL");
 %>
@@ -11,97 +11,12 @@ String term_FL = request.getParameter("term_FL");
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원가입 페이지</title>
+<title>비밀번호 변경</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script>
-$(document).ready(function() {
-    // 초기에 모든 invalid-feedback 요소를 숨깁니다.
-    $('.invalid-feedback').hide();
+<script src="/livre/js/snsLogin.js"></script>
 
-    // 이메일 입력란 값 변경 시 유효성 검사
-    $('#inputEmail').on('keyup', function() {
-        checkEmail();
-    });
-
-    // 비밀번호 입력란 값 변경 시 유효성 검사
-    $('#inputPassword').on('keyup', function() {
-        checkPassword();
-    });
-
-    // 비밀번호 확인 입력란 값 변경 시 유효성 검사
-    $('#inputPasswordck').on('keyup', function() {
-        confirmPassword();
-    });
-
-    $('#submitButton').click(function(event) {
-        // 이벤트 기본 동작 중단
-        //event.preventDefault();
-
-        // 이메일, 비밀번호, 비밀번호 확인 유효성 검사
-        var isEmailValid = checkEmail();
-        var isPasswordValid = checkPassword();
-        var isConfirmPasswordValid = confirmPassword();
-
-        // 유효성 검사 결과 확인
-        /* if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
-            // 폼 제출
-            $('form[name="logInForm"]').submit();
-        } */
-    });
-});
-
-function checkEmail() {
-    var email = $('#inputEmail').val();           
-        
-    // 이메일 정규식 패턴
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    
-    // 이메일 형식 및 길이 유효성 검사
-    if (!emailPattern.test(email) || email.length < 4 || email.length > 30) {
-        $('#validEmail').show(); // 이메일 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
-        $('#inputEmail').focus();
-        return false;
-    } else {
-        $('#validEmail').hide(); // 이메일 형식이 올바르다면 해당 요소를 숨깁니다.
-    }
-
-    return true;
-}
-
-function checkPassword() {
-    var password = $('#inputPassword').val();
-    var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-
-    if (!passwordPattern.test(password)) {
-        $('#validPassword').show(); // 비밀번호 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
-        $('#inputPassword').focus();
-        return false;
-    } else {
-        $('#validPassword').hide(); // 비밀번호 형식이 올바르다면 해당 요소를 숨깁니다.
-    }
-
-    return true;
-}
-
-function confirmPassword() {
-    var password = $('#inputPassword').val();
-    var confirmPassword = $('#inputPasswordck').val();
-
-    if (password !== confirmPassword) {
-        $('#validPasswordck').text('비밀번호가 일치하지 않습니다. 다시 입력해주세요.').show();
-        $('#inputPasswordck').focus();
-        return false;
-    } else {
-        $('#validPasswordck').hide();
-    }
-
-    return true;
-    
-}
-
-</script>
 <link rel="stylesheet" type="text/css"
 	href="/livre/css/updatePassword.css">
 <link rel="stylesheet" href="/livre/css/index.css" />

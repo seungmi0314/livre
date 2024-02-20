@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
   var submitButton = document.querySelector('form.gform button[type="submit"]');
   var btnPopClose = document.querySelector('.pop_wrap .btn_close');
   var popInfo = document.getElementById('pop_info');
@@ -16,4 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
   btnPopClose.addEventListener('click', function () {
     popInfo.style.display = 'none';
   });
-});
+});*/
+
+//문의해주셔서 감사합니다. 빠른 시일 내에 답변해 드리겠습니다.
