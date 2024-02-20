@@ -69,7 +69,7 @@ public class FindPasswordController extends SuperClass {
 		StringBuffer temp = new StringBuffer();
 		Random rnd = new Random();
 		for (int i = 0; i < 10; i++) {
-			int rIndex = rnd.nextInt(3);
+			int rIndex = rnd.nextInt(4); // 0부터 4까지의 난수 생성
 			switch (rIndex) {
 			case 0:
 				// a-z
@@ -82,6 +82,11 @@ public class FindPasswordController extends SuperClass {
 			case 2:
 				// 0-9
 				temp.append((rnd.nextInt(10)));
+				break;
+			case 3:
+				// 특수기호 ($, @, !, %, *, #, ?, &) 중 하나를 랜덤으로 추가
+				String symbols = "$@!%*#?&";
+				temp.append(symbols.charAt(rnd.nextInt(symbols.length())));
 				break;
 			}
 		}
@@ -109,9 +114,9 @@ public class FindPasswordController extends SuperClass {
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 
 			// 메일 제목
-			msg.setSubject("안녕하세요 Livre 인증 메일입니다.");
+			msg.setSubject("안녕하세요 Livre 임시 비밀번호 전송 메일입니다.");
 			// 메일 내용
-			msg.setText("인증 번호는 : " + temp);
+			msg.setText("회원님의 임시 비밀번호는 : " + temp + "\n보안을 위해 로그인 후 비밀번호를 변경해주세요.");
 
 			Transport.send(msg);
 			System.out.println("이메일 전송 성공");
@@ -130,7 +135,7 @@ public class FindPasswordController extends SuperClass {
 				setAlertMessage("비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.");
 				super.goToPage(PREFIX + "findPassword.jsp");
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("이메일 전송 실패");
