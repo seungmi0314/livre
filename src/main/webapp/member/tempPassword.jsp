@@ -7,18 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>비밀번호 변경</title>
+<title>임시 비밀번호 입력</title>
 
 
 <link rel="stylesheet" type="text/css"
-	href="/livre/css/updatePassword.css">
+	href="/livre/css/tempPassword.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
 
 
 <meta charset="UTF-8">
 </head>
-
 <body>
 	<main>
 		<header>
@@ -37,30 +36,31 @@
 	<section>
 
 		<form name="findPasswordForm" method="post" action="<%=withFormTag%>">
-			<input type="hidden" name="command" value="tempPassword"> <span
-				id="banner"><b>임시 비밀번호 입력</b></span><br /> <br /> <br /> <br />
+
+			<div class="container mt-3">
+				<input type="hidden" name="command" value="tempPassword"> <span
+					id="banner"><b>임시 비밀번호 입력</b></span><br /> <br /> <br /> <br />
 
 
-			<!-- 인증코드 입력 -->
-			<div class="findPwdClass1">
-				<input type="text" id="findPwdAuth" name="findPwdAuth"
-					placeholder="임시 비밀번호 입력" autocomplete="off">
-				<button type="submit" id="findPwdAuthButton" onclick="return checkAuthentication();">확인</button>
+				<!-- 임시 비밀번호 입력 -->
+				<div class="mb-3 mt-3">
+					<input type="text" id="findPwdAuth" name="findPwdAuth"
+						placeholder="임시 비밀번호 입력" autocomplete="off" class="form-control">
+					<hr width="450px">
+					<div class="invalid-feedback" id="validEmail">
+						* 이메일이 오지 않았나요? <br /> 스팸함을 확인하거나 다시 시도해 주세요.
+					</div>
+
+					</br> </br>
+					<!-- 확인 버튼 -->
+					<button type="submit" id="submitButton" class="btn btn-primary"
+						onclick="return checkAuthentication();">확인</button>
+					</br> </br>
+
+				</div>
 			</div>
-			<span id="findPwdAuthId"></span>
+
 		</form>
-
-
-		<!-- 비밀번호 변경 -->
-		<!-- <div class="findPwdClass2">
-			<input type="text" id="newPassword" name="pass"
-				placeholder="새로운 패스워드 입력" autocomplete="off"> <input
-				type="text" id="newPasswordCheck" placeholder="새로운 패스워드 확인"
-				autocomplete="off">
-		</div>
-		<button id="newPasswordButton">변경</button>
-  -->
-<!-- <script src="/livre/js/tempPassword.js"></script> -->
 	</section>
 
 
