@@ -51,7 +51,7 @@ String notWithFormTag = withFormTag + "?command=";
 
 <!-- JavaScript to add 'active' class to clicked menu item -->
 <script>
-
+  
 $(document).ready(function(){
     // 페이지 로드 시 localStorage에서 저장된 메뉴 정보 가져오기
     var selectedMenu = localStorage.getItem('selectedMenu');
@@ -79,26 +79,26 @@ $(document).ready(function(){
 
 </head>
 <body>
-    <main>
-        <header>
-            <!-- 헤더 입니다 -->
-            <div class="header">
+	<main>
+		<header>
+			<!-- 헤더 입니다 -->
+			<a href="index.jsp"><div class="header">
                 <img src="/livre/assets/logo.svg" class="h-logo">
                 <p class="h-logo-name" style="margin: 0;">livre</p>
-            </div>
-            <div class="header-right">
+            </div></a>
+			<div class="header-right">
 
-                <c:if test="${whologin eq 0}">
-                    <a href="/livre/Livre?command=login">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
-                </c:if>
-                <c:if test="${whologin ne 0}">
-                    <!-- 프로필 사진 추가 -->
-                    <a href="#">${sessionScope.logInfo.memberNick} 님</a>
-                    <a href="<%=notWithFormTag%>logout">로그아웃</a>
-                </c:if>
-            </div>
-        </header>
-        
+				<c:if test="${whologin eq 0}">
+					<a href="/livre/Livre?command=login">로그인</a><a href="/livre/Livre?command=joinMemberShip">회원가입</a>
+				</c:if>
+				<c:if test="${whologin ne 0}">
+					<!-- 프로필 사진 추가 -->
+					<a href="#">${sessionScope.logInfo.memberNick} 님</a>
+					<a href="<%=notWithFormTag%>logout">로그아웃</a>
+				</c:if>
+			</div>
+		</header>
+		
 		<div class="menu-bar">
     
              <ul class="menu">

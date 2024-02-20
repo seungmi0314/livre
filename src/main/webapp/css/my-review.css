@@ -163,10 +163,13 @@ section {
 
 
 .book-name {
+	width: 340px;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 8px;
-    
+    overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
 }
 
 .author {
