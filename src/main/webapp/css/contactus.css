@@ -21,13 +21,13 @@ section {
 
 	background-image: url(./../assets/ContactUs02.svg), url(./../assets/ContactUs01.svg);
 	background-repeat: no-repeat;
-	background-size: 500px;
-	background-position: 10% 18%, 90% 100%;
+	background-size: 550px;
+	background-position: 10% 20%, 85% 100%;
 }
 
 .contact-us {
-	width: 650px;
-	height: 450px;
+	width: 850px;
+	height: 600px;
 	background-color: #FFF4F4;
 	border-radius: 40px;
 	padding: 35px 50px;
@@ -35,6 +35,7 @@ section {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 125px;
 }
 
 .left {
@@ -46,11 +47,13 @@ section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
 .inner-form {
 	color: #D17D7D;
-	font-size: 11px;
+	font-size: 13px;
+
 
 	display: flex;
 	flex-direction: column;
@@ -87,8 +90,8 @@ input::placeholder {
 	background-color: white;
 	border-radius: 5px;
 	border: none;
-	font-size: 12px;
-	height: 20px;
+	font-size: 13px;
+	height: 35px;
 }
 
 .email input {
@@ -98,8 +101,8 @@ input::placeholder {
 	background-color: white;
 	border-radius: 5px;
 	border: none;
-	font-size: 12px;
-	height: 20px;
+	font-size: 13px;
+	height: 35px;
 }
 
 .left select {
@@ -107,11 +110,11 @@ input::placeholder {
 	width: 100%;
 	height: 100%;
 	border-radius: 2px;
-	font-size: 12px;
+	font-size: 13px;
 	color: gray;
 	cursor: pointer;
 	border: none;
-	height: 20px;
+	height: 35px;
 	border-radius: 5px;
 }
 
@@ -130,18 +133,15 @@ select option:hover {
 	flex-direction: column;
 }
 
-
-
-
 textarea {
 	width: 100%;
-	height: 100%;
+	height: 120px;
 	outline: none;
 	border: none;
 	background-color: white;
 	color: gray;
 	border-radius: 5px;
-	font-size: 12px;
+	font-size: 13px;
 	padding: 10px;
 }
 
@@ -156,7 +156,8 @@ button {
 	border: none;
 	font-size: 16px;
 	color: #FFFFFF;
-	margin: 30px;
+	margin-top: 35px;
+	margin-left: 55px;
 }
 
 button:hover {
@@ -178,9 +179,6 @@ button:active {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	padding-top: 10%;
-	padding-bottom: 20%;
 }
 
 .info {
@@ -189,8 +187,9 @@ button:active {
 
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 
-	padding: 30px;
+	padding: 45px;
 }
 
 .info-title p {

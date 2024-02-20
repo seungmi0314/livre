@@ -21,7 +21,7 @@ public class ContactUsController extends SuperClass {
 		System.out.println(bean);
 		super.session.setAttribute("logInfo", bean);
 
-		// 비밀번호 찾기 페이지로 직접 이동
+		// contactus 페이지로 이동
 		super.goToPage(PREFIX + "contactus.jsp");
 	}
 

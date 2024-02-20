@@ -13,7 +13,7 @@ public class MemberLogoutController extends SuperClass{
 		// 로그인시 바인딩하였던 로그인 정보를 깨끗이 지웁니다.
 		if(super.logInfo != null) {
 			super.session.invalidate(); // 세션 데이터들을 무효화
-			super.goToPage("/Livre?command=login"); // 로그인 페이지로 다시 이동
+			super.goToPage("index.jsp"); // 로그인 페이지로 다시 이동
 		}else { // 미로그인 상태
 			super.youNeededLogin();
 			return;
