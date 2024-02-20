@@ -94,7 +94,7 @@ section {
     width: 1160px;
     height: 690px;
     margin: 200px auto 0;
-    border-radius: 38px;
+    border-radius: 15px;
     background: #fbfbfb;
     display: flex;
     margin-bottom: 100px;
@@ -107,7 +107,7 @@ section {
     background: #fbe9e9;
     margin-left: 13px;
     margin-top: 17px;
-    border-radius: 17px;
+    border-radius: 15px;
 
 }
 
