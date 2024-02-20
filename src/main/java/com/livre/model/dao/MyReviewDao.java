@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import com.livre.model.bean.Genres;
+import com.livre.model.bean.Member;
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
 
@@ -254,11 +255,6 @@ public class MyReviewDao extends SuperDao{
 				return cnt ;
 	}
 
-	
-	
-	
-	
-	
 
 	
 }

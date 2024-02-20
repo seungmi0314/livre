@@ -1,6 +1,5 @@
 package com.livre.controller.member;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

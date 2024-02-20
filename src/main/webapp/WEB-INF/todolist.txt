@@ -36,4 +36,4 @@ my-page=com.livre.controller.member.MyPageController
 ImgUpdate=com.livre.controller.member.ImgUpdateController
 contactus=com.livre.controller.member.ContactUsController
 # main section
-#main-page=com.livre.controller.book.MainPageController
+main-page=com.livre.controller.book.MainPageController
