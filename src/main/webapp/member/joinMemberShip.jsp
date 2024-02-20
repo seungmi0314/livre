@@ -101,7 +101,7 @@ function confirmPassword() {
     var confirmPassword = $('#inputPasswordck').val();
 
     if (password !== confirmPassword) {
-        $('#validPasswordck').text('비밀번호가 일치하지 않습니다. 다시 입력해주세요.').show();
+        $('#validPasswordck').text('* 비밀번호가 일치하지 않습니다. 다시 입력해주세요.').show();
         $('#inputPasswordck').focus();
         return false;
     } else {
@@ -159,44 +159,39 @@ function validCheck(){/* form validation check */
 			<!-- 로그인 배너 -->
 			<div class="container mt-3">
 				<span id="banner"><b>회원가입</b></span><br /> <span id="checkAccount">이미
-					계정이 있나요?</span> &nbsp;<a href="" id="existingLogin">로그인</a> <br /> <br />
+					계정이 있나요?</span> &nbsp;<a href="/livre/Livre?command=login" id="existingLogin">로그인</a> <br /> <br />
 				<br />
 				<!-- 이메일 기입란 -->
 				<%-- 중복 체크를 했는지 판단하기 위한 부울 타입의 히든 양식으로 true 이면 회원 가입이 가능합니다.  --%>
 					<input type="hidden" id="isRegister" name="isRegister" value="false">
 					
-				<div class="mb-3 mt-3">
-					<label for="uname" class="form-label" id="emailbanner"></label> <input
-						id="inputEmail" type="text" class="form-control"
-						name="memberEmail" placeholder="이메일 ">
-					<button type="button" class="btn btn-primary" onclick="emailCheck();" id="validButton">중복
-						체크</button>
-					<div class="valid-feedback"></div>
-					<hr width="450px">
-					<div class="invalid-feedback" id="validEmail">* 올바른 형식의 이메일을
-						작성해주세요.</div>
-				</div>
-				<!-- 비밀번호 기입란 -->
-				<div class="mb-3">
-					<label for="pwd" class="form-label" id="passwordbanner"></label> <input
-						id="inputPassword" type="password" class="form-control"
-						name="memberPw" placeholder="비밀번호" name="passwordParam">
+				<div class="mb-3 mt-3" style="position: relative;">
+    <label for="inputEmail" class="form-label" id="emailbanner"></label>
+    <input id="inputEmail" type="text" class="form-control" name="memberEmail" placeholder="이메일">
+    <button type="button" class="btn btn-primary" onclick="emailCheck();" id="validButton">중복 체크</button>
+    <div class="valid-feedback"></div>
+    <span class="invalid-feedback" id="validEmail" style="position: absolute; top: 100%; left: 0;">* 올바른 형식의 이메일을 작성해주세요.</span>
+    <hr width="450px">
+</div>
 
-					<div class="valid-feedback"></div>
-					<hr width="450px">
-					<div class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
-						숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</div>
-				</div>
-				<!--  비밀번호 확인 기입란 -->
-				<div class="mb-3">
-					<label for="pwdCheck" class="form-label" id="passwordCheckbanner"></label>
-					<input id="inputPasswordck" type="password" class="form-control"
-						id="pwdck" placeholder="비밀번호 확인" required>
-					<div class="valid-feedback"></div>
-					<hr width="450px">
-					<div class="invalid-feedback" id="validPasswordck">* 비밀번호가
-						일치하지 않습니다.</div>
-				</div>
+				<!-- 비밀번호 기입란 -->
+<div class="mb-3" style="position: relative;">
+    <label for="pwd" class="form-label" id="passwordbanner"></label>
+    <input id="inputPassword" type="password" class="form-control" name="memberPw" placeholder="비밀번호" name="passwordParam">
+    <div class="valid-feedback"></div>
+    <hr width="450px">
+    <span class="invalid-feedback" id="validPassword" style="position: absolute; top: 100%; left: 0;">* 비밀번호는 영문, 숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</span>
+</div>
+
+				<!-- 비밀번호 확인 기입란 -->
+<div class="mb-3" style="position: relative;">
+    <label for="pwdCheck" class="form-label" id="passwordCheckbanner"></label>
+    <input id="inputPasswordck" type="password" class="form-control" id="pwdck" placeholder="비밀번호 확인" required>
+    <div class="valid-feedback"></div>
+    <hr width="450px">
+    <span class="invalid-feedback" id="validPasswordck" style="position: absolute; top: 100%; left: 0;">* 비밀번호가 일치하지 않습니다.</span>
+</div>
+
 				<br> <br>
 				<!-- 가입하기 버튼 -->
 				<button id="submitButton" type="submit" class="btn btn-primary"
