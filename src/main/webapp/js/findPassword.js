@@ -19,4 +19,3 @@ function validCheck() {
 	return checkEmail();
 }
 
-function 

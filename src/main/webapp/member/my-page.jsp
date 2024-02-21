@@ -214,9 +214,7 @@
 						</div>
 						<div class="update-set">
 
-							<div class="btn-right">
-								<img src="/livre/assets/edit_bookmark.png"><a href="">등록/수정</a>
-							</div>
+				
 						</div>
 					</div>
 				</div>
@@ -230,29 +228,22 @@
 							<ul>
 								<c:forEach var="result" items="${likeReviewList}" varStatus="status">
 									<li>
-										<img src="/livre/assets/${result.bookimg }">
+										<img src="/livre/dummy/${result.bookimg }">
 										<div class="content-layout2">
 											<div class="content-title">
 												<c:choose>
-													<c:when test="${fn:length(result.reviewtitle) gt 19}">
+													<c:when test="${fn:length(result.reviewtitle) gt 15}">
 														제목 : ${fn:substring(result.reviewtitle, 0, 19) }...	
 													</c:when>
 													<c:otherwise>
 														제목 : ${result.reviewtitle}
 													</c:otherwise>
 												</c:choose>
-												<span>
-													<img src="/livre/assets/fill-star.svg">
-													<img src="/livre/assets/fill-star.svg">
-													<img src="/livre/assets/fill-star.svg">
-													<img src="/livre/assets/fill-star.svg">
-													<img src="/livre/assets/fill-star.svg">
-												</span>
 											</div>
 											<div class="content-text">
 												<c:choose>
-													<c:when test="${fn:length(result.reviewtext) gt 90 }">
-														내용 : ${fn:substring(result.reviewtext, 0, 90) }...	
+													<c:when test="${fn:length(result.reviewtext) gt 60 }">
+														내용 : ${fn:substring(result.reviewtext, 0, 60) }...	
 													</c:when>
 													<c:otherwise>
 														내용 : ${result.reviewtext}
@@ -275,7 +266,14 @@
 							<p>My Pick</p>
 						</div>
 						<div class="section-3-content">
-							<p>${myReview.phrase}</p>
+							<c:choose>
+								<c:when test="${fn:length(myReview.phrase) gt 60 }">
+									${fn:substring(myReview.phrase, 0, 60) }...	
+								</c:when>
+								<c:otherwise>
+									<p>${myReview.phrase}</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 				</div>

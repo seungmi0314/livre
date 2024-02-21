@@ -2,6 +2,10 @@ html {
     overflow: hidden;
 }
 
+.section-2-content img {
+    width: 60px;
+}
+
 button{
 	background: #fbe9e9;
 	color: #8d2020;
@@ -466,6 +470,7 @@ section {
 .section-2-content ul li {
     display: flex;
     padding: 10px 20px 10px 35px;
+    height: 90px;
 }
 
 .content-title {
