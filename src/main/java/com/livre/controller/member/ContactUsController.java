@@ -13,13 +13,18 @@ public class ContactUsController extends SuperClass {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		super.doGet(request, response);
-		String memberEmail = request.getParameter("memberEmail");
-		System.out.println(memberEmail);
-		MemberDao dao = new MemberDao();
-		Member bean = dao.getDataBean(memberEmail);
-		System.out.println("doget");
-		System.out.println(bean);
-		super.session.setAttribute("logInfo", bean);
+
+		// 세션에서 로그인 정보를 가져옴
+		Member logInfo = (Member) super.session.getAttribute("logInfo");
+
+		if (logInfo != null) {
+			// 로그인 정보가 있을 경우, 로그를 출력하거나 추가 처리를 할 수 있음
+			System.out.println("Logged in user: " + logInfo.getMemberEmail());
+		} else {
+			// 로그인 정보가 없을 경우, 로그인 페이지나 메인 페이지로 리다이렉트할 수 있음
+			response.sendRedirect("login.jsp");
+			return; 
+		}
 
 		// contactus 페이지로 이동
 		super.goToPage(PREFIX + "contactus.jsp");

@@ -21,39 +21,21 @@ public class FindPasswordController extends SuperClass {
 	private final String PREFIX = "member/";
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		super.doGet(request, response);
-		String memberEmail = request.getParameter("memberEmail");
-		System.out.println(memberEmail);
-		MemberDao dao = new MemberDao();
-		Member bean = dao.getDataBean(memberEmail);
-		System.out.println("doget");
-		System.out.println(bean);
-		super.session.setAttribute("logInfo", bean);
-
-		// 비밀번호 찾기 페이지로 직접 이동
-		super.goToPage(PREFIX + "findPassword.jsp");
-
-	}
-
-	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		super.doPost(request, response);
 
 		// 요청한 이메일을 가져온다.
 		String memberEmail = request.getParameter("memberEmail");
-		// String memberPw = request.getParameter("memberPw");
-		String memberPw = "qwerqwerqwer1122";
-		System.out.println("memberPw : " + memberPw);
+
 		// 데이터베이스에 이메일이 존재한지 확인한다.
 		MemberDao dao = new MemberDao();
 		Member bean = dao.getMemberByEmail(memberEmail);
 
 		if (bean == null) {
-			setAlertMessage("아이디나 이메일 정보가 맞지 않습니다");
-			super.setAlertMessage("해당 메일 계정으로 가입된 이력이 없습니다.");
+			request.setAttribute("alertMessage", "해당 계정으로 가입된 이력이 없습니다.\\n다시 시도해 주세요.");
 			super.goToPage(PREFIX + "findPassword.jsp");
+			return; // 메시지 설정 후 바로 리턴하여 메서드를 종료
 		}
 
 		// mail server 설정
@@ -109,8 +91,7 @@ public class FindPasswordController extends SuperClass {
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(user, password);
-				// memberEmail, memberPw
-				// bean.getMemberEmail(), bean.getMemberPw()??? 아님
+
 			}
 		});
 
@@ -127,11 +108,12 @@ public class FindPasswordController extends SuperClass {
 			// 메일 제목
 			msg.setSubject("안녕하세요 Livre 임시 비밀번호 전송 메일입니다.");
 			// 메일 내용
-			msg.setText("회원님의 임시 비밀번호는 : " + temp + "\n보안을 위해 로그인 후 비밀번호를 변경해주세요.");
+			msg.setText("회원님의 임시 비밀번호는 [ " + temp + " ] 입니다.\n보안을 위해 로그인 후 비밀번호를 변경해주세요.");
 
 			Transport.send(msg);
+			
 			System.out.println("이메일 전송 성공");
-
+			
 			// 생성된 authkey로 회원 비밀번호 업데이트
 			int updateResult = dao.updateMemberPwWithAuthkey(memberEmail, authkey);
 
@@ -139,8 +121,9 @@ public class FindPasswordController extends SuperClass {
 				// 이메일 전송 및 비밀번호 업데이트 성공 시
 				HttpSession session2 = request.getSession();
 				session2.setAttribute("authkey", authkey);
-
+				session2.setAttribute("emailSentSuccessMessage", "메일이 성공적으로 전송되었습니다.");
 				super.goToPage(PREFIX + "tempPassword.jsp");
+
 			} else {
 				// 비밀번호 업데이트 실패 시
 				setAlertMessage("비밀번호 업데이트에 실패했습니다. 다시 시도해주세요.");
