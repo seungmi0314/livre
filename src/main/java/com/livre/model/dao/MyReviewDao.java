@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.livre.model.bean.Genres;
-import com.livre.model.bean.Member;
+
 import com.livre.model.bean.MyReview;
 import com.livre.utility.Paging;
 
@@ -73,7 +72,7 @@ public class MyReviewDao extends SuperDao{
 			pstmt = conn.prepareStatement(sql);
 			
 		
-			;
+			
 			rs = pstmt.executeQuery();
 			
 			// 요소를 읽어서 컬렉션에 담기
@@ -255,6 +254,11 @@ public class MyReviewDao extends SuperDao{
 				return cnt ;
 	}
 
+	
+	
+	
+	
+	
 
 	
 }
