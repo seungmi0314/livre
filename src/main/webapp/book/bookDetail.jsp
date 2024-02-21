@@ -85,7 +85,7 @@
 			<a class="review-a" href="<%=notWithFormTag%>reviewInfo&reviewNo=${data.reviewNo}&readhitUpdate=${readhitUpdate}">
 				<div class="reviewCard">
 					<div class="user-image">
-						<img src="/livre/assets/${data.memberImg}">
+						<img id="user-image2" src="/livre/assets/${data.memberImg}">
 					</div>
 					<div class="user-simple-review">
 						<p class="user-nickname">${data.memberNick}</p>
