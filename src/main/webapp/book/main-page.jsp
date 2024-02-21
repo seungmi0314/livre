@@ -150,7 +150,7 @@
 						                <button type="button" class="btn_tab" onclick="fn_genreChg('4');">역사</button>
 						            </li>
 						            <li class="item_tab">
-						                <button type="button" class="btn_tab" onclick="fn_genreChg('3');">어린이</button>
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('3');">소설</button>
 						            </li>
 						            <li class="item_tab">
 						                <button type="button" class="btn_tab" onclick="fn_genreChg('6');">기타</button>
@@ -258,7 +258,7 @@
 							if(s_endDate == p_date){
 								row += '<td class="day-' + year + '-' + padZero((month + 1)) + '-' + padZero(date) + '"" id="day/' + year + '/'
 								+ padZero((month + 1)) + '/' + padZero(date)
-								+ '"">' + date + '<img src="/livre/assets/'+s_bookImg+'\"></td>';
+								+ '"">' + date + '<img src="/livre/dummy/'+s_bookImg+'\"></td>';
 								p_equalChk = "T";
 							}
 						</c:forEach>
@@ -267,7 +267,7 @@
 							+ padZero((month + 1)) + '-' + padZero(date)
 							+ '"" id="day/' + year + '/'
 							+ padZero((month + 1)) + '/' + padZero(date)
-							+ '"">' + date + '<img src="/livre/assets/17_07.jpg"></td>';
+							+ '"">' + date + '<img src="/livre/assets/blankspace.png"></td>';
 						}else{
 							p_equalChk = "";
 						}
