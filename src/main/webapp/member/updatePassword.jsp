@@ -15,7 +15,6 @@ String term_FL = request.getParameter("term_FL");
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-<script src="/livre/js/snsLogin.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="/livre/css/updatePassword.css">
