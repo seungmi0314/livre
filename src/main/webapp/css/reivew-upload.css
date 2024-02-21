@@ -74,6 +74,14 @@ body {
     outline: none;
 }
 
+.book-info input {
+	border: none;
+}
+
+.book-info input:focus {
+	outline: none;
+}
+
 /* 현재 선택된 검색어 */
 .autocomplete > div.active {
 	background: #e0e5f6;

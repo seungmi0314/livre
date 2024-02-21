@@ -32,7 +32,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             
             <div class="button-box">
                 <button class="edit" onclick="submit(); edit();"><i class="fa-solid fa-pen-to-square"></i> 수정하기</button>
-                <button class="del"><i class="fa-regular fa-trash-can"></i> 삭제하기</button>
             </div>
  		<form action="<%=withFormTag%>" method="post" class="review" >
  			<input type="hidden" name="command" value="reviewUpdate"> 

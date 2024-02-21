@@ -54,8 +54,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- 검색창 -->
             <div class="autocomplete"></div>
             <div class="book-info">
-            <p>지은이 <span>${requestScope.bean.author}</span></p>
-            <p>출판사 <span>${requestScope.bean.publisher}</span></p>
+            <p>지은이 <input type="text"></p>
+            <p>출판사 <input type="text"></p>
         </div>
         
             
