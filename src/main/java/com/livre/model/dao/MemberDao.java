@@ -86,7 +86,7 @@ public class MemberDao extends SuperDao {
 		}
 	}
 
-	//내가 좋아하는 목록 Bean
+	// 내가 좋아하는 목록 Bean
 	private LikeReview resultSet3Bean(ResultSet rs) {
 		try {
 			LikeReview bean = new LikeReview();
@@ -104,7 +104,7 @@ public class MemberDao extends SuperDao {
 			return null;
 		}
 	}
-	
+
 	public int insertData(Member bean) {
 		// members_seq.NEXTVAL
 		System.out.println(bean);
@@ -204,8 +204,9 @@ public class MemberDao extends SuperDao {
 
 	}
 
-	public void updatePassword(String memberEmail, String newPassword) {
+	public int updatePassword(String memberEmail, String newPassword) {
 		String sql = " update members set memberPw = ? where memberEmail = ?";
+		int updateResult = 0;
 
 		try (Connection conn = super.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -222,6 +223,7 @@ public class MemberDao extends SuperDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return updateResult;
 	}
 
 	public Member getDataBean(int memberNo) {
@@ -657,7 +659,6 @@ public class MemberDao extends SuperDao {
 		return bean;
 	}
 
-	
 	public List<LikeReview> getDataLikeReviewBean(int memberNo) {
 		String sql = "";
 		sql += " select a.likereviewno";
@@ -709,6 +710,5 @@ public class MemberDao extends SuperDao {
 
 		return dataList;
 	}
-
 
 }
