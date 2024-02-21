@@ -12,7 +12,6 @@
 <title>마이 페이지</title>
 <script type="text/javascript">
     $(document).ready(function() {
-			
 	});
     function validCheck(){/* form validation check */
 			var memberNick = $('#memberNick').val();  			
@@ -26,7 +25,6 @@
     function fn_meDelete(memberNo){
     	if(confirm("정말 탈퇴 하시겠습니까?")){
     		location.href="/livre/Livre?command=meDelete&memberNo="+memberNo;
-    		
     	}
     }
 			
@@ -39,6 +37,7 @@
 	<form action="<%=withFormTag%>" method="post">
 		<input type="hidden" name="command" value="my-page">
 		<input type="hidden" id="memberNo" name="memberNo" value="${bean.memberNo}">
+		<input type="hidden" id="genreList" name="genreList" value="${bean.genreList}">
 		<div class="content-warp">
 			<section>
 				<div class="section-1">
@@ -97,29 +96,31 @@
 								</span>
 						</div>
 						<div class="mid-right">
-							<p>프로필</p>
-							<ul>
-								<li><img src="/livre/assets/username_mypage.png"> <input
-									class="profile_input" type="text" id="memberNick"
-									name="memberNick" value="${bean.memberNick}"></li>
-								<li><img src="/livre/assets/gender_mypage.png"> <input
-									class="profile_input" type="text" id="fakegender"
-									name="fakegender" value="${bean.gender}" placeholder="남자" disabled="disabled">
-									<input type="hidden" id="gender" name="gender"
-									value="${bean.gender}"></li>
-								<li><img src="/livre/assets/address_mypage.png"> <input
-									class="profile_input" type="text" id="name" name="address"
-									value="${bean.address}" placeholder="서울시 마포구"></li>
-							</ul>
-							<div class="update-set">
-								<div class="btn-left">
-									<img src="/livre/assets/octicon_trash-24.png"><a href="#" onclick="fn_meDelete('${bean.memberNo}');">회원탈퇴</a>
-								</div>
-								<div class="btn-right">
-									<img src="/livre/assets/edit_bookmark.png">
-									<button type="submit" onclick="return validCheck();">등록/수정</button>
-								</div>
-							</div>
+						    <p>프로필</p>
+						    <ul>
+						        <li>
+						        	<img src="/livre/assets/username_mypage.png"> 
+						        	<input class="profile_input" type="text" id="memberNick" name="memberNick" value="${bean.memberNick}">
+						        </li>
+						        <li>
+						        	<img src="/livre/assets/gender_mypage.png"> 
+						        	<input class="profile_input" type="text" id="fakegender" name="fakegender" value="${bean.gender}" placeholder="남자" disabled="disabled">
+						            <input type="hidden" id="gender" name="gender" value="${bean.gender}">
+					            </li>
+						        <li>
+						        	<img src="/livre/assets/address_mypage.png"> 
+						        	<input class="profile_input" type="text" id="name" name="address" value="${bean.address}" placeholder="서울시 마포구">
+					        	</li>
+						    </ul>
+						    <div class="update-set">
+						        <div class="btn-left">
+						            <img src="/livre/assets/octicon_trash-24.png"><a href="#" onclick="fn_meDelete('${bean.memberNo}');">회원탈퇴</a>
+						        </div>
+						        <div class="btn-right">
+						            <img src="/livre/assets/edit_bookmark.png">
+						            <button type="submit" onclick="return validCheck();">등록/수정</button>
+						        </div>
+						    </div>
 						</div>
 
 					</div>
@@ -257,7 +258,7 @@
 						</div>
 						<div class="section2-bottom">
 							<img src="/livre/assets/view_all_bookmarks_mypage.png"><a
-								href="/livre/Livre?command=my-review&memberNo=${bean.memberNo}">전체보기</a>
+								href="/livre/Livre?command=myFavoriteReview&memberNo=${bean.memberNo}">전체보기</a>
 						</div>
 					</div>
 					<div class="section-3">

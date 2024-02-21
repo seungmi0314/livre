@@ -10,6 +10,7 @@ import java.util.List;
 import com.livre.model.bean.Genres;
 import com.livre.model.bean.LikeReview;
 import com.livre.model.bean.Member;
+import com.livre.model.bean.MyReview;
 
 public class MemberDao extends SuperDao {
 	com.livre.utility.MyUtility MyUtility;
@@ -99,6 +100,32 @@ public class MemberDao extends SuperDao {
 
 			return bean;
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+	private MyReview resultSet4Bean(ResultSet rs) {
+		try {
+			MyReview bean = new MyReview();
+			bean.setReviewNo(rs.getInt("reviewNo"));
+			bean.setMemberNo(rs.getInt("memberNo"));
+			bean.setBookNo(rs.getInt("bookNo"));
+			bean.setBookTitle(rs.getString("bookTitle"));
+			bean.setGenreNo(rs.getString("genreNo"));
+			bean.setReviewTitle(rs.getString("reviewTitle"));
+			bean.setReviewText(rs.getString("reviewText"));
+			bean.setAuthor(rs.getString("author"));
+			bean.setPublisher(rs.getString("publisher"));
+			bean.setCreateDate(String.valueOf(rs.getString("createDate")));	// 날짜
+			bean.setPhrase(rs.getString("phrase"));
+			bean.setStartDate(rs.getString("startDate"));	
+			bean.setEndDate(rs.getString("endDate"));	
+			bean.setReadHit(rs.getInt("readHit"));
+			return bean;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -598,6 +625,15 @@ public class MemberDao extends SuperDao {
 		try {
 			conn.setAutoCommit(false);
 
+			// LIKEREVIEWS 삭제
+			sql = " delete from LIKEREVIEWS where MEMBERNO = ? ";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bean.getMemberNo());
+			cnt = pstmt.executeUpdate();
+			if (pstmt != null) {
+				pstmt.close();
+			}
+
 			// 리뷰 삭제
 			sql = " DELETE FROM REVIEWS where MEMBERNO = ? ";
 			pstmt = conn.prepareStatement(sql);
@@ -606,7 +642,7 @@ public class MemberDao extends SuperDao {
 			if (pstmt != null) {
 				pstmt.close();
 			}
-
+						
 			// 회원정보 삭제
 			sql = " delete from members where MEMBERNO = ? ";
 			pstmt = conn.prepareStatement(sql);
@@ -615,6 +651,8 @@ public class MemberDao extends SuperDao {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			
+			
 
 			conn.commit();
 
@@ -698,6 +736,54 @@ public class MemberDao extends SuperDao {
 
 			while (rs.next()) {
 				LikeReview bean = this.resultSet3Bean(rs);
+				dataList.add(bean);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {// 200p 5번
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				super.closeConnection();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+
+		return dataList;
+	}
+	
+	
+	
+	public List<MyReview> getDataLikeReviewAllBean(int memberNo) {
+		String sql = "";
+		sql += " select c.*, d.*";
+		sql += " 		  from likereviews a inner join members b";
+		sql += " 		                 on a.memberno = b.memberno ";
+		sql += " 		                 inner join reviews c";
+		sql += " 		                 on a.reviewno = c.reviewno";
+		sql += " 		                 inner join books d";
+		sql += " 		                 on c.bookno = d.bookno";
+		sql += " 		 where a.memberno = ?";
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		List<MyReview> dataList = new ArrayList<MyReview>();
+
+		super.conn = super.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				MyReview bean = this.resultSet4Bean(rs);
 				dataList.add(bean);
 			}
 
