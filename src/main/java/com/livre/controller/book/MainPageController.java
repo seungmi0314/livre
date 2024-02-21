@@ -21,7 +21,7 @@ public class MainPageController extends SuperClass{
 		//객체선언 init 
 		MemberDao dao = new MemberDao();
 		BookDao bookDao = new BookDao();
-		int memberNo = Integer.parseInt(request.getParameter("memberNo"));
+		int memberNo = super.logInfo.getMemberNo();
 		int genreNo = 1;
 		if(request.getParameter("genreNo") != null) {
 			genreNo = Integer.parseInt((String) request.getParameter("genreNo"));

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.livre.common.SuperClass;
+import com.livre.controller.book.MainPageController;
 import com.livre.model.bean.Member;
 import com.livre.model.dao.MemberDao;
 
@@ -62,7 +63,8 @@ public class MemberLoginController extends SuperClass {
 			// 로그인 성공 이후 홈으로 이동합니다.
 			// new 수정Controller().doGet(request, response) ;
 			// 로그인 성공 이후 MyReviewController로 리다이렉트합니다.
-			 response.sendRedirect(request.getContextPath() + "/book/main-page.jsp"); // 홈 페이지로 리다이렉트
+			 //response.sendRedirect(request.getContextPath() + "/book/main-page.jsp"); // 홈 페이지로 리다이렉트
+			 new MainPageController().doGet(request, response);
 			//response.sendRedirect(request.getContextPath() + "/Livre?command=main-page");
 
 			
