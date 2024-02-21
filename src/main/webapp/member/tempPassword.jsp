@@ -14,24 +14,34 @@
 	href="/livre/css/tempPassword.css">
 <link rel="stylesheet" href="/livre/css/index.css" />
 <link rel="stylesheet" href="/livre/css/header.css" />
-
-
 <meta charset="UTF-8">
+
+<%
+String emailSentSuccessMessage = (String) session.getAttribute("emailSentSuccessMessage");
+if (emailSentSuccessMessage != null && !emailSentSuccessMessage.isEmpty()) {
+	session.removeAttribute("emailSentSuccessMessage");
+%>
+<script type="text/javascript">
+    alert('<%=emailSentSuccessMessage%>');
+</script>
+<%
+}
+%>
+
+<%
+String alertMessage = (String) request.getAttribute("alertMessage");
+if (alertMessage != null) {
+%>
+<script type="text/javascript">
+    alert('<%=alertMessage%>');
+	session.removeAttribute("alertMessage");
+</script>
+<%
+}
+%>
 </head>
 <body>
-	<main>
-		<header>
-			<!-- 헤더 입니다 -->
-			<div class="header">
-				<img src="/livre/assets/logo.svg" class="h-logo">
-				<p class="h-logo-name">livre</p>
-			</div>
-
-			<div class="header-right">
-				<a href="#">로그인</a> <a href="#">회원가입</a>
-			</div>
-		</header>
-	</main>
+	<main></main>
 
 	<section>
 
@@ -40,7 +50,6 @@
 			<div class="container mt-3">
 				<input type="hidden" name="command" value="tempPassword"> <span
 					id="banner"><b>임시 비밀번호 입력</b></span><br /> <br /> <br /> <br />
-
 
 				<!-- 임시 비밀번호 입력 -->
 				<div class="mb-3 mt-3">
@@ -62,7 +71,22 @@
 
 		</form>
 	</section>
+<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			var authInput = document.getElementById('findPwdAuth');
+			var validEmailDiv = document.getElementById('validEmail');
 
+			authInput.addEventListener('input', function() {
+				// 입력 필드에 텍스트가 있을 경우, 에러 메시지를 숨깁니다.
+				if (authInput.value.length > 0) {
+					validEmailDiv.style.display = 'none';
+				} else {
+					// 입력 필드가 비어있을 경우, 에러 메시지를 다시 표시합니다.
+					validEmailDiv.style.display = 'block';
+				}
+			});
+		});
+	</script>
 
 </body>
 
