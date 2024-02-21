@@ -205,25 +205,34 @@ public class MemberDao extends SuperDao {
 	}
 
 	public int updatePassword(String memberEmail, String newPassword) {
-		String sql = " update members set memberPw = ? where memberEmail = ?";
-		int updateResult = 0;
+		String sql = "update members set memberPw = ? where memberEmail = ?";
+		int updateResult = 0; // 업데이트된 행의 수를 저장할 변수
+		PreparedStatement pstmt = null; // PreparedStatement 초기화
 
-		try (Connection conn = super.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = super.getConnection()) {
+			pstmt = conn.prepareStatement(sql); // SQL 쿼리 준비
+			pstmt.setString(1, newPassword); // 첫 번째 파라미터에 새 비밀번호 설정
+			pstmt.setString(2, memberEmail); // 두 번째 파라미터에 이메일 설정
 
-			pstmt.setString(1, newPassword);
-			pstmt.setString(2, memberEmail);
+			updateResult = pstmt.executeUpdate(); // 쿼리 실행 후 결과 저장
 
-			int updatedRows = pstmt.executeUpdate();
-
-			if (updatedRows > 0) {
+			if (updateResult > 0) {
 				System.out.println("비밀번호가 성공적으로 업데이트되었습니다.");
 			} else {
 				System.out.println("해당 이메일을 가진 사용자를 찾을 수 없습니다.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close(); // PreparedStatement 자원 해제
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-		return updateResult;
+		return updateResult; // 업데이트된 행의 수 반환
 	}
 
 	public Member getDataBean(int memberNo) {
