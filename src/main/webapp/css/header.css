@@ -9,7 +9,6 @@
     
 }
 
-
 header {
     
     width: 100vw;
@@ -56,10 +55,20 @@ a {
 }
 
 .header-right a{
-    margin-left: 30px;
+    margin-left: 15px;
     color: black;
     font-weight: 500;
     text-decoration: none;
     line-height: 60px;
+}
+
+.header-right img {
+    margin-top: 12px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.header-right {
+    display: flex;
 }
 

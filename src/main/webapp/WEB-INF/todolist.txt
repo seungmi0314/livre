@@ -32,6 +32,7 @@ findPassword=com.livre.controller.member.FindPasswordController
 tempPassword=com.livre.controller.member.TempPasswordController
 updatePassword=com.livre.controller.member.UpdatePasswordController
 my-page=com.livre.controller.member.MyPageController
+myFavoriteReview=com.livre.controller.member.MyFavoriteReviewController
 #kakaoLogin=com.livre.controller.member.KakaoLoginController
 ImgUpdate=com.livre.controller.member.ImgUpdateController
 contactus=com.livre.controller.member.ContactUsController

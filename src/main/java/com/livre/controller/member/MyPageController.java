@@ -64,6 +64,7 @@ public class MyPageController extends SuperClass {
 		
 		MemberDao dao = new MemberDao(); 
 		Member bean = new Member();
+		Member logInfo = new Member();
 		  
 		bean.setMemberNo(Integer.parseInt(request.getParameter("memberNo")));
 		bean.setMemberNick(request.getParameter("memberNick"));
@@ -79,9 +80,12 @@ public class MyPageController extends SuperClass {
 		 
 		int cnt = dao.updateData(bean) ;
 		 
+		logInfo = dao.getDataBean(bean.getMemberNo());
 		 new MyPageController().doGet(request, response); 
 		 if(cnt == 1){ // 수정 성공
-			 System.out.println("수정 성공"); }
+			 System.out.println("수정 성공");
+			 super.session.setAttribute("logInfo", logInfo);
+		 }
 		 else{ // 수정 실패 
 			 System.out.println("수정 실패"); }
 		 }
