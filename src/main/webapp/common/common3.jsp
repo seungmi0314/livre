@@ -92,7 +92,7 @@ $(document).ready(function(){
 				</c:if>
 				<c:if test="${whologin ne 0}">
 					<!-- 프로필 사진 추가 -->
-					<a href="#">${sessionScope.logInfo.memberNick} 님</a>
+					<a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}">${sessionScope.logInfo.memberNick} 님</a>
 					<a href="<%=notWithFormTag%>logout">로그아웃</a>
 				</c:if>
 			</div>
@@ -105,7 +105,7 @@ $(document).ready(function(){
 				<li class="menu-item"><a href="<%=notWithFormTag%>bookList">책 검색</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>my-review">내 독후감</a></li>
 				<li class="menu-item"><a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}">마이 페이지</a></li>
-				<li class="menu-item"><a href="<%=notWithFormTag%>">contact us</a></li>
+				<li class="menu-item"><a href="<%=notWithFormTag%>contactus">contact us</a></li>
 			</ul>
         </div>
 

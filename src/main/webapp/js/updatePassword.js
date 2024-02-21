@@ -53,3 +53,14 @@ function confirmPassword() {
 
     return true;
 }
+
+function validatePassword() {
+    var newPassword = document.logInForm.newPassword.value;
+    var confirmPassword = document.logInForm.confirmPassword.value;
+    if(newPassword !== confirmPassword) {
+        alert("새 비밀번호와 확인 비밀번호가 일치하지 않습니다.");
+        return false;
+    }
+    // 추가적인 비밀번호 유효성 검사 로직 구현
+    return true;
+}

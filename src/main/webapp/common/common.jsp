@@ -73,7 +73,7 @@ a {
 				</c:if>
 				<c:if test="${whologin ne 0}">
 					<!-- 프로필 사진 추가 -->
-					<a href="#">${sessionScope.logInfo.memberNick} 님</a>
+					<a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}">${sessionScope.logInfo.memberNick} 님</a>
 					<a href="<%=notWithFormTag%>logout">로그아웃</a>
 				</c:if>
 			</div>
