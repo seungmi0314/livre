@@ -45,7 +45,7 @@
     // 다음 페이지로 이동하는 함수
     function moveToNextPage() {
         // 메인 페이지의 절대 경로 설정
-        var mainPageURL = "/livre/index.jsp";
+        var mainPageURL = "/livre/member/login.jsp";
 
         // 메인 페이지로 이동
         window.location.href = mainPageURL;

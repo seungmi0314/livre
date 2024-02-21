@@ -45,7 +45,7 @@ function updateProgress() {
     progressText.innerText = progress + '%';
 
     // 다음 진행 상태로 이동
-    if (progress < 80) {
+    if (progress < 75) {
         progress++;
     }
 }
