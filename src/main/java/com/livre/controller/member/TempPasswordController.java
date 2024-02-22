@@ -36,7 +36,7 @@ public class TempPasswordController extends SuperClass {
 
 		if (authkey.equals(findPwdAuth)) {
 		    // 인증코드가 일치할 때의 동작
-		    out.println("<script>alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.'); location.href='" + request.getContextPath() + "/member.my-page.jsp';</script>");
+		    out.println("<script>alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.'); location.href='" + request.getContextPath() + "/member/my-page.jsp';</script>");
 		    out.flush();
 		} else {
 		    // 인증코드가 일치하지 않을 때의 동작
