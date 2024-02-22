@@ -257,8 +257,8 @@
 							</ul>
 						</div>
 						<div class="section2-bottom">
-							<img src="/livre/assets/view_all_bookmarks_mypage.png"><a
-								href="/livre/Livre?command=myFavoriteReview&memberNo=${bean.memberNo}">전체보기</a>
+							<img src="/livre/assets/view_all_bookmarks_mypage.png">
+							<a href="/livre/Livre?command=myFavoriteReview&memberNo=${bean.memberNo}">전체보기</a>
 						</div>
 					</div>
 					<div class="section-3">

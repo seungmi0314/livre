@@ -72,8 +72,16 @@ a {
 					<a href="<%=notWithFormTag%>meInsert">회원가입</a>
 				</c:if>
 				<c:if test="${whologin ne 0}">
-					<!-- 프로필 사진 추가 -->
-					<%-- <img src="${pageContext.request.contextPath}/${sessionScope.logInfo.memberImg}"> --%>
+					<div class="header_profile">
+						<c:choose>
+							<c:when test="${not empty logInfo.memberImg}">
+								<img src="/livre/assets/${logInfo.memberImg }">
+							</c:when>
+							<c:otherwise>
+								<img src="/livre/assets/profile_mypage.png">
+							</c:otherwise>
+						</c:choose>
+					</div>
 					<a href="<%=notWithFormTag%>my-page&memberNo=${sessionScope.logInfo.memberNo}">${sessionScope.logInfo.memberNick} 님</a>
 					<a href="<%=notWithFormTag%>logout">로그아웃</a>
 				</c:if>
