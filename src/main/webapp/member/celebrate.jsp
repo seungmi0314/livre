@@ -36,7 +36,7 @@
 		</div>
 		<div id="buttonDiv">
 
-			<button type="button" id="nextButton" onclick="moveToNextPage()">로그인!</button>
+			<button type="button" id="nextButton" onclick="moveToNextPage()">로그인</button>
 		</div>
 	</section>
 
