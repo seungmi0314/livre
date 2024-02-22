@@ -378,7 +378,7 @@ public class MemberDao extends SuperDao {
 	}
 
 	public int updateData(Member bean) {
-		String sql = " update members set memberNick=?, address=?, genreList=? ";
+		String sql = " update members set memberNick=?, address=?, genreList=?";
 		sql += " where memberNo = ?";
 
 		PreparedStatement pstmt = null;
@@ -397,6 +397,7 @@ public class MemberDao extends SuperDao {
 			// pstmt.setString(6, bean.getGender());
 			pstmt.setString(3, bean.getGenreList());
 			// pstmt.setInt(4, bean.getRankNo());
+			//pstmt.setString(4, bean.getMemberImg());
 			pstmt.setInt(4, bean.getMemberNo());
 
 			cnt = pstmt.executeUpdate();

@@ -56,13 +56,13 @@
 						<div class="swiper mySwiper">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide">
-									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
+									<img src="/livre/assets/livre_banner.png" alt="" />
 								</div>
 								<div class="swiper-slide">
-									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
+									<img src="/livre/assets/millie_banner.png" alt="" />
 								</div>
 								<div class="swiper-slide">
-									<img src="/livre/assets/livre_banner_mainpage2.png" alt="" />
+									<img src="/livre/assets/livre_banner_02.jpg" alt="" />
 								</div>
 							</div>
 							<div class="swiper-button-next"></div>
@@ -150,7 +150,7 @@
 						                <button type="button" class="btn_tab" onclick="fn_genreChg('4');">역사</button>
 						            </li>
 						            <li class="item_tab">
-						                <button type="button" class="btn_tab" onclick="fn_genreChg('3');">소설</button>
+						                <button type="button" class="btn_tab" onclick="fn_genreChg('9');">소설</button>
 						            </li>
 						            <li class="item_tab">
 						                <button type="button" class="btn_tab" onclick="fn_genreChg('6');">기타</button>
