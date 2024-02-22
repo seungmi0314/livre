@@ -67,8 +67,6 @@ public class MemberLoginController extends SuperClass {
 			 new MainPageController().doGet(request, response);
 			//response.sendRedirect(request.getContextPath() + "/Livre?command=main-page");
 
-			
-
 			// 특정 시간동안 요청이 없으면 세션 만료 (1시간)
 			super.session.setMaxInactiveInterval(3600);
 

@@ -38,7 +38,21 @@
 	padding: 10px
 }
 </style>
+<script>
+$(document).ready(function(){
+    // localStorage에서 저장된 메뉴 정보 가져오기
+    var selectedMenu = localStorage.getItem('selectedMenu');
 
+    // 다른 메뉴 항목에서 active 클래스 제거
+    $('.menu-item').removeClass('active');
+
+    // 홈 메뉴에 active 클래스 추가
+    $('.menu-item:contains(홈)').addClass('active');
+
+    // localStorage에 선택한 메뉴 정보 저장
+    localStorage.setItem('selectedMenu', '홈');
+});
+</script>
 </head>
 
 <body>

@@ -116,6 +116,9 @@ public class FindPasswordController extends SuperClass {
 			
 			// 생성된 authkey로 회원 비밀번호 업데이트
 			int updateResult = dao.updateMemberPwWithAuthkey(memberEmail, authkey);
+			
+			// 세션에 memberNo 저장
+	        request.getSession().setAttribute("memberNo", bean.getMemberNo());
 
 			if (updateResult == 1) {
 				// 이메일 전송 및 비밀번호 업데이트 성공 시
