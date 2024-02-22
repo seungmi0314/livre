@@ -1,66 +1,49 @@
-/**
- * 
- */$(document).ready(function() {
-    // 초기에 모든 invalid-feedback 요소를 숨깁니다.
-    $('.invalid-feedback').hide();
+$(document).ready(function() {
+    // 비밀번호 입력란 값 변경 시 유효성 검사
+    $('#newPassword').on('keyup', function() {
+        checkPassword();
+        // 비밀번호 확인 입력란에 값이 있을 때만 비밀번호 일치 검사 실행
+        if ($('#inputPasswordck').val().length > 0) {
+            confirmPassword();
+        }
+    });
 
+    // 비밀번호 확인 입력란 값 변경 시 유효성 검사
+    $('#inputPasswordck').on('keyup', function() {
+        confirmPassword();
+    });
+
+    $('#submitButton').click(function(event) {
+        var isPasswordValid = checkPassword();
+        var isConfirmPasswordValid = confirmPassword();
+
+        if (!isPasswordValid || !isConfirmPasswordValid) {
+            event.preventDefault();
+        }
+    });
 });
-
-function checkEmail() {
-    var email = $('#inputEmail').val();           
-        
-    // 이메일 정규식 패턴
-    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    
-    // 이메일 형식 및 길이 유효성 검사
-    if (!emailPattern.test(email) || email.length < 4 || email.length > 30) {
-        $('#validEmail').show(); // 이메일 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
-        $('#inputEmail').focus();
-        return false;
-    } else {
-        $('#validEmail').hide(); // 이메일 형식이 올바르다면 해당 요소를 숨깁니다.
-    }
-
-    return true;
-}
-
 function checkPassword() {
-    var password = $('#inputPassword').val();
+    var password = $('#newPassword').val();
     var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
     if (!passwordPattern.test(password)) {
-        $('#validPassword').show(); // 비밀번호 형식이 올바르지 않을 경우 해당 요소를 보이게 합니다.
-        $('#inputPassword').focus();
+        $('#newPasswordInvalidFeedback').show();
         return false;
     } else {
-        $('#validPassword').hide(); // 비밀번호 형식이 올바르다면 해당 요소를 숨깁니다.
+        $('#newPasswordInvalidFeedback').hide();
+        return true;
     }
-
-    return true;
 }
 
 function confirmPassword() {
-    var password = $('#inputPassword').val();
+    var password = $('#newPassword').val();
     var confirmPassword = $('#inputPasswordck').val();
 
     if (password !== confirmPassword) {
-        $('#validPasswordck').text('비밀번호가 일치하지 않습니다. 다시 입력해주세요.').show();
-        $('#inputPasswordck').focus();
+        $('#validPasswordck').show();
         return false;
     } else {
         $('#validPasswordck').hide();
+        return true;
     }
-
-    return true;
-}
-
-function validatePassword() {
-    var newPassword = document.logInForm.newPassword.value;
-    var confirmPassword = document.logInForm.confirmPassword.value;
-    if(newPassword !== confirmPassword) {
-        alert("새 비밀번호와 확인 비밀번호가 일치하지 않습니다.");
-        return false;
-    }
-    // 추가적인 비밀번호 유효성 검사 로직 구현
-    return true;
 }
