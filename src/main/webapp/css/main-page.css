@@ -212,6 +212,10 @@ section {
       display: block;
       width: 100%;
     }
+    
+.swiper-wrapper img {
+    border-radius: 15px;
+}
 
 .swiper.mySwiper.swiper-initialized.swiper-horizontal.swiper-css-mode {
     border-radius: 15px;
