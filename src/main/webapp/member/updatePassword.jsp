@@ -20,8 +20,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<main>
-	</main>
+	<main></main>
 	<section>
 		<form name="logInForm" method="post" action="<%=withFormTag%>">
 			<input type="hidden" name="command" value="updatePassword">
@@ -31,46 +30,38 @@
 
 				<!-- 기존 비밀번호 입력 -->
 				<div class="mb-3">
-					<label for="pwd" class="form-label" id="passwordbanner"></label> <input
-						id="inputPassword" type="password" class="form-control"
-						name="memberPw" placeholder="기존 비밀번호 입력" name="passwordParam">
+					<label for="currentPassword" class="form-label"></label> <input
+						id="currentPassword" type="password" class="form-control"
+						placeholder="기존 비밀번호 입력">
 
 					<div class="valid-feedback"></div>
 					<hr width="450px">
-					<div class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
-						숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</div>
+					<div class="invalid-feedback" id="validPassword"></div>
 				</div>
+
 				<!--  새로운 비밀번호 입력 -->
-				<div class="mb-3">
-					<label for="newPassword" class="form-label"
-						id="passwordCheckbanner"></label> <input id="newPassword"
-						type="password" class="form-control" name="newPassword" placeholder="새로운 비밀번호 입력"
-						required>
-					<div class="valid-feedback"></div>
-					<hr width="450px">
-					<div class="invalid-feedback" id="validPassword">* 비밀번호는 영문,
-						숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</div>
-				</div>
+				<div class="mb-3" style="position: relative;">
+                    <input id="newPassword"  name="newPassword" type="password" class="form-control" placeholder="비밀번호" required>
+                    <div class="valid-feedback"></div>
+                    <hr width="450px">
+                    <span class="invalid-feedback" id="newPasswordInvalidFeedback">* 비밀번호는 영문, 숫자, 특수기호를 포함한 8자리 이상이여야 합니다.</span>
+                </div>
 
 				<!-- 새로운 비밀번호 확인 -->
-				<div class="mb-3">
-					<label for="newPassword" class="form-label"
-						id="passwordCheckbanner"></label> <input id="confirmPassword"
-						type="password" class="form-control" name="confirmPassword" placeholder="새로운 비밀번호 확인"
-						required>
-					<div class="valid-feedback"></div>
-					<hr width="450px">
-					<div class="invalid-feedback" id="validPasswordck">* 비밀번호가
-						일치하지 않습니다.</div>
-				</div>
+				 <div class="mb-3" style="position: relative;">
+                    <input id="inputPasswordck" type="password" class="form-control" placeholder="비밀번호 확인" required>
+                    <div class="valid-feedback"></div>
+                    <hr width="450px">
+                    <span class="invalid-feedback" id="validPasswordck">* 비밀번호가 일치하지 않습니다.</span>
+                </div>
 				</br> </br>
 				<!-- 가입하기 버튼 -->
-				<button id="submitButton" type="submit" class="btn btn-primary"
-					>변경하기</button> <!-- onclick="return checkEmail();" 나중에 넣어 -->
-				</br> </br> 
+				<button id="submitButton" type="submit" class="btn btn-primary">변경하기</button>
+				<!-- onclick="return checkEmail();" 나중에 넣어 -->
+				</br> </br>
 			</div>
 		</form>
-
+		<script src="/livre/js/updatePassword.js"></script>
 	</section>
 </body>
 </html>
