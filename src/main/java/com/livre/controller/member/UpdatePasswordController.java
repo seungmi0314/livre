@@ -50,7 +50,7 @@ public class UpdatePasswordController extends SuperClass {
 		if (updateResult == 1) {
 			// 비밀번호 변경 성공 후 로직 (마이페이지로)
 			//response.sendRedirect(request.getContextPath() + "/Livre?command=myPage");
-			out.println("<script>alert('비밀번호가 성공적으로 변경되었습니다.'); location.href='/livre/member/my-page.jsp';</script>");			out.flush();
+			out.println("<script>alert('비밀번호가 성공적으로 변경되었습니다.'); location.href='/livre/member/my-page.jsp';</script>");
 			out.flush();
 		} else {
 			// 비밀번호 변경 실패

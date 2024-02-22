@@ -108,7 +108,7 @@ public class FindPasswordController extends SuperClass {
 			// 메일 제목
 			msg.setSubject("안녕하세요 Livre 임시 비밀번호 전송 메일입니다.");
 			// 메일 내용
-			msg.setText("회원님의 임시 비밀번호는 [ " + temp + " ] 입니다.\n보안을 위해 로그인 후 비밀번호를 변경해주세요.");
+			msg.setText("회원님의 임시 비밀번호는 [" + temp + "] 입니다.\n보안을 위해 로그인 후 비밀번호를 변경해주세요.");
 
 			Transport.send(msg);
 			
