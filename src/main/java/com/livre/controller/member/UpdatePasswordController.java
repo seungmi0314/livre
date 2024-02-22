@@ -33,15 +33,19 @@ public class UpdatePasswordController extends SuperClass {
 			return;
 		}
 
+		// 세션에서 Member 객체 가져오기 전 로그 출력
+		System.out.println("Member 객체의 상태: " + logInfo);
+		
 		// 이메일 가져오기
 		String memberEmail = logInfo.getMemberEmail();
+		int memberNo = logInfo.getMemberNo();
+		
+		System.out.println("MemberNo: " + memberNo);
+		
 		// 폼에서 입력받은 새로운 비밀번호
 		String newPassword = request.getParameter("newPassword");
 		
 		System.out.println(newPassword);
-
-		// 비밀번호 암호화 처리 (예: SHA256)
-		// String encryptedPassword = SHA256Encryption.encrypt(newPassword);
 
 		// 데이터베이스 업데이트
 		MemberDao dao = new MemberDao();
@@ -50,7 +54,7 @@ public class UpdatePasswordController extends SuperClass {
 		if (updateResult == 1) {
 			// 비밀번호 변경 성공 후 로직 (마이페이지로)
 			//response.sendRedirect(request.getContextPath() + "/Livre?command=myPage");
-			out.println("<script>alert('비밀번호가 성공적으로 변경되었습니다.'); location.href='/livre/member/my-page.jsp';</script>");
+			out.println("<script>alert('비밀번호가 성공적으로 변경되었습니다.'); location.href='" + request.getContextPath() + "/member/my-page.jsp?memberNo=" + memberNo + "';</script>");
 			out.flush();
 		} else {
 			// 비밀번호 변경 실패
