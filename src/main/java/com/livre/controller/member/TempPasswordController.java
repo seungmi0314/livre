@@ -43,7 +43,7 @@ public class TempPasswordController extends SuperClass {
 		    out.println("<script>");
 		    out.println("alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.');");
 		    out.println("location.href='" + request.getContextPath() + "/member/my-page.jsp?memberNo=" + updatedMemberInfo.getMemberNo() + "';");
-		    out.println("</script>");
+		    out.println("</script>"); //super.goToPage(PREFIX + "findPassword.jsp");
 		    out.flush();
 		} else {
 		    // 인증코드 불일치 시의 처리
