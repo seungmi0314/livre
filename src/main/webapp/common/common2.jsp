@@ -102,8 +102,8 @@ $(document).ready(function(){
                     <!-- 프로필 사진 추가 -->
                     <div class="header_profile">
 						<c:choose>
-							<c:when test="${not empty logInfo.memberImg}">
-								<img src="/livre/assets/${logInfo.memberImg }">
+							<c:when test="${not empty sessionScope.logInfo.memberImg}">
+								<img src="/livre/assets/${sessionScope.logInfo.memberImg }">
 							</c:when>
 							<c:otherwise>
 								<img src="/livre/assets/profile_mypage.png">
