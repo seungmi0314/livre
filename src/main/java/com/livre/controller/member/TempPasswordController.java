@@ -1,4 +1,4 @@
-package com.livre.controller.member;
+ package com.livre.controller.member;
 
 import java.io.PrintWriter;
 
@@ -35,12 +35,22 @@ public class TempPasswordController extends SuperClass {
 		MemberDao dao = new MemberDao();
 
 		if (authkey.equals(findPwdAuth)) {
-		    // 인증코드가 일치할 때의 동작
-		    out.println("<script>alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.'); location.href='" + request.getContextPath() +  "/member/my-page.jsp?memberNo=" + memberNo + "';</script>");
+		    // 비밀번호 변경 성공 시, 사용자 정보를 다시 조회하여 세션에 저장
+		    Member updatedMemberInfo = dao.getDataBean(memberNo);
+		    request.getSession().setAttribute("logInfo", updatedMemberInfo);
+		    
+		    // 사용자에게 알림 메시지를 보여주고, 마이 페이지로 리다이렉션
+		    out.println("<script>");
+		    out.println("alert('임시 비밀번호로 로그인 되었습니다.\\n보안을 위해 마이페이지에서 비밀번호를 변경하세요.');");
+		    out.println("location.href='" + request.getContextPath() + "/member/my-page.jsp?memberNo=" + updatedMemberInfo.getMemberNo() + "';");
+		    out.println("</script>");
 		    out.flush();
 		} else {
-		    // 인증코드가 일치하지 않을 때의 동작
-		    out.println("<script>alert('발송된 임시 비밀번호와 일치하지 않습니다.\\n다시 시도해 주세요.'); location.href='" + request.getContextPath() + "/"+ PREFIX + "findPassword.jsp';</script>");
+		    // 인증코드 불일치 시의 처리
+		    out.println("<script>");
+		    out.println("alert('발송된 임시 비밀번호와 일치하지 않습니다.\\n다시 시도해 주세요.');");
+		    out.println("location.href='" + request.getContextPath() + "/" + PREFIX + "findPassword.jsp';");
+		    out.println("</script>");
 		    out.flush();
 		}
 
