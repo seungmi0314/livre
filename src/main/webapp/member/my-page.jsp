@@ -45,33 +45,33 @@
 						<ul>
 							<li>
 								<c:choose>
-									<c:when test="${bean.rankNo == 0}">
+									<c:when test="${sessionScope.logInfo.rankNo == 0}">
 							            새싹
 							        </c:when>
-							        <c:when test="${bean.rankNo == 1}">
+							        <c:when test="${sessionScope.logInfo.rankNo == 1}">
 							            새싹
 							        </c:when>
-							        <c:when test="${bean.rankNo == 2}">
+							        <c:when test="${sessionScope.logInfo.rankNo == 2}">
 							            실버
 							        </c:when>
-							        <c:when test="${bean.rankNo == 3}">
+							        <c:when test="${sessionScope.logInfo.rankNo == 3}">
 							            골드
 							        </c:when>
-							        <c:when test="${bean.rankNo == 4}">
+							        <c:when test="${sessionScope.logInfo.rankNo == 4}">
 							            플레
 							        </c:when>
-							        <c:when test="${bean.rankNo == 5}">
+							        <c:when test="${sessionScope.logInfo.rankNo == 5}">
 							            리버
 							        </c:when>
     							</c:choose>
     						</li>
 							<li>
 								<c:choose>
-									<c:when test="${fn:length(bean.memberNick) gt 6}">
-										${fn:substring(bean.memberNick, 0, 6) }..	
+									<c:when test="${fn:length(sessionScope.logInfo.memberNick) gt 6}">
+										${fn:substring(sessionScope.logInfo.memberNick, 0, 6) }..	
 									</c:when>
 									<c:otherwise>
-										${bean.memberNick}
+										${sessionScope.logInfo.memberNick}
 									</c:otherwise>
 								</c:choose>
 							</li>
@@ -100,16 +100,16 @@
 						    <ul>
 						        <li>
 						        	<img src="/livre/assets/username_mypage.png"> 
-						        	<input class="profile_input" type="text" id="memberNick" name="memberNick" value="${bean.memberNick}">
+						        	<input class="profile_input" type="text" id="memberNick" name="memberNick" value="${sessionScope.logInfo.memberNick}">
 						        </li>
 						        <li>
 						        	<img src="/livre/assets/gender_mypage.png"> 
-						        	<input class="profile_input" type="text" id="fakegender" name="fakegender" value="${bean.gender}" placeholder="남자" disabled="disabled">
-						            <input type="hidden" id="gender" name="gender" value="${bean.gender}">
+						        	<input class="profile_input" type="text" id="fakegender" name="fakegender" value="${sessionScope.logInfo.gender}" placeholder="남자" disabled="disabled">
+						            <input type="hidden" id="gender" name="gender" value="${sessionScope.logInfo.gender}">
 					            </li>
 						        <li>
 						        	<img src="/livre/assets/address_mypage.png"> 
-						        	<input class="profile_input" type="text" id="name" name="address" value="${bean.address}" placeholder="서울시 마포구">
+						        	<input class="profile_input" type="text" id="name" name="address" value="${sessionScope.logInfo.address}" placeholder="서울시 마포구">
 					        	</li>
 						    </ul>
 						    <div class="update-set">
