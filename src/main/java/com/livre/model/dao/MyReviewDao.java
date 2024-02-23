@@ -58,7 +58,7 @@ public class MyReviewDao extends SuperDao{
 		sql += " from reviews r";
 		sql += " full join books b";
 		sql += " on r.bookno = b.bookno";
-		sql += " where memberno = 62"; // 추후 로그인멤버로 변경
+		sql += " where memberno =62"; // 추후 로그인멤버로 변경
 		sql += " order by reviewno desc";
 		
 		PreparedStatement pstmt = null; // 문장 객체

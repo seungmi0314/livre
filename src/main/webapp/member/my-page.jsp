@@ -109,7 +109,7 @@
 					            </li>
 						        <li>
 						        	<img src="/livre/assets/address_mypage.png"> 
-						        	<input class="profile_input" type="text" id="name" name="address" value="${bean.address}" placeholder="서울시 마포구">
+						        	<input class="profile_input" type="text" id="name" name="address" value="${bean.address}" placeholder="주소를 입력해주세요">
 					        	</li>
 						    </ul>
 						    <div class="update-set">

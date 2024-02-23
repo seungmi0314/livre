@@ -19,6 +19,7 @@ public class MemberDeleteController extends SuperClass{
 		// 세션 공간에 들어 있는 모든 정보를 무효화시킵니다.
 		super.session.invalidate();
 		
-		new MemberInsertController().doGet(request, response); 
+		//new MemberInsertController().doGet(request, response);
+		super.goToPage("index.jsp");
 	}
 }
